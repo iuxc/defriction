@@ -19,7 +19,7 @@ const Section = ({
   nextId?: string, 
   className?: string 
 }) => (
-  <section id={id} className={`min-h-screen relative flex flex-col justify-center py-24 ${className}`}>
+  <section id={id} className={`relative flex flex-col justify-center py-20 ${className}`}>
     <div className="container mx-auto px-4 relative z-10">
       {children}
     </div>
@@ -534,7 +534,6 @@ export default function MonashCaseStudy() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center"
           >
-           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Let's remove the friction.</h2>
            
            <p className="font-mono text-xs text-gray-600 mt-12">
              <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
