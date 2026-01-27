@@ -535,14 +535,7 @@ export default function MonashCaseStudy() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center"
           >
-           <FooterContact 
-             title={
-               <>
-                 Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
-               </>
-             } 
-             stickyVisible={isPastHero}
-           />
+           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Let's remove the friction.</h2>
            
            <p className="font-mono text-xs text-gray-600 mt-12">
              <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
@@ -552,6 +545,16 @@ export default function MonashCaseStudy() {
              © 2026 defriction design. MELBOURNE / EUGENE.
            </p>
          </motion.div>
+
+         {/* Footer Contact - Moved outside motion.div to prevent lazy loading issues */}
+         <FooterContact 
+             title={
+               <>
+                 Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
+               </>
+             } 
+             stickyVisible={isPastHero}
+           />
       </footer>
     </div>
   );
