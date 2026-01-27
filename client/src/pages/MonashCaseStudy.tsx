@@ -441,8 +441,8 @@ export default function MonashCaseStudy() {
            <div className="grid md:grid-cols-3 gap-8">
              {/* 1. Information Architecture */}
              <motion.div variants={fadeInUp} className="group space-y-6">
-                <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
-                  <AbstractBrowser variant="ia-map" className="w-full h-full border-0 bg-transparent" />
+                <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                  <AbstractBrowser variant="ia-map" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
                 <div>
                    <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Information Architecture</h4>
@@ -452,8 +452,8 @@ export default function MonashCaseStudy() {
 
              {/* 2. Low-Fidelity Wireframe */}
              <motion.div variants={fadeInUp} className="group space-y-6">
-                <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
-                   <AbstractBrowser variant="wireframe" className="w-full h-full border-0 bg-transparent" />
+                <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                   <AbstractBrowser variant="wireframe" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
                 <div>
                    <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Low-Fidelity Wireframe</h4>

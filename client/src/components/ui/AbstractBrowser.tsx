@@ -3,34 +3,38 @@ import { motion } from "framer-motion";
 interface AbstractBrowserProps {
   variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal" | "ia-map" | "wireframe";
   className?: string;
+  theme?: "dark" | "light";
 }
 
-export function AbstractBrowser({ variant = "landing", className = "" }: AbstractBrowserProps) {
+export function AbstractBrowser({ variant = "landing", className = "", theme = "dark" }: AbstractBrowserProps) {
   return (
-    <div className={`relative rounded-lg overflow-hidden border border-white/10 bg-black/40 backdrop-blur-sm ${className}`}>
+    <div className={`relative rounded-lg overflow-hidden border ${theme === "light" ? "border-gray-200 bg-gray-50/50" : "border-white/10 bg-black/40"} backdrop-blur-sm ${className}`}>
       {/* Browser Chrome */}
-      <div className="h-8 bg-white/5 border-b border-white/5 flex items-center px-3 gap-2">
+      <div className={`h-8 ${theme === "light" ? "bg-gray-100 border-gray-200" : "bg-white/5 border-white/5"} border-b flex items-center px-3 gap-2`}>
         <div className="flex gap-1.5">
           <div className="w-2.5 h-2.5 rounded-full bg-red-500/20" />
           <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/20" />
           <div className="w-2.5 h-2.5 rounded-full bg-green-500/20" />
         </div>
         <div className="flex-1 ml-2">
-          <div className="h-4 bg-white/5 rounded-full w-2/3 max-w-[200px]" />
+          <div className={`h-4 ${theme === "light" ? "bg-white" : "bg-white/5"} rounded-full w-2/3 max-w-[200px]`} />
         </div>
       </div>
 
       {/* Viewport Content */}
-      <div className="p-4 relative min-h-[160px] bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden">
-        <Content variant={variant} />
+      <div className={`p-4 relative min-h-[160px] ${theme === "light" ? "bg-white" : "bg-gradient-to-br from-white/[0.02] to-transparent"} overflow-hidden`}>
+        <Content variant={variant} theme={theme} />
       </div>
     </div>
   );
 }
 
-function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
-  const lineClass = "bg-white/10 rounded-full";
-  const blockClass = "bg-white/5 rounded border border-white/5";
+function Content({ variant, theme }: { variant: AbstractBrowserProps["variant"], theme: AbstractBrowserProps["theme"] }) {
+  const lineClass = theme === "light" ? "bg-gray-200 rounded-full" : "bg-white/10 rounded-full";
+  const blockClass = theme === "light" ? "bg-gray-100 rounded border border-gray-200" : "bg-white/5 rounded border border-white/5";
+  const borderColor = theme === "light" ? "border-gray-200" : "border-white/5";
+  const connectorColor = theme === "light" ? "bg-gray-200" : "bg-white/10";
+
 
   switch (variant) {
     case "infinite-pdf":
@@ -338,28 +342,28 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
            </div>
            
            {/* Connector */}
-           <div className="h-6 w-px bg-white/10 relative">
-              <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 h-px bg-white/10" />
+           <div className={`h-6 w-px ${connectorColor} relative`}>
+              <div className={`absolute top-full left-1/2 -translate-x-1/2 w-48 h-px ${connectorColor}`} />
            </div>
 
            {/* Level 2 */}
            <div className="flex gap-4 mt-6">
               <div className="flex flex-col items-center">
-                 <div className="h-4 w-px bg-white/10 mb-2" />
+                 <div className={`h-4 w-px ${connectorColor} mb-2`} />
                  <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
                     <div className={`w-full h-1 ${lineClass}`} />
                     <div className={`w-2/3 h-1 ${lineClass}`} />
                  </div>
               </div>
               <div className="flex flex-col items-center">
-                 <div className="h-4 w-px bg-white/10 mb-2" />
+                 <div className={`h-4 w-px ${connectorColor} mb-2`} />
                  <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
                     <div className={`w-full h-1 ${lineClass}`} />
                     <div className={`w-2/3 h-1 ${lineClass}`} />
                  </div>
               </div>
               <div className="flex flex-col items-center">
-                 <div className="h-4 w-px bg-white/10 mb-2" />
+                 <div className={`h-4 w-px ${connectorColor} mb-2`} />
                  <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
                     <div className={`w-full h-1 ${lineClass}`} />
                     <div className={`w-2/3 h-1 ${lineClass}`} />
@@ -371,22 +375,22 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
 
     case "wireframe":
       return (
-        <div className="h-full flex flex-col bg-white/[0.02]">
+        <div className={`h-full flex flex-col ${theme === "light" ? "bg-white" : "bg-white/[0.02]"}`}>
            {/* Header */}
-           <div className="h-8 border-b border-white/5 flex items-center px-3 justify-between">
+           <div className={`h-8 border-b ${borderColor} flex items-center px-3 justify-between`}>
               <div className={`w-16 h-2 ${lineClass}`} />
               <div className="flex gap-2">
-                 <div className={`w-4 h-4 rounded-full bg-white/5`} />
-                 <div className={`w-4 h-4 rounded-full bg-white/5`} />
+                 <div className={`w-4 h-4 rounded-full ${theme === "light" ? "bg-gray-100" : "bg-white/5"}`} />
+                 <div className={`w-4 h-4 rounded-full ${theme === "light" ? "bg-gray-100" : "bg-white/5"}`} />
               </div>
            </div>
            
            <div className="flex-1 flex">
               {/* Sidebar */}
-              <div className="w-12 border-r border-white/5 py-3 flex flex-col items-center gap-3">
-                 <div className={`w-6 h-6 rounded bg-white/5`} />
-                 <div className={`w-6 h-6 rounded bg-white/5`} />
-                 <div className={`w-6 h-6 rounded bg-white/5`} />
+              <div className={`w-12 border-r ${borderColor} py-3 flex flex-col items-center gap-3`}>
+                 <div className={`w-6 h-6 rounded ${theme === "light" ? "bg-gray-100" : "bg-white/5"}`} />
+                 <div className={`w-6 h-6 rounded ${theme === "light" ? "bg-gray-100" : "bg-white/5"}`} />
+                 <div className={`w-6 h-6 rounded ${theme === "light" ? "bg-gray-100" : "bg-white/5"}`} />
               </div>
               
               {/* Main */}
