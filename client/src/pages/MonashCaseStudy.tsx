@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowLeft, Check, ArrowRight, ExternalLink, ShieldCheck, Zap, Scale, ChevronDown } from "lucide-react";
+import { ArrowLeft, Check, ArrowRight, ExternalLink, ShieldCheck, Zap, Scale, ChevronDown, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 import { FooterContact } from "@/components/FooterContact";
@@ -230,6 +230,31 @@ export default function MonashCaseStudy() {
             >
                <AbstractBrowser variant="infinite-pdf" className="w-full max-w-md shadow-2xl h-[500px]" />
                
+               {/* Document Links */}
+               <motion.div 
+                 initial={{ opacity: 0, y: 20 }}
+                 whileInView={{ opacity: 1, y: 0 }}
+                 transition={{ delay: 0.5 }}
+                 className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-20"
+               >
+                  <Button 
+                    variant="secondary"
+                    className="bg-white text-blue-600 hover:bg-blue-50 font-medium text-sm h-auto py-2 px-4 shadow-lg flex items-center gap-2 rounded-lg"
+                    onClick={() => window.open('#', '_blank')}
+                  >
+                    <FileText className="w-4 h-4" />
+                    Friction Log A
+                  </Button>
+                  <Button 
+                    variant="secondary"
+                    className="bg-white text-blue-600 hover:bg-blue-50 font-medium text-sm h-auto py-2 px-4 shadow-lg flex items-center gap-2 rounded-lg"
+                    onClick={() => window.open('#', '_blank')}
+                  >
+                    <FileText className="w-4 h-4" />
+                    Friction Log B
+                  </Button>
+               </motion.div>
+
                {/* Floating Alert */}
                <motion.div 
                   animate={{ y: [0, -10, 0] }}
