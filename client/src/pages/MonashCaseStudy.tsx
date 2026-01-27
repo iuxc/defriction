@@ -66,7 +66,7 @@ export default function MonashCaseStudy() {
         <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-electric-violet/10 rounded-full blur-[150px] animate-pulse" />
         
         <div className="container mx-auto px-4 relative z-10">
-          <Link href="/#work">
+          <Link href="/">
             <a className="inline-flex items-center text-gray-500 hover:text-white mb-12 font-medium text-sm transition-colors group">
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Work
             </a>
