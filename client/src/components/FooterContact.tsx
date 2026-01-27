@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,6 +20,9 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
   const [mounted, setMounted] = useState(false);
+  
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(containerRef, { margin: "0px 0px -100px 0px" });
 
   useEffect(() => {
     setMounted(true);
@@ -149,26 +152,48 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
   );
 
   return (
-    <div className={cn("w-full px-4 relative z-10", className)}>
-       {/* Billboard Button (Visible when closed) */}
+    <div ref={containerRef} className={cn("w-full px-4 relative z-10", className)}>
+       {/* Billboard Button / Sticky Nav */}
        <AnimatePresence>
         {!isOpen && (
             <motion.div
                 layoutId="contact-card"
-                className="mx-auto max-w-3xl rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden relative cursor-pointer"
+                className={cn(
+                  "rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden cursor-pointer",
+                  // When NOT in view (scrolling), fix to bottom
+                  !isInView 
+                    ? "fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90" 
+                    : "mx-auto max-w-3xl relative"
+                )}
                 onClick={() => setIsOpen(true)}
-                whileHover={{ scale: 1.02 }}
-                transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
+                whileHover={!isInView ? {} : { scale: 1.02 }}
+                transition={{ duration: 0.5, type: "spring", bounce: 0.2 }}
             >
                 <div className="absolute inset-0 bg-volt-lime/5 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
-                <div className="p-12 text-center pointer-events-none">
-                    <motion.h3 layoutId="title" className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-tight">
+                <div className={cn(
+                  "text-center pointer-events-none transition-all duration-500 flex items-center justify-between gap-8",
+                  !isInView ? "p-4 px-6 md:px-8" : "p-12 flex-col"
+                )}>
+                    <motion.h3 
+                      layoutId="title" 
+                      className={cn(
+                        "font-display font-bold text-white leading-tight text-left",
+                        !isInView ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center"
+                      )}
+                    >
                         {title}
                     </motion.h3>
-                    <motion.div layoutId="button-container">
+
+                    <motion.div layoutId="button-container" className={!isInView ? "shrink-0" : ""}>
                         <Button 
-                            className="bg-white text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-xl group-hover:bg-volt-lime group-hover:scale-105 pointer-events-auto"
+                            className={cn(
+                              "bg-white text-black font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto",
+                              // Hero button styles applied here
+                              "text-base px-8 py-6 h-auto",
+                              // Orange gradient on hover
+                              "hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black hover:scale-105"
+                            )}
                         >
                             Start a Project <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
@@ -181,8 +206,8 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
       {/* Expanded Form Overlay (Portal) */}
       {mounted && createPortal(modalContent, document.body)}
       
-      {/* Placeholder to hold space when closed */}
-      <div className={cn("h-[200px] w-full", isOpen ? "invisible" : "hidden")} />
+      {/* Placeholder to hold space when closed/sticky */}
+      <div className={cn("w-full transition-all duration-300", isOpen ? "invisible h-[200px]" : isInView ? "invisible h-0" : "h-[300px] invisible")} />
     </div>
   );
 }
