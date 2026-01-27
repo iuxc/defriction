@@ -88,6 +88,10 @@
     @apply font-display tracking-tight font-bold;
   }
 
+  button, a, [role="button"] {
+    @apply cursor-pointer;
+  }
+
   /* Premium Scrollbar */
   ::-webkit-scrollbar {
     width: 6px;
