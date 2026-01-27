@@ -1,31 +1,65 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowLeft, Check, X, ArrowRight, Play, ShieldCheck, Zap, Scale } from "lucide-react";
+import { ArrowLeft, Check, ArrowRight, Play, ShieldCheck, Zap, Scale, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
+const NextSectionArrow = ({ targetId }: { targetId: string }) => (
+  <motion.button
+    onClick={() => {
+      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
+    }}
+    className="absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 hover:text-volt-lime transition-colors p-4 z-20 cursor-pointer"
+    animate={{ y: [0, 10, 0] }}
+    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+    whileHover={{ scale: 1.2 }}
+    aria-label="Scroll to next section"
+  >
+    <ChevronDown className="w-8 h-8" />
+  </motion.button>
+);
+
+const Section = ({ 
+  children, 
+  id, 
+  nextId, 
+  className = "" 
+}: { 
+  children: React.ReactNode, 
+  id: string, 
+  nextId?: string, 
+  className?: string 
+}) => (
+  <section id={id} className={`min-h-screen relative flex flex-col justify-center py-24 ${className}`}>
+    <div className="container mx-auto px-4 relative z-10">
+      {children}
+    </div>
+    {nextId && <NextSectionArrow targetId={nextId} />}
+  </section>
+);
+
 export default function MonashCaseStudy() {
   const fadeInUp = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0 },
+    initial: { opacity: 0, y: 50 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: "-100px" },
     transition: { duration: 0.8, ease: "easeOut" }
   };
 
   const stagger = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
+    initial: { opacity: 0 },
+    whileInView: { opacity: 1 },
+    viewport: { once: true },
+    transition: { staggerChildren: 0.2 }
   };
 
   return (
-    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black font-sans">
+    <div className="bg-deep-basalt text-white selection:bg-volt-lime selection:text-black font-sans overflow-x-hidden">
       <Navigation />
       
-      {/* Hero Section - Apple Style */}
-      <header className="relative pt-40 pb-32 overflow-hidden">
+      {/* Hero Section */}
+      <section id="hero" className="min-h-screen relative flex items-center pt-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-mesh-gradient opacity-10" />
         <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-electric-violet/10 rounded-full blur-[150px] animate-pulse" />
@@ -41,16 +75,27 @@ export default function MonashCaseStudy() {
             <motion.div
               initial="initial"
               animate="animate"
-              variants={stagger}
+              variants={{
+                animate: { transition: { staggerChildren: 0.1 } }
+              }}
             >
-              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-8">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="flex items-center gap-3 mb-8"
+              >
                 <span className="w-2 h-2 rounded-full bg-electric-violet animate-pulse" />
                 <span className="font-mono text-electric-violet tracking-widest text-xs uppercase font-medium">
                   Monash University
                 </span>
               </motion.div>
               
-              <motion.div variants={fadeInUp}>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
                 <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
                   From <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Gatekeeper</span> <br />
@@ -58,13 +103,22 @@ export default function MonashCaseStudy() {
                 </h1>
               </motion.div>
               
-              <motion.div variants={fadeInUp}>
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
                 <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
                   Unifying 40,000+ complex academic pathways into a single, intuitive "Admissions Engine."
                 </p>
               </motion.div>
 
-              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                className="flex flex-col sm:flex-row gap-4"
+              >
                  <Button 
                     className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
                     asChild
@@ -128,50 +182,56 @@ export default function MonashCaseStudy() {
             </motion.div>
           </div>
         </div>
-      </header>
+        <NextSectionArrow targetId="friction" />
+      </section>
 
-      <main className="container mx-auto px-4 space-y-48 pb-32">
-        
-        {/* 1. The Friction (The Problem) */}
-        <motion.section 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+      {/* 1. The Friction (The Problem) */}
+      <Section id="friction" nextId="insight">
+        <motion.div 
+          variants={stagger}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-10% 0px" }}
           className="max-w-4xl mx-auto"
         >
-          <div className="text-center mb-16">
+          <motion.div variants={fadeInUp} className="text-center mb-16">
             <span className="text-electric-violet font-mono text-sm mb-6 block tracking-widest uppercase font-medium">01 — The Friction</span>
             <h2 className="text-5xl md:text-7xl font-display font-bold mb-8">The PDF Trap.</h2>
             <p className="text-2xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
               Critical pathway data was locked in static PDFs. A TAFE graduate searching for credit would hit a dead end 100% of the time.
             </p>
-          </div>
+          </motion.div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <motion.div variants={stagger} className="grid md:grid-cols-3 gap-6">
             {[
               { label: "Fail Rate", value: "100%", desc: "For manual TAFE searches", color: "text-red-400" },
               { label: "Hidden Factors", value: "+5", desc: "Equity adjustments invisible", color: "text-orange-400" },
               { label: "Wasted Fees", value: "$200", desc: "Per misinformed applicant", color: "text-gray-300" }
             ].map((stat, i) => (
-              <div key={i} className="glass-card p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center hover:bg-white/5 transition-colors">
+              <motion.div 
+                key={i} 
+                variants={fadeInUp}
+                className="glass-card p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center hover:bg-white/5 transition-colors"
+              >
                  <h4 className={`text-5xl font-display font-bold mb-3 ${stat.color}`}>{stat.value}</h4>
                  <div className="text-white font-medium mb-1">{stat.label}</div>
                  <p className="text-sm text-gray-500 font-mono">{stat.desc}</p>
-              </div>
+              </motion.div>
             ))}
-          </div>
-        </motion.section>
+          </motion.div>
+        </motion.div>
+      </Section>
 
-        {/* 2. The Insight (The Strategy) */}
-        <motion.section 
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
+      {/* 2. The Insight (The Strategy) */}
+      <Section id="insight" nextId="solution">
+        <motion.div 
           className="grid lg:grid-cols-2 gap-20 items-center"
+          variants={stagger}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-10% 0px" }}
         >
-          <div>
+          <motion.div variants={fadeInUp}>
             <span className="text-ion-cyan font-mono text-sm mb-6 block tracking-widest uppercase font-medium">02 — The Insight</span>
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">Logic over <br/> Legacy.</h2>
             <p className="text-xl text-gray-400 font-light leading-relaxed mb-8">
@@ -181,9 +241,9 @@ export default function MonashCaseStudy() {
                <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">Equity First</div>
                <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">Radical Transparency</div>
             </div>
-          </div>
+          </motion.div>
           
-          <div className="relative">
+          <motion.div variants={fadeInUp} className="relative">
              <div className="absolute inset-0 bg-ion-cyan/10 blur-[100px] rounded-full" />
              <div className="relative font-mono text-sm text-gray-300 bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
                 <div className="flex gap-2 mb-6 border-b border-white/10 pb-4">
@@ -192,33 +252,54 @@ export default function MonashCaseStudy() {
                    <div className="w-3 h-3 rounded-full bg-green-500/20" />
                 </div>
                 <div className="space-y-4">
-                   <div className="flex gap-4">
+                   <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.2 }}
+                    className="flex gap-4"
+                   >
                       <span className="text-ion-cyan">{">"}</span>
                       <span>INPUT: <span className="text-white">"I am a TAFE Graduate"</span></span>
-                   </div>
-                   <div className="flex gap-4 pl-8 border-l border-white/10 opacity-50">
+                   </motion.div>
+                   <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 0.5, x: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="flex gap-4 pl-8 border-l border-white/10"
+                   >
                       <span>Analyzing prior learning...</span>
-                   </div>
-                   <div className="flex gap-4">
+                   </motion.div>
+                   <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.8 }}
+                    className="flex gap-4"
+                   >
                       <span className="text-ion-cyan">{">"}</span>
                       <span>LOOKUP: <span className="text-white">Articulation_DB</span></span>
-                   </div>
-                   <div className="flex gap-4">
+                   </motion.div>
+                   <motion.div 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 1.1 }}
+                    className="flex gap-4"
+                   >
                       <span className="text-ion-cyan">{">"}</span>
                       <span>RESULT: <span className="text-volt-lime bg-volt-lime/10 px-2 py-0.5 rounded">DIRECT HIT (Green)</span></span>
-                   </div>
+                   </motion.div>
                 </div>
              </div>
-          </div>
-        </motion.section>
+          </motion.div>
+        </motion.div>
+      </Section>
 
-        {/* 3. The Solution (Interactive) */}
-        <motion.section 
-           id="solution"
-           initial={{ opacity: 0, scale: 0.95 }}
-           whileInView={{ opacity: 1, scale: 1 }}
-           viewport={{ once: true, margin: "-50px" }}
-           transition={{ duration: 0.8 }}
+      {/* 3. The Solution (Interactive) */}
+      <Section id="solution" nextId="gallery">
+        <motion.div 
+           initial="initial"
+           whileInView="whileInView"
+           viewport={{ once: true, margin: "-10% 0px" }}
+           variants={fadeInUp}
            className="bg-gradient-to-b from-white/5 to-transparent rounded-[3rem] p-1 border border-white/10 overflow-hidden"
         >
           <div className="bg-[#0A0A0A] rounded-[2.8rem] overflow-hidden relative">
@@ -313,14 +394,22 @@ export default function MonashCaseStudy() {
               </div>
             </div>
           </div>
-        </motion.section>
+        </motion.div>
+      </Section>
 
-        {/* 4. The Gallery */}
-        <section className="space-y-16">
-           <div className="text-center max-w-2xl mx-auto">
+      {/* 4. The Gallery */}
+      <Section id="gallery" nextId="outcome">
+        <motion.div 
+          className="space-y-16"
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          variants={stagger}
+        >
+           <motion.div variants={fadeInUp} className="text-center max-w-2xl mx-auto">
              <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Visual Proof</h2>
              <p className="text-gray-400 text-lg">From architectural diagrams to pixel-perfect production.</p>
-           </div>
+           </motion.div>
            
            <div className="grid md:grid-cols-3 gap-8">
              {[
@@ -330,9 +419,7 @@ export default function MonashCaseStudy() {
              ].map((item, i) => (
                <motion.div 
                   key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.1 }}
+                  variants={fadeInUp}
                   className="group space-y-6"
                >
                   <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
@@ -349,29 +436,46 @@ export default function MonashCaseStudy() {
                </motion.div>
              ))}
            </div>
-        </section>
+        </motion.div>
+      </Section>
 
-        {/* 5. The Outcome */}
-        <section className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+      {/* 5. The Outcome */}
+      <Section id="outcome" nextId="footer">
+        <motion.div 
+          className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden"
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-10% 0px" }}
+          variants={stagger}
+        >
            {[
              { title: "COMPLIANCE", desc: "Centralized logic ensures Accord compliance.", icon: ShieldCheck },
              { title: "EFFICIENCY", desc: "Projected 30% reduction in support tickets.", icon: Zap },
              { title: "EQUITY", desc: "Surfaces hidden eligibility for regional/low-SES students.", icon: Scale }
            ].map((outcome, i) => (
-             <div key={i} className="bg-deep-basalt p-12 hover:bg-white/5 transition-colors duration-500 group">
+             <motion.div 
+                key={i} 
+                variants={fadeInUp}
+                className="bg-deep-basalt p-12 hover:bg-white/5 transition-colors duration-500 group"
+              >
                <div className="mb-6 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-volt-lime group-hover:scale-110 transition-transform duration-300">
                   <outcome.icon className="w-6 h-6" />
                </div>
                <h4 className="text-white font-bold font-display text-2xl mb-4">{outcome.title}</h4>
                <p className="text-gray-400 leading-relaxed text-lg">{outcome.desc}</p>
-             </div>
+             </motion.div>
            ))}
-        </section>
+        </motion.div>
+      </Section>
 
-      </main>
-
-      <footer className="py-24 border-t border-white/10 bg-black/20">
-         <div className="container mx-auto px-4 text-center">
+      <footer id="footer" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-center justify-center">
+         <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4 text-center"
+          >
            <div className="max-w-3xl mx-auto glass-panel p-12 rounded-[2rem] border border-white/10 relative overflow-hidden group">
              <div className="absolute inset-0 bg-volt-lime/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
              
@@ -387,7 +491,7 @@ export default function MonashCaseStudy() {
                 </Link>
               </Button>
            </div>
-         </div>
+         </motion.div>
       </footer>
     </div>
   );
