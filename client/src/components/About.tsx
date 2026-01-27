@@ -51,7 +51,7 @@ export function About() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div>
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
