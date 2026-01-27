@@ -30,26 +30,26 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
   };
 
   return (
-    <div className={cn("w-full px-4", className)}>
+    <div className={cn("w-full px-4 relative z-10", className)}>
        {/* Billboard Button (Visible when closed) */}
        <AnimatePresence>
         {!isOpen && (
             <motion.div
                 layoutId="contact-card"
-                className="mx-auto max-w-3xl rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden relative"
+                className="mx-auto max-w-3xl rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden relative cursor-pointer"
                 onClick={() => setIsOpen(true)}
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4, ease: [0.32, 0.72, 0, 1] }}
             >
                 <div className="absolute inset-0 bg-volt-lime/5 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
-                <div className="p-12 text-center cursor-pointer">
+                <div className="p-12 text-center pointer-events-none">
                     <motion.h3 layoutId="title" className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-tight">
                         {title}
                     </motion.h3>
                     <motion.div layoutId="button-container">
                         <Button 
-                            className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-xl"
+                            className="bg-white text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-xl group-hover:bg-volt-lime group-hover:scale-105 pointer-events-auto"
                         >
                             Start a Project <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
