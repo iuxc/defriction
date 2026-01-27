@@ -13,7 +13,7 @@ export function About() {
           <div className="relative">
             {/* Profile Image */}
             <div className="relative aspect-square max-w-md mx-auto group">
-               <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 animate-pulse-slow group-hover:opacity-40 transition-opacity duration-500" />
+               <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 group-hover:opacity-40 transition-opacity duration-500" />
                <div className="absolute inset-0 border border-white/10 rounded-3xl bg-deep-basalt/80 backdrop-blur-xl overflow-hidden p-2">
                   <img 
                     src="/TheHuman.jpg" 
