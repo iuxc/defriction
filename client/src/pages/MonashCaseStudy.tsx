@@ -239,7 +239,7 @@ export default function MonashCaseStudy() {
                >
                   <Button 
                     variant="secondary"
-                    className="bg-white text-blue-600 hover:bg-blue-50 font-medium text-sm h-auto py-2 px-4 shadow-lg flex items-center gap-2 rounded-lg"
+                    className="bg-white text-black hover:bg-gray-50 font-medium text-sm h-auto py-3 px-6 shadow-lg flex items-center gap-2 rounded-full transition-transform hover:scale-105"
                     onClick={() => window.open('#', '_blank')}
                   >
                     <FileText className="w-4 h-4" />
@@ -247,7 +247,7 @@ export default function MonashCaseStudy() {
                   </Button>
                   <Button 
                     variant="secondary"
-                    className="bg-white text-blue-600 hover:bg-blue-50 font-medium text-sm h-auto py-2 px-4 shadow-lg flex items-center gap-2 rounded-lg"
+                    className="bg-white text-black hover:bg-gray-50 font-medium text-sm h-auto py-3 px-6 shadow-lg flex items-center gap-2 rounded-full transition-transform hover:scale-105"
                     onClick={() => window.open('#', '_blank')}
                   >
                     <FileText className="w-4 h-4" />
