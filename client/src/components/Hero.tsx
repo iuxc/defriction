@@ -45,12 +45,12 @@ export function Hero() {
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
             <Button 
-              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-8 py-7 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
+              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
               asChild
             >
               <a href="#work">
                 See the Work
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4" />
               </a>
             </Button>
             
