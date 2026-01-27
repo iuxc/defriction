@@ -93,16 +93,18 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             </div>
 
             {/* Personality Footer */}
-            <div className="flex flex-wrap justify-center gap-4 md:gap-8 pt-4 border-t border-white/5">
+            <div className="flex flex-col md:flex-row justify-between gap-6 pt-4 border-t border-white/5 text-sm">
               {[
-                { label: "Runner", desc: "Discipline" },
-                { label: "Flutist", desc: "Precision" },
-                { label: "Gamer", desc: "Systems" }
+                { label: "Runner", title: "Discipline", desc: "I don't miss deadlines." },
+                { label: "Flutist", title: "Precision", desc: "I obsess over the details." },
+                { label: "Gamer", title: "Systems", desc: "I see the mechanics behind the fun." }
               ].map((item, i) => (
-                <div key={item.label} className="flex items-center gap-2 group cursor-default">
-                  <span className="text-white font-medium group-hover:text-volt-lime transition-colors">{item.label}</span>
-                  <span className="text-gray-600 text-sm">({item.desc})</span>
-                  {i < 2 && <span className="text-gray-700 mx-2 hidden md:inline">•</span>}
+                <div key={item.label} className="flex flex-col gap-1 group cursor-default text-center md:text-left flex-1">
+                  <div className="flex items-center justify-center md:justify-start gap-2">
+                    <span className="text-white font-medium group-hover:text-volt-lime transition-colors">{item.label}</span>
+                    <span className="text-gray-600 text-xs uppercase tracking-wider">// {item.title}</span>
+                  </div>
+                  <span className="text-gray-400 font-light">{item.desc}</span>
                 </div>
               ))}
             </div>
