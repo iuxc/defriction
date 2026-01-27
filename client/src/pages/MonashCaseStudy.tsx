@@ -1,9 +1,9 @@
-import { useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowLeft, Check, ExternalLink, FileText } from "lucide-react";
-import { motion, useInView } from "framer-motion";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 import { FooterContact } from "@/components/FooterContact";
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
@@ -28,8 +28,13 @@ const Section = ({
 );
 
 export default function MonashCaseStudy() {
-  const heroRef = useRef(null);
-  const isHeroInView = useInView(heroRef, { margin: "0px 0px -100px 0px" });
+  const [isPastHero, setIsPastHero] = useState(false);
+  const { scrollY } = useScroll();
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const heroHeight = window.innerHeight;
+    setIsPastHero(latest > heroHeight * 0.8);
+  });
 
   const fadeInUp = {
     initial: { opacity: 0, y: 50 },
@@ -50,7 +55,7 @@ export default function MonashCaseStudy() {
       <Navigation />
       
       {/* Hero Section */}
-      <section ref={heroRef} id="hero" className="min-h-screen relative flex items-center pt-20 overflow-hidden">
+      <section id="hero" className="min-h-screen relative flex items-center pt-20 overflow-hidden">
         {/* Background Elements */}
         <div className="absolute inset-0 bg-mesh-gradient opacity-10" />
         <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-electric-violet/10 rounded-full blur-[150px] animate-pulse" />
@@ -527,7 +532,7 @@ export default function MonashCaseStudy() {
                  Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
                </>
              } 
-             stickyVisible={!isHeroInView}
+             stickyVisible={isPastHero}
            />
            
            <p className="font-mono text-xs text-gray-600 mt-12">

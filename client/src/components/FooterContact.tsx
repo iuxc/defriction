@@ -199,7 +199,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                               "font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto",
                               // Hero button styles applied here
                               showSticky 
-                                ? "text-sm px-6 py-4 h-auto bg-gradient-to-r from-orange-400 to-red-500 text-white hover:bg-none hover:bg-white hover:text-black hover:scale-105" 
+                                ? "text-sm px-6 py-4 h-auto bg-gradient-to-r from-orange-400 to-red-500 text-black hover:bg-none hover:bg-white hover:text-black hover:scale-105" 
                                 : "bg-white text-black text-base px-8 py-6 h-auto hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black hover:scale-105"
                             )}
                         >
