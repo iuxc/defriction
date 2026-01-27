@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowLeft, Check, ExternalLink, FileText } from "lucide-react";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 import { FooterContact } from "@/components/FooterContact";
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
@@ -29,12 +29,29 @@ const Section = ({
 
 export default function MonashCaseStudy() {
   const [isPastHero, setIsPastHero] = useState(false);
-  const { scrollY } = useScroll();
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const heroHeight = window.innerHeight;
-    setIsPastHero(latest > heroHeight * 0.8);
-  });
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroSection = document.getElementById('hero');
+      const frictionSection = document.getElementById('friction');
+      
+      if (heroSection && frictionSection) {
+        const heroRect = heroSection.getBoundingClientRect();
+        const frictionRect = frictionSection.getBoundingClientRect();
+        
+        // Trigger when the Friction/Problem section starts entering the viewport
+        // or when Hero is significantly scrolled out
+        const shouldShow = frictionRect.top <= window.innerHeight * 0.8;
+        setIsPastHero(shouldShow);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    // Initial check
+    handleScroll();
+    
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const fadeInUp = {
     initial: { opacity: 0, y: 50 },
