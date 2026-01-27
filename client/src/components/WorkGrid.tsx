@@ -5,8 +5,14 @@ import { ArrowUpRight, MoveRight } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
+import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
+
 export function WorkGrid() {
   const projects = [
+    // ...
+  ];
+
+  const projectsData = [
     {
       id: "monash",
       title: "Monash University",
@@ -45,6 +51,7 @@ export function WorkGrid() {
   return (
     <section id="work" className="min-h-screen py-32 bg-deep-basalt relative flex flex-col justify-center">
       <div className="container mx-auto px-4">
+        {/* ... content ... */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
@@ -62,7 +69,7 @@ export function WorkGrid() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {projects.map((project, index) => (
+          {projectsData.map((project, index) => (
             <Link key={project.id} href={project.link}>
               <a className={`group block h-full ${project.colSpan}`}>
                 <motion.div 
@@ -120,6 +127,7 @@ export function WorkGrid() {
           ))}
         </div>
       </div>
+      <NextSectionArrow targetId="method" />
     </section>
   );
 }

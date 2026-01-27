@@ -2,9 +2,13 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronRight } from "lucide-react";
 
+import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
+
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+      {/* ... existing dynamic background ... */}
+      
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-electric-violet/20 rounded-full blur-[120px] animate-float opacity-40" />
@@ -70,6 +74,7 @@ export function Hero() {
       
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep-basalt to-transparent pointer-events-none" />
+      <NextSectionArrow targetId="work" />
     </section>
   );
 }

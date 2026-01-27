@@ -2,12 +2,15 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 
+import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
+
 export function About() {
   const skills = ["Digital Strategy", "Brand Architecture", "React & Node", "Stakeholder Management"];
 
   return (
     <section id="about" className="min-h-screen py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center">
       <div className="container mx-auto px-4">
+        {/* ... content ... */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div className="relative">
@@ -74,6 +77,7 @@ export function About() {
           </div>
         </div>
       </div>
+      <NextSectionArrow targetId="contact" />
     </section>
   );
 }

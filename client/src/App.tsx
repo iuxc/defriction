@@ -20,13 +20,17 @@ function Router() {
   );
 }
 
+import { PasswordProtection } from "@/components/PasswordProtection";
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        <ScrollToTop />
-        <Toaster />
-        <Router />
+        <PasswordProtection>
+          <ScrollToTop />
+          <Toaster />
+          <Router />
+        </PasswordProtection>
       </TooltipProvider>
     </QueryClientProvider>
   );

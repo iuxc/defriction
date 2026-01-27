@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
+import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
+
 export function Method() {
   const methods = [
+    // ...
+  ];
+  
+  const methodsData = [
     {
       title: "Timezone Arbitrage",
       desc: "My afternoon is your morning. Brief at 5 PM AEST -> Mocks by 9 AM AEST.",
@@ -44,7 +50,7 @@ export function Method() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {methods.map((method, index) => (
+          {methodsData.map((method, index) => (
             <motion.div 
               key={method.title}
               initial={{ opacity: 0, y: 20 }}
@@ -75,6 +81,7 @@ export function Method() {
           ))}
         </div>
       </div>
+      <NextSectionArrow targetId="about" />
     </section>
   );
 }
