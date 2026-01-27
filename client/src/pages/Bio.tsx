@@ -181,9 +181,7 @@ export default function Bio() {
       </Section>
 
       {/* Section 4: The Value */}
-      <Section id="value" nextId="human">
-        <div className="absolute inset-0 bg-gradient-to-b from-deep-basalt to-black -z-10" />
-        
+      <Section id="value" nextId="human" className="bg-gradient-to-b from-deep-basalt to-black">
         <div className="grid md:grid-cols-2 h-full gap-8 relative z-10">
           
           {/* Left Column (To the CMO) */}
