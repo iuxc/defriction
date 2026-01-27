@@ -466,6 +466,12 @@ export default function MonashCaseStudy() {
                 </Link>
               </Button>
            </div>
+           
+           <p className="font-mono text-xs text-gray-600 mt-12">
+             hello@defriction.design
+             <br /><br />
+             © 2026 defriction design. MELBOURNE / EUGENE.
+           </p>
          </motion.div>
       </footer>
     </div>
