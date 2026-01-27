@@ -1,27 +1,49 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 
 export function Navigation() {
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
+
+  const navItems = [
+    { name: "Work", href: "/#work", id: "work" },
+    { name: "Method", href: "/#method", id: "method" },
+    { name: "About", href: "/#about", id: "about" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
+
+      // Scroll Spy Logic
+      const sections = navItems.map(item => item.id);
+      let current = "";
+      
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          // Check if top of section is near the viewing area (top third)
+          if (rect.top <= 200 && rect.bottom >= 200) {
+            current = section;
+          }
+        }
+      }
+      setActiveSection(current);
     };
+
+    // Initial check
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const navItems = [
-    { name: "Work", href: "/#work" },
-    { name: "Method", href: "/#method" },
-    { name: "About", href: "/#about" },
-  ];
 
   const Logo = () => (
     <Link href="/">
@@ -45,16 +67,31 @@ export function Navigation() {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">
-          <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md">
-            {navItems.map((item) => (
-              <a
-                key={item.name}
-                href={item.href}
-                className="px-5 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 transition-all duration-300"
-              >
-                {item.name}
-              </a>
-            ))}
+          <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
+            {navItems.map((item) => {
+              const isActive = activeSection === item.id;
+              return (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  className={cn(
+                    "relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 z-10",
+                    isActive ? "text-white" : "text-gray-400 hover:text-white"
+                  )}
+                  onClick={() => setActiveSection(item.id)}
+                >
+                  {isActive && (
+                    <motion.div
+                      layoutId="active-pill"
+                      className="absolute inset-0 bg-white/10 rounded-full"
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      style={{ zIndex: -1 }}
+                    />
+                  )}
+                  {item.name}
+                </a>
+              );
+            })}
           </div>
           <Button 
             className="bg-volt-lime/10 text-volt-lime hover:bg-volt-lime hover:text-black border border-volt-lime/20 rounded-full px-6 transition-all duration-300"
@@ -80,7 +117,11 @@ export function Navigation() {
                     <a
                       key={item.name}
                       href={item.href}
-                      className="text-lg font-medium text-gray-300 hover:text-volt-lime transition-colors"
+                      className={cn(
+                        "text-lg font-medium transition-colors",
+                        activeSection === item.id ? "text-volt-lime" : "text-gray-300 hover:text-white"
+                      )}
+                      onClick={() => setActiveSection(item.id)}
                     >
                       {item.name}
                     </a>
