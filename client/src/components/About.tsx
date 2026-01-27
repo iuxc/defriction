@@ -48,11 +48,13 @@ export function About() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight text-white">
-              Bridging the gap between <br/>
-              <span className="text-gray-500">Academic Senate</span> & <span className="text-white">Startup Velocity</span>.
+              The Executive who <span className="text-gray-500">Designs</span>.
             </h2>
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
+              <p>
+                I bridge the gap between Boardroom strategy and Pixel-perfect execution. Most friction happens because these two worlds speak different languages.
+              </p>
               <p>
                 I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
               </p>
