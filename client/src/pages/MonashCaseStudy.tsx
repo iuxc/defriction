@@ -23,7 +23,7 @@ const Section = ({
     <div className="container mx-auto px-4 relative z-10">
       {children}
     </div>
-    {nextId && <NextSectionArrow targetId={nextId} />}
+    {nextId && <NextSectionArrow targetId={nextId} offset />}
   </section>
 );
 
@@ -182,7 +182,7 @@ export default function MonashCaseStudy() {
             </motion.div>
           </div>
         </div>
-        <NextSectionArrow targetId="friction" />
+        <NextSectionArrow targetId="friction" offset />
       </section>
 
       {/* 1. The Friction (The Problem) */}
