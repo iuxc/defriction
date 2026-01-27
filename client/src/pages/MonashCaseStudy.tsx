@@ -306,18 +306,14 @@ export default function MonashCaseStudy() {
 
       {/* 3. The Solution (Interactive) */}
       <Section id="solution" nextId="gallery">
-        <motion.div 
-           initial="initial"
-           whileInView="whileInView"
-           viewport={{ once: true, margin: "-10% 0px" }}
-           variants={fadeInUp}
-           className="bg-gradient-to-b from-white/5 to-transparent rounded-[3rem] p-1 border border-white/10 overflow-hidden"
-        >
-          <div className="bg-[#0A0A0A] rounded-[2.8rem] overflow-hidden relative">
-            <div className="absolute top-0 left-0 right-0 h-[500px] bg-volt-lime/5 blur-[120px] pointer-events-none" />
-            
-            <div className="p-8 md:p-20 grid lg:grid-cols-12 gap-16 items-center relative z-10">
-              <div className="lg:col-span-5">
+        <div className="grid lg:grid-cols-12 gap-16 items-center">
+            <motion.div 
+               initial="initial"
+               whileInView="whileInView"
+               viewport={{ once: true, margin: "-10% 0px" }}
+               variants={fadeInUp}
+               className="lg:col-span-5"
+            >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
                   <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                     03. The Proposed Solution
@@ -330,15 +326,23 @@ export default function MonashCaseStudy() {
                 </p>
                 
                 <Button 
-                  className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                  className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
                   onClick={() => window.open('https://www.figma.com', '_blank')}
                 >
                   Try It Out
                   <ExternalLink className="ml-2 w-4 h-4" />
                 </Button>
-              </div>
+            </motion.div>
               
-              <div className="lg:col-span-7">
+            <motion.div 
+               className="lg:col-span-7 relative"
+               initial="initial"
+               whileInView="whileInView"
+               viewport={{ once: true, margin: "-10% 0px" }}
+               variants={fadeInUp}
+            >
+                <div className="absolute inset-0 bg-volt-lime/5 blur-[100px] rounded-full pointer-events-none" />
+                
                 {/* Interactive Mockup */}
                 <div className="bg-[#0f1219] rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden transform transition-transform hover:scale-[1.01] duration-500">
                   <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
@@ -416,10 +420,8 @@ export default function MonashCaseStudy() {
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
+        </div>
       </Section>
 
       {/* 4. The Gallery */}
