@@ -192,9 +192,6 @@ export default function MonashCaseStudy() {
             >
               <motion.div variants={fadeInUp} className="mb-16">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
-                  <span className="relative flex h-2 w-2">
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-electric-violet"></span>
-                  </span>
                   <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                     01. The Problem (Current State)
                   </span>
@@ -260,9 +257,6 @@ export default function MonashCaseStudy() {
         >
           <motion.div variants={fadeInUp}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
-              <span className="relative flex h-2 w-2">
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-ion-cyan"></span>
-              </span>
               <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                 02. The Strategic Insight
               </span>
@@ -300,9 +294,6 @@ export default function MonashCaseStudy() {
             <div className="p-8 md:p-20 grid lg:grid-cols-12 gap-16 items-center relative z-10">
               <div className="lg:col-span-5">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
-                  <span className="relative flex h-2 w-2">
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-volt-lime"></span>
-                  </span>
                   <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                     03. The Proposed Solution
                   </span>
