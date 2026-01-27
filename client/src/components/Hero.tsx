@@ -29,7 +29,7 @@ export function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
             </span>
             <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
-              Brand Intelligence + Digital Strategy
+              COMPLEX UI DESIGN + PROTOTYPING
             </span>
           </div>
           
