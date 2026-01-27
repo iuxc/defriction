@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface AbstractBrowserProps {
-  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice";
+  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain";
   className?: string;
 }
 
@@ -99,6 +99,62 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
           </div>
         </div>
       );
+
+    case "timezone":
+       return (
+         <div className="flex flex-col justify-center h-full gap-6">
+            <div className="flex items-center justify-between px-2">
+              <div className="flex flex-col items-center gap-2">
+                 <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center`}>
+                    <div className="w-0.5 h-4 bg-white/20 rounded-full rotate-45 origin-bottom translate-y-[-2px]" />
+                    <div className="w-0.5 h-3 bg-white/20 rounded-full rotate-[-45] origin-bottom translate-y-[-1px]" />
+                 </div>
+                 <div className={`h-2 w-8 ${lineClass}`} />
+              </div>
+              <div className={`flex-1 h-px bg-white/10 mx-4 relative`}>
+                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/20" />
+              </div>
+              <div className="flex flex-col items-center gap-2">
+                 <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center bg-white/5`}>
+                    <div className="w-0.5 h-4 bg-white/40 rounded-full rotate-180 origin-bottom translate-y-[-2px]" />
+                    <div className="w-0.5 h-3 bg-white/40 rounded-full rotate-90 origin-bottom translate-y-[-1px]" />
+                 </div>
+                 <div className={`h-2 w-8 ${lineClass}`} />
+              </div>
+            </div>
+            <div className="flex gap-2 justify-center">
+               <div className={`h-8 w-32 ${blockClass} rounded-full`} />
+            </div>
+         </div>
+       );
+
+    case "brain":
+       return (
+         <div className="flex items-center justify-center h-full">
+            <div className="relative w-32 h-24">
+               {/* Left Hemisphere - Logic/Structure */}
+               <div className="absolute left-0 top-0 w-[48%] h-full border border-white/10 rounded-l-full bg-white/[0.02] flex flex-col justify-center items-center gap-1 p-2">
+                  <div className={`w-full h-1 ${lineClass}`} />
+                  <div className={`w-full h-1 ${lineClass}`} />
+                  <div className={`w-3/4 h-1 ${lineClass}`} />
+                  <div className={`w-full h-1 ${lineClass}`} />
+               </div>
+               
+               {/* Right Hemisphere - Creative/Fluid */}
+               <div className="absolute right-0 top-0 w-[48%] h-full border border-white/10 rounded-r-full bg-gradient-to-br from-white/5 to-transparent overflow-hidden">
+                  <div className="absolute inset-0 opacity-20">
+                     <svg width="100%" height="100%" viewBox="0 0 100 100">
+                        <circle cx="30" cy="30" r="20" fill="currentColor" className="text-white" />
+                        <circle cx="70" cy="60" r="25" fill="currentColor" className="text-white" />
+                     </svg>
+                  </div>
+               </div>
+
+               {/* Connector */}
+               <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[4%] h-16 bg-white/10 rounded-full" />
+            </div>
+         </div>
+       );
 
     case "code-split":
       return (

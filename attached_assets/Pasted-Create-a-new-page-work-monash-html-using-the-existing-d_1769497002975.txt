@@ -1,0 +1,77 @@
+Create a new page work/monash.html using the existing design system (style.css) and the following structure:
+
+1. Page Theme & Colors
+
+Theme: "From Gatekeeper to Concierge."
+
+Accent Color: Use Electric Violet (#7C3AED) for data/charts and Volt Lime (#D4FF00) for the primary Prototype Action button.
+
+2. Header Section
+
+Meta: Client: Monash University | Role: Strategy, IA, UI Design.
+
+Headline: From Gatekeeper to Concierge.
+
+Subhead: Unifying 40,000+ pathways into a single "Admissions Engine."
+
+3. Section: The Friction (The Problem)
+
+Headline: The PDF Trap.
+
+Body: "40,000+ applicants were hitting dead ends. Critical pathway data was locked in static PDFs. A TAFE graduate with a Diploma of Nursing would search for credit and get 0 results."
+
+Data Points (Use Space Mono font):
+
+> Dead Ends: 100% fail rate for TAFE searches.
+
+> Hidden Math: Regional students (ATAR 65) unaware of +5 Adjustment Factors.
+
+> Cost: Applicants paying $200 VTAC fees for free direct courses.
+
+4. Section: The Insight (The Strategy)
+
+Headline: Logic over Legacy.
+
+Body: "The 2024 Universities Accord mandates equity access. We couldn't just reskin; we had to expose the logic. We pivoted from 'Am I eligible?' (Gatekeeper) to 'Who are you?' (Concierge)."
+
+Artifact: Display the Logic Flow as a styled code block:
+
+Plaintext
+USER INPUT: "I am a TAFE Graduate" -> LOOKUP: ARTICULATION DB -> DIRECT HIT (Green) OR PARTIAL HIT (Amber)
+5. Section: The Defriction (The Solution)
+
+Headline: The Pathways Finder.
+
+Body: "We built a dynamic component that visualizes the 'Hidden Math.' It calculates eligibility in real-time."
+
+Visual Feature: Create a CSS-only Bar Chart Animation ("The Stacking Calculator").
+
+Animation: Bar A (Raw ATAR 65, Color: Electric Violet) + Bar B (Regional Bonus +5, Color: Volt Lime) stacks up to meet the Threshold Line (70).
+
+6. Section: The Gallery (Visual Proof)
+
+Layout: 3-Column Grid with hover lift effects.
+
+Image 1: Label: "Information Architecture". Caption: "The Concierge logic." (Placeholder: pathways_ia.png)
+
+Image 2: Label: "Low-Fidelity Wireframe". Caption: "Testing the Stacking concept." (Placeholder: wireframe.png)
+
+Image 3: Label: "High-Fidelity UI". Caption: "Production-ready interface." (Placeholder: high_fidelity.png)
+
+7. Section: Prototype Action
+
+Element: Large, full-width Action Button.
+
+Color: Background Volt Lime (#D4FF00), Text Black.
+
+Copy: [ Launch Interactive Prototype ]
+
+Subtext: Experience the "Stacking" animation live in Figma.
+
+8. Section: The Outcome
+
+COMPLIANCE: Centralized logic ensures Accord compliance.
+
+EFFICIENCY: Projected 30% reduction in support tickets.
+
+EQUITY: Surfaces hidden eligibility for regional/low-SES students.

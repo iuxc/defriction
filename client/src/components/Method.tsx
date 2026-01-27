@@ -8,14 +8,14 @@ export function Method() {
       desc: "My afternoon is your morning. Brief at 5 PM AEST -> Mocks by 9 AM AEST.",
       gradient: "from-volt-lime/20 to-transparent",
       border: "hover:border-volt-lime/50",
-      browserVariant: "kanban" as const
+      browserVariant: "timezone" as const
     },
     {
       title: "Dual-Track Brain",
       desc: "I speak 'Academic Senate' but ship like a Startup. Governance meets Velocity.",
       gradient: "from-ion-cyan/20 to-transparent",
       border: "hover:border-ion-cyan/50",
-      browserVariant: "code-split" as const
+      browserVariant: "brain" as const
     },
     {
       title: "Zero Overhead",
