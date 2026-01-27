@@ -77,7 +77,7 @@ export function About() {
             </Button>
           </div>
 
-          <div className="relative order-first lg:order-last">
+          <div className="relative order-first lg:order-last lg:ml-auto">
             {/* Profile Image */}
             <div className="relative aspect-square max-w-md mx-auto group lg:mx-0">
                <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 group-hover:opacity-40 transition-opacity duration-500" />
