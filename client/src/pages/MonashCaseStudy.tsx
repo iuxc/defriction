@@ -333,8 +333,10 @@ export default function MonashCaseStudy() {
                   
                   <div className="space-y-12 relative py-4">
                     {/* Threshold Line */}
-                    <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/20 z-10 flex flex-col justify-end pb-8">
-                      <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
+                    <div className="absolute inset-y-0 left-4 right-4 z-10 pointer-events-none">
+                       <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/20 flex flex-col justify-end pb-8">
+                         <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
+                       </div>
                     </div>
 
                     {/* Bar Group */}
