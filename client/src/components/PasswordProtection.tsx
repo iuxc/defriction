@@ -85,12 +85,6 @@ export function PasswordProtection({ children }: { children: React.ReactNode }) 
               Authenticate <ArrowRight className="ml-2 w-4 h-4" />
             </Button>
           </form>
-          
-          <div className="mt-8 text-center">
-            <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest">
-              Secured by Defriction Design
-            </p>
-          </div>
         </div>
       </motion.div>
     </div>
