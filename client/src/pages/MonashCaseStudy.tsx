@@ -467,7 +467,7 @@ export default function MonashCaseStudy() {
                    <img 
                      src="/assets/images/monash-shield.png" 
                      alt="Monash University Shield" 
-                     className="w-full h-auto object-contain max-w-[160px]"
+                     className="w-full h-auto object-contain max-w-[240px]"
                    />
                 </div>
                 <div>

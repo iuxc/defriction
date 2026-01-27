@@ -335,41 +335,80 @@ function Content({ variant, theme }: { variant: AbstractBrowserProps["variant"],
 
     case "ia-map":
       return (
-        <div className="flex flex-col items-center h-full pt-4">
-           {/* Level 1 */}
-           <div className={`w-24 h-8 ${blockClass} mb-4 flex items-center justify-center`}>
-              <div className={`w-12 h-2 ${lineClass}`} />
-           </div>
-           
-           {/* Connector */}
-           <div className={`h-6 w-px ${connectorColor} relative`}>
-              <div className={`absolute top-full left-1/2 -translate-x-1/2 w-48 h-px ${connectorColor}`} />
-           </div>
+        <div className={`font-mono text-xs space-y-2 p-2 ${theme === "light" ? "text-gray-800" : "text-gray-300"}`}>
+            <motion.div 
+              className="flex gap-2 overflow-hidden whitespace-nowrap"
+              initial={{ width: 0 }}
+              whileInView={{ width: "fit-content" }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "linear", delay: 0.2 }}
+            >
+                <span className="text-pink-500">const</span>
+                <span className="text-blue-500">routes</span>
+                <span className={theme === "light" ? "text-gray-600" : "text-white"}>=</span>
+                <span className={theme === "light" ? "text-gray-600" : "text-white"}>[</span>
+            </motion.div>
 
-           {/* Level 2 */}
-           <div className="flex gap-4 mt-6">
-              <div className="flex flex-col items-center">
-                 <div className={`h-4 w-px ${connectorColor} mb-2`} />
-                 <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
-                    <div className={`w-full h-1 ${lineClass}`} />
-                    <div className={`w-2/3 h-1 ${lineClass}`} />
-                 </div>
-              </div>
-              <div className="flex flex-col items-center">
-                 <div className={`h-4 w-px ${connectorColor} mb-2`} />
-                 <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
-                    <div className={`w-full h-1 ${lineClass}`} />
-                    <div className={`w-2/3 h-1 ${lineClass}`} />
-                 </div>
-              </div>
-              <div className="flex flex-col items-center">
-                 <div className={`h-4 w-px ${connectorColor} mb-2`} />
-                 <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
-                    <div className={`w-full h-1 ${lineClass}`} />
-                    <div className={`w-2/3 h-1 ${lineClass}`} />
-                 </div>
-              </div>
-           </div>
+            <motion.div 
+              className="flex gap-2 pl-4 overflow-hidden whitespace-nowrap"
+              initial={{ width: 0 }}
+              whileInView={{ width: "fit-content" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "linear", delay: 1.2 }}
+            >
+                <span className={theme === "light" ? "text-gray-600" : "text-white"}>{`{`}</span>
+                <span className="text-blue-500">path:</span>
+                <span className="text-green-600">"/undergrad"</span>
+                <span className={theme === "light" ? "text-gray-600" : "text-white"}>,</span>
+                <span className="text-blue-500">component:</span>
+                <span className="text-yellow-600">SchoolLeaverFlow</span>
+            </motion.div>
+
+            <motion.div 
+              className="flex gap-2 pl-4 overflow-hidden whitespace-nowrap"
+              initial={{ width: 0 }}
+              whileInView={{ width: "fit-content" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: "linear", delay: 2.0 }}
+            >
+                 <span className={theme === "light" ? "text-gray-600" : "text-white"}>{`}, {`}</span>
+                 <span className="text-blue-500">path:</span>
+                 <span className="text-green-600">"/mature-age"</span>
+                 <span className={theme === "light" ? "text-gray-600" : "text-white"}>,</span>
+            </motion.div>
+
+            <motion.div 
+              className="flex gap-2 pl-8 overflow-hidden whitespace-nowrap"
+              initial={{ width: 0 }}
+              whileInView={{ width: "fit-content" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, ease: "linear", delay: 2.8 }}
+            >
+                 <span className="text-blue-500">component:</span>
+                 <span className="text-yellow-600">AlternativeEntryPath</span>
+            </motion.div>
+
+            <motion.div 
+              className="flex gap-2 pl-4 overflow-hidden whitespace-nowrap"
+              initial={{ width: 0 }}
+              whileInView={{ width: "fit-content" }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.2, ease: "linear", delay: 3.3 }}
+            >
+                <span className={theme === "light" ? "text-gray-600" : "text-white"}>{`}]`}</span>
+                <span className={theme === "light" ? "text-gray-600" : "text-white"}>;</span>
+            </motion.div>
+
+             <motion.div 
+               initial={{ opacity: 0 }}
+               whileInView={{ opacity: 0.5 }}
+               viewport={{ once: true }}
+               transition={{ delay: 3.8 }}
+               className="space-y-1 mt-4 italic"
+             >
+                <div className="flex gap-2"><span className="text-gray-400">// Mapping user types to entry flows</span></div>
+                <div className="flex gap-2"><span className="text-gray-400">// Resolving dynamic prerequisites</span></div>
+             </motion.div>
         </div>
       );
 
