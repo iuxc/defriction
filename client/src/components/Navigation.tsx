@@ -84,6 +84,12 @@ export function Navigation() {
           <Link href="/">
             <a 
               className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
+              onClick={(e) => {
+                if (location === "/") {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: "smooth" });
+                }
+              }}
             >
               <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
             </a>

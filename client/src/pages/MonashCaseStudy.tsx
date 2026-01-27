@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowLeft, Check, ArrowRight, Play, ShieldCheck, Zap, Scale, ChevronDown } from "lucide-react";
+import { ArrowLeft, Check, ArrowRight, ExternalLink, ShieldCheck, Zap, Scale, ChevronDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
@@ -129,11 +129,11 @@ export default function MonashCaseStudy() {
                     </a>
                  </Button>
                  <Button 
-                    variant="outline"
-                    className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300"
+                    variant="ghost"
+                    className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base px-6 py-6 h-auto transition-all duration-300"
                     onClick={() => window.open('https://www.figma.com', '_blank')}
                  >
-                    <Play className="mr-2 w-4 h-4 fill-current" />
+                    <ExternalLink className="mr-2 w-4 h-4" />
                     Launch Prototype
                  </Button>
               </motion.div>
@@ -238,8 +238,8 @@ export default function MonashCaseStudy() {
               The 2024 Universities Accord mandates equity access. We couldn't just reskin; we had to expose the logic. We pivoted from <span className="text-white font-medium">"Am I eligible?"</span> (Gatekeeper) to <span className="text-white font-medium">"Who are you?"</span> (Concierge).
             </p>
             <div className="flex gap-4">
-               <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">Equity First</div>
-               <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">Radical Transparency</div>
+               <div className="px-4 py-2 rounded-full border border-white/5 bg-white/5 text-sm text-gray-400 font-mono">Equity First</div>
+               <div className="px-4 py-2 rounded-full border border-white/5 bg-white/5 text-sm text-gray-400 font-mono">Radical Transparency</div>
             </div>
           </motion.div>
           
@@ -358,19 +358,18 @@ export default function MonashCaseStudy() {
                         <span className="text-volt-lime">Regional Bonus</span>
                         <span className="text-white font-mono text-lg">+5.00</span>
                       </div>
-                      <div className="h-12 flex relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5">
-                         {/* Spacer */}
-                         <div className="w-[65%] h-full border-r border-white/5" />
-                         {/* Bonus Bar */}
-                         <div className="h-full flex-grow relative">
-                           <motion.div 
-                              initial={{ width: 0 }}
-                              whileInView={{ width: "14.5%" }}
-                              viewport={{ once: false }}
-                              transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                              className="h-full bg-volt-lime absolute top-0 left-0 shadow-[0_0_30px_rgba(212,255,0,0.3)]"
-                            />
-                         </div>
+                      <div className="h-12 relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5">
+                         {/* Spacer - ends at 65% */}
+                         <div className="absolute left-0 top-0 bottom-0 w-[65%] border-r border-white/5" />
+                         
+                         {/* Bonus Bar - starts at 65%, width 5% of total to reach 70% */}
+                         <motion.div 
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "5%" }}
+                            viewport={{ once: false }}
+                            transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                            className="absolute top-0 bottom-0 left-[65%] bg-volt-lime shadow-[0_0_30px_rgba(212,255,0,0.3)]"
+                          />
                       </div>
                     </div>
 

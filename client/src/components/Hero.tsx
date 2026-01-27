@@ -56,7 +56,7 @@ export function Hero() {
             
             <Button 
               variant="ghost" 
-              className="text-white hover:text-volt-lime hover:bg-transparent font-mono uppercase tracking-wider gap-2 group"
+              className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base gap-2 group"
               asChild
             >
               <a href="#method">
