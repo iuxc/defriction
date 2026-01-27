@@ -202,8 +202,8 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
         <div className="flex gap-4 p-4 h-full items-start">
            <div className={`w-24 h-24 ${blockClass} rounded-full flex-shrink-0 relative overflow-hidden`}>
               <div className="absolute inset-0 bg-white/5" />
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-16 bg-white/10 rounded-t-full" />
-              <div className="absolute top-4 left-1/2 -translate-x-1/2 w-8 h-8 bg-white/10 rounded-full" />
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-14 h-10 bg-white/10 rounded-t-full" />
+              <div className="absolute top-5 left-1/2 -translate-x-1/2 w-9 h-9 bg-white/10 rounded-full" />
            </div>
            <div className="flex-1 space-y-3 pt-2">
               <div className={`h-4 w-1/2 ${lineClass}`} />
