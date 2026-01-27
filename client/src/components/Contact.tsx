@@ -34,9 +34,6 @@ export function Contact() {
           <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
             Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
           </h2>
-          <p className="text-gray-400 text-lg">
-            High intent inquiries only.
-          </p>
         </div>
 
         {/* Gradient Glow */}

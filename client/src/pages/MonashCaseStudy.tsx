@@ -526,7 +526,11 @@ export default function MonashCaseStudy() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center"
           >
-           <FooterContact title="Ready to transform your user flow?" />
+           <FooterContact title={
+             <>
+               Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
+             </>
+           } />
            
            <p className="font-mono text-xs text-gray-600 mt-12">
              <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">

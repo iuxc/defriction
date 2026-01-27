@@ -11,7 +11,7 @@ import { Send, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FooterContactProps {
-  title?: string;
+  title?: React.ReactNode;
   className?: string;
 }
 
