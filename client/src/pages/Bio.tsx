@@ -58,9 +58,9 @@ export default function Bio() {
             viewport={{ once: true }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ion-cyan/10 border border-ion-cyan/20 mb-8 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-ion-cyan animate-pulse shadow-[0_0_10px_rgba(6,182,212,0.5)]" />
-              <span className="font-mono text-sm text-ion-cyan uppercase tracking-widest font-bold">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
+              <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
+              <span className="font-mono text-sm text-gray-400 uppercase tracking-widest font-bold">
                 Identity: The Translator
               </span>
             </div>
@@ -296,7 +296,9 @@ export default function Bio() {
               <FooterContact title="Ready to ship?" />
               
               <p className="font-mono text-xs text-gray-600 mt-24 tracking-widest uppercase">
-                brian@defriction.design
+                <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
+                  brian@defriction.design
+                </a>
                 <br /><br />
                 © 2026 defriction design. MELBOURNE / EUGENE.
               </p>

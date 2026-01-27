@@ -1,16 +1,40 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
 
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 
 export function About() {
-  const skills = ["Digital Strategy", "Brand Architecture", "React & Node", "Stakeholder Management"];
+  const skills = [
+    { label: "Digital Strategy", value: "Expert" },
+    { label: "Brand Architecture", value: "Lead" },
+    { label: "React & Node", value: "Full Stack" },
+    { label: "Stakeholder Management", value: "Senior" }
+  ];
+
+  const floatingBadges = [
+    { text: "15+ Years Exp", pos: "-top-6 -right-6", delay: 0 },
+    { text: "Multi-lingual 🌏", pos: "-top-4 -left-4", delay: 2 },
+    { text: "Flutist 🎵", pos: "top-1/2 -left-10", delay: 4 },
+    { text: "Cyclist 🚴", pos: "-bottom-6 -left-6", delay: 1 },
+    { text: "Dog Lover 🐕", pos: "-bottom-2 -right-2", delay: 3 }
+  ];
+
+  // Logic to show only 2 badges at a time cycling through
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % floatingBadges.length);
+    }, 3000); // Change every 3 seconds
+    return () => clearInterval(interval);
+  }, [floatingBadges.length]);
 
   return (
     <section id="about" className="min-h-screen py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center">
       <div className="container mx-auto px-4">
-        {/* ... content ... */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div className="relative">
@@ -25,22 +49,26 @@ export function About() {
                   />
                </div>
                
-               {/* Floating Badges */}
-               <div className="absolute -top-6 -right-6 glass-panel px-4 py-2 rounded-md text-sm font-mono text-ion-cyan border-ion-cyan/30 animate-float" style={{ animationDelay: "1s" }}>
-                 15+ Years Exp
-               </div>
-               <div className="absolute -top-4 -left-4 glass-panel px-4 py-2 rounded-md text-sm font-mono text-ion-cyan border-ion-cyan/30 animate-float" style={{ animationDelay: "1.5s" }}>
-                 Multi-lingual 🌏
-               </div>
-               <div className="absolute top-1/2 -left-10 glass-panel px-4 py-2 rounded-md text-sm font-mono text-ion-cyan border-ion-cyan/30 animate-float" style={{ animationDelay: "2.5s" }}>
-                 Flutist 🎵
-               </div>
-               <div className="absolute -bottom-6 -left-6 glass-panel px-4 py-2 rounded-md text-sm font-mono text-ion-cyan border-ion-cyan/30 animate-float" style={{ animationDelay: "2s" }}>
-                 Cyclist 🚴
-               </div>
-               <div className="absolute -bottom-2 -right-2 glass-panel px-4 py-2 rounded-md text-sm font-mono text-ion-cyan border-ion-cyan/30 animate-float" style={{ animationDelay: "3s" }}>
-                 Dog Lover 🐕
-               </div>
+               {/* Floating Badges - Cycling Visibility */}
+               <AnimatePresence>
+                 {floatingBadges.map((badge, i) => {
+                   // Show current and next badge (2 visible at a time)
+                   const isVisible = i === activeIndex || i === (activeIndex + 1) % floatingBadges.length;
+                   
+                   return isVisible && (
+                     <motion.div
+                       key={badge.text}
+                       initial={{ opacity: 0, scale: 0.8 }}
+                       animate={{ opacity: 1, scale: 1 }}
+                       exit={{ opacity: 0, scale: 0.8 }}
+                       transition={{ duration: 0.5 }}
+                       className={`absolute ${badge.pos} glass-panel px-4 py-2 rounded-md text-sm font-mono text-ion-cyan border-ion-cyan/30`}
+                     >
+                       {badge.text}
+                     </motion.div>
+                   );
+                 })}
+               </AnimatePresence>
             </div>
           </div>
 
@@ -61,11 +89,13 @@ export function About() {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3 mb-10">
-              {skills.map(skill => (
-                <span key={skill} className="px-3 py-1 rounded-md bg-ion-cyan/5 border border-ion-cyan/20 text-sm text-ion-cyan font-mono">
-                  {skill}
-                </span>
+            {/* Redesigned Skills Section - Premium Spec Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-10 border-t border-b border-white/5 py-6">
+              {skills.map((skill) => (
+                <div key={skill.label} className="flex flex-col">
+                  <span className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">{skill.value}</span>
+                  <span className="text-white font-medium">{skill.label}</span>
+                </div>
               ))}
             </div>
 

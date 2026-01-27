@@ -23,12 +23,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-5xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 mb-8 backdrop-blur-md cursor-default">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ion-cyan opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-ion-cyan"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
             </span>
-            <span className="font-mono text-xs tracking-widest text-ion-cyan uppercase">
+            <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
               Brand Intelligence + Digital Strategy
             </span>
           </div>

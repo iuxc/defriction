@@ -17,7 +17,9 @@ export default function Home() {
       
       <footer className="py-8 bg-black text-center border-t border-white/10">
         <p className="font-mono text-xs text-gray-600">
-          brian@defriction.design
+          <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
+            brian@defriction.design
+          </a>
         </p>
         <p className="font-mono text-xs text-gray-600 mt-2">
           © 2026 defriction design. MELBOURNE / EUGENE.

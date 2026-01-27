@@ -86,8 +86,8 @@ export default function MonashCaseStudy() {
                 transition={{ duration: 0.8 }}
                 className="flex items-center gap-3 mb-8"
               >
-                <span className="w-2 h-2 rounded-full bg-ion-cyan animate-pulse" />
-                <span className="font-mono text-ion-cyan tracking-widest text-xs uppercase font-medium">
+                <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse" />
+                <span className="font-mono text-gray-400 tracking-widest text-xs uppercase font-medium">
                   Monash University
                 </span>
               </motion.div>
@@ -465,7 +465,9 @@ export default function MonashCaseStudy() {
            <FooterContact title="Ready to transform your user flow?" />
            
            <p className="font-mono text-xs text-gray-600 mt-12">
-             brian@defriction.design
+             <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
+               brian@defriction.design
+             </a>
              <br /><br />
              © 2026 defriction design. MELBOURNE / EUGENE.
            </p>
