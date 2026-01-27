@@ -105,9 +105,9 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
          <div className="flex flex-col justify-center h-full gap-6">
             <div className="flex items-center justify-between px-2">
               <div className="flex flex-col items-center gap-2">
-                 <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center`}>
-                    <div className="w-0.5 h-4 bg-white/20 rounded-full rotate-45 origin-bottom translate-y-[-2px]" />
-                    <div className="w-0.5 h-3 bg-white/20 rounded-full rotate-[-45] origin-bottom translate-y-[-1px]" />
+                 <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center relative`}>
+                    <div className="w-0.5 h-4 bg-white/20 rounded-full rotate-45 origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
+                    <div className="w-0.5 h-3 bg-white/20 rounded-full rotate-[-45] origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
                  </div>
                  <div className={`h-2 w-8 ${lineClass}`} />
               </div>
@@ -115,9 +115,9 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/20" />
               </div>
               <div className="flex flex-col items-center gap-2">
-                 <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center bg-white/5`}>
-                    <div className="w-0.5 h-4 bg-white/40 rounded-full rotate-180 origin-bottom translate-y-[-2px]" />
-                    <div className="w-0.5 h-3 bg-white/40 rounded-full rotate-90 origin-bottom translate-y-[-1px]" />
+                 <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center bg-white/5 relative`}>
+                    <div className="w-0.5 h-4 bg-white/40 rounded-full rotate-180 origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
+                    <div className="w-0.5 h-3 bg-white/40 rounded-full rotate-90 origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
                  </div>
                  <div className={`h-2 w-8 ${lineClass}`} />
               </div>

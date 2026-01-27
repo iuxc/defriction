@@ -24,14 +24,14 @@ export default function MonashCaseStudy() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="font-mono text-volt-lime mb-6 tracking-widest text-xs uppercase border border-volt-lime/30 inline-block px-3 py-1 rounded">
-                Case Study: 001
+              <div className="font-mono text-electric-violet mb-6 tracking-widest text-xs uppercase border border-electric-violet/30 inline-block px-3 py-1 rounded">
+                Client: Monash University | Role: Strategy, IA, UI Design
               </div>
               <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-gray-500">
-                Monash University
+                From Gatekeeper to Concierge.
               </h1>
               <p className="text-2xl text-gray-400 font-light max-w-xl leading-relaxed">
-                From Gatekeeper to Concierge: Unifying 40,000+ pathways with radical transparency.
+                Unifying 40,000+ pathways into a single "Admissions Engine."
               </p>
             </motion.div>
             
@@ -41,7 +41,7 @@ export default function MonashCaseStudy() {
                transition={{ delay: 0.3, duration: 0.6 }}
                className="flex flex-wrap gap-3 md:justify-end"
             >
-              {["Strategy", "Information Architecture", "React App"].map(tag => (
+              {["Strategy", "Information Architecture", "Education"].map(tag => (
                 <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
                   {tag}
                 </span>
@@ -53,64 +53,70 @@ export default function MonashCaseStudy() {
 
       <main className="container mx-auto px-4 py-24 space-y-32">
         
-        {/* 1. The Friction */}
+        {/* 1. The Friction (The Problem) */}
         <section className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-4">
-            <span className="text-flux-orange font-mono text-sm mb-4 block tracking-widest uppercase">The Friction</span>
+            <span className="text-electric-violet font-mono text-sm mb-4 block tracking-widest uppercase">The Friction</span>
             <h2 className="text-4xl font-display font-bold mb-6">The PDF Trap.</h2>
           </div>
           <div className="md:col-span-8 space-y-6 text-xl text-gray-400 font-light leading-relaxed">
             <p>
-              40,000 applicants were hitting dead ends. Regional students with an ATAR of 65 were abandoning the site, 
-              unaware they qualified via "Adjustment Factors" buried in 40-page PDFs.
+              40,000+ applicants were hitting dead ends. Critical pathway data was locked in static PDFs. A TAFE graduate with a Diploma of Nursing would search for credit and get 0 results.
             </p>
-            <div className="glass-panel p-6 rounded-xl border-l-4 border-l-flux-orange flex items-start gap-4 mt-8">
-               <div className="mt-1 text-flux-orange">
-                 <X className="w-6 h-6" />
-               </div>
-               <div>
-                 <h4 className="text-white font-bold mb-1">Critical Failure</h4>
-                 <p className="text-sm text-gray-400">User Drop-off Rate: 68% at Eligibility Page.</p>
-               </div>
+            
+            <div className="grid md:grid-cols-3 gap-4 mt-8">
+              <div className="glass-panel p-6 rounded-xl border border-white/10 flex flex-col gap-2">
+                 <h4 className="text-white font-mono text-lg font-bold">100%</h4>
+                 <p className="text-sm text-gray-400 font-mono">Fail rate for TAFE searches</p>
+              </div>
+              <div className="glass-panel p-6 rounded-xl border border-white/10 flex flex-col gap-2">
+                 <h4 className="text-white font-mono text-lg font-bold">+5</h4>
+                 <p className="text-sm text-gray-400 font-mono">Hidden Adjustment Factors</p>
+              </div>
+              <div className="glass-panel p-6 rounded-xl border border-white/10 flex flex-col gap-2">
+                 <h4 className="text-white font-mono text-lg font-bold">$200</h4>
+                 <p className="text-sm text-gray-400 font-mono">Wasted VTAC fees</p>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* 2. The Insight */}
+        {/* 2. The Insight (The Strategy) */}
         <section className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-4">
             <span className="text-ion-cyan font-mono text-sm mb-4 block tracking-widest uppercase">The Insight</span>
-            <h2 className="text-4xl font-display font-bold mb-6">Radical Transparency.</h2>
+            <h2 className="text-4xl font-display font-bold mb-6">Logic over Legacy.</h2>
           </div>
           <div className="md:col-span-8 space-y-6 text-xl text-gray-400 font-light leading-relaxed">
             <p>
-              The <em>2024 Universities Accord</em> mandates equity. We couldn't just reskin the old site; we had to expose the logic.
+              The 2024 Universities Accord mandates equity access. We couldn't just reskin; we had to expose the logic. We pivoted from "Am I eligible?" (Gatekeeper) to "Who are you?" (Concierge).
             </p>
-            <p className="text-white">
-              We pivoted the entire mental model from "Am I eligible?" to <strong>"Who are you?"</strong>. 
-            </p>
+            
+             <div className="font-mono text-sm text-volt-lime bg-[#0A0A0A] p-6 rounded-xl border border-white/10 overflow-x-auto shadow-inner mt-4">
+                USER INPUT: "I am a TAFE Graduate" {"->"} LOOKUP: ARTICULATION DB {"->"} <span className="text-green-400">DIRECT HIT (Green)</span> OR <span className="text-yellow-400">PARTIAL HIT (Amber)</span>
+             </div>
           </div>
         </section>
 
-        {/* 3. The Defriction (Interactive Component) */}
+        {/* 3. The Defriction (The Solution) */}
         <section className="glass-card rounded-3xl overflow-hidden border border-white/10">
           <div className="p-8 md:p-16 grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-4">
-              <span className="text-volt-lime font-mono text-sm mb-4 block tracking-widest uppercase">The Solution</span>
-              <h3 className="text-3xl font-display font-bold mb-4 text-white">The Stacking Calculator.</h3>
+              <span className="text-volt-lime font-mono text-sm mb-4 block tracking-widest uppercase">The Defriction</span>
+              <h3 className="text-3xl font-display font-bold mb-4 text-white">The Pathways Finder.</h3>
               <p className="text-gray-400 leading-relaxed">
-                A visual proof that equity factors matter. We visualize the gap closing in real-time, giving students hope instead of rejection.
+                We built a dynamic component that visualizes the "Hidden Math." It calculates eligibility in real-time.
               </p>
             </div>
             
             <div className="md:col-span-8">
-              {/* Interactive Mockup */}
+              {/* Interactive Mockup - The Stacking Calculator */}
               <div className="bg-[#0f1219] rounded-xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-volt-lime/10 blur-[50px] rounded-full pointer-events-none" />
                 
                 <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
-                  <span>ATAR_CALC_V2.1</span>
-                  <span className="text-volt-lime">● LIVE PREVIEW</span>
+                  <span>PATHWAY_ENGINE_V1.0</span>
+                  <span className="text-volt-lime">● LIVE CALCULATION</span>
                 </div>
                 
                 <div className="space-y-10 relative px-4">
@@ -124,7 +130,7 @@ export default function MonashCaseStudy() {
                   {/* Bar Group */}
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-400">Raw ATAR Score</span>
+                      <span className="text-gray-400">Raw ATAR</span>
                       <span className="text-white font-mono">65.00</span>
                     </div>
                     <div className="h-10 bg-white/5 rounded-full relative overflow-hidden">
@@ -132,14 +138,14 @@ export default function MonashCaseStudy() {
                         initial={{ width: 0 }}
                         whileInView={{ width: "65%" }}
                         transition={{ duration: 1.2, ease: "circOut" }}
-                        className="h-full bg-gradient-to-r from-electric-violet to-purple-500 rounded-full"
+                        className="h-full bg-electric-violet rounded-full"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm mb-2">
-                      <span className="text-volt-lime">Regional Adjustment</span>
+                      <span className="text-volt-lime">Regional Bonus</span>
                       <span className="text-white font-mono">+5.00</span>
                     </div>
                     <div className="h-10 flex relative rounded-full bg-white/5 overflow-hidden">
@@ -159,7 +165,7 @@ export default function MonashCaseStudy() {
 
                   {/* Result */}
                   <div className="pt-6 flex items-center justify-between border-t border-white/5 mt-8">
-                     <div className="text-sm text-gray-500">Final Selection Rank</div>
+                     <div className="text-sm text-gray-500">Selection Rank</div>
                      <div className="flex items-center gap-4">
                         <div className="text-3xl font-bold text-white font-display">70.00</div>
                         <div className="h-8 px-3 flex items-center bg-volt-lime/20 text-volt-lime border border-volt-lime/30 rounded-full text-xs font-bold uppercase tracking-wider">
@@ -173,35 +179,82 @@ export default function MonashCaseStudy() {
           </div>
         </section>
 
-        {/* 4. The Artifact (Decision Tree) */}
-        <section className="space-y-8">
-           <h2 className="text-white font-display text-2xl font-bold border-b border-white/10 pb-6">
-             The Logic Architecture
+        {/* 4. The Gallery (Visual Proof) */}
+        <section className="space-y-12">
+           <h2 className="text-3xl font-display font-bold text-white mb-8 border-b border-white/10 pb-6">
+             Visual Proof
            </h2>
            
-           <div className="font-mono text-sm text-gray-300 bg-[#0A0A0A] p-8 rounded-xl border border-white/10 overflow-x-auto shadow-inner">
-             <pre className="leading-loose">
-{`const calculateEligibility = (applicant) => {
-  // 1. Establish Base
-  let rank = applicant.rawAtar;
+           <div className="grid md:grid-cols-3 gap-8">
+             {/* Image 1 */}
+             <div className="group space-y-4">
+                <div className="aspect-[4/3] bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-colors">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs">
+                    [placeholder: pathways_ia.png]
+                  </div>
+                </div>
+                <div>
+                   <h4 className="text-white font-bold">Information Architecture</h4>
+                   <p className="text-gray-400 text-sm">The Concierge logic.</p>
+                </div>
+             </div>
 
-  // 2. Apply Equity Adjustments (The "Concierge" Logic)
-  if (applicant.location === 'REGIONAL') {
-    rank += ADJUSTMENT_FACTORS.REGIONAL; // +5.00
-  }
-  
-  if (applicant.financialStatus === 'TIER_1') {
-    rank += ADJUSTMENT_FACTORS.SEAS; // +Variable
-  }
+             {/* Image 2 */}
+             <div className="group space-y-4">
+                <div className="aspect-[4/3] bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-colors">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs">
+                    [placeholder: wireframe.png]
+                  </div>
+                </div>
+                <div>
+                   <h4 className="text-white font-bold">Low-Fidelity Wireframe</h4>
+                   <p className="text-gray-400 text-sm">Testing the Stacking concept.</p>
+                </div>
+             </div>
 
-  // 3. Return Transparent Result
-  return {
-    finalRank: rank,
-    breakdown: [ ... ],
-    eligibleCourses: fetchCourses(rank)
-  };
-}`}
-             </pre>
+             {/* Image 3 */}
+             <div className="group space-y-4">
+                <div className="aspect-[4/3] bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-colors">
+                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs">
+                    [placeholder: high_fidelity.png]
+                  </div>
+                </div>
+                <div>
+                   <h4 className="text-white font-bold">High-Fidelity UI</h4>
+                   <p className="text-gray-400 text-sm">Production-ready interface.</p>
+                </div>
+             </div>
+           </div>
+        </section>
+
+        {/* 5. Prototype Action */}
+        <section className="py-12">
+           <a 
+             href="#" 
+             className="group block w-full bg-volt-lime hover:bg-[#b8dd00] text-black rounded-2xl p-12 text-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(212,255,0,0.3)]"
+           >
+              <h3 className="text-3xl md:text-5xl font-display font-bold mb-4 group-hover:scale-[1.02] transition-transform">
+                [ Launch Interactive Prototype ]
+              </h3>
+              <p className="font-mono text-sm md:text-base uppercase tracking-widest opacity-70">
+                Experience the "Stacking" animation live in Figma
+              </p>
+           </a>
+        </section>
+
+        {/* 6. The Outcome */}
+        <section className="grid md:grid-cols-3 gap-8 py-12 border-t border-white/10">
+           <div className="space-y-2">
+             <h4 className="text-white font-bold font-display text-xl">COMPLIANCE</h4>
+             <p className="text-gray-400">Centralized logic ensures Accord compliance.</p>
+           </div>
+           <div className="space-y-2">
+             <h4 className="text-white font-bold font-display text-xl">EFFICIENCY</h4>
+             <p className="text-gray-400">Projected 30% reduction in support tickets.</p>
+           </div>
+           <div className="space-y-2">
+             <h4 className="text-white font-bold font-display text-xl">EQUITY</h4>
+             <p className="text-gray-400">Surfaces hidden eligibility for regional/low-SES students.</p>
            </div>
         </section>
 
