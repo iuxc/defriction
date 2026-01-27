@@ -69,13 +69,13 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     onClick={() => setIsOpen(false)}
-                    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-40"
+                    className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[90]"
                 />
 
                 {/* Modal Card */}
                 <motion.div
                     layoutId="contact-card"
-                    className="fixed bottom-8 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-3xl z-50 rounded-[2rem] bg-deep-basalt border border-white/10 shadow-2xl overflow-hidden"
+                    className="fixed bottom-8 left-4 right-4 md:left-1/2 md:right-auto md:-translate-x-1/2 md:w-full md:max-w-3xl z-[100] rounded-[2rem] bg-deep-basalt border border-white/10 shadow-2xl overflow-hidden"
                     transition={{ 
                         type: "spring",
                         stiffness: 300,
