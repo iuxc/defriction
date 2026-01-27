@@ -35,7 +35,23 @@ export function About() {
   return (
     <section id="about" className="min-h-screen py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+        <div className="text-left mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-6 backdrop-blur-md cursor-default">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+            </span>
+            <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+              03. About
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight text-white">
+            Bridging the gap between <br/>
+            <span className="text-gray-500">Academic Senate</span> & <span className="text-white">Startup Velocity</span>.
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           
           <div className="relative">
             {/* Profile Image */}
@@ -73,11 +89,6 @@ export function About() {
           </div>
 
           <div>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight text-white">
-              Bridging the gap between <br/>
-              <span className="text-gray-500">Academic Senate</span> & <span className="text-white">Startup Velocity</span>.
-            </h2>
-            
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
               <p>
                 I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
