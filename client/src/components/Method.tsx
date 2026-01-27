@@ -51,7 +51,7 @@ export function Method() {
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
-            Built for <span className="text-gradient-purple">Velocity</span>
+            Built for <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Velocity</span>
           </h2>
           <p className="text-gray-400 text-lg font-light leading-relaxed max-w-3xl">
             I don't just hand off a strategy deck and walk away. I leverage the US-Australia timezone overlap to deliver production-ready design during your off-hours, while bringing the executive wisdom to ensure it actually works.

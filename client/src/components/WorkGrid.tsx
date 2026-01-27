@@ -64,7 +64,7 @@ export function WorkGrid() {
                </span>
              </div>
              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
-               Selected <span className="text-gray-500">Work</span>
+               Selected <span className="bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">Work</span>
              </h2>
              <p className="text-gray-400 text-lg font-light leading-relaxed">
                Selected design solutions for complex ecosystems. From friction to flow.

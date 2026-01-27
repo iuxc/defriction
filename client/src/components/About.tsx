@@ -44,7 +44,7 @@ export function About() {
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight text-white">
-              The Executive Who <span className="text-gray-500">Designs</span>.
+              The Executive Who <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Designs</span>.
             </h2>
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
