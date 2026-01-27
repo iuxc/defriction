@@ -374,18 +374,26 @@ export default function MonashCaseStudy() {
                     </div>
 
                     {/* Result */}
-                    <div className="pt-8 flex items-center justify-between border-t border-white/5 mt-8">
-                       <div className="text-sm text-gray-500 font-mono uppercase tracking-wider">Final Rank</div>
+                    <div className="pt-8 flex items-center justify-between border-t border-white/5 mt-8 px-4">
+                       <div className="flex items-baseline gap-4">
+                          <div className="text-sm text-gray-500 font-mono uppercase tracking-wider">Final Rank</div>
+                          <motion.div 
+                             initial={{ opacity: 0, y: 10 }}
+                             whileInView={{ opacity: 1, y: 0 }}
+                             transition={{ delay: 1.5 }}
+                             className="text-4xl font-bold text-white font-mono"
+                          >
+                             70.00
+                          </motion.div>
+                       </div>
+                       
                        <motion.div 
-                          initial={{ opacity: 0, y: 10 }}
-                          whileInView={{ opacity: 1, y: 0 }}
-                          transition={{ delay: 1.5 }}
-                          className="flex items-center gap-6"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: 1.8 }}
+                          className="h-10 px-4 flex items-center bg-volt-lime text-black rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(212,255,0,0.4)]"
                        >
-                          <div className="text-4xl font-bold text-white font-display">70.00</div>
-                          <div className="h-10 px-4 flex items-center bg-volt-lime text-black rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(212,255,0,0.4)]">
-                             <Check className="w-4 h-4 mr-2" /> Eligible
-                          </div>
+                          <Check className="w-4 h-4 mr-2" /> Eligible
                        </motion.div>
                     </div>
                   </div>
