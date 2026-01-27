@@ -3,16 +3,12 @@ import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
+import { BioModal } from "./BioModal";
 
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 
 export function About() {
-  const skills = [
-    { label: "Digital Strategy", value: "Expert" },
-    { label: "Brand Architecture", value: "Lead" },
-    { label: "React & Node", value: "Full Stack" },
-    { label: "Stakeholder Management", value: "Senior" }
-  ];
+  const [bioOpen, setBioOpen] = useState(false);
 
   const floatingBadges = [
     { text: "15+ Years Exp", pos: "-top-6 -right-6", delay: 0 },
@@ -53,27 +49,16 @@ export function About() {
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
               <p>
-                I bridge the gap between Boardroom strategy and Pixel-perfect execution. Most friction happens because these two worlds speak different languages.
-              </p>
-              <p>
-                I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
+                I currently lead Digital Strategy for the University of Oregon. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
               </p>
             </div>
 
-            {/* Redesigned Skills Section - Premium Spec Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-10 border-t border-b border-white/5 py-6">
-              {skills.map((skill) => (
-                <div key={skill.label} className="flex flex-col">
-                  <span className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">{skill.value}</span>
-                  <span className="text-white font-medium">{skill.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <Button variant="outline" className="text-volt-lime border-volt-lime/20 hover:bg-volt-lime hover:text-black group rounded-full" asChild>
-              <Link href="/bio">
-                Read full bio <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
+            <Button 
+              variant="outline" 
+              className="text-volt-lime border-volt-lime/20 hover:bg-volt-lime hover:text-black group rounded-full"
+              onClick={() => setBioOpen(true)}
+            >
+              View Full Profile <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
 
@@ -114,6 +99,8 @@ export function About() {
         </div>
       </div>
       <NextSectionArrow targetId="contact" />
+      
+      <BioModal open={bioOpen} onOpenChange={setBioOpen} />
     </section>
   );
 }
