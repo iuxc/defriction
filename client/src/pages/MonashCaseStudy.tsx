@@ -1,270 +1,377 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowLeft, Check, X } from "lucide-react";
+import { ArrowLeft, Check, X, ArrowRight, Play } from "lucide-react";
 import { motion } from "framer-motion";
+import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
 export default function MonashCaseStudy() {
+  const fadeInUp = {
+    initial: { opacity: 0, y: 30 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.8, ease: "easeOut" }
+  };
+
+  const stagger = {
+    animate: {
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+
   return (
-    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black">
+    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black font-sans">
       <Navigation />
       
-      {/* Header */}
-      <header className="relative pt-32 pb-24 border-b border-white/5 overflow-hidden">
-        <div className="absolute inset-0 bg-mesh-gradient opacity-20" />
+      {/* Hero Section - Apple Style */}
+      <header className="relative pt-40 pb-32 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-mesh-gradient opacity-10" />
+        <div className="absolute top-[-20%] right-[-10%] w-[60%] h-[60%] bg-electric-violet/10 rounded-full blur-[150px] animate-pulse" />
+        
         <div className="container mx-auto px-4 relative z-10">
           <Link href="/#work">
-            <a className="inline-flex items-center text-gray-400 hover:text-white mb-8 font-medium text-sm transition-colors bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-white/20">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Back to Work
+            <a className="inline-flex items-center text-gray-500 hover:text-white mb-12 font-medium text-sm transition-colors group">
+              <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Work
             </a>
           </Link>
-          <div className="grid md:grid-cols-2 gap-12 items-end">
+          
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial="initial"
+              animate="animate"
+              variants={stagger}
             >
-              <div className="font-mono text-electric-violet mb-6 tracking-widest text-xs uppercase border border-electric-violet/30 inline-block px-3 py-1 rounded">
-                Client: Monash University | Role: Strategy, IA, UI Design
-              </div>
-              <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-gray-500">
-                From Gatekeeper to Concierge.
-              </h1>
-              <p className="text-2xl text-gray-400 font-light max-w-xl leading-relaxed">
-                Unifying 40,000+ pathways into a single "Admissions Engine."
-              </p>
+              <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-8">
+                <span className="w-2 h-2 rounded-full bg-electric-violet animate-pulse" />
+                <span className="font-mono text-electric-violet tracking-widest text-xs uppercase font-medium">
+                  Monash University
+                </span>
+              </motion.div>
+              
+              <motion.div variants={fadeInUp}>
+                <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
+                  From <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Gatekeeper</span> <br />
+                  to <span className="text-white">Concierge.</span>
+                </h1>
+              </motion.div>
+              
+              <motion.div variants={fadeInUp}>
+                <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
+                  Unifying 40,000+ complex academic pathways into a single, intuitive "Admissions Engine."
+                </p>
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-4">
+                 <Button 
+                    className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                    asChild
+                 >
+                    <a href="#solution">
+                      See the Solution
+                      <ArrowRight className="ml-2 w-4 h-4" />
+                    </a>
+                 </Button>
+                 <Button 
+                    variant="outline"
+                    className="border-white/20 text-white hover:bg-white/10 hover:border-white/30 font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300"
+                    onClick={() => window.open('https://www.figma.com', '_blank')}
+                 >
+                    <Play className="mr-2 w-4 h-4 fill-current" />
+                    Launch Prototype
+                 </Button>
+              </motion.div>
             </motion.div>
             
             <motion.div 
-               initial={{ opacity: 0 }}
-               animate={{ opacity: 1 }}
-               transition={{ delay: 0.3, duration: 0.6 }}
-               className="flex flex-wrap gap-3 md:justify-end"
+               initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
+               animate={{ opacity: 1, scale: 1, rotate: 0 }}
+               transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
+               className="relative lg:h-[600px] flex items-center justify-center"
             >
-              {["Strategy", "Information Architecture", "Education"].map(tag => (
-                <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
-                  {tag}
-                </span>
-              ))}
+               {/* Abstract Hero Visualization */}
+               <div className="relative w-full max-w-lg z-10">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet/30 to-volt-lime/30 blur-[60px] rounded-full opacity-60" />
+                  <AbstractBrowser 
+                    variant="landing" 
+                    className="w-full shadow-2xl shadow-black/80 border-white/10 rotate-y-12 rotate-x-6 transform perspective-1000 transition-transform hover:rotate-0 duration-700"
+                  />
+                  
+                  {/* Floating Elements */}
+                  <motion.div 
+                    animate={{ y: [0, -20, 0] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute -right-12 top-20 glass-panel p-4 rounded-xl border border-white/10 shadow-xl max-w-[200px]"
+                  >
+                     <div className="flex items-center gap-3 mb-2">
+                        <div className="w-8 h-8 rounded-full bg-volt-lime/20 flex items-center justify-center text-volt-lime">
+                          <Check className="w-4 h-4" />
+                        </div>
+                        <span className="text-xs font-mono text-volt-lime">ELIGIBLE</span>
+                     </div>
+                     <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
+                       <div className="h-full w-[85%] bg-volt-lime" />
+                     </div>
+                  </motion.div>
+
+                  <motion.div 
+                    animate={{ y: [0, 15, 0] }}
+                    transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                    className="absolute -left-8 bottom-32 glass-panel p-4 rounded-xl border border-white/10 shadow-xl"
+                  >
+                     <div className="text-xs font-mono text-gray-400 mb-1">APPLICANTS</div>
+                     <div className="text-3xl font-display font-bold text-white">40k+</div>
+                  </motion.div>
+               </div>
             </motion.div>
           </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-24 space-y-32">
+      <main className="container mx-auto px-4 space-y-48 pb-32">
         
         {/* 1. The Friction (The Problem) */}
-        <section className="grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-4">
-            <span className="text-electric-violet font-mono text-sm mb-4 block tracking-widest uppercase">The Friction</span>
-            <h2 className="text-4xl font-display font-bold mb-6">The PDF Trap.</h2>
-          </div>
-          <div className="md:col-span-8 space-y-6 text-xl text-gray-400 font-light leading-relaxed">
-            <p>
-              40,000+ applicants were hitting dead ends. Critical pathway data was locked in static PDFs. A TAFE graduate with a Diploma of Nursing would search for credit and get 0 results.
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto"
+        >
+          <div className="text-center mb-16">
+            <span className="text-electric-violet font-mono text-sm mb-6 block tracking-widest uppercase font-medium">01 — The Friction</span>
+            <h2 className="text-5xl md:text-7xl font-display font-bold mb-8">The PDF Trap.</h2>
+            <p className="text-2xl text-gray-400 font-light leading-relaxed max-w-2xl mx-auto">
+              Critical pathway data was locked in static PDFs. A TAFE graduate searching for credit would hit a dead end 100% of the time.
             </p>
-            
-            <div className="grid md:grid-cols-3 gap-4 mt-8">
-              <div className="glass-panel p-6 rounded-xl border border-white/10 flex flex-col gap-2">
-                 <h4 className="text-white font-mono text-lg font-bold">100%</h4>
-                 <p className="text-sm text-gray-400 font-mono">Fail rate for TAFE searches</p>
-              </div>
-              <div className="glass-panel p-6 rounded-xl border border-white/10 flex flex-col gap-2">
-                 <h4 className="text-white font-mono text-lg font-bold">+5</h4>
-                 <p className="text-sm text-gray-400 font-mono">Hidden Adjustment Factors</p>
-              </div>
-              <div className="glass-panel p-6 rounded-xl border border-white/10 flex flex-col gap-2">
-                 <h4 className="text-white font-mono text-lg font-bold">$200</h4>
-                 <p className="text-sm text-gray-400 font-mono">Wasted VTAC fees</p>
-              </div>
-            </div>
           </div>
-        </section>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              { label: "Fail Rate", value: "100%", desc: "For manual TAFE searches", color: "text-red-400" },
+              { label: "Hidden Factors", value: "+5", desc: "Equity adjustments invisible", color: "text-orange-400" },
+              { label: "Wasted Fees", value: "$200", desc: "Per misinformed applicant", color: "text-gray-300" }
+            ].map((stat, i) => (
+              <div key={i} className="glass-card p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center hover:bg-white/5 transition-colors">
+                 <h4 className={`text-5xl font-display font-bold mb-3 ${stat.color}`}>{stat.value}</h4>
+                 <div className="text-white font-medium mb-1">{stat.label}</div>
+                 <p className="text-sm text-gray-500 font-mono">{stat.desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.section>
 
         {/* 2. The Insight (The Strategy) */}
-        <section className="grid md:grid-cols-12 gap-12 items-center">
-          <div className="md:col-span-4">
-            <span className="text-ion-cyan font-mono text-sm mb-4 block tracking-widest uppercase">The Insight</span>
-            <h2 className="text-4xl font-display font-bold mb-6">Logic over Legacy.</h2>
-          </div>
-          <div className="md:col-span-8 space-y-6 text-xl text-gray-400 font-light leading-relaxed">
-            <p>
-              The 2024 Universities Accord mandates equity access. We couldn't just reskin; we had to expose the logic. We pivoted from "Am I eligible?" (Gatekeeper) to "Who are you?" (Concierge).
+        <motion.section 
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="grid lg:grid-cols-2 gap-20 items-center"
+        >
+          <div>
+            <span className="text-ion-cyan font-mono text-sm mb-6 block tracking-widest uppercase font-medium">02 — The Insight</span>
+            <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">Logic over <br/> Legacy.</h2>
+            <p className="text-xl text-gray-400 font-light leading-relaxed mb-8">
+              The 2024 Universities Accord mandates equity access. We couldn't just reskin; we had to expose the logic. We pivoted from <span className="text-white font-medium">"Am I eligible?"</span> (Gatekeeper) to <span className="text-white font-medium">"Who are you?"</span> (Concierge).
             </p>
-            
-             <div className="font-mono text-sm text-volt-lime bg-[#0A0A0A] p-6 rounded-xl border border-white/10 overflow-x-auto shadow-inner mt-4">
-                USER INPUT: "I am a TAFE Graduate" {"->"} LOOKUP: ARTICULATION DB {"->"} <span className="text-green-400">DIRECT HIT (Green)</span> OR <span className="text-yellow-400">PARTIAL HIT (Amber)</span>
+            <div className="flex gap-4">
+               <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">Equity First</div>
+               <div className="px-4 py-2 rounded-full border border-white/10 bg-white/5 text-sm text-gray-300">Radical Transparency</div>
+            </div>
+          </div>
+          
+          <div className="relative">
+             <div className="absolute inset-0 bg-ion-cyan/10 blur-[100px] rounded-full" />
+             <div className="relative font-mono text-sm text-gray-300 bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
+                <div className="flex gap-2 mb-6 border-b border-white/10 pb-4">
+                   <div className="w-3 h-3 rounded-full bg-red-500/20" />
+                   <div className="w-3 h-3 rounded-full bg-yellow-500/20" />
+                   <div className="w-3 h-3 rounded-full bg-green-500/20" />
+                </div>
+                <div className="space-y-4">
+                   <div className="flex gap-4">
+                      <span className="text-ion-cyan">{">"}</span>
+                      <span>INPUT: <span className="text-white">"I am a TAFE Graduate"</span></span>
+                   </div>
+                   <div className="flex gap-4 pl-8 border-l border-white/10 opacity-50">
+                      <span>Analyzing prior learning...</span>
+                   </div>
+                   <div className="flex gap-4">
+                      <span className="text-ion-cyan">{">"}</span>
+                      <span>LOOKUP: <span className="text-white">Articulation_DB</span></span>
+                   </div>
+                   <div className="flex gap-4">
+                      <span className="text-ion-cyan">{">"}</span>
+                      <span>RESULT: <span className="text-volt-lime bg-volt-lime/10 px-2 py-0.5 rounded">DIRECT HIT (Green)</span></span>
+                   </div>
+                </div>
              </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* 3. The Defriction (The Solution) */}
-        <section className="glass-card rounded-3xl overflow-hidden border border-white/10">
-          <div className="p-8 md:p-16 grid md:grid-cols-12 gap-16 items-center">
-            <div className="md:col-span-4">
-              <span className="text-volt-lime font-mono text-sm mb-4 block tracking-widest uppercase">The Defriction</span>
-              <h3 className="text-3xl font-display font-bold mb-4 text-white">The Pathways Finder.</h3>
-              <p className="text-gray-400 leading-relaxed">
-                We built a dynamic component that visualizes the "Hidden Math." It calculates eligibility in real-time.
-              </p>
-            </div>
+        {/* 3. The Solution (Interactive) */}
+        <motion.section 
+           id="solution"
+           initial={{ opacity: 0, scale: 0.95 }}
+           whileInView={{ opacity: 1, scale: 1 }}
+           viewport={{ once: true, margin: "-50px" }}
+           transition={{ duration: 0.8 }}
+           className="bg-gradient-to-b from-white/5 to-transparent rounded-[3rem] p-1 border border-white/10 overflow-hidden"
+        >
+          <div className="bg-[#0A0A0A] rounded-[2.8rem] overflow-hidden relative">
+            <div className="absolute top-0 left-0 right-0 h-[500px] bg-volt-lime/5 blur-[120px] pointer-events-none" />
             
-            <div className="md:col-span-8">
-              {/* Interactive Mockup - The Stacking Calculator */}
-              <div className="bg-[#0f1219] rounded-xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-volt-lime/10 blur-[50px] rounded-full pointer-events-none" />
-                
-                <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
-                  <span>PATHWAY_ENGINE_V1.0</span>
-                  <span className="text-volt-lime">● LIVE CALCULATION</span>
+            <div className="p-8 md:p-20 grid lg:grid-cols-12 gap-16 items-center relative z-10">
+              <div className="lg:col-span-5">
+                <span className="text-volt-lime font-mono text-sm mb-6 block tracking-widest uppercase font-medium">03 — The Solution</span>
+                <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">The Stacking Calculator.</h3>
+                <p className="text-xl text-gray-400 leading-relaxed mb-8">
+                  A dynamic component that visualizes the "Hidden Math." We visualize the gap closing in real-time, giving students hope instead of rejection.
+                </p>
+                <div className="flex items-center gap-4 text-sm font-mono text-gray-500">
+                   <span className="flex items-center gap-2">
+                     <span className="w-2 h-2 rounded-full bg-volt-lime animate-pulse" />
+                     Live Calculation
+                   </span>
+                   <span className="h-4 w-px bg-white/10" />
+                   <span>V2.1 Production</span>
                 </div>
-                
-                <div className="space-y-10 relative px-4">
-                  {/* Threshold Line */}
-                  <div className="absolute left-[70%] -top-4 -bottom-4 border-l border-dashed border-white/20 z-10">
-                    <div className="absolute -top-6 -left-8 bg-white/10 text-white text-xs px-2 py-1 rounded backdrop-blur-md border border-white/5">
-                      Target: 70
-                    </div>
+              </div>
+              
+              <div className="lg:col-span-7">
+                {/* Interactive Mockup */}
+                <div className="bg-[#0f1219] rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden transform transition-transform hover:scale-[1.01] duration-500">
+                  <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
+                    <span>PATHWAY_ENGINE</span>
+                    <span className="text-volt-lime">● ACTIVE</span>
                   </div>
+                  
+                  <div className="space-y-12 relative px-4 py-4">
+                    {/* Threshold Line */}
+                    <div className="absolute left-[70%] -top-4 -bottom-4 border-l border-dashed border-white/20 z-10 flex flex-col justify-end pb-2">
+                      <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left translate-y-8">Target: 70.00</div>
+                    </div>
 
-                  {/* Bar Group */}
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-gray-400">Raw ATAR</span>
-                      <span className="text-white font-mono">65.00</span>
+                    {/* Bar Group */}
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-gray-400">Raw ATAR</span>
+                        <span className="text-white font-mono text-lg">65.00</span>
+                      </div>
+                      <div className="h-12 bg-white/5 rounded-xl relative overflow-hidden ring-1 ring-white/5">
+                        <motion.div 
+                          initial={{ width: 0 }}
+                          whileInView={{ width: "65%" }}
+                          viewport={{ once: false }}
+                          transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
+                          className="h-full bg-gradient-to-r from-electric-violet to-purple-500 rounded-l-xl"
+                        />
+                      </div>
                     </div>
-                    <div className="h-10 bg-white/5 rounded-full relative overflow-hidden">
-                      <motion.div 
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "65%" }}
-                        transition={{ duration: 1.2, ease: "circOut" }}
-                        className="h-full bg-electric-violet rounded-full"
-                      />
-                    </div>
-                  </div>
 
-                  <div className="space-y-2">
-                    <div className="flex justify-between text-sm mb-2">
-                      <span className="text-volt-lime">Regional Bonus</span>
-                      <span className="text-white font-mono">+5.00</span>
+                    <div className="space-y-3">
+                      <div className="flex justify-between text-sm mb-1">
+                        <span className="text-volt-lime">Regional Bonus</span>
+                        <span className="text-white font-mono text-lg">+5.00</span>
+                      </div>
+                      <div className="h-12 flex relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5">
+                         {/* Spacer */}
+                         <div className="w-[65%] h-full border-r border-white/5" />
+                         {/* Bonus Bar */}
+                         <div className="h-full flex-grow relative">
+                           <motion.div 
+                              initial={{ width: 0 }}
+                              whileInView={{ width: "15%" }}
+                              viewport={{ once: false }}
+                              transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                              className="h-full bg-volt-lime absolute top-0 left-0 shadow-[0_0_30px_rgba(212,255,0,0.3)]"
+                            />
+                         </div>
+                      </div>
                     </div>
-                    <div className="h-10 flex relative rounded-full bg-white/5 overflow-hidden">
-                       {/* Spacer */}
-                       <div className="w-[65%] h-full" />
-                       {/* Bonus Bar */}
-                       <div className="h-full flex-grow relative">
-                         <motion.div 
-                            initial={{ width: 0 }}
-                            whileInView={{ width: "15%" }}
-                            transition={{ duration: 0.8, delay: 1 }}
-                            className="h-full bg-volt-lime absolute top-0 left-0 rounded-r-full shadow-[0_0_20px_rgba(212,255,0,0.5)]"
-                          />
-                       </div>
-                    </div>
-                  </div>
 
-                  {/* Result */}
-                  <div className="pt-6 flex items-center justify-between border-t border-white/5 mt-8">
-                     <div className="text-sm text-gray-500">Selection Rank</div>
-                     <div className="flex items-center gap-4">
-                        <div className="text-3xl font-bold text-white font-display">70.00</div>
-                        <div className="h-8 px-3 flex items-center bg-volt-lime/20 text-volt-lime border border-volt-lime/30 rounded-full text-xs font-bold uppercase tracking-wider">
-                           <Check className="w-3 h-3 mr-1" /> Eligible
-                        </div>
-                     </div>
+                    {/* Result */}
+                    <div className="pt-8 flex items-center justify-between border-t border-white/5 mt-8">
+                       <div className="text-sm text-gray-500 font-mono uppercase tracking-wider">Final Rank</div>
+                       <motion.div 
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          transition={{ delay: 1.5 }}
+                          className="flex items-center gap-6"
+                       >
+                          <div className="text-4xl font-bold text-white font-display">70.00</div>
+                          <div className="h-10 px-4 flex items-center bg-volt-lime text-black rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(212,255,0,0.4)]">
+                             <Check className="w-4 h-4 mr-2" /> Eligible
+                          </div>
+                       </motion.div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        {/* 4. The Gallery (Visual Proof) */}
-        <section className="space-y-12">
-           <h2 className="text-3xl font-display font-bold text-white mb-8 border-b border-white/10 pb-6">
-             Visual Proof
-           </h2>
+        {/* 4. The Gallery */}
+        <section className="space-y-16">
+           <div className="text-center max-w-2xl mx-auto">
+             <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Visual Proof</h2>
+             <p className="text-gray-400 text-lg">From architectural diagrams to pixel-perfect production.</p>
+           </div>
            
            <div className="grid md:grid-cols-3 gap-8">
-             {/* Image 1 */}
-             <div className="group space-y-4">
-                <div className="aspect-[4/3] bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-colors">
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs">
-                    [placeholder: pathways_ia.png]
+             {[
+               { title: "Information Architecture", sub: "The Concierge logic", placeholder: "pathways_ia.png" },
+               { title: "Low-Fidelity Wireframe", sub: "Testing the Stacking concept", placeholder: "wireframe.png" },
+               { title: "High-Fidelity UI", sub: "Production-ready interface", placeholder: "high_fidelity.png" }
+             ].map((item, i) => (
+               <motion.div 
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1 }}
+                  className="group space-y-6"
+               >
+                  <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                    <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs bg-gradient-to-br from-white/5 to-transparent">
+                      [{item.placeholder}]
+                    </div>
                   </div>
-                </div>
-                <div>
-                   <h4 className="text-white font-bold">Information Architecture</h4>
-                   <p className="text-gray-400 text-sm">The Concierge logic.</p>
-                </div>
-             </div>
-
-             {/* Image 2 */}
-             <div className="group space-y-4">
-                <div className="aspect-[4/3] bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-colors">
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs">
-                    [placeholder: wireframe.png]
+                  <div>
+                     <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">{item.title}</h4>
+                     <p className="text-gray-400 text-sm">{item.sub}</p>
                   </div>
-                </div>
-                <div>
-                   <h4 className="text-white font-bold">Low-Fidelity Wireframe</h4>
-                   <p className="text-gray-400 text-sm">Testing the Stacking concept.</p>
-                </div>
-             </div>
-
-             {/* Image 3 */}
-             <div className="group space-y-4">
-                <div className="aspect-[4/3] bg-white/5 rounded-lg overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-colors">
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs">
-                    [placeholder: high_fidelity.png]
-                  </div>
-                </div>
-                <div>
-                   <h4 className="text-white font-bold">High-Fidelity UI</h4>
-                   <p className="text-gray-400 text-sm">Production-ready interface.</p>
-                </div>
-             </div>
+               </motion.div>
+             ))}
            </div>
         </section>
 
-        {/* 5. Prototype Action */}
-        <section className="py-12">
-           <a 
-             href="#" 
-             className="group block w-full bg-volt-lime hover:bg-[#b8dd00] text-black rounded-2xl p-12 text-center transition-all duration-300 transform hover:-translate-y-1 hover:shadow-[0_20px_40px_-15px_rgba(212,255,0,0.3)]"
-           >
-              <h3 className="text-3xl md:text-5xl font-display font-bold mb-4 group-hover:scale-[1.02] transition-transform">
-                [ Launch Interactive Prototype ]
-              </h3>
-              <p className="font-mono text-sm md:text-base uppercase tracking-widest opacity-70">
-                Experience the "Stacking" animation live in Figma
-              </p>
-           </a>
-        </section>
-
-        {/* 6. The Outcome */}
-        <section className="grid md:grid-cols-3 gap-8 py-12 border-t border-white/10">
-           <div className="space-y-2">
-             <h4 className="text-white font-bold font-display text-xl">COMPLIANCE</h4>
-             <p className="text-gray-400">Centralized logic ensures Accord compliance.</p>
-           </div>
-           <div className="space-y-2">
-             <h4 className="text-white font-bold font-display text-xl">EFFICIENCY</h4>
-             <p className="text-gray-400">Projected 30% reduction in support tickets.</p>
-           </div>
-           <div className="space-y-2">
-             <h4 className="text-white font-bold font-display text-xl">EQUITY</h4>
-             <p className="text-gray-400">Surfaces hidden eligibility for regional/low-SES students.</p>
-           </div>
+        {/* 5. The Outcome */}
+        <section className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
+           {[
+             { title: "COMPLIANCE", desc: "Centralized logic ensures Accord compliance." },
+             { title: "EFFICIENCY", desc: "Projected 30% reduction in support tickets." },
+             { title: "EQUITY", desc: "Surfaces hidden eligibility for regional/low-SES students." }
+           ].map((outcome, i) => (
+             <div key={i} className="bg-deep-basalt p-12 hover:bg-white/5 transition-colors duration-500">
+               <h4 className="text-white font-bold font-display text-2xl mb-4">{outcome.title}</h4>
+               <p className="text-gray-400 leading-relaxed text-lg">{outcome.desc}</p>
+             </div>
+           ))}
         </section>
 
       </main>
 
       <footer className="py-24 border-t border-white/10 text-center bg-black/20">
          <div className="container mx-auto px-4">
-           <h3 className="text-3xl font-display font-bold text-white mb-8">Ready to transform your user flow?</h3>
+           <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-10 max-w-2xl mx-auto leading-tight">
+             Ready to transform your user flow?
+           </h3>
            <Button 
-              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-lg hover:shadow-volt-lime/20"
+              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-10 py-8 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_40px_rgba(212,255,0,0.3)] hover:scale-105"
               asChild
             >
               <Link href="/#contact">Start a Project</Link>
