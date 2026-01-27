@@ -77,7 +77,7 @@ export function WorkGrid() {
                     <div className="flex justify-between items-start mb-6">
                        <div className="flex flex-wrap gap-2">
                         {project.tags.map((tag) => (
-                          <Badge key={tag} variant="secondary" className="bg-white/5 hover:bg-white/10 text-gray-300 border-white/5 backdrop-blur-sm rounded-full px-3 py-1 font-normal">
+                          <Badge key={tag} variant="secondary" className="bg-ion-cyan/5 hover:bg-ion-cyan/10 text-ion-cyan border-ion-cyan/20 backdrop-blur-sm rounded-md px-3 py-1 font-mono font-normal">
                             {tag}
                           </Badge>
                         ))}

@@ -85,8 +85,8 @@ export default function MonashCaseStudy() {
                 transition={{ duration: 0.8 }}
                 className="flex items-center gap-3 mb-8"
               >
-                <span className="w-2 h-2 rounded-full bg-electric-violet animate-pulse" />
-                <span className="font-mono text-electric-violet tracking-widest text-xs uppercase font-medium">
+                <span className="w-2 h-2 rounded-full bg-ion-cyan animate-pulse" />
+                <span className="font-mono text-ion-cyan tracking-widest text-xs uppercase font-medium">
                   Monash University
                 </span>
               </motion.div>
@@ -130,7 +130,7 @@ export default function MonashCaseStudy() {
                  </Button>
                  <Button 
                     variant="ghost"
-                    className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base px-6 py-6 h-auto transition-all duration-300"
+                    className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base px-6 py-6 h-auto transition-all duration-300 rounded-full"
                     onClick={() => window.open('https://www.figma.com', '_blank')}
                  >
                     <ExternalLink className="mr-2 w-4 h-4" />
@@ -238,8 +238,8 @@ export default function MonashCaseStudy() {
               The 2024 Universities Accord mandates equity access. We couldn't just reskin; we had to expose the logic. We pivoted from <span className="text-white font-medium">"Am I eligible?"</span> (Gatekeeper) to <span className="text-white font-medium">"Who are you?"</span> (Concierge).
             </p>
             <div className="flex gap-4">
-               <div className="px-4 py-2 rounded-full border border-white/5 bg-white/5 text-sm text-gray-400 font-mono">Equity First</div>
-               <div className="px-4 py-2 rounded-full border border-white/5 bg-white/5 text-sm text-gray-400 font-mono">Radical Transparency</div>
+               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Equity First</div>
+               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Radical Transparency</div>
             </div>
           </motion.div>
           

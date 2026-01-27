@@ -19,12 +19,12 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-5xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 mb-8 backdrop-blur-md cursor-default">
             <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt-lime opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-volt-lime"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-ion-cyan opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-ion-cyan"></span>
             </span>
-            <span className="font-mono text-xs tracking-widest text-gray-300 uppercase">
+            <span className="font-mono text-xs tracking-widest text-ion-cyan uppercase">
               Brand Intelligence + Digital Strategy
             </span>
           </div>
@@ -56,7 +56,7 @@ export function Hero() {
             
             <Button 
               variant="ghost" 
-              className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base gap-2 group"
+              className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base gap-2 group rounded-full"
               asChild
             >
               <a href="#method">

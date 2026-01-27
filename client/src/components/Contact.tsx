@@ -66,7 +66,7 @@ export function Contact() {
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-mono text-volt-lime uppercase tracking-widest font-bold bg-white/5 px-2 py-1 inline-block rounded-sm">Project Budget (AUD)</label>
+                <label className="text-xs font-mono text-ion-cyan uppercase tracking-widest font-bold bg-ion-cyan/5 px-2 py-1 inline-block rounded-md">Project Budget (AUD)</label>
                 <Select onValueChange={(value) => console.log(value)}>
                   <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white transition-all focus:bg-white/10">
                     <SelectValue placeholder="Select engagement level..." />
@@ -90,7 +90,7 @@ export function Contact() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-xl text-lg transition-all duration-300 shadow-xl shadow-white/5"
+                className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
               >
                 Send Transmission <Send className="ml-2 w-4 h-4" />
               </Button>

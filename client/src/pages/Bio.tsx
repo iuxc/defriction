@@ -21,9 +21,9 @@ export default function Bio() {
               transition={{ duration: 0.8 }}
               className="max-w-4xl"
             >
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-volt-lime animate-pulse" />
-                <span className="font-mono text-xs text-volt-lime uppercase tracking-widest">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-ion-cyan/5 border border-ion-cyan/20 mb-8 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-ion-cyan animate-pulse" />
+                <span className="font-mono text-xs text-ion-cyan uppercase tracking-widest">
                   Identity: The Translator
                 </span>
               </div>
@@ -118,7 +118,7 @@ export default function Bio() {
             
             {/* Left Column (To the CMO) */}
             <div className="p-12 space-y-6 group hover:bg-white/5 transition-colors">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-ion-cyan/10 text-ion-cyan border border-ion-cyan/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-ion-cyan/10 text-ion-cyan border border-ion-cyan/20">
                 <span className="text-xs font-mono uppercase tracking-widest">To the CMO</span>
               </div>
               <h3 className="text-3xl font-display font-bold">
@@ -131,7 +131,7 @@ export default function Bio() {
 
             {/* Right Column (To the CIO) */}
             <div className="p-12 space-y-6 group hover:bg-white/5 transition-colors">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-electric-violet/10 text-electric-violet border border-electric-violet/20">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-ion-cyan/10 text-ion-cyan border border-ion-cyan/20">
                 <span className="text-xs font-mono uppercase tracking-widest">To the CIO</span>
               </div>
               <h3 className="text-3xl font-display font-bold">
