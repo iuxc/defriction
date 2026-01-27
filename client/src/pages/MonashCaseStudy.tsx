@@ -53,7 +53,7 @@ export default function MonashCaseStudy() {
         
         <div className="container mx-auto px-4 relative z-10">
           <Link href="/#work">
-            <a className="inline-flex items-center text-gray-500 hover:text-white mb-12 font-medium text-sm transition-colors group">
+            <a className="inline-flex items-center text-gray-500 hover:text-white mb-12 font-medium text-sm transition-all group px-4 py-2 rounded-full hover:border hover:border-white/20">
               <ArrowLeft className="w-4 h-4 mr-2 group-hover:-translate-x-1 transition-transform" /> Back to Work
             </a>
           </Link>
@@ -84,7 +84,7 @@ export default function MonashCaseStudy() {
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
                 <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
-                  Unifying the admissions journey for 40,000+ applicants.
+                  A uniquely Australian concept for unifying the admissions journey for 40,000+ applicants.
                 </p>
               </motion.div>
 
@@ -96,7 +96,7 @@ export default function MonashCaseStudy() {
               >
                 <div>
                    <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Client</h3>
-                   <p className="text-white font-medium">Monash University</p>
+                   <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-cyan-400 transition-colors">Monash University</a>
                 </div>
                 <div>
                    <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
@@ -185,7 +185,7 @@ export default function MonashCaseStudy() {
                 
                 <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by Administrative Burden.</h2>
                 <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
-                  Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility using static PDFs, hidden 'Adjustment Factor' spreadsheets, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping guests find their way.
+                  Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">hidden 'Adjustment Factor' spreadsheets</a>, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
                 </p>
               </motion.div>
 
@@ -275,7 +275,7 @@ export default function MonashCaseStudy() {
 
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">The Shift to Equity.</h2>
             <p className="text-xl text-gray-400 font-light leading-relaxed mb-8">
-              The 2024 Universities Accord mandates a shift from a market-driven logic to an equity-driven mandate. We couldn't just reskin the page; we had to expose the backend logic to the frontend user. We pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
+              The <a href="#" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">2024 Universities Accord</a> mandates a shift from a market-driven logic to an equity-driven mandate. I couldn't just reskin the page; I had to expose the backend logic to the frontend user. I pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
             </p>
             <div className="flex gap-4">
                <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Equity First</div>
@@ -308,7 +308,7 @@ export default function MonashCaseStudy() {
 
                 <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Visualizing the Invisible.</h3>
                 <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                  We designed a dynamic component that visualizes the "Hidden Math" of admissions. Instead of a static table, the "Stacking Calculator" shows students exactly how close they are.
+                  I designed a dynamic component that visualizes the "Hidden Math" of admissions. Instead of a static table, the "Stacking Calculator" shows students exactly how close they are.
                 </p>
                 
                 <Button 
@@ -406,6 +406,11 @@ export default function MonashCaseStudy() {
                     </div>
                   </div>
                 </div>
+                
+                {/* Caption */}
+                <p className="text-xs font-mono text-gray-500 mt-4 text-center max-w-md mx-auto">
+                  The Stacking Calculator visualizes eligibility adjustments based on postcode, revealing a student's true Selection Rank beyond their raw ATAR.
+                </p>
             </motion.div>
         </div>
       </Section>
