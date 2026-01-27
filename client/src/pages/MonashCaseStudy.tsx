@@ -117,39 +117,25 @@ export default function MonashCaseStudy() {
                    <p className="text-white font-medium">UI Design + Information Architecture</p>
                 </div>
               </motion.div>
-
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="flex flex-col sm:flex-row gap-4"
-              >
-                 <Button 
-                    className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
-                    onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
-                 >
-                    See the Solution
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                 </Button>
-                 <Button 
-                    variant="ghost"
-                    className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base px-6 py-4 h-auto transition-all duration-300 rounded-full"
-                    onClick={() => window.open('https://www.figma.com', '_blank')}
-                 >
-                    <ExternalLink className="mr-2 w-4 h-4" />
-                    Launch Interactive Demo
-                 </Button>
-              </motion.div>
             </motion.div>
             
             <motion.div 
                initial={{ opacity: 0, scale: 0.9, rotate: -5 }}
                animate={{ opacity: 1, scale: 1, rotate: 0 }}
                transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
-               className="relative lg:h-[600px] flex items-center justify-center"
+               className="relative lg:h-[600px] flex flex-col items-center justify-center"
             >
+               {/* Ghosted Background Logo */}
+               <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none opacity-10">
+                  <img 
+                    src="/assets/images/monash-crest.png" 
+                    alt="Monash University Crest" 
+                    className="w-[80%] h-auto object-contain blur-sm"
+                  />
+               </div>
+
                {/* Abstract Hero Visualization */}
-               <div className="relative w-full max-w-lg z-10">
+               <div className="relative w-full max-w-lg z-10 mb-8">
                   <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet/30 to-volt-lime/30 blur-[60px] rounded-full opacity-60" />
                   <AbstractBrowser 
                     variant="landing" 
@@ -182,6 +168,22 @@ export default function MonashCaseStudy() {
                      <div className="text-3xl font-display font-bold text-white">40k+</div>
                   </motion.div>
                </div>
+
+               {/* Centered CTA */}
+               <motion.div
+                 initial={{ opacity: 0, y: 20 }}
+                 animate={{ opacity: 1, y: 0 }}
+                 transition={{ delay: 1, duration: 0.5 }}
+                 className="relative z-20"
+               >
+                 <Button 
+                    className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                    onClick={() => window.open('https://www.figma.com', '_blank')}
+                 >
+                    Launch Interactive Demo
+                    <ExternalLink className="ml-2 w-4 h-4" />
+                 </Button>
+               </motion.div>
             </motion.div>
           </div>
         </div>
