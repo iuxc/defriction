@@ -296,7 +296,7 @@ export default function Bio() {
               <FooterContact title="Ready to ship?" />
               
               <p className="font-mono text-xs text-gray-600 mt-24 tracking-widest uppercase">
-                hello@defriction.design
+                brian@defriction.design
                 <br /><br />
                 © 2026 defriction design. MELBOURNE / EUGENE.
               </p>

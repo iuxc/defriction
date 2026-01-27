@@ -465,7 +465,7 @@ export default function MonashCaseStudy() {
            <FooterContact title="Ready to transform your user flow?" />
            
            <p className="font-mono text-xs text-gray-600 mt-12">
-             hello@defriction.design
+             brian@defriction.design
              <br /><br />
              © 2026 defriction design. MELBOURNE / EUGENE.
            </p>
