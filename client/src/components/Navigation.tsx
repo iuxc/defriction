@@ -14,7 +14,7 @@ export function Navigation() {
   const navItems = [
     { name: "Work", href: "/#work", id: "work" },
     { name: "Method", href: "/#method", id: "method" },
-    { name: "About", href: "/#about", id: "about" },
+    { name: "About", href: "/bio", id: "about" },
   ];
 
   useEffect(() => {
