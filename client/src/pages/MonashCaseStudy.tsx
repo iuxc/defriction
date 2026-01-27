@@ -1,7 +1,7 @@
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
-import { ArrowLeft, Check, X, ArrowRight, Play } from "lucide-react";
+import { ArrowLeft, Check, X, ArrowRight, Play, ShieldCheck, Zap, Scale } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
@@ -324,9 +324,9 @@ export default function MonashCaseStudy() {
            
            <div className="grid md:grid-cols-3 gap-8">
              {[
-               { title: "Information Architecture", sub: "The Concierge logic", placeholder: "pathways_ia.png" },
-               { title: "Low-Fidelity Wireframe", sub: "Testing the Stacking concept", placeholder: "wireframe.png" },
-               { title: "High-Fidelity UI", sub: "Production-ready interface", placeholder: "high_fidelity.png" }
+               { title: "Information Architecture", sub: "The Concierge logic", img: "/assets/images/monash-ia.png" },
+               { title: "Low-Fidelity Wireframe", sub: "Testing the Stacking concept", img: "/assets/images/monash-wireframe.png" },
+               { title: "High-Fidelity UI", sub: "Production-ready interface", img: "/assets/images/monash-ui.png" }
              ].map((item, i) => (
                <motion.div 
                   key={i}
@@ -336,9 +336,11 @@ export default function MonashCaseStudy() {
                   className="group space-y-6"
                >
                   <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
-                    <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-mono text-xs bg-gradient-to-br from-white/5 to-transparent">
-                      [{item.placeholder}]
-                    </div>
+                    <img 
+                      src={item.img} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
                   </div>
                   <div>
                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">{item.title}</h4>
@@ -352,11 +354,14 @@ export default function MonashCaseStudy() {
         {/* 5. The Outcome */}
         <section className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden">
            {[
-             { title: "COMPLIANCE", desc: "Centralized logic ensures Accord compliance." },
-             { title: "EFFICIENCY", desc: "Projected 30% reduction in support tickets." },
-             { title: "EQUITY", desc: "Surfaces hidden eligibility for regional/low-SES students." }
+             { title: "COMPLIANCE", desc: "Centralized logic ensures Accord compliance.", icon: ShieldCheck },
+             { title: "EFFICIENCY", desc: "Projected 30% reduction in support tickets.", icon: Zap },
+             { title: "EQUITY", desc: "Surfaces hidden eligibility for regional/low-SES students.", icon: Scale }
            ].map((outcome, i) => (
-             <div key={i} className="bg-deep-basalt p-12 hover:bg-white/5 transition-colors duration-500">
+             <div key={i} className="bg-deep-basalt p-12 hover:bg-white/5 transition-colors duration-500 group">
+               <div className="mb-6 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-volt-lime group-hover:scale-110 transition-transform duration-300">
+                  <outcome.icon className="w-6 h-6" />
+               </div>
                <h4 className="text-white font-bold font-display text-2xl mb-4">{outcome.title}</h4>
                <p className="text-gray-400 leading-relaxed text-lg">{outcome.desc}</p>
              </div>
