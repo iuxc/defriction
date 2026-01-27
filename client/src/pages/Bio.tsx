@@ -154,7 +154,7 @@ export default function Bio() {
             {[
               { label: "CONSOLIDATION", desc: "Merged 8 Indiana University websites into 1 unified gateway.", color: "border-l-volt-lime" },
               { label: "ACCESSIBILITY", desc: "Founded the office that hit #1 Ranking in the Big Ten.", color: "border-l-ion-cyan" },
-              { label: "SCALE", desc: "Led teams of 75+ across multiple timezones.", color: "border-l-electric-violet" },
+              { label: "SCALE", desc: "Managed enterprise-scale digital ecosystems.", color: "border-l-electric-violet" },
               { label: "GROWTH", desc: "Scaled Rume Health Ops to 20 states with <3% turnover.", color: "border-l-flux-orange" },
               { label: "SYSTEMS", desc: "Pioneered the 'Rivet' Design System for Higher Ed.", color: "border-l-white" },
               { label: "IMPACT", desc: "Managed $5M+ digital transformation budgets.", color: "border-l-gray-400" }

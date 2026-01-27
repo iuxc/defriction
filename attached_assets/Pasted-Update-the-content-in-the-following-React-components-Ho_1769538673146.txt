@@ -1,0 +1,38 @@
+Update the content in the following React components:
+Homepage
+
+    Hero Headline: Change "Strategy that works" to "Complex UX Solved. Design that Flows."
+
+    Work Section Subhead: Change "Unifying 40,000+ pathways..." to "Selected design solutions for complex ecosystems. From friction to flow."
+
+    Work Card (Monash): Change copy to "Unifying the admissions journey for 40,000+ applicants."
+
+    Method Badge: Change text to "02. The Method"
+
+    Method Intro: Insert this text below the "Built for Velocity" headline: "I don't just hand off a strategy deck and walk away. I leverage the US-Australia timezone overlap to deliver production-ready design during your off-hours, while bringing the executive wisdom to ensure it actually works."
+
+    Method Col 1 (Timezone): Change to "Brief me during your Australian workday. I execute while you sleep. You wake up to finished designs the next morning."
+
+    Method Col 2 (Dual-Track): Change to "I speak the language of the Boardroom and the Figma file. I bridge the gap between executive goals and pixel-perfect execution."
+
+    About Body: Change to "I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision."
+
+    Footer: Remove the "Let's remove the friction" tagline entirely.
+
+Monash Page
+
+    Header Subhead: Change to "Unifying the admissions journey for 40,000+ applicants."
+
+    Friction Section: Find any mention of "40,000+ pathways" and replace with "40,000+ applicants."
+
+    Header CTAs:
+
+        Primary Button: "See the Solution" (Scroll action).
+
+        Secondary Button: "Launch Interactive Demo" (External link action).
+
+    Bottom CTA: Change button text to "Launch Interactive Demo" and subtext to "Experience the 'Stacking' animation live in Figma."
+
+Bio Page
+
+    Hard Assets List: Change "Managed multi-million dollar digital estates" to "Managed enterprise-scale digital ecosystems."

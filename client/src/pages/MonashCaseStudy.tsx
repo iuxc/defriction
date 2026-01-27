@@ -113,7 +113,7 @@ export default function MonashCaseStudy() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
-                  Unifying 40,000+ complex academic pathways into a single, intuitive "Admissions Engine."
+                  Unifying the admissions journey for 40,000+ applicants.
                 </p>
               </motion.div>
 
@@ -125,12 +125,10 @@ export default function MonashCaseStudy() {
               >
                  <Button 
                     className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
-                    asChild
+                    onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
                  >
-                    <a href="#solution">
-                      See the Solution
-                      <ArrowRight className="ml-2 w-4 h-4" />
-                    </a>
+                    See the Solution
+                    <ArrowRight className="ml-2 w-4 h-4" />
                  </Button>
                  <Button 
                     variant="ghost"
@@ -138,7 +136,7 @@ export default function MonashCaseStudy() {
                     onClick={() => window.open('https://www.figma.com', '_blank')}
                  >
                     <ExternalLink className="mr-2 w-4 h-4" />
-                    Launch Prototype
+                    Launch Interactive Demo
                  </Button>
               </motion.div>
             </motion.div>
@@ -442,8 +440,12 @@ export default function MonashCaseStudy() {
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="px-6 py-3 rounded-full border border-white/30 text-white font-medium backdrop-blur-md hover:bg-white hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
-                        Launch Demo
+                       <div className="px-6 py-3 rounded-full border border-white/30 text-white font-medium backdrop-blur-md hover:bg-white hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 flex items-center gap-2" onClick={() => window.open('https://www.figma.com', '_blank')}>
+                        <ExternalLink className="w-4 h-4" />
+                        Launch Interactive Demo
+                      </div>
+                      <div className="absolute top-full mt-2 text-center text-xs font-mono text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                        Experience the 'Stacking' animation live in Figma.
                       </div>
                     </div>
                   </div>

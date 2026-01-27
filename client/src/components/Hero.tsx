@@ -34,9 +34,9 @@ export function Hero() {
           </div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
-            <span className="block text-white">Strategy that</span>
+            <span className="block text-white">Complex UX Solved.</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet">
-               flows like magic.
+               Design that Flows.
             </span>
           </h1>
           

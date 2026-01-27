@@ -16,7 +16,7 @@ export function WorkGrid() {
     {
       id: "monash",
       title: "Monash University",
-      subtitle: "Unifying 40,000+ pathways.",
+      subtitle: "Unifying the admissions journey for 40,000+ applicants.",
       tags: ["Strategy", "IA", "Education"],
       link: "/work/monash",
       gradient: "from-electric-violet/20 to-transparent",
@@ -58,7 +58,7 @@ export function WorkGrid() {
                Selected <span className="text-gray-500">Work</span>
              </h2>
              <p className="text-gray-400 text-lg font-light leading-relaxed">
-               A collection of strategic interventions and digital products built for scale.
+               Selected design solutions for complex ecosystems. From friction to flow.
              </p>
           </div>
           <div className="hidden md:block pb-2">

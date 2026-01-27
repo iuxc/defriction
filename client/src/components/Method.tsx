@@ -11,14 +11,14 @@ export function Method() {
   const methodsData = [
     {
       title: "Timezone Arbitrage",
-      desc: "My afternoon is your morning. Brief at 5 PM AEST -> Mocks by 9 AM AEST.",
+      desc: "Brief me during your Australian workday. I execute while you sleep. You wake up to finished designs the next morning.",
       gradient: "from-volt-lime/20 to-transparent",
       border: "hover:border-volt-lime/50",
       browserVariant: "timezone" as const
     },
     {
       title: "Dual-Track Brain",
-      desc: "I speak 'Academic Senate' but ship like a Startup. Governance meets Velocity.",
+      desc: "I speak the language of the Boardroom and the Figma file. I bridge the gap between executive goals and pixel-perfect execution.",
       gradient: "from-ion-cyan/20 to-transparent",
       border: "hover:border-ion-cyan/50",
       browserVariant: "brain" as const
@@ -42,11 +42,14 @@ export function Method() {
       <div className="container mx-auto px-4 relative z-20">
         <div className="text-center mb-20">
           <span className="inline-block py-1 px-3 rounded-md bg-ion-cyan/5 border border-ion-cyan/20 text-xs font-mono text-ion-cyan uppercase tracking-widest mb-6 cursor-default">
-            The Methodology
+            02. The Method
           </span>
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
             Built for <span className="text-gradient-purple">Velocity</span>
           </h2>
+          <p className="text-gray-400 text-lg font-light leading-relaxed max-w-3xl mx-auto">
+            I don't just hand off a strategy deck and walk away. I leverage the US-Australia timezone overlap to deliver production-ready design during your off-hours, while bringing the executive wisdom to ensure it actually works.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

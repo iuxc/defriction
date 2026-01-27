@@ -80,12 +80,7 @@ export function About() {
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
               <p>
-                I lead Digital Strategy for the University of Oregon by day. I defriction by night. 
-                Most agencies struggle to speak "University" while maintaining "Startup" speed. I do both native.
-              </p>
-              <p>
-                My work is not just about making things look good (though they will). 
-                It's about political navigation, technical feasibility, and shipping actual value.
+                I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
               </p>
             </div>
 
