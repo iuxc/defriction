@@ -78,12 +78,14 @@ export function Navigation() {
           <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
+              const isBioPage = location === "/bio" && item.id === "about";
+              
               return (
                 <a
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 z-10",
+                    "relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 z-10 flex items-center gap-2",
                     isActive ? "text-white" : "text-gray-400 hover:text-white"
                   )}
                   onClick={() => setActiveSection(item.id)}
@@ -97,6 +99,16 @@ export function Navigation() {
                     />
                   )}
                   {item.name}
+                  
+                  {isBioPage && (
+                    <motion.span
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="inline-flex items-center justify-center px-2 py-0.5 rounded-full bg-white/10 border border-white/10 text-[10px] font-mono text-volt-lime tracking-tight"
+                    >
+                      The Human
+                    </motion.span>
+                  )}
                 </a>
               );
             })}
