@@ -94,12 +94,7 @@ export function Navigation() {
             })}
           </div>
           <Button 
-            className={cn(
-              "rounded-full px-6 transition-all duration-300",
-              scrolled 
-                ? "bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet text-black hover:opacity-90 border-0" 
-                : "bg-volt-lime/10 text-volt-lime hover:bg-volt-lime hover:text-black border border-volt-lime/20"
-            )}
+            className="bg-volt-lime/10 text-volt-lime hover:bg-volt-lime hover:text-black border border-volt-lime/20 rounded-full px-6 transition-all duration-300"
             asChild
           >
             <a href="#contact">Start Project</a>
