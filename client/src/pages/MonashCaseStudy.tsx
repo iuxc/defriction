@@ -465,9 +465,9 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8">
                    <img 
-                     src="/assets/images/monash-logo.png" 
-                     alt="Monash University Logo" 
-                     className="w-full h-auto object-contain max-w-[200px]"
+                     src="/assets/images/monash-shield.png" 
+                     alt="Monash University Shield" 
+                     className="w-full h-auto object-contain max-w-[160px]"
                    />
                 </div>
                 <div>
