@@ -17,7 +17,7 @@ export default function Home() {
       
       <footer className="py-8 bg-black text-center border-t border-white/10">
         <p className="font-mono text-xs text-gray-600">
-          © 2026 DEFRICTION DESIGN. MELBOURNE / EUGENE.
+          © 2026 defriction design. MELBOURNE / EUGENE.
         </p>
       </footer>
     </div>

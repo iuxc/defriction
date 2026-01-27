@@ -27,9 +27,9 @@ export function Navigation() {
     <Link href="/">
       <a className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2">
         <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-volt-lime to-ion-cyan flex items-center justify-center">
-          <span className="font-bold text-black text-lg">D</span>
+          <span className="font-bold text-black text-lg">d</span>
         </div>
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">DEFRICTION</span>
+        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
       </a>
     </Link>
   );

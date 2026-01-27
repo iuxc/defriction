@@ -43,7 +43,7 @@ export function About() {
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
               <p>
-                I lead Digital Strategy for the University of Oregon by day. I Defriction by night. 
+                I lead Digital Strategy for the University of Oregon by day. I defriction by night. 
                 Most agencies struggle to speak "University" while maintaining "Startup" speed. I do both native.
               </p>
               <p>
