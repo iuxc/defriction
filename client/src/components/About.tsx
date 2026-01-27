@@ -52,6 +52,22 @@ export function About() {
                 I currently lead Digital Strategy for the University of Oregon. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
               </p>
             </div>
+            
+            {/* Mini Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+              <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
+                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Base</span>
+                <span className="block text-white font-medium">Eugene, OR (PST)</span>
+              </div>
+              <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
+                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Experience</span>
+                <span className="block text-white font-medium">15+ Years</span>
+              </div>
+              <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
+                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Current Role</span>
+                <span className="block text-white font-medium">AVP, Digital Strategy</span>
+              </div>
+            </div>
 
             <Button 
               variant="outline" 
