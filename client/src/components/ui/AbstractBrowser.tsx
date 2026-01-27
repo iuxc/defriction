@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface AbstractBrowserProps {
-  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal";
+  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal" | "ia-map" | "wireframe";
   className?: string;
 }
 
@@ -324,6 +324,78 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
                  <div className={`h-2 w-full ${lineClass}`} />
                  <div className={`h-2 w-full ${lineClass}`} />
                  <div className={`h-2 w-3/4 ${lineClass}`} />
+              </div>
+           </div>
+        </div>
+      );
+
+    case "ia-map":
+      return (
+        <div className="flex flex-col items-center h-full pt-4">
+           {/* Level 1 */}
+           <div className={`w-24 h-8 ${blockClass} mb-4 flex items-center justify-center`}>
+              <div className={`w-12 h-2 ${lineClass}`} />
+           </div>
+           
+           {/* Connector */}
+           <div className="h-6 w-px bg-white/10 relative">
+              <div className="absolute top-full left-1/2 -translate-x-1/2 w-48 h-px bg-white/10" />
+           </div>
+
+           {/* Level 2 */}
+           <div className="flex gap-4 mt-6">
+              <div className="flex flex-col items-center">
+                 <div className="h-4 w-px bg-white/10 mb-2" />
+                 <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
+                    <div className={`w-full h-1 ${lineClass}`} />
+                    <div className={`w-2/3 h-1 ${lineClass}`} />
+                 </div>
+              </div>
+              <div className="flex flex-col items-center">
+                 <div className="h-4 w-px bg-white/10 mb-2" />
+                 <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
+                    <div className={`w-full h-1 ${lineClass}`} />
+                    <div className={`w-2/3 h-1 ${lineClass}`} />
+                 </div>
+              </div>
+              <div className="flex flex-col items-center">
+                 <div className="h-4 w-px bg-white/10 mb-2" />
+                 <div className={`w-16 h-12 ${blockClass} flex flex-col gap-2 p-2`}>
+                    <div className={`w-full h-1 ${lineClass}`} />
+                    <div className={`w-2/3 h-1 ${lineClass}`} />
+                 </div>
+              </div>
+           </div>
+        </div>
+      );
+
+    case "wireframe":
+      return (
+        <div className="h-full flex flex-col bg-white/[0.02]">
+           {/* Header */}
+           <div className="h-8 border-b border-white/5 flex items-center px-3 justify-between">
+              <div className={`w-16 h-2 ${lineClass}`} />
+              <div className="flex gap-2">
+                 <div className={`w-4 h-4 rounded-full bg-white/5`} />
+                 <div className={`w-4 h-4 rounded-full bg-white/5`} />
+              </div>
+           </div>
+           
+           <div className="flex-1 flex">
+              {/* Sidebar */}
+              <div className="w-12 border-r border-white/5 py-3 flex flex-col items-center gap-3">
+                 <div className={`w-6 h-6 rounded bg-white/5`} />
+                 <div className={`w-6 h-6 rounded bg-white/5`} />
+                 <div className={`w-6 h-6 rounded bg-white/5`} />
+              </div>
+              
+              {/* Main */}
+              <div className="flex-1 p-3 space-y-3">
+                 <div className="flex gap-3">
+                    <div className={`w-1/3 h-24 ${blockClass}`} />
+                    <div className={`w-2/3 h-24 ${blockClass}`} />
+                 </div>
+                 <div className={`w-full h-32 ${blockClass}`} />
               </div>
            </div>
         </div>

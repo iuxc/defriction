@@ -439,38 +439,42 @@ export default function MonashCaseStudy() {
            </motion.div>
            
            <div className="grid md:grid-cols-3 gap-8">
-             {[
-               { title: "Information Architecture", sub: "The Logic", img: "/assets/images/monash-ia.png" },
-               { title: "Low-Fidelity Wireframe", sub: "The Skeleton", img: "/assets/images/monash-wireframe.png" },
-               { title: "High-Fidelity UI", sub: "The Polish", img: "/assets/images/monash-ui.png" }
-             ].map((item, i) => (
-               <motion.div 
-                  key={i}
-                  variants={fadeInUp}
-                  className="group space-y-6"
-               >
-                  <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
-                    <img 
-                      src={item.img} 
-                      alt={item.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                       <div className="px-6 py-3 rounded-full border border-white/30 text-white font-medium backdrop-blur-md hover:bg-white hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 flex items-center gap-2" onClick={() => window.open('https://www.figma.com', '_blank')}>
-                        <ExternalLink className="w-4 h-4" />
-                        Launch Interactive Demo
-                      </div>
-                      <div className="absolute top-full mt-2 text-center text-xs font-mono text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                        Experience the 'Stacking' animation live in Figma.
-                      </div>
-                    </div>
-                  </div>
-                  <div>
-                     <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">{item.title}</h4>
-                     <p className="text-gray-400 text-sm">{item.sub}</p>
-                  </div>
-               </motion.div>
-             ))}
+             {/* 1. Information Architecture */}
+             <motion.div variants={fadeInUp} className="group space-y-6">
+                <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                  <AbstractBrowser variant="ia-map" className="w-full h-full border-0 bg-transparent" />
+                </div>
+                <div>
+                   <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Information Architecture</h4>
+                   <p className="text-gray-400 text-sm">The Logic</p>
+                </div>
+             </motion.div>
+
+             {/* 2. Low-Fidelity Wireframe */}
+             <motion.div variants={fadeInUp} className="group space-y-6">
+                <div className="aspect-[4/3] bg-white/5 rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                   <AbstractBrowser variant="wireframe" className="w-full h-full border-0 bg-transparent" />
+                </div>
+                <div>
+                   <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Low-Fidelity Wireframe</h4>
+                   <p className="text-gray-400 text-sm">The Skeleton</p>
+                </div>
+             </motion.div>
+
+             {/* 3. High-Fidelity UI */}
+             <motion.div variants={fadeInUp} className="group space-y-6">
+                <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8">
+                   <img 
+                     src="/assets/images/monash-logo.png" 
+                     alt="Monash University Logo" 
+                     className="w-full h-auto object-contain max-w-[200px]"
+                   />
+                </div>
+                <div>
+                   <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">High-Fidelity UI</h4>
+                   <p className="text-gray-400 text-sm">The Polish</p>
+                </div>
+             </motion.div>
            </div>
 
            {/* Interactive Demo Section - REMOVED */}
