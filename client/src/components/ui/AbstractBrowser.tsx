@@ -55,31 +55,15 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
       );
 
     case "terminal":
-        const container = {
-          hidden: { opacity: 0 },
-          show: {
-            opacity: 1,
-            transition: {
-              staggerChildren: 0.15,
-              delayChildren: 0.3
-            }
-          }
-        };
-
-        const item = {
-          hidden: { opacity: 0, x: -10 },
-          show: { opacity: 1, x: 0 }
-        };
-
         return (
-            <motion.div 
-              className="font-mono text-xs space-y-2 p-2"
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-            >
-                <motion.div variants={item} className="flex gap-2">
+            <div className="font-mono text-xs space-y-2 p-2">
+                <motion.div 
+                  className="flex gap-2 overflow-hidden whitespace-nowrap"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "fit-content" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 1, ease: "linear", delay: 0.2 }}
+                >
                     <span className="text-pink-500">const</span>
                     <span className="text-blue-400">applicant</span>
                     <span className="text-white">=</span>
@@ -91,7 +75,14 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
                     <span className="text-orange-300">user.id</span>
                     <span className="text-white">);</span>
                 </motion.div>
-                <motion.div variants={item} className="flex gap-2 pl-4">
+
+                <motion.div 
+                  className="flex gap-2 pl-4 overflow-hidden whitespace-nowrap"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "fit-content" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8, ease: "linear", delay: 1.2 }}
+                >
                     <span className="text-pink-500">if</span>
                     <span className="text-white">(</span>
                     <span className="text-blue-400">applicant</span>
@@ -100,27 +91,54 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
                     <span className="text-white">)</span>
                     <span className="text-white">{`{`}</span>
                 </motion.div>
-                <motion.div variants={item} className="flex gap-2 pl-8">
+
+                <motion.div 
+                  className="flex gap-2 pl-8 overflow-hidden whitespace-nowrap"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "fit-content" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, ease: "linear", delay: 2.0 }}
+                >
                      <span className="text-blue-400">score</span>
                      <span className="text-white">+=</span>
                      <span className="text-purple-400">5.0</span>
                      <span className="text-white">;</span>
                 </motion.div>
-                <motion.div variants={item} className="flex gap-2 pl-4">
+
+                <motion.div 
+                  className="flex gap-2 pl-4 overflow-hidden whitespace-nowrap"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: "fit-content" }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.2, ease: "linear", delay: 2.5 }}
+                >
                     <span className="text-white">{`}`}</span>
                 </motion.div>
-                <motion.div variants={item} className="flex gap-2 mt-4">
+
+                <motion.div 
+                   initial={{ opacity: 0 }}
+                   whileInView={{ opacity: 1 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: 2.8 }}
+                   className="flex gap-2 mt-4"
+                >
                     <span className="text-green-400">➜</span>
                     <span className="text-white">Processing...</span>
                     <span className="w-2 h-4 bg-white animate-pulse" />
                 </motion.div>
                 
-                 <motion.div variants={item} className="space-y-1 mt-6 opacity-50">
+                 <motion.div 
+                   initial={{ opacity: 0 }}
+                   whileInView={{ opacity: 0.5 }}
+                   viewport={{ once: true }}
+                   transition={{ delay: 3.2 }}
+                   className="space-y-1 mt-6"
+                 >
                     <div className="flex gap-2"><span className="text-gray-500">// Calculating adjustment factors</span></div>
                     <div className="flex gap-2"><span className="text-gray-500">// Checking regional status</span></div>
                     <div className="flex gap-2"><span className="text-gray-500">// Validating prerequisites</span></div>
                  </motion.div>
-            </motion.div>
+            </div>
         );
 
     case "dashboard":
