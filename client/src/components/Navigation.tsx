@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Menu } from "lucide-react";
+import { Menu, Home } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -66,7 +66,15 @@ export function Navigation() {
         <Logo />
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-4">
+          {/* Home Icon */}
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] hover:bg-white/10 transition-all duration-300 backdrop-blur-md group"
+          >
+            <Home className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+          </button>
+
           <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
             {navItems.map((item) => {
               const isActive = activeSection === item.id;
@@ -113,6 +121,14 @@ export function Navigation() {
               <div className="flex flex-col gap-8 mt-8">
                  <Logo />
                  <div className="flex flex-col gap-4">
+                  <button 
+                    onClick={() => {
+                       window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="text-lg font-medium text-gray-300 hover:text-white text-left flex items-center gap-2"
+                  >
+                    <Home className="w-5 h-5" /> Home
+                  </button>
                   {navItems.map((item) => (
                     <a
                       key={item.name}
