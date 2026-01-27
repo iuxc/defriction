@@ -180,8 +180,14 @@ export default function Bio() {
 
       </main>
 
-      <footer className="py-24 border-t border-white/10 bg-black/20">
-         <div className="container mx-auto px-4 text-center">
+      <footer className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-center justify-center">
+         <motion.div 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="container mx-auto px-4 text-center"
+          >
            <div className="max-w-3xl mx-auto glass-panel p-12 rounded-[2rem] border border-white/10 relative overflow-hidden group">
              <div className="absolute inset-0 bg-volt-lime/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
              
@@ -201,7 +207,7 @@ export default function Bio() {
            <p className="font-mono text-xs text-gray-600 mt-12">
              © 2026 defriction design. MELBOURNE / EUGENE.
            </p>
-         </div>
+         </motion.div>
       </footer>
     </div>
   );

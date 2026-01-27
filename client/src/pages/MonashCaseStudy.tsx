@@ -332,8 +332,8 @@ export default function MonashCaseStudy() {
                   
                   <div className="space-y-12 relative px-4 py-4">
                     {/* Threshold Line */}
-                    <div className="absolute left-[70%] -top-4 -bottom-4 border-l border-dashed border-white/20 z-10 flex flex-col justify-end pb-2">
-                      <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left translate-y-8">Target: 70.00</div>
+                    <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/20 z-10 flex flex-col justify-end pb-8">
+                      <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
                     </div>
 
                     {/* Bar Group */}
@@ -365,7 +365,7 @@ export default function MonashCaseStudy() {
                          <div className="h-full flex-grow relative">
                            <motion.div 
                               initial={{ width: 0 }}
-                              whileInView={{ width: "15%" }}
+                              whileInView={{ width: "14.5%" }}
                               viewport={{ once: false }}
                               transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
                               className="h-full bg-volt-lime absolute top-0 left-0 shadow-[0_0_30px_rgba(212,255,0,0.3)]"
@@ -398,7 +398,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 4. The Gallery */}
-      <Section id="gallery" nextId="outcome">
+      <Section id="gallery" nextId="footer">
         <motion.div 
           className="space-y-16"
           initial="initial"
@@ -428,6 +428,11 @@ export default function MonashCaseStudy() {
                       alt={item.title} 
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="px-6 py-3 rounded-full border border-white/30 text-white font-medium backdrop-blur-md hover:bg-white hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300">
+                        Launch Demo
+                      </div>
+                    </div>
                   </div>
                   <div>
                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">{item.title}</h4>
@@ -436,35 +441,6 @@ export default function MonashCaseStudy() {
                </motion.div>
              ))}
            </div>
-        </motion.div>
-      </Section>
-
-      {/* 5. The Outcome */}
-      <Section id="outcome" nextId="footer">
-        <motion.div 
-          className="grid md:grid-cols-3 gap-px bg-white/10 border border-white/10 rounded-2xl overflow-hidden"
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true, margin: "-10% 0px" }}
-          variants={stagger}
-        >
-           {[
-             { title: "COMPLIANCE", desc: "Centralized logic ensures Accord compliance.", icon: ShieldCheck },
-             { title: "EFFICIENCY", desc: "Projected 30% reduction in support tickets.", icon: Zap },
-             { title: "EQUITY", desc: "Surfaces hidden eligibility for regional/low-SES students.", icon: Scale }
-           ].map((outcome, i) => (
-             <motion.div 
-                key={i} 
-                variants={fadeInUp}
-                className="bg-deep-basalt p-12 hover:bg-white/5 transition-colors duration-500 group"
-              >
-               <div className="mb-6 w-12 h-12 rounded-full bg-white/5 flex items-center justify-center text-volt-lime group-hover:scale-110 transition-transform duration-300">
-                  <outcome.icon className="w-6 h-6" />
-               </div>
-               <h4 className="text-white font-bold font-display text-2xl mb-4">{outcome.title}</h4>
-               <p className="text-gray-400 leading-relaxed text-lg">{outcome.desc}</p>
-             </motion.div>
-           ))}
         </motion.div>
       </Section>
 

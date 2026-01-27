@@ -53,7 +53,7 @@ export function Navigation() {
     </Link>
   );
 
-  const handleNavClick = async (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+  const handleNavClick = async (e: React.MouseEvent<HTMLElement>, target: string) => {
     e.preventDefault();
     if (location === "/") {
       const element = document.querySelector(target);
