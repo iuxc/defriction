@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
+import { Send } from "lucide-react";
 
 export function Contact() {
   const { register, handleSubmit, reset } = useForm();
@@ -17,74 +18,81 @@ export function Contact() {
 
   const onSubmit = (data: any) => {
     toast({
-      title: "Message Sent",
-      description: "I'll get back to you within 24 hours.",
+      title: "Transmission Received",
+      description: "I'll analyze the signal and respond within 24 hours.",
     });
     reset();
   };
 
   return (
-    <section id="contact" className="py-24 bg-deep-basalt border-t border-white/5">
-      <div className="container mx-auto px-4 max-w-4xl">
+    <section id="contact" className="py-32 bg-deep-basalt relative overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-volt-lime/5 to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-4 max-w-3xl relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-6xl font-display font-bold mb-6">
-            Start the <span className="text-volt-lime">Conversation</span>.
+          <h2 className="text-4xl md:text-5xl font-display font-bold mb-4 text-white">
+            Let's remove the <span className="text-flux-orange">friction</span>.
           </h2>
-          <p className="text-gray-400 font-mono">
-            // FILTER: HIGH INTENT ONLY
+          <p className="text-gray-400 text-lg">
+            High intent inquiries only.
           </p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-8 bg-black/20 p-8 md:p-12 border border-white/5 backdrop-blur-sm">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="glass-panel p-8 md:p-12 rounded-3xl relative">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet" />
+          
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">Name</label>
+                <Input 
+                  {...register("name")} 
+                  className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10" 
+                  placeholder="Enter your name" 
+                />
+              </div>
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">Email</label>
+                <Input 
+                  {...register("email")} 
+                  className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10" 
+                  placeholder="name@company.com" 
+                />
+              </div>
+            </div>
+
             <div className="space-y-2">
-              <label className="text-sm font-mono text-gray-400 uppercase">Name</label>
-              <Input 
-                {...register("name")} 
-                className="bg-deep-basalt border-white/10 rounded-none h-12 focus:border-volt-lime focus:ring-0 text-white placeholder:text-gray-700" 
-                placeholder="Jane Doe" 
+              <label className="text-xs font-mono text-volt-lime uppercase tracking-widest">Project Budget (AUD)</label>
+              <Select onValueChange={(value) => console.log(value)}>
+                <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white transition-all focus:bg-white/10">
+                  <SelectValue placeholder="Select engagement level..." />
+                </SelectTrigger>
+                <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-xl">
+                  <SelectItem value="sprint">Sprint ($5k+ AUD)</SelectItem>
+                  <SelectItem value="project">Project ($15k+ AUD)</SelectItem>
+                  <SelectItem value="retainer">Retainer / Strategic Audit</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">The Brief</label>
+              <Textarea 
+                {...register("message")} 
+                className="bg-white/5 border-white/10 rounded-lg min-h-[150px] focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10 resize-none" 
+                placeholder="What challenge are you trying to solve?" 
               />
             </div>
-            <div className="space-y-2">
-              <label className="text-sm font-mono text-gray-400 uppercase">Email</label>
-              <Input 
-                {...register("email")} 
-                className="bg-deep-basalt border-white/10 rounded-none h-12 focus:border-volt-lime focus:ring-0 text-white placeholder:text-gray-700" 
-                placeholder="jane@agency.com" 
-              />
-            </div>
-          </div>
 
-          <div className="space-y-2">
-            <label className="text-sm font-mono text-flux-orange uppercase font-bold">Budget (AUD)</label>
-            <Select onValueChange={(value) => console.log(value)}>
-              <SelectTrigger className="bg-deep-basalt border-white/10 rounded-none h-12 focus:border-volt-lime focus:ring-0 text-white">
-                <SelectValue placeholder="Select a range..." />
-              </SelectTrigger>
-              <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-none">
-                <SelectItem value="sprint">Sprint ($5k+ AUD)</SelectItem>
-                <SelectItem value="project">Project ($15k+ AUD)</SelectItem>
-                <SelectItem value="retainer">Retainer / Strategic Audit</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <div className="space-y-2">
-            <label className="text-sm font-mono text-gray-400 uppercase">Message</label>
-            <Textarea 
-              {...register("message")} 
-              className="bg-deep-basalt border-white/10 rounded-none min-h-[150px] focus:border-volt-lime focus:ring-0 text-white placeholder:text-gray-700" 
-              placeholder="Tell me about the friction you're facing..." 
-            />
-          </div>
-
-          <Button 
-            type="submit" 
-            className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold uppercase tracking-widest h-14 rounded-none text-lg transition-colors duration-300"
-          >
-            [ Transmit ]
-          </Button>
-        </form>
+            <Button 
+              type="submit" 
+              className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-xl text-lg transition-all duration-300 shadow-lg shadow-white/5"
+            >
+              Send Transmission <Send className="ml-2 w-4 h-4" />
+            </Button>
+          </form>
+        </div>
       </div>
     </section>
   );

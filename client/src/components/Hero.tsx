@@ -1,51 +1,75 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ArrowRight, ChevronRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-grid-pattern pt-20">
-      {/* Background ambient glow */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-volt-lime/5 rounded-full blur-[100px]" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-electric-violet/10 rounded-full blur-[100px]" />
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-electric-violet/20 rounded-full blur-[120px] animate-float opacity-40" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-ion-cyan/10 rounded-full blur-[120px] animate-float opacity-40" style={{ animationDelay: "2s" }} />
+        <div className="absolute top-[40%] left-[60%] w-[30%] h-[30%] bg-volt-lime/10 rounded-full blur-[100px] animate-float opacity-30" style={{ animationDelay: "4s" }} />
+      </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 relative z-10 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="max-w-5xl mx-auto"
         >
-          <div className="font-mono text-ion-cyan mb-4 tracking-widest uppercase text-sm">
-            // Brand Intelligence + Digital Strategy
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border-white/10">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt-lime opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-volt-lime"></span>
+            </span>
+            <span className="font-mono text-xs tracking-widest text-gray-300 uppercase">
+              Brand Intelligence + Digital Strategy
+            </span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.9] tracking-tighter mb-8 text-white">
-            STRATEGY THAT <span className="text-stroke-lime">WORKS</span>.<br />
-            DESIGN THAT <span className="text-volt-lime">FLOWS</span>.
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
+            <span className="block text-white">Strategy that</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet">
+               flows like magic.
+            </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mb-12 font-light leading-relaxed">
-            I am a US-based Digital AVP helping Australian agencies and leaders remove the 
-            <span className="text-white font-medium"> friction</span> between big ideas and finished pixels.
+          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+            Helping Australian agencies and leaders remove the friction between 
+            <span className="text-white font-medium"> big ideas </span> 
+            and 
+            <span className="text-white font-medium"> finished pixels</span>.
           </p>
           
-          <Button 
-            className="bg-volt-lime text-black hover:bg-volt-lime/90 font-mono text-lg px-8 py-6 h-auto rounded-none border border-volt-lime uppercase tracking-widest font-bold"
-            asChild
-          >
-            <a href="#work">[ See the Work ]</a>
-          </Button>
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+            <Button 
+              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-8 py-7 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
+              asChild
+            >
+              <a href="#work">
+                See the Work
+                <ArrowRight className="ml-2 w-5 h-5" />
+              </a>
+            </Button>
+            
+            <Button 
+              variant="ghost" 
+              className="text-white hover:text-volt-lime hover:bg-transparent font-mono uppercase tracking-wider gap-2 group"
+              asChild
+            >
+              <a href="#about">
+                The Method 
+                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </a>
+            </Button>
+          </div>
         </motion.div>
       </div>
-
-      {/* Decorative HUD Elements */}
-      <div className="absolute bottom-10 left-10 font-mono text-xs text-gray-600 hidden md:block">
-        COORD: 34.0522° N, 118.2437° W<br />
-        STATUS: ONLINE
-      </div>
-      <div className="absolute top-32 right-10 font-mono text-xs text-volt-lime hidden md:block animate-pulse">
-        ● LIVE
-      </div>
+      
+      {/* Bottom fade */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep-basalt to-transparent pointer-events-none" />
     </section>
   );
 }

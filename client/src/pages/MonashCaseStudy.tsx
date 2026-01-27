@@ -10,141 +10,161 @@ export default function MonashCaseStudy() {
       <Navigation />
       
       {/* Header */}
-      <header className="pt-32 pb-16 border-b border-white/10 bg-grid-pattern">
-        <div className="container mx-auto px-4">
-          <Link href="/#work" className="inline-flex items-center text-gray-400 hover:text-volt-lime mb-8 font-mono text-sm uppercase tracking-wider transition-colors">
+      <header className="relative pt-32 pb-24 border-b border-white/5 overflow-hidden">
+        <div className="absolute inset-0 bg-mesh-gradient opacity-20" />
+        <div className="container mx-auto px-4 relative z-10">
+          <Link href="/#work">
+            <a className="inline-flex items-center text-gray-400 hover:text-white mb-8 font-medium text-sm transition-colors bg-white/5 px-4 py-2 rounded-full border border-white/5 hover:border-white/20">
               <ArrowLeft className="w-4 h-4 mr-2" /> Back to Work
+            </a>
           </Link>
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <div>
-              <div className="font-mono text-volt-lime mb-4">CASE_ID: MONASH_001</div>
-              <h1 className="text-5xl md:text-7xl font-display font-bold leading-none mb-4">
+          <div className="grid md:grid-cols-2 gap-12 items-end">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="font-mono text-volt-lime mb-6 tracking-widest text-xs uppercase border border-volt-lime/30 inline-block px-3 py-1 rounded">
+                Case Study: 001
+              </div>
+              <h1 className="text-5xl md:text-7xl font-display font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-br from-white via-white to-gray-500">
                 Monash University
               </h1>
-              <p className="text-2xl text-gray-400 font-light max-w-2xl">
-                From Gatekeeper to Concierge: Unifying 40,000+ pathways.
+              <p className="text-2xl text-gray-400 font-light max-w-xl leading-relaxed">
+                From Gatekeeper to Concierge: Unifying 40,000+ pathways with radical transparency.
               </p>
-            </div>
-            <div className="flex gap-4 font-mono text-sm">
-              <div className="px-3 py-1 border border-white/20 text-gray-400">STRATEGY</div>
-              <div className="px-3 py-1 border border-white/20 text-gray-400">IA</div>
-              <div className="px-3 py-1 border border-white/20 text-gray-400">REACT</div>
-            </div>
+            </motion.div>
+            
+            <motion.div 
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ delay: 0.3, duration: 0.6 }}
+               className="flex flex-wrap gap-3 md:justify-end"
+            >
+              {["Strategy", "Information Architecture", "React App"].map(tag => (
+                <span key={tag} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300">
+                  {tag}
+                </span>
+              ))}
+            </motion.div>
           </div>
         </div>
       </header>
 
-      <main className="container mx-auto px-4 py-16 space-y-24">
+      <main className="container mx-auto px-4 py-24 space-y-32">
         
         {/* 1. The Friction */}
-        <section className="grid md:grid-cols-12 gap-12">
+        <section className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-4">
-            <h2 className="text-flux-orange font-mono text-xl mb-4 uppercase tracking-widest">// The Friction</h2>
-            <h3 className="text-3xl font-display font-bold mb-4">The PDF Trap.</h3>
+            <span className="text-flux-orange font-mono text-sm mb-4 block tracking-widest uppercase">The Friction</span>
+            <h2 className="text-4xl font-display font-bold mb-6">The PDF Trap.</h2>
           </div>
-          <div className="md:col-span-8 space-y-6 text-lg text-gray-300 font-light leading-relaxed">
+          <div className="md:col-span-8 space-y-6 text-xl text-gray-400 font-light leading-relaxed">
             <p>
               40,000 applicants were hitting dead ends. Regional students with an ATAR of 65 were abandoning the site, 
               unaware they qualified via "Adjustment Factors" buried in 40-page PDFs.
             </p>
-            <p>
-              The system was built as a <strong>Gatekeeper</strong> ("Am I eligible?"), forcing students to do the math. 
-              If the math didn't look right immediately, they left.
-            </p>
-            <div className="p-6 bg-red-900/10 border border-red-500/30 rounded-none mt-6">
-              <div className="font-mono text-red-400 text-sm mb-2">ERROR LOG:</div>
-              <p className="font-mono text-red-200">User Drop-off Rate: 68% at Eligibility Page.</p>
+            <div className="glass-panel p-6 rounded-xl border-l-4 border-l-flux-orange flex items-start gap-4 mt-8">
+               <div className="mt-1 text-flux-orange">
+                 <X className="w-6 h-6" />
+               </div>
+               <div>
+                 <h4 className="text-white font-bold mb-1">Critical Failure</h4>
+                 <p className="text-sm text-gray-400">User Drop-off Rate: 68% at Eligibility Page.</p>
+               </div>
             </div>
           </div>
         </section>
 
         {/* 2. The Insight */}
-        <section className="grid md:grid-cols-12 gap-12">
+        <section className="grid md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-4">
-            <h2 className="text-ion-cyan font-mono text-xl mb-4 uppercase tracking-widest">// The Insight</h2>
-            <h3 className="text-3xl font-display font-bold mb-4">Radical Transparency.</h3>
+            <span className="text-ion-cyan font-mono text-sm mb-4 block tracking-widest uppercase">The Insight</span>
+            <h2 className="text-4xl font-display font-bold mb-6">Radical Transparency.</h2>
           </div>
-          <div className="md:col-span-8 space-y-6 text-lg text-gray-300 font-light leading-relaxed">
+          <div className="md:col-span-8 space-y-6 text-xl text-gray-400 font-light leading-relaxed">
             <p>
               The <em>2024 Universities Accord</em> mandates equity. We couldn't just reskin the old site; we had to expose the logic.
             </p>
-            <p>
+            <p className="text-white">
               We pivoted the entire mental model from "Am I eligible?" to <strong>"Who are you?"</strong>. 
-              By acting as a Concierge, we could calculate their <em>true</em> rank for them.
             </p>
           </div>
         </section>
 
         {/* 3. The Defriction (Interactive Component) */}
-        <section className="border border-white/10 bg-black/40 p-8 md:p-12 relative overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-brand" />
-          
-          <div className="grid md:grid-cols-12 gap-12 items-center">
+        <section className="glass-card rounded-3xl overflow-hidden border border-white/10">
+          <div className="p-8 md:p-16 grid md:grid-cols-12 gap-16 items-center">
             <div className="md:col-span-4">
-              <h2 className="text-volt-lime font-mono text-xl mb-4 uppercase tracking-widest">// The Defriction</h2>
-              <h3 className="text-3xl font-display font-bold mb-4">The Stacking Calculator.</h3>
-              <p className="text-gray-400 mb-6">
-                A visual proof that equity factors matter. We visualize the gap closing in real-time.
+              <span className="text-volt-lime font-mono text-sm mb-4 block tracking-widest uppercase">The Solution</span>
+              <h3 className="text-3xl font-display font-bold mb-4 text-white">The Stacking Calculator.</h3>
+              <p className="text-gray-400 leading-relaxed">
+                A visual proof that equity factors matter. We visualize the gap closing in real-time, giving students hope instead of rejection.
               </p>
             </div>
             
             <div className="md:col-span-8">
-              {/* CSS-only Bar Chart Animation Mockup */}
-              <div className="bg-deep-basalt border border-white/10 p-8">
-                <div className="flex justify-between font-mono text-xs text-gray-500 mb-8 border-b border-white/10 pb-2">
-                  <span>ATAR CALCULATOR PREVIEW</span>
-                  <span>STATUS: QUALIFIED</span>
+              {/* Interactive Mockup */}
+              <div className="bg-[#0f1219] rounded-xl p-8 border border-white/10 shadow-2xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-volt-lime/10 blur-[50px] rounded-full pointer-events-none" />
+                
+                <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
+                  <span>ATAR_CALC_V2.1</span>
+                  <span className="text-volt-lime">● LIVE PREVIEW</span>
                 </div>
                 
-                <div className="space-y-8 relative">
+                <div className="space-y-10 relative px-4">
                   {/* Threshold Line */}
-                  <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/30 z-10 flex flex-col justify-between py-2">
-                    <span className="bg-deep-basalt text-white text-xs px-1 -ml-6">REQ: 70.00</span>
+                  <div className="absolute left-[70%] -top-4 -bottom-4 border-l border-dashed border-white/20 z-10">
+                    <div className="absolute -top-6 -left-8 bg-white/10 text-white text-xs px-2 py-1 rounded backdrop-blur-md border border-white/5">
+                      Target: 70
+                    </div>
                   </div>
 
                   {/* Bar Group */}
                   <div className="space-y-2">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-electric-violet font-mono">Raw ATAR</span>
-                      <span className="text-white font-bold">65.00</span>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-gray-400">Raw ATAR Score</span>
+                      <span className="text-white font-mono">65.00</span>
                     </div>
-                    <div className="h-12 bg-gray-800 relative overflow-hidden">
+                    <div className="h-10 bg-white/5 rounded-full relative overflow-hidden">
                       <motion.div 
                         initial={{ width: 0 }}
                         whileInView={{ width: "65%" }}
-                        transition={{ duration: 1, delay: 0.2 }}
-                        className="h-full bg-electric-violet absolute top-0 left-0"
+                        transition={{ duration: 1.2, ease: "circOut" }}
+                        className="h-full bg-gradient-to-r from-electric-violet to-purple-500 rounded-full"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <div className="flex justify-between text-sm mb-1">
-                      <span className="text-volt-lime font-mono">Regional Bonus</span>
-                      <span className="text-white font-bold">+5.00</span>
+                    <div className="flex justify-between text-sm mb-2">
+                      <span className="text-volt-lime">Regional Adjustment</span>
+                      <span className="text-white font-mono">+5.00</span>
                     </div>
-                    <div className="h-12 flex relative">
-                       {/* Spacer for base */}
-                       <div className="w-[65%] h-full opacity-0" />
+                    <div className="h-10 flex relative rounded-full bg-white/5 overflow-hidden">
+                       {/* Spacer */}
+                       <div className="w-[65%] h-full" />
                        {/* Bonus Bar */}
-                       <div className="h-full bg-gray-800 flex-grow relative overflow-hidden">
+                       <div className="h-full flex-grow relative">
                          <motion.div 
                             initial={{ width: 0 }}
-                            whileInView={{ width: "15%" }} /* Roughly 5 units visual */
-                            transition={{ duration: 0.8, delay: 1.2 }}
-                            className="h-full bg-volt-lime absolute top-0 left-0"
+                            whileInView={{ width: "15%" }}
+                            transition={{ duration: 0.8, delay: 1 }}
+                            className="h-full bg-volt-lime absolute top-0 left-0 rounded-r-full shadow-[0_0_20px_rgba(212,255,0,0.5)]"
                           />
                        </div>
                     </div>
                   </div>
 
                   {/* Result */}
-                  <div className="pt-4 flex items-center gap-4">
-                     <div className="text-4xl font-bold text-white font-display">
-                        70.00
-                     </div>
-                     <div className="px-3 py-1 bg-volt-lime text-black font-bold uppercase text-xs tracking-wider">
-                        Entry Guaranteed
+                  <div className="pt-6 flex items-center justify-between border-t border-white/5 mt-8">
+                     <div className="text-sm text-gray-500">Final Selection Rank</div>
+                     <div className="flex items-center gap-4">
+                        <div className="text-3xl font-bold text-white font-display">70.00</div>
+                        <div className="h-8 px-3 flex items-center bg-volt-lime/20 text-volt-lime border border-volt-lime/30 rounded-full text-xs font-bold uppercase tracking-wider">
+                           <Check className="w-3 h-3 mr-1" /> Eligible
+                        </div>
                      </div>
                   </div>
                 </div>
@@ -155,43 +175,48 @@ export default function MonashCaseStudy() {
 
         {/* 4. The Artifact (Decision Tree) */}
         <section className="space-y-8">
-           <h2 className="text-white font-mono text-xl uppercase tracking-widest border-b border-white/10 pb-4">
-             // Master Flow Logic
+           <h2 className="text-white font-display text-2xl font-bold border-b border-white/10 pb-6">
+             The Logic Architecture
            </h2>
            
-           <div className="font-mono text-xs md:text-sm text-gray-400 bg-black p-8 border border-white/10 overflow-x-auto">
-             <pre className="leading-relaxed">
-{`START_SESSION
-  |
-  +-- [Q] "Are you a current Year 12 student?"
-  |    |
-  |    +-- YES --> [FETCH] SEAS_DATA (Postcode, School ID)
-  |    |            |
-  |    |            +-- [CALC] Base_Adjustment = 0
-  |    |            +-- [CHECK] Is_Regional? (Postcode) -> +5.00
-  |    |            +-- [CHECK] Financial_Hardship?     -> +X.XX
-  |    |            |
-  |    |            +-- [OUTPUT] "Your Adjusted Selection Rank"
-  |    |
-  |    +-- NO ---> [REDIRECT] Mature_Age_Pathways
-  |
-  +-- [DISPLAY] Eligible_Courses_List[]
-       |
-       +-- FILTER: Course_Req <= Adjusted_Rank`}
+           <div className="font-mono text-sm text-gray-300 bg-[#0A0A0A] p-8 rounded-xl border border-white/10 overflow-x-auto shadow-inner">
+             <pre className="leading-loose">
+{`const calculateEligibility = (applicant) => {
+  // 1. Establish Base
+  let rank = applicant.rawAtar;
+
+  // 2. Apply Equity Adjustments (The "Concierge" Logic)
+  if (applicant.location === 'REGIONAL') {
+    rank += ADJUSTMENT_FACTORS.REGIONAL; // +5.00
+  }
+  
+  if (applicant.financialStatus === 'TIER_1') {
+    rank += ADJUSTMENT_FACTORS.SEAS; // +Variable
+  }
+
+  // 3. Return Transparent Result
+  return {
+    finalRank: rank,
+    breakdown: [ ... ],
+    eligibleCourses: fetchCourses(rank)
+  };
+}`}
              </pre>
            </div>
         </section>
 
       </main>
 
-      <footer className="py-16 border-t border-white/10 text-center">
-         <h3 className="text-2xl font-display font-bold text-white mb-8">Ready to remove friction?</h3>
-         <Button 
-            className="bg-volt-lime text-black hover:bg-volt-lime/90 font-mono text-lg px-8 py-6 h-auto rounded-none border border-volt-lime uppercase tracking-widest font-bold"
-            asChild
-          >
-            <Link href="/#contact">[ Start the Conversation ]</Link>
-          </Button>
+      <footer className="py-24 border-t border-white/10 text-center bg-black/20">
+         <div className="container mx-auto px-4">
+           <h3 className="text-3xl font-display font-bold text-white mb-8">Ready to transform your user flow?</h3>
+           <Button 
+              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-lg hover:shadow-volt-lime/20"
+              asChild
+            >
+              <Link href="/#contact">Start a Project</Link>
+            </Button>
+         </div>
       </footer>
     </div>
   );
