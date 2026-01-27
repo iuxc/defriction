@@ -4,6 +4,7 @@ import { Link } from "wouter";
 import { ArrowRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
+import { FooterContact } from "@/components/FooterContact";
 
 export default function Bio() {
   return (
@@ -188,21 +189,7 @@ export default function Bio() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center"
           >
-           <div className="max-w-3xl mx-auto glass-panel p-12 rounded-[2rem] border border-white/10 relative overflow-hidden group">
-             <div className="absolute inset-0 bg-volt-lime/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-             
-             <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-tight">
-               Ready to ship?
-             </h3>
-             <Button 
-                className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] hover:scale-105"
-                asChild
-              >
-                <Link href="/#contact">
-                  Start a Project <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
-              </Button>
-           </div>
+           <FooterContact title="Ready to ship?" />
            
            <p className="font-mono text-xs text-gray-600 mt-12">
              hello@defriction.design
