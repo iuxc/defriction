@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
 export function Method() {
   const methods = [
@@ -6,19 +7,22 @@ export function Method() {
       title: "Timezone Arbitrage",
       desc: "My afternoon is your morning. Brief at 5 PM AEST -> Mocks by 9 AM AEST.",
       gradient: "from-volt-lime/20 to-transparent",
-      border: "hover:border-volt-lime/50"
+      border: "hover:border-volt-lime/50",
+      browserVariant: "kanban" as const
     },
     {
       title: "Dual-Track Brain",
       desc: "I speak 'Academic Senate' but ship like a Startup. Governance meets Velocity.",
       gradient: "from-ion-cyan/20 to-transparent",
-      border: "hover:border-ion-cyan/50"
+      border: "hover:border-ion-cyan/50",
+      browserVariant: "code-split" as const
     },
     {
       title: "Zero Overhead",
       desc: "W-8BEN. No Super. No Payroll. Just a clean Wise invoice.",
       gradient: "from-electric-violet/20 to-transparent",
-      border: "hover:border-electric-violet/50"
+      border: "hover:border-electric-violet/50",
+      browserVariant: "invoice" as const
     }
   ];
 
@@ -46,19 +50,26 @@ export function Method() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`glass-card p-10 rounded-2xl relative overflow-hidden group ${method.border}`}
+              className={`glass-card p-1 rounded-2xl relative overflow-hidden group ${method.border} flex flex-col h-full`}
             >
                {/* Inner Glow */}
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${method.gradient} opacity-20 rounded-full blur-3xl -mr-16 -mt-16 transition-opacity group-hover:opacity-40`} />
               
-              <div className="relative z-10">
+              <div className="relative z-10 p-8 flex flex-col h-full">
                 <div className="font-mono text-xs text-gray-500 mb-6">0{index + 1}</div>
                 <h3 className="text-2xl font-display font-bold text-white mb-4">
                   {method.title}
                 </h3>
-                <p className="text-gray-400 leading-relaxed">
+                <p className="text-gray-400 leading-relaxed mb-8 flex-grow">
                   {method.desc}
                 </p>
+
+                <div className="mt-auto transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <AbstractBrowser 
+                    variant={method.browserVariant} 
+                    className="w-full shadow-2xl opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                  />
+                </div>
               </div>
             </motion.div>
           ))}

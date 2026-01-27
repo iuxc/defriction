@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface AbstractBrowserProps {
-  variant?: "dashboard" | "landing" | "mobile" | "data";
+  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice";
   className?: string;
 }
 
@@ -80,6 +80,66 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
             </div>
          </div>
        );
+
+    case "kanban":
+      return (
+        <div className="grid grid-cols-3 gap-3 h-full">
+          <div className="space-y-2">
+            <div className={`h-3 w-3/4 ${lineClass} mb-3`} />
+            <div className={`h-16 ${blockClass}`} />
+            <div className={`h-12 ${blockClass}`} />
+          </div>
+          <div className="space-y-2 pt-8">
+             <div className={`h-20 ${blockClass}`} />
+             <div className={`h-16 ${blockClass}`} />
+          </div>
+          <div className="space-y-2 pt-4">
+             <div className={`h-14 ${blockClass}`} />
+             <div className={`h-24 ${blockClass}`} />
+          </div>
+        </div>
+      );
+
+    case "code-split":
+      return (
+        <div className="flex gap-4 h-full">
+          <div className="w-1/2 space-y-2">
+             <div className={`h-3 w-1/2 ${lineClass} mb-4`} />
+             <div className={`h-2 w-full ${lineClass}`} />
+             <div className={`h-2 w-3/4 ${lineClass}`} />
+             <div className={`h-2 w-5/6 ${lineClass}`} />
+             <div className={`h-2 w-2/3 ${lineClass}`} />
+             <div className={`h-2 w-4/5 ${lineClass}`} />
+          </div>
+          <div className={`w-1/2 ${blockClass} flex items-center justify-center`}>
+            <div className={`w-12 h-12 rounded-full border-2 border-dashed border-white/20`} />
+          </div>
+        </div>
+      );
+
+    case "invoice":
+      return (
+        <div className={`w-3/4 mx-auto ${blockClass} p-3 flex flex-col gap-3 bg-white/[0.02]`}>
+           <div className="flex justify-between items-center">
+             <div className={`h-3 w-8 ${blockClass}`} />
+             <div className={`h-3 w-12 ${lineClass}`} />
+           </div>
+           <div className={`h-px w-full bg-white/10 my-1`} />
+           <div className="space-y-2">
+             <div className="flex justify-between">
+                <div className={`h-2 w-16 ${lineClass}`} />
+                <div className={`h-2 w-8 ${lineClass}`} />
+             </div>
+             <div className="flex justify-between">
+                <div className={`h-2 w-20 ${lineClass}`} />
+                <div className={`h-2 w-8 ${lineClass}`} />
+             </div>
+           </div>
+           <div className="mt-auto flex justify-end">
+              <div className={`h-4 w-16 ${blockClass}`} />
+           </div>
+        </div>
+      );
 
     default: // landing
       return (
