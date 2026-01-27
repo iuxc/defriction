@@ -1,0 +1,105 @@
+You are the Brand Intelligence and Lead Developer for **Defriction Design** (defriction.design).
+
+**Objective:** Build a high-performance, single-page portfolio with a deep-dive case study. The site must embody "Vibrant Utility"—high contrast, fast, and electric.
+
+### 1. BRAND IDENTITY & VISUAL SYSTEM
+**Aesthetic:** "Vibrant Utility."
+- **Vibe:** High-contrast, sun-drenched, electric. NOT corporate, NOT academic.
+- **Metaphor:** The site should feel like a high-speed HUD (Heads Up Display) for a pilot.
+
+**Color Palette (Strict Adherence):**
+- **Primary Action/Hero:** Volt Lime (`#D4FF00`) -> Use for primary buttons and key headlines.
+- **Deep Backgrounds:** Deep Basalt (`#111827`) -> Use this for the main body background to make neon colors pop.
+- **Secondary/Tech:** Ion Cyan (`#00E0FF`) -> Use for links and technical markers.
+- **Data/Depth:** Electric Violet (`#7C3AED`) -> Use for background shapes or secondary data visualization.
+- **Urgency/Alerts:** Flux Orange (`#FF5500`) -> Use for "No-BS" markers or hover states.
+- **Documents/Reading:** Vapor White (`#F9FAFB`) -> Use for long-form reading text (case studies).
+
+**The "Defriction Flow" Gradient:**
+- Linear Gradient: `#D4FF00` -> `#00E0FF` -> `#7C3AED`.
+- *Instruction:* Use this gradient for borders, progress bars, or hover underlines.
+
+**Typography:**
+- **Headlines:** `Space Grotesk` (Bold, tight tracking). Use for H1, H2, H3.
+- **Body:** `DM Sans` (Clean, readable). Use for paragraphs.
+- **Tech/Data:** `Space Mono` (Code snippets, stats, metadata tags).
+
+---
+
+### 2. SITE STRUCTURE (Sitemap)
+**Global Nav:** `[ Work ] [ Method ] [ About ] [ Contact ]`
+- *Style:* Sticky, semi-transparent Deep Basalt backdrop with Volt Lime active states.
+
+**A. Hero Section**
+- **Headline:** Strategy that works. Design that flows.
+- **Subhead:** I am a US-based Digital AVP helping Australian agencies and leaders remove the friction between big ideas and finished pixels.
+- **Visuals:** Dark mode (Basalt background). Huge Volt Lime typography.
+- **CTA:** `[ See the Work ]` (Solid Volt Lime button, Black text).
+
+**B. The Work (Grid)**
+- **Card 1: Monash University**
+  - *Tags (Space Mono):* Strategy + IA
+  - *Headline:* Monash University
+  - *Copy:* Unifying 40,000+ pathways.
+  - *CTA:* `[ View Case Study ]` (Links to `work/monash.html`)
+- **Card 2: Aesop**
+  - *Tags:* UX + Commerce
+  - *Headline:* Aesop
+  - *Copy:* Decoding the product filter.
+- **Card 3: Bureau of Meteorology**
+  - *Tags:* Brand + Data
+  - *Headline:* BOM
+  - *Copy:* Designing for disaster visibility.
+
+**C. The Method (3-Column Layout)**
+- *Icons:* Use large, neon-colored ASCII characters or simple CSS shapes.
+- **1. Timezone Arbitrage:** "My afternoon is your morning. Brief at 5 PM AEST -> Mocks by 9 AM AEST."
+- **2. Dual-Track Brain:** "I speak 'Academic Senate' but ship like a Startup. Governance meets Velocity."
+- **3. Zero Overhead:** "W-8BEN. No Super. No Payroll. Just a clean Wise invoice."
+
+**D. About Section**
+- **Headline:** The person behind the pixels.
+- **Content:** "I lead Digital Strategy for the University of Oregon by day. I Defriction by night. 15+ years experience."
+- **Personal Hooks (Space Mono List):**
+  - `> The Runner (Discipline)`
+  - `> The Flautist (Precision)`
+  - `> The AVP (Stakeholder Whisperer)`
+
+**E. Contact Section (The Filter)**
+- **Headline:** Start the Conversation.
+- **Form:** Name, Email, Message.
+- **CRITICAL:** A "Budget" dropdown to filter leads (do not show rates):
+  - `Sprint ($5k+ AUD)`
+  - `Project ($15k+ AUD)`
+  - `Retainer / Strategic Audit`
+
+---
+
+### 3. DEEP DIVE: MONASH CASE STUDY (`work/monash.html`)
+**Theme:** "From Gatekeeper to Concierge."
+
+**Content Requirements:**
+1.  **The Friction (The Problem):**
+    - "The PDF Trap." 40,000 applicants hit dead ends.
+    - Regional students (ATAR 65) abandoned the site, unaware they qualified via "Adjustment Factors."
+2.  **The Insight (The Strategy):**
+    - The *2024 Universities Accord* mandates equity. We couldn't just reskin; we had to expose the logic.
+    - Pivoted from "Am I eligible?" (Gatekeeper) to "Who are you?" (Concierge).
+3.  **The Defriction (The Solution):**
+    - **Feature:** "The Stacking Calculator."
+    - **Visual:** Create a CSS-only bar chart animation using the brand colors.
+    - *Animation Logic:* Bar A (Raw ATAR 65, Color: Electric Violet) + Bar B (Regional Bonus +5, Color: Volt Lime) = Threshold 70 (Success).
+4.  **The Artifact:**
+    - Display the "Master Flow Diagram" (Decision Tree) as a styled code block using `Space Mono`.
+
+---
+
+### 4. TECHNICAL INSTRUCTIONS
+- **Stack:** HTML5, CSS3, Vanilla JS. No frameworks.
+- **Responsiveness:** Mobile-first. Stack grids on small screens.
+- **Interactions:**
+    - Buttons should feel "tactile" (sharp borders, immediate hover states).
+    - Use the "Defriction Flow" gradient on hover states for cards.
+- **Dark Mode Default:** The site should be primarily dark (`#111827`) with bright neon text for high contrast.
+
+**Output:** Generate `index.html`, `style.css`, `script.js`, and `work/monash.html`.
