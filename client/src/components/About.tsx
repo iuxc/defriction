@@ -53,9 +53,33 @@ export function About() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
           
-          <div className="relative">
+          <div>
+            <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
+              <p>
+                I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
+              </p>
+            </div>
+
+            {/* Redesigned Skills Section - Premium Spec Grid */}
+            <div className="grid grid-cols-2 gap-4 mb-10 border-t border-b border-white/5 py-6">
+              {skills.map((skill) => (
+                <div key={skill.label} className="flex flex-col">
+                  <span className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">{skill.value}</span>
+                  <span className="text-white font-medium">{skill.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <Button variant="outline" className="text-volt-lime border-volt-lime/20 hover:bg-volt-lime hover:text-black group rounded-full" asChild>
+              <Link href="/bio">
+                Read full bio <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+
+          <div className="relative order-first lg:order-last">
             {/* Profile Image */}
-            <div className="relative aspect-square max-w-md mx-auto group">
+            <div className="relative aspect-square max-w-md mx-auto group lg:mx-0">
                <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 group-hover:opacity-40 transition-opacity duration-500" />
                <div className="absolute inset-0 border border-white/10 rounded-3xl bg-deep-basalt/80 backdrop-blur-xl overflow-hidden p-2">
                   <img 
@@ -86,30 +110,6 @@ export function About() {
                  })}
                </AnimatePresence>
             </div>
-          </div>
-
-          <div>
-            <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
-              <p>
-                I currently lead Digital Strategy for the University of Oregon. I’ve managed enterprise-scale digital ecosystems and teams of 75+. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
-              </p>
-            </div>
-
-            {/* Redesigned Skills Section - Premium Spec Grid */}
-            <div className="grid grid-cols-2 gap-4 mb-10 border-t border-b border-white/5 py-6">
-              {skills.map((skill) => (
-                <div key={skill.label} className="flex flex-col">
-                  <span className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">{skill.value}</span>
-                  <span className="text-white font-medium">{skill.label}</span>
-                </div>
-              ))}
-            </div>
-
-            <Button variant="outline" className="text-volt-lime border-volt-lime/20 hover:bg-volt-lime hover:text-black group rounded-full" asChild>
-              <Link href="/bio">
-                Read full bio <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-            </Button>
           </div>
         </div>
       </div>
