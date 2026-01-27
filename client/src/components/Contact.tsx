@@ -39,9 +39,9 @@ export function Contact() {
         {/* Gradient Glow */}
         <div className="absolute inset-0 max-w-3xl mx-auto top-[200px] bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet opacity-20 blur-[100px] -z-10 h-[600px]" />
 
-        {/* Gradient Border Container */}
-        <div className="p-[1px] rounded-3xl bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet relative shadow-2xl">
-          <div className="p-8 md:p-12 rounded-3xl relative h-full bg-deep-basalt/90 backdrop-blur-xl">
+        {/* Form Container */}
+        <div className="rounded-3xl relative shadow-2xl bg-deep-basalt/90 backdrop-blur-xl border border-white/10">
+          <div className="p-8 md:p-12 rounded-3xl relative h-full">
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
