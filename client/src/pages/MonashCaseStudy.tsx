@@ -189,39 +189,70 @@ export default function MonashCaseStudy() {
 
       {/* 1. The Friction (The Problem) */}
       <Section id="friction" nextId="insight">
-        <motion.div 
-          variants={stagger}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true, margin: "-10% 0px" }}
-          className="max-w-4xl mx-auto"
-        >
-          <motion.div variants={fadeInUp} className="text-center mb-16">
-            <span className="text-electric-violet font-mono text-sm mb-6 block tracking-widest uppercase font-medium">01 — The Current State</span>
-            <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">The Problem: Admissions by <br/>Administrative Burden.</h2>
-            <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl mx-auto">
-              Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility using static PDFs, hidden 'Adjustment Factor' spreadsheets, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping guests find their way.
-            </p>
-          </motion.div>
-
-          <motion.div variants={stagger} className="grid md:grid-cols-3 gap-6">
-            {[
-              { label: "The Dead End", value: "0 Results", desc: "A TAFE graduate searching for credit gets 0 results because the database is incomplete.", color: "text-red-400" },
-              { label: "The Hidden Math", value: "Hidden +5", desc: "A regional student with an ATAR of 65 sees a cutoff of 70 and abandons the site.", color: "text-orange-400" },
-              { label: "The Double Handling", value: "$200 Fees", desc: "Applicants are bounced to external sites to pay fees for courses they could apply to directly.", color: "text-gray-300" }
-            ].map((stat, i) => (
-              <motion.div 
-                key={i} 
-                variants={fadeInUp}
-                className="glass-card p-8 rounded-2xl border border-white/5 flex flex-col items-center text-center hover:bg-white/5 transition-colors"
-              >
-                 <h4 className={`text-4xl font-display font-bold mb-3 ${stat.color}`}>{stat.value}</h4>
-                 <div className="text-white font-medium mb-3 text-lg">{stat.label}</div>
-                 <p className="text-sm text-gray-500 font-mono leading-relaxed">{stat.desc}</p>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div 
+              variants={stagger}
+              initial="initial"
+              whileInView="whileInView"
+              viewport={{ once: true, margin: "-10% 0px" }}
+            >
+              <motion.div variants={fadeInUp} className="mb-16">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+                  <span className="relative flex h-2 w-2">
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-electric-violet"></span>
+                  </span>
+                  <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                    01. The Problem (Current State)
+                  </span>
+                </div>
+                
+                <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">The Problem: Admissions by <br/>Administrative Burden.</h2>
+                <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
+                  Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility using static PDFs, hidden 'Adjustment Factor' spreadsheets, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping guests find their way.
+                </p>
               </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+
+              <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-6">
+                {[
+                  { label: "The Dead End", value: "0 Results", desc: "A TAFE graduate searching for credit gets 0 results because the database is incomplete.", color: "text-red-400" },
+                  { label: "The Hidden Math", value: "Hidden +5", desc: "A regional student with an ATAR of 65 sees a cutoff of 70 and abandons the site.", color: "text-orange-400" },
+                ].map((stat, i) => (
+                  <motion.div 
+                    key={i} 
+                    variants={fadeInUp}
+                    className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-start hover:bg-white/5 transition-colors"
+                  >
+                     <h4 className={`text-3xl font-display font-bold mb-2 ${stat.color}`}>{stat.value}</h4>
+                     <div className="text-white font-medium mb-2">{stat.label}</div>
+                     <p className="text-sm text-gray-500 leading-relaxed">{stat.desc}</p>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            <motion.div
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1 }}
+               className="relative lg:h-[600px] flex items-center justify-center"
+            >
+               <AbstractBrowser variant="infinite-pdf" className="w-full max-w-md shadow-2xl h-[500px]" />
+               
+               {/* Floating Alert */}
+               <motion.div 
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute -right-4 top-1/4 glass-panel p-4 rounded-xl border border-red-500/30 bg-red-500/10 backdrop-blur-md shadow-xl max-w-[200px]"
+                >
+                   <div className="flex items-center gap-2 mb-2">
+                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                      <span className="text-xs font-mono text-red-400 uppercase">Error</span>
+                   </div>
+                   <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
+                </motion.div>
+            </motion.div>
+        </div>
       </Section>
 
       {/* 2. The Insight (The Strategy) */}
@@ -234,7 +265,15 @@ export default function MonashCaseStudy() {
           viewport={{ once: true, margin: "-10% 0px" }}
         >
           <motion.div variants={fadeInUp}>
-            <span className="text-ion-cyan font-mono text-sm mb-6 block tracking-widest uppercase font-medium">02 — The Strategic Insight</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+              <span className="relative flex h-2 w-2">
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-ion-cyan"></span>
+              </span>
+              <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                02. The Strategic Insight
+              </span>
+            </div>
+
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">The Shift to Equity.</h2>
             <p className="text-xl text-gray-400 font-light leading-relaxed mb-8">
               The 2024 Universities Accord mandates a shift from a market-driven logic to an equity-driven mandate. We couldn't just reskin the page; we had to expose the backend logic to the frontend user. We pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
@@ -247,52 +286,7 @@ export default function MonashCaseStudy() {
           
           <motion.div variants={fadeInUp} className="relative">
              <div className="absolute inset-0 bg-ion-cyan/10 blur-[100px] rounded-full" />
-             {/* Flow Diagram Placeholder */}
-             <div className="relative bg-black/40 backdrop-blur-xl p-8 rounded-2xl border border-white/10 shadow-2xl">
-                <div className="flex justify-between items-center mb-8 border-b border-white/10 pb-4">
-                  <div className="text-xs font-mono text-gray-500 uppercase tracking-widest">Master Logic Flow</div>
-                  <div className="flex gap-2">
-                     <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                     <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                     <div className="w-2 h-2 rounded-full bg-green-500/50" />
-                  </div>
-                </div>
-                
-                <div className="space-y-6 relative">
-                   {/* Vertical Line */}
-                   <div className="absolute left-[19px] top-8 bottom-8 w-0.5 bg-gradient-to-b from-ion-cyan/50 to-transparent z-0" />
-                   
-                   {/* Step 1 */}
-                   <div className="flex items-start gap-4 relative z-10">
-                      <div className="w-10 h-10 rounded-full bg-ion-cyan/20 border border-ion-cyan/50 flex items-center justify-center shrink-0 text-ion-cyan">1</div>
-                      <div className="bg-white/5 border border-white/10 p-4 rounded-lg flex-1">
-                         <div className="text-sm font-bold text-white mb-1">Identify Applicant Type</div>
-                         <div className="text-xs text-gray-400 font-mono">Year 12 vs. TAFE vs. Mature Age</div>
-                      </div>
-                   </div>
-
-                   {/* Step 2 */}
-                   <div className="flex items-start gap-4 relative z-10">
-                      <div className="w-10 h-10 rounded-full bg-ion-cyan/10 border border-ion-cyan/30 flex items-center justify-center shrink-0 text-ion-cyan/80">2</div>
-                      <div className="bg-white/5 border border-white/10 p-4 rounded-lg flex-1">
-                         <div className="text-sm font-bold text-white mb-1">Retrieve Adjustment Factors</div>
-                         <div className="text-xs text-gray-400 font-mono">Query Articulation_DB & Postcode_API</div>
-                      </div>
-                   </div>
-
-                   {/* Step 3 */}
-                   <div className="flex items-start gap-4 relative z-10">
-                      <div className="w-10 h-10 rounded-full bg-ion-cyan/5 border border-ion-cyan/20 flex items-center justify-center shrink-0 text-ion-cyan/60">3</div>
-                      <div className="bg-white/5 border border-white/10 p-4 rounded-lg flex-1">
-                         <div className="text-sm font-bold text-white mb-1">Calculate & Present</div>
-                         <div className="text-xs text-gray-400 font-mono">Show "Hidden Math" Visualization</div>
-                      </div>
-                   </div>
-                </div>
-                <div className="mt-4 text-center">
-                  <span className="text-[10px] font-mono text-gray-500 italic">Mapping the 'Concierge' logic flow</span>
-                </div>
-             </div>
+             <AbstractBrowser variant="terminal" className="shadow-2xl shadow-ion-cyan/10 h-[400px]" />
           </motion.div>
         </motion.div>
       </Section>
@@ -311,19 +305,27 @@ export default function MonashCaseStudy() {
             
             <div className="p-8 md:p-20 grid lg:grid-cols-12 gap-16 items-center relative z-10">
               <div className="lg:col-span-5">
-                <span className="text-volt-lime font-mono text-sm mb-6 block tracking-widest uppercase font-medium">03 — The Solution</span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+                  <span className="relative flex h-2 w-2">
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-volt-lime"></span>
+                  </span>
+                  <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                    03. The Proposed Solution
+                  </span>
+                </div>
+
                 <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Visualizing the Invisible.</h3>
                 <p className="text-xl text-gray-400 leading-relaxed mb-8">
                   We designed a dynamic component that visualizes the "Hidden Math" of admissions. Instead of a static table, the "Stacking Calculator" shows students exactly how close they are.
                 </p>
-                <div className="flex items-center gap-4 text-sm font-mono text-gray-500">
-                   <span className="flex items-center gap-2">
-                     <span className="w-2 h-2 rounded-full bg-volt-lime animate-pulse" />
-                     Live Calculation
-                   </span>
-                   <span className="h-4 w-px bg-white/10" />
-                   <span>V2.1 Production</span>
-                </div>
+                
+                <Button 
+                  className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                >
+                  Try It Out
+                  <ExternalLink className="ml-2 w-4 h-4" />
+                </Button>
               </div>
               
               <div className="lg:col-span-7">
@@ -459,18 +461,8 @@ export default function MonashCaseStudy() {
              ))}
            </div>
 
-           {/* Interactive Demo Section */}
-           <div className="text-center pt-16 border-t border-white/5 mt-16">
-              <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Experience the Flow.</h3>
-              <Button 
-                className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-10 py-8 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
-                onClick={() => window.open('https://www.figma.com', '_blank')}
-              >
-                Launch Interactive Demo
-                <ExternalLink className="ml-3 w-5 h-5" />
-              </Button>
-              <p className="mt-6 text-gray-500 font-mono text-sm">Experience the "Stacking" animation live in Figma.</p>
-           </div>
+           {/* Interactive Demo Section - REMOVED */}
+           
         </motion.div>
       </Section>
 

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface AbstractBrowserProps {
-  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile";
+  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal";
   className?: string;
 }
 
@@ -21,7 +21,7 @@ export function AbstractBrowser({ variant = "landing", className = "" }: Abstrac
       </div>
 
       {/* Viewport Content */}
-      <div className="p-4 relative min-h-[160px] bg-gradient-to-br from-white/[0.02] to-transparent">
+      <div className="p-4 relative min-h-[160px] bg-gradient-to-br from-white/[0.02] to-transparent overflow-hidden">
         <Content variant={variant} />
       </div>
     </div>
@@ -33,6 +33,74 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
   const blockClass = "bg-white/5 rounded border border-white/5";
 
   switch (variant) {
+    case "infinite-pdf":
+      return (
+        <div className="w-full h-[300px] bg-white/[0.02] border border-white/5 p-6 relative overflow-hidden flex flex-col items-center">
+            {/* Document Header */}
+            <div className={`w-1/2 h-4 ${blockClass} mb-8`} />
+            
+            {/* Rows */}
+            <div className="w-full space-y-3 relative">
+                {Array.from({ length: 15 }).map((_, i) => (
+                    <div key={i} className="flex gap-4 items-center opacity-80">
+                         <div className={`w-8 h-2 ${lineClass}`} />
+                         <div className={`flex-1 h-2 ${lineClass}`} />
+                         <div className={`w-12 h-2 ${lineClass}`} />
+                    </div>
+                ))}
+                {/* Fade out at bottom for infinity effect */}
+                <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#000] to-transparent pointer-events-none" />
+            </div>
+        </div>
+      );
+
+    case "terminal":
+        return (
+            <div className="font-mono text-xs space-y-2 p-2">
+                <div className="flex gap-2">
+                    <span className="text-pink-500">const</span>
+                    <span className="text-blue-400">applicant</span>
+                    <span className="text-white">=</span>
+                    <span className="text-yellow-300">await</span>
+                    <span className="text-blue-400">db</span>
+                    <span className="text-white">.</span>
+                    <span className="text-green-400">fetch</span>
+                    <span className="text-white">(</span>
+                    <span className="text-orange-300">user.id</span>
+                    <span className="text-white">);</span>
+                </div>
+                <div className="flex gap-2 pl-4">
+                    <span className="text-pink-500">if</span>
+                    <span className="text-white">(</span>
+                    <span className="text-blue-400">applicant</span>
+                    <span className="text-white">.</span>
+                    <span className="text-blue-400">hasBonus</span>
+                    <span className="text-white">)</span>
+                    <span className="text-white">{`{`}</span>
+                </div>
+                <div className="flex gap-2 pl-8">
+                     <span className="text-blue-400">score</span>
+                     <span className="text-white">+=</span>
+                     <span className="text-purple-400">5.0</span>
+                     <span className="text-white">;</span>
+                </div>
+                <div className="flex gap-2 pl-4">
+                    <span className="text-white">{`}`}</span>
+                </div>
+                <div className="flex gap-2 mt-4">
+                    <span className="text-green-400">➜</span>
+                    <span className="text-white">Processing...</span>
+                    <span className="w-2 h-4 bg-white animate-pulse" />
+                </div>
+                
+                 <div className="space-y-1 mt-6 opacity-50">
+                    <div className="flex gap-2"><span className="text-gray-500">// Calculating adjustment factors</span></div>
+                    <div className="flex gap-2"><span className="text-gray-500">// Checking regional status</span></div>
+                    <div className="flex gap-2"><span className="text-gray-500">// Validating prerequisites</span></div>
+                 </div>
+            </div>
+        );
+
     case "dashboard":
       return (
         <div className="space-y-3">
