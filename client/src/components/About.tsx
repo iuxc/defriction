@@ -80,7 +80,7 @@ export function About() {
 
           <div className="relative order-first lg:order-last">
             {/* Profile Image */}
-            <div className="relative aspect-square max-w-md w-full mx-auto group lg:ml-auto lg:mr-0">
+            <div className="relative aspect-square max-w-md w-full mx-auto group lg:ml-auto lg:mr-12">
                <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 group-hover:opacity-40 transition-opacity duration-500" />
                <div className="absolute inset-0 border border-white/10 rounded-3xl bg-deep-basalt/80 backdrop-blur-xl overflow-hidden p-2">
                   <img 
