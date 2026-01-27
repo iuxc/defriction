@@ -15,15 +15,15 @@ interface BioModalProps {
 export function BioModal({ open, onOpenChange }: BioModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl bg-deep-basalt border-white/10 text-white p-0 overflow-hidden sm:rounded-3xl max-h-[90vh] overflow-y-auto">
-        <div className="relative">
+      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none data-[state=open]:duration-500 data-[state=open]:slide-in-from-bottom-10 data-[state=open]:zoom-in-95 data-[state=closed]:duration-300 data-[state=closed]:slide-out-to-bottom-10 data-[state=closed]:zoom-out-95">
+        <div className="relative min-h-full">
           {/* Decorative background gradients */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-volt-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-electric-violet/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-          <div className="p-8 md:p-12 relative z-10">
+          <div className="p-8 md:p-12 relative z-10 flex flex-col justify-center min-h-full">
             {/* Header */}
-            <DialogHeader className="mb-12 text-left">
+            <DialogHeader className="mb-8 md:mb-12 text-left">
               <div className="flex items-center gap-3 mb-6">
                  <Badge variant="outline" className="border-volt-lime/30 text-volt-lime bg-volt-lime/5 rounded-md px-3 py-1 font-mono tracking-widest uppercase">
                    Confidential
@@ -32,15 +32,15 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
               </div>
               
               <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
-                The Executive who <span className="text-gray-500">Designs</span>.
+                The Executive Who <span className="text-gray-500">Designs</span>.
               </DialogTitle>
               <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
-                I bridge the gap between Boardroom strategy and Pixel-perfect execution.
+                I bridge the gap between boardroom strategy and pixel-perfect execution.
               </p>
             </DialogHeader>
 
             {/* Body Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 md:mb-12">
               <div className="space-y-4">
                 <h4 className="font-mono text-xs text-ion-cyan uppercase tracking-widest mb-2 border-b border-ion-cyan/20 pb-2 inline-block">The Scale</h4>
                 <p className="text-gray-400 leading-relaxed text-sm">
@@ -63,26 +63,26 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
               </div>
             </div>
 
-            <Separator className="bg-white/10 mb-12" />
+            <Separator className="bg-white/10 mb-8 md:mb-12" />
 
             {/* The Value */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8 md:mb-12">
               <div className="bg-white/5 rounded-xl p-6 border border-white/5 relative group">
                 <div className="absolute -top-3 -left-3 bg-deep-basalt border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-gray-400">
                   To Leaders
                 </div>
-                <blockquote className="text-lg md:text-xl font-light italic text-gray-300 relative z-10">
-                  "I won't build tech debt. I build systems that scale, survive governance, and pass security audits."
-                </blockquote>
+                <p className="text-lg md:text-xl font-light text-gray-300 relative z-10">
+                  I won't build tech debt. I build systems that scale, survive governance, and pass security audits.
+                </p>
               </div>
 
               <div className="bg-white/5 rounded-xl p-6 border border-white/5 relative group">
                 <div className="absolute -top-3 -left-3 bg-deep-basalt border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-gray-400">
                   To Makers
                 </div>
-                <blockquote className="text-lg md:text-xl font-light italic text-gray-300 relative z-10">
-                  "I speak Figma, Code, and Brand. I know that speed matters and details build trust."
-                </blockquote>
+                <p className="text-lg md:text-xl font-light text-gray-300 relative z-10">
+                  I speak Figma, Code, and Brand. I know that speed matters and details build trust.
+                </p>
               </div>
             </div>
 
