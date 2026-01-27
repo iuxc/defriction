@@ -84,15 +84,24 @@ export default function MonashCaseStudy() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default"
+                className="flex flex-col gap-4 mb-8"
               >
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
-                </span>
-                <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
-                  Monash University
-                </span>
+                <div className="flex flex-wrap gap-3">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 backdrop-blur-md cursor-default">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+                    </span>
+                    <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                      Client: Monash University (Concept Case Study)
+                    </span>
+                  </div>
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 backdrop-blur-md cursor-default">
+                    <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                      Role: UI Design + Information Architecture
+                    </span>
+                  </div>
+                </div>
               </motion.div>
               
               <motion.div 
