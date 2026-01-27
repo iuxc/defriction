@@ -23,7 +23,6 @@ const Section = ({
     <div className="container mx-auto px-4 relative z-10">
       {children}
     </div>
-    {nextId && <NextSectionArrow targetId={nextId} offset />}
   </section>
 );
 
@@ -182,11 +181,11 @@ export default function MonashCaseStudy() {
             </motion.div>
           </div>
         </div>
-        <NextSectionArrow targetId="friction" offset />
+        <NextSectionArrow targetId="friction" />
       </section>
 
       {/* 1. The Friction (The Problem) */}
-      <Section id="friction" nextId="insight">
+      <Section id="friction">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div 
               variants={stagger}
@@ -276,7 +275,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 2. The Insight (The Strategy) */}
-      <Section id="insight" nextId="solution">
+      <Section id="insight">
         <motion.div 
           className="grid lg:grid-cols-2 gap-20 items-center"
           variants={stagger}
@@ -309,7 +308,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 3. The Solution (Interactive) */}
-      <Section id="solution" nextId="gallery">
+      <Section id="solution">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
             <motion.div 
                initial="initial"
@@ -434,7 +433,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 4. The Gallery */}
-      <Section id="gallery" nextId="footer">
+      <Section id="gallery">
         <motion.div 
           className="space-y-16"
           initial="initial"

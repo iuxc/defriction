@@ -4,17 +4,15 @@ import { cn } from "@/lib/utils";
 
 interface NextSectionArrowProps {
   targetId: string;
-  offset?: boolean;
 }
 
-export const NextSectionArrow = ({ targetId, offset = false }: NextSectionArrowProps) => (
+export const NextSectionArrow = ({ targetId }: NextSectionArrowProps) => (
   <motion.button
     onClick={() => {
       document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
     }}
     className={cn(
-      "absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 hover:text-volt-lime transition-colors p-4 z-[90] cursor-pointer",
-      offset && "md:left-[calc(50%-32rem)] md:translate-x-0"
+      "absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 hover:text-volt-lime transition-colors p-4 z-[90] cursor-pointer"
     )}
     animate={{ y: [0, 10, 0] }}
     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
