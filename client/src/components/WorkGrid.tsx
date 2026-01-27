@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "wouter";
 import { ArrowUpRight, MoveRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
 export function WorkGrid() {
   const projects = [
@@ -13,7 +14,9 @@ export function WorkGrid() {
       tags: ["Strategy", "IA", "Education"],
       link: "/work/monash",
       gradient: "from-electric-violet/20 to-transparent",
-      colSpan: "md:col-span-2"
+      colSpan: "md:col-span-2",
+      browserVariant: "landing" as const,
+      browserPosition: "right"
     },
     {
       id: "aesop",
@@ -22,7 +25,9 @@ export function WorkGrid() {
       tags: ["UX", "Commerce"],
       link: "#",
       gradient: "from-ion-cyan/20 to-transparent",
-      colSpan: "md:col-span-1"
+      colSpan: "md:col-span-1",
+      browserVariant: "mobile" as const,
+      browserPosition: "bottom"
     },
     {
       id: "bom",
@@ -31,7 +36,9 @@ export function WorkGrid() {
       tags: ["Brand", "Data", "Government"],
       link: "#",
       gradient: "from-flux-orange/20 to-transparent",
-      colSpan: "md:col-span-1"
+      colSpan: "md:col-span-1",
+      browserVariant: "data" as const,
+      browserPosition: "bottom"
     },
     {
        id: "internal",
@@ -40,7 +47,9 @@ export function WorkGrid() {
        tags: ["SaaS", "Engineering"],
        link: "#",
        gradient: "from-volt-lime/20 to-transparent",
-       colSpan: "md:col-span-2"
+       colSpan: "md:col-span-2",
+       browserVariant: "dashboard" as const,
+       browserPosition: "right"
     }
   ];
 
@@ -70,33 +79,50 @@ export function WorkGrid() {
                 <motion.div 
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
-                  className="h-full glass-card rounded-2xl overflow-hidden relative"
+                  className="h-full glass-card rounded-2xl overflow-hidden relative min-h-[400px] flex flex-col"
                 >
                   <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
                   
-                  <div className="relative p-8 h-full flex flex-col justify-between min-h-[300px]">
-                    <div className="space-y-6">
-                      <div className="flex justify-between items-start">
-                         <div className="flex flex-wrap gap-2">
-                          {project.tags.map((tag) => (
-                            <Badge key={tag} variant="secondary" className="bg-white/5 hover:bg-white/10 text-gray-300 border-white/5 backdrop-blur-sm rounded-full px-3 py-1 font-normal">
-                              {tag}
-                            </Badge>
-                          ))}
-                        </div>
-                        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-volt-lime group-hover:text-black transition-all duration-300">
-                          <ArrowUpRight className="w-5 h-5" />
-                        </div>
+                  <div className="relative p-8 flex flex-col h-full z-10">
+                    {/* Header Section */}
+                    <div className="flex justify-between items-start mb-6">
+                       <div className="flex flex-wrap gap-2">
+                        {project.tags.map((tag) => (
+                          <Badge key={tag} variant="secondary" className="bg-white/5 hover:bg-white/10 text-gray-300 border-white/5 backdrop-blur-sm rounded-full px-3 py-1 font-normal">
+                            {tag}
+                          </Badge>
+                        ))}
                       </div>
+                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-volt-lime group-hover:text-black transition-all duration-300 shrink-0 ml-4">
+                        <ArrowUpRight className="w-5 h-5" />
+                      </div>
+                    </div>
+                    
+                    {/* Content & Browser Layout */}
+                    <div className={`flex flex-col flex-1 ${project.browserPosition === 'right' ? 'md:flex-row md:items-end gap-8' : 'justify-between gap-8'}`}>
                       
-                      <div>
-                        <h3 className="text-3xl font-display font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
+                      {/* Text Content */}
+                      <div className={`space-y-3 ${project.browserPosition === 'right' ? 'md:max-w-[40%] pb-4' : ''}`}>
+                        <h3 className="text-3xl font-display font-bold text-white group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-400 transition-all">
                           {project.title}
                         </h3>
-                        <p className="text-gray-400 font-light text-lg">
+                        <p className="text-gray-400 font-light text-lg leading-snug">
                           {project.subtitle}
                         </p>
                       </div>
+
+                      {/* Abstract Browser Visual */}
+                      <div className={`relative ${
+                        project.browserPosition === 'right' 
+                          ? 'w-full md:w-[60%] -mb-8 -mr-8 translate-y-4 group-hover:translate-y-2 transition-transform duration-500' 
+                          : 'w-full -mb-12 mx-auto scale-95 group-hover:scale-100 transition-transform duration-500'
+                      }`}>
+                         <AbstractBrowser 
+                            variant={project.browserVariant} 
+                            className="w-full shadow-2xl shadow-black/50 origin-top"
+                         />
+                      </div>
+
                     </div>
                   </div>
                 </motion.div>
