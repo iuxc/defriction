@@ -37,13 +37,10 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
       <motion.div
         layout
         transition={{ 
-          type: "spring", 
-          stiffness: 100, 
-          damping: 20, 
-          mass: 1.2
+          layout: { duration: 0.6, ease: [0.32, 0.72, 0, 1] } 
         }}
         className={cn(
-            "mx-auto relative overflow-hidden transition-all duration-500",
+            "mx-auto relative overflow-hidden",
             isOpen 
               ? "fixed bottom-8 left-4 right-4 z-50 max-w-3xl rounded-[2rem] bg-deep-basalt border border-white/10 shadow-2xl" 
               : "relative max-w-3xl rounded-[2rem] glass-panel border border-white/10 hover:border-white/20"
