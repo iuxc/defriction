@@ -94,7 +94,7 @@ export function Navigation() {
             })}
           </div>
           <Button 
-            className="bg-volt-lime/10 text-volt-lime hover:bg-volt-lime hover:text-black border border-volt-lime/20 rounded-full px-6 transition-all duration-300"
+            className="bg-gradient-to-b from-volt-lime/20 to-volt-lime/5 text-volt-lime hover:from-volt-lime/30 hover:to-volt-lime/10 border border-volt-lime/20 rounded-full px-6 transition-all duration-300 shadow-[inset_0_1px_0_rgba(212,255,0,0.2)] hover:shadow-[0_0_20px_rgba(212,255,0,0.2)] backdrop-blur-md"
             asChild
           >
             <a href="#contact">Start Project</a>
