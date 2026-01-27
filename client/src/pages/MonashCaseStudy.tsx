@@ -330,7 +330,7 @@ export default function MonashCaseStudy() {
                     <span className="text-volt-lime">● ACTIVE</span>
                   </div>
                   
-                  <div className="space-y-12 relative px-4 py-4">
+                  <div className="space-y-12 relative py-4">
                     {/* Threshold Line */}
                     <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/20 z-10 flex flex-col justify-end pb-8">
                       <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
@@ -338,11 +338,11 @@ export default function MonashCaseStudy() {
 
                     {/* Bar Group */}
                     <div className="space-y-3">
-                      <div className="flex justify-between text-sm mb-1">
+                      <div className="flex justify-between text-sm mb-1 px-4">
                         <span className="text-gray-400">Raw ATAR</span>
                         <span className="text-white font-mono text-lg">65.00</span>
                       </div>
-                      <div className="h-12 bg-white/5 rounded-xl relative overflow-hidden ring-1 ring-white/5">
+                      <div className="h-12 bg-white/5 rounded-xl relative overflow-hidden ring-1 ring-white/5 mx-4">
                         <motion.div 
                           initial={{ width: 0 }}
                           whileInView={{ width: "65%" }}
@@ -354,11 +354,11 @@ export default function MonashCaseStudy() {
                     </div>
 
                     <div className="space-y-3">
-                      <div className="flex justify-between text-sm mb-1">
+                      <div className="flex justify-between text-sm mb-1 px-4">
                         <span className="text-volt-lime">Regional Bonus</span>
                         <span className="text-white font-mono text-lg">+5.00</span>
                       </div>
-                      <div className="h-12 relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5">
+                      <div className="h-12 relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5 mx-4">
                          {/* Spacer - ends at 65% */}
                          <div className="absolute left-0 top-0 bottom-0 w-[65%] border-r border-white/5" />
                          
