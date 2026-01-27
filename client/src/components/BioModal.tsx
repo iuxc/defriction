@@ -8,6 +8,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface BioModalProps {
   open: boolean;
@@ -15,38 +16,61 @@ interface BioModalProps {
 }
 
 export function BioModal({ open, onOpenChange }: BioModalProps) {
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const item = {
+    hidden: { opacity: 0, y: 20 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" as const } }
+  };
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none duration-0 animate-none data-[state=open]:animate-none data-[state=closed]:animate-none data-[state=open]:duration-0 data-[state=closed]:duration-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none duration-200 animate-in fade-in-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
         <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/20 p-2 opacity-70 ring-offset-background transition-opacity hover:opacity-100 hover:bg-black/40 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground md:right-8 md:top-8">
           <X className="h-6 w-6 text-white" />
           <span className="sr-only">Close</span>
         </DialogClose>
-        <div className="relative min-h-full">
+        <motion.div 
+          className="relative min-h-full"
+          variants={container}
+          initial="hidden"
+          animate="show"
+        >
           {/* Decorative background gradients */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-volt-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-electric-violet/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
           <div className="p-8 md:p-12 relative z-10 flex flex-col justify-center min-h-full">
             {/* Header */}
-            <DialogHeader className="mb-8 md:mb-12 text-left">
-              <div className="flex items-center gap-3 mb-6">
-                 <Badge variant="outline" className="border-volt-lime/30 text-volt-lime bg-volt-lime/5 rounded-md px-3 py-1 font-mono tracking-widest uppercase">
-                   Confidential
-                 </Badge>
-                 <span className="text-gray-500 font-mono text-sm">// EXECUTIVE PROFILE</span>
-              </div>
-              
-              <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
-                The Executive Who <span className="text-gray-500">Designs</span>.
-              </DialogTitle>
-              <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
-                I bridge the gap between boardroom strategy and pixel-perfect execution.
-              </p>
-            </DialogHeader>
+            <motion.div variants={item}>
+              <DialogHeader className="mb-8 md:mb-12 text-left">
+                <div className="flex items-center gap-3 mb-6">
+                  <Badge variant="outline" className="border-volt-lime/30 text-volt-lime bg-volt-lime/5 rounded-md px-3 py-1 font-mono tracking-widest uppercase">
+                    Confidential
+                  </Badge>
+                  <span className="text-gray-500 font-mono text-sm">// EXECUTIVE PROFILE</span>
+                </div>
+                
+                <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
+                  The Executive Who <span className="text-gray-500">Designs</span>.
+                </DialogTitle>
+                <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
+                  I bridge the gap between boardroom strategy and pixel-perfect execution.
+                </p>
+              </DialogHeader>
+            </motion.div>
 
             {/* Body Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 md:mb-12">
+            <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 md:mb-12">
               <div className="space-y-4">
                 <h4 className="font-mono text-xs text-ion-cyan uppercase tracking-widest mb-2 border-b border-ion-cyan/20 pb-2 inline-block">The Scale</h4>
                 <p className="text-gray-400 leading-relaxed text-sm">
@@ -67,12 +91,14 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
                   Pioneered the <strong className="text-white">'Rivet' Design System</strong> for Higher Ed. Scaled Rume Health ops to 20 states with <strong className="text-white">&lt;3% turnover</strong>.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
-            <Separator className="bg-white/10 mb-8 md:mb-12" />
+            <motion.div variants={item}>
+              <Separator className="bg-white/10 mb-8 md:mb-12" />
+            </motion.div>
 
             {/* The Value */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8 md:mb-12">
+            <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8 md:mb-12">
               <div className="bg-white/5 rounded-xl p-6 border border-white/5 relative group">
                 <div className="absolute -top-3 -left-3 bg-deep-basalt border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-gray-400">
                   To Leaders
@@ -90,10 +116,10 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
                   I speak Figma, Code, and Brand. I know that speed matters and details build trust.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Personality Footer */}
-            <div className="flex flex-col md:flex-row justify-between gap-6 pt-4 border-t border-white/5 text-sm">
+            <motion.div variants={item} className="flex flex-col md:flex-row justify-between gap-6 pt-4 border-t border-white/5 text-sm">
               {[
                 { label: "Runner", title: "Discipline", desc: "I don't miss deadlines." },
                 { label: "Flutist", title: "Precision", desc: "I obsess over the details." },
@@ -102,14 +128,14 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
                 <div key={item.label} className="flex flex-col gap-1 group cursor-default text-center md:text-left flex-1">
                   <div className="flex items-center justify-center md:justify-start gap-2">
                     <span className="text-white font-medium group-hover:text-volt-lime transition-colors">{item.label}</span>
-                    <span className="text-gray-600 text-xs uppercase tracking-wider">// {item.title}</span>
+                    <span className="text-gray-500 text-xs uppercase tracking-wider">// {item.title}</span>
                   </div>
-                  <span className="text-gray-400 font-light">{item.desc}</span>
+                  <span className="text-gray-300 font-light">{item.desc}</span>
                 </div>
               ))}
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </DialogContent>
     </Dialog>
   );
