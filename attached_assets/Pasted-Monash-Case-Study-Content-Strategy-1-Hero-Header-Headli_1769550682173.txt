@@ -1,0 +1,57 @@
+Monash Case Study Content Strategy
+
+1. Hero / Header
+
+Headline: From Gatekeeper to Concierge.
+
+Subhead: Unifying the admissions journey for 40,000+ applicants.
+
+Primary CTA: [ See the Solution ] (Scrolls to Solution).
+
+Secondary CTA: [ Launch Interactive Demo ] (New Window).
+
+2. The Current State: "The PDF Trap" (This is the new storytelling section you asked for. It sets up the villain.)
+
+Headline: The Problem: Admissions by Administrative Burden.
+
+Narrative: "Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility using static PDFs, hidden 'Adjustment Factor' spreadsheets, and confusing academic acronyms (VTAC, SEAS, DoTS). The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping guests find their way."
+
+Friction Points (The Evidence):
+
+The Dead End: A TAFE graduate searching for credit gets 0 results because the database is incomplete.
+
+The Hidden Math: A regional student with an ATAR of 65 sees a cutoff of 70 and abandons the site, unaware that their postcode grants them +5 points.
+
+The "Double Handling": Applicants are bounced to external sites (VTAC) to pay $200 fees for courses they could have applied to directly for free.
+
+3. The Strategic Insight: "Logic over Legacy"
+
+Headline: The Shift to Equity.
+
+Narrative: "The 2024 Universities Accord mandates a shift from a market-driven logic to an equity-driven mandate. We couldn't just reskin the page; we had to expose the backend logic to the frontend user. We pivoted the entire architecture from asking 'Am I eligible?' to asking 'Who are you?'—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths."
+
+Visual Artifact: [ Master Flow Diagram Placeholder ] (Caption: "Mapping the 'Concierge' logic flow.").
+
+4. The Solution: "The Pathways Finder"
+
+Headline: Visualizing the Invisible.
+
+Narrative: "We designed a dynamic component that visualizes the 'Hidden Math' of admissions. Instead of a static table, the 'Stacking Calculator' shows students exactly how close they are."
+
+The "Hero" Feature (Animation Description): "The interface visually stacks a student's Raw ATAR (e.g., 65) with their Regional Adjustment (+5) to show they meet the Selection Rank (70). It turns a 'No' into a 'Yes' in real-time."
+
+5. The Gallery (Visual Proof)
+
+Image 1: Information Architecture (The Logic).
+
+Image 2: Low-Fidelity Wireframe (The Skeleton).
+
+Image 3: High-Fidelity UI (The Polish).
+
+6. The Interactive Demo
+
+Headline: Experience the Flow.
+
+CTA: [ Launch Interactive Demo ]
+
+Subtext: Experience the "Stacking" animation live in Figma.
