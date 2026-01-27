@@ -32,18 +32,10 @@ export default function MonashCaseStudy() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroSection = document.getElementById('hero');
-      const frictionSection = document.getElementById('friction');
-      
-      if (heroSection && frictionSection) {
-        const heroRect = heroSection.getBoundingClientRect();
-        const frictionRect = frictionSection.getBoundingClientRect();
-        
-        // Trigger when the Friction/Problem section starts entering the viewport
-        // or when Hero is significantly scrolled out
-        const shouldShow = frictionRect.top <= window.innerHeight * 0.8;
-        setIsPastHero(shouldShow);
-      }
+        // Fallback: If element detection fails or is unreliable, rely on window height.
+        // If we are scrolled more than 80vh down, show it.
+        const scrolled = window.scrollY > (window.innerHeight * 0.8);
+        setIsPastHero(scrolled);
     };
 
     window.addEventListener('scroll', handleScroll);
