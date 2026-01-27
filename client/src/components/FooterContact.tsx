@@ -33,7 +33,12 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
     <div className={cn("w-full px-4", className)}>
       <motion.div
         layout
-        transition={{ type: "spring", stiffness: 200, damping: 25 }}
+        transition={{ 
+          type: "spring", 
+          stiffness: 100, 
+          damping: 20, 
+          mass: 1.2
+        }}
         className={cn(
             "mx-auto relative overflow-hidden transition-colors duration-500",
             isOpen 
@@ -42,13 +47,17 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
         )}
       >
         {/* Gradient Border Effect when open */}
-        {isOpen && (
-            <motion.div 
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                className="absolute inset-0 p-[1px] rounded-[2rem] bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet -z-10"
-            />
-        )}
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div 
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    className="absolute inset-0 p-[1px] rounded-[2rem] bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet -z-10"
+                />
+            )}
+        </AnimatePresence>
 
         {/* Closed State Hover Effect */}
         {!isOpen && (
@@ -80,10 +89,14 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
                 ) : (
                     <motion.div
                         key="form"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ delay: 0.2 }}
+                        initial={{ opacity: 0, y: 20, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, y: -20, filter: "blur(10px)" }}
+                        transition={{ 
+                            duration: 0.5, 
+                            delay: 0.2,
+                            ease: [0.22, 1, 0.36, 1] 
+                        }}
                         className="p-8 md:p-12 text-left relative"
                     >
                          <button
