@@ -84,7 +84,29 @@ export default function MonashCaseStudy() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="flex flex-col gap-4 mb-8"
+              >
+                <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
+                  From <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Gatekeeper</span> <br />
+                  to <span className="text-white">Concierge.</span>
+                </h1>
+              </motion.div>
+              
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+              >
+                <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
+                  Unifying the admissions journey for 40,000+ applicants.
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="flex flex-col gap-4 mb-10"
               >
                 <div className="flex flex-wrap gap-3">
                   <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 backdrop-blur-md cursor-default">
@@ -103,28 +125,6 @@ export default function MonashCaseStudy() {
                   </div>
                 </div>
               </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-              >
-                <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
-                  From <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Gatekeeper</span> <br />
-                  to <span className="text-white">Concierge.</span>
-                </h1>
-              </motion.div>
-              
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
-                  Unifying the admissions journey for 40,000+ applicants.
-                </p>
-              </motion.div>
 
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
@@ -133,7 +133,7 @@ export default function MonashCaseStudy() {
                 className="flex flex-col sm:flex-row gap-4"
               >
                  <Button 
-                    className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                    className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
                     onClick={() => document.getElementById('solution')?.scrollIntoView({ behavior: 'smooth' })}
                  >
                     See the Solution
@@ -141,7 +141,7 @@ export default function MonashCaseStudy() {
                  </Button>
                  <Button 
                     variant="ghost"
-                    className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base px-6 py-6 h-auto transition-all duration-300 rounded-full"
+                    className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base px-6 py-4 h-auto transition-all duration-300 rounded-full"
                     onClick={() => window.open('https://www.figma.com', '_blank')}
                  >
                     <ExternalLink className="mr-2 w-4 h-4" />
