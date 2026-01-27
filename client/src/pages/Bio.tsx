@@ -58,9 +58,12 @@ export default function Bio() {
             viewport={{ once: true }}
             className="max-w-4xl"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse shadow-[0_0_10px_rgba(255,255,255,0.2)]" />
-              <span className="font-mono text-sm text-gray-400 uppercase tracking-widest font-bold">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+              </span>
+              <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                 Identity: The Translator
               </span>
             </div>
@@ -242,13 +245,15 @@ export default function Bio() {
                 whileInView={{ rotateY: 0, opacity: 1 }}
                 transition={{ duration: 1 }}
                 viewport={{ once: true }}
-                className="rounded-[2rem] overflow-hidden border border-white/20 shadow-2xl shadow-black"
+                className="rounded-[2rem] border border-white/10 bg-black/80 backdrop-blur-xl p-2 shadow-2xl shadow-black"
               >
-                  <img 
-                    src="/TheHumaninAZ.jpg" 
-                    alt="The Human in AZ" 
-                    className="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-110"
-                  />
+                  <div className="overflow-hidden rounded-[1.5rem]">
+                    <img 
+                      src="/TheHumaninAZ.jpg" 
+                      alt="The Human in AZ" 
+                      className="w-full aspect-[3/4] object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-110"
+                    />
+                  </div>
               </motion.div>
             </div>
             

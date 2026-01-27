@@ -84,10 +84,13 @@ export default function MonashCaseStudy() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="flex items-center gap-3 mb-8"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default"
               >
-                <span className="w-2 h-2 rounded-full bg-gray-400 animate-pulse" />
-                <span className="font-mono text-gray-400 tracking-widest text-xs uppercase font-medium">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+                </span>
+                <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
                   Monash University
                 </span>
               </motion.div>
