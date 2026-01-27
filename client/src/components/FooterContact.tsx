@@ -31,6 +31,9 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
 
   return (
     <div className={cn("w-full px-4", className)}>
+      {/* Placeholder to prevent layout collapse when fixed */}
+      <div className={cn("transition-all duration-300", isOpen ? "h-[200px]" : "h-0")} />
+
       <motion.div
         layout
         transition={{ 
@@ -40,10 +43,10 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
           mass: 1.2
         }}
         className={cn(
-            "mx-auto relative overflow-hidden transition-colors duration-500",
+            "mx-auto relative overflow-hidden transition-all duration-500",
             isOpen 
-              ? "max-w-3xl rounded-[2rem] bg-deep-basalt border border-white/10 shadow-2xl" 
-              : "max-w-3xl rounded-[2rem] glass-panel border border-white/10 hover:border-white/20"
+              ? "fixed bottom-8 left-4 right-4 z-50 max-w-3xl rounded-[2rem] bg-deep-basalt border border-white/10 shadow-2xl" 
+              : "relative max-w-3xl rounded-[2rem] glass-panel border border-white/10 hover:border-white/20"
         )}
       >
         {/* Gradient Border Effect when open */}

@@ -183,8 +183,8 @@ export default function Bio() {
 
       <footer className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-center justify-center">
          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-center"
