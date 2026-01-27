@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import Bio from "@/pages/Bio";
 import MonashCaseStudy from "@/pages/MonashCaseStudy";
 import NotFound from "@/pages/not-found";
+import { ScrollToTop } from "@/components/ScrollToTop";
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ScrollToTop />
         <Toaster />
         <Router />
       </TooltipProvider>

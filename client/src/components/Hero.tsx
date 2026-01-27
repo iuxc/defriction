@@ -59,7 +59,7 @@ export function Hero() {
               className="text-white hover:text-volt-lime hover:bg-transparent font-mono uppercase tracking-wider gap-2 group"
               asChild
             >
-              <a href="#about">
+              <a href="#method">
                 The Method 
                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
