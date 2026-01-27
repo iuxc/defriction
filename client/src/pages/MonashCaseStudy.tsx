@@ -308,7 +308,7 @@ export default function MonashCaseStudy() {
 
                 <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Visualizing the Invisible.</h3>
                 <p className="text-xl text-gray-400 leading-relaxed mb-8">
-                  I designed a dynamic component that visualizes the "Hidden Math" of admissions. Instead of a static table, the "Stacking Calculator" shows students exactly how close they are.
+                  I designed a dynamic component that visualizes the "hidden math" of admissions. Instead of a static table, the "stacking calculator" shows students exactly how close they are.
                 </p>
                 
                 <Button 
@@ -408,8 +408,8 @@ export default function MonashCaseStudy() {
                 </div>
                 
                 {/* Caption */}
-                <p className="text-xs font-mono text-gray-500 mt-4 text-center max-w-md mx-auto">
-                  The Stacking Calculator visualizes eligibility adjustments based on postcode, revealing a student's true Selection Rank beyond their raw ATAR.
+                <p className="text-xs font-mono text-gray-500 mt-4 text-left w-full px-8">
+                  The stacking calculator visualizes eligibility adjustments based on postcode, revealing a student's true Selection Rank beyond their raw ATAR.
                 </p>
             </motion.div>
         </div>
