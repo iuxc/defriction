@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 interface AbstractBrowserProps {
-  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile";
+  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "modern-hero";
   className?: string;
 }
 
@@ -33,6 +33,116 @@ function Content({ variant }: { variant: AbstractBrowserProps["variant"] }) {
   const blockClass = "bg-white/5 rounded border border-white/5";
 
   switch (variant) {
+    case "modern-hero":
+      return (
+        <div className="flex flex-col h-full relative">
+          {/* Header Area */}
+          <div className="flex justify-between items-center mb-8">
+            <motion.div 
+              initial={{ width: 0 }}
+              animate={{ width: "20%" }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className={`h-6 ${blockClass} bg-white/10`} 
+            />
+            <div className="flex gap-4">
+               {["w-16", "w-12", "w-20", "w-8"].map((w, i) => (
+                 <motion.div 
+                   key={i}
+                   initial={{ opacity: 0, y: -10 }}
+                   animate={{ opacity: 1, y: 0 }}
+                   transition={{ duration: 0.5, delay: 0.8 + (i * 0.1) }}
+                   className={`h-2 ${w} ${lineClass}`} 
+                 />
+               ))}
+            </div>
+          </div>
+
+          {/* Hero Content Area */}
+          <div className="flex-1 grid grid-cols-12 gap-6">
+             {/* Left Column - Main Feature */}
+             <div className="col-span-8 flex flex-col gap-4">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, delay: 1 }}
+                  className={`h-40 ${blockClass} bg-gradient-to-br from-white/10 to-transparent relative overflow-hidden group`}
+                >
+                   {/* Animated shine effect */}
+                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:animate-shimmer" />
+                   
+                   <div className="absolute bottom-4 left-4 right-4 flex gap-3 items-end">
+                      <div className={`h-12 w-12 rounded-full ${blockClass} bg-white/10`} />
+                      <div className="space-y-2 flex-1">
+                         <div className={`h-3 w-1/2 ${lineClass}`} />
+                         <div className={`h-2 w-1/3 ${lineClass} opacity-60`} />
+                      </div>
+                   </div>
+                </motion.div>
+                
+                <div className="grid grid-cols-2 gap-4 flex-1">
+                   <motion.div 
+                     initial={{ opacity: 0, x: -20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     transition={{ duration: 0.6, delay: 1.2 }}
+                     className={`rounded-lg bg-white/5 border border-white/5 p-3 flex flex-col justify-between`}
+                   >
+                      <div className={`w-8 h-8 rounded-full bg-volt-lime/20 mb-2`} />
+                      <div className={`h-2 w-2/3 ${lineClass}`} />
+                   </motion.div>
+                   <motion.div 
+                     initial={{ opacity: 0, x: -20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     transition={{ duration: 0.6, delay: 1.3 }}
+                     className={`rounded-lg bg-white/5 border border-white/5 p-3 flex flex-col justify-between`}
+                   >
+                      <div className={`w-8 h-8 rounded-full bg-ion-cyan/20 mb-2`} />
+                      <div className={`h-2 w-2/3 ${lineClass}`} />
+                   </motion.div>
+                </div>
+             </div>
+
+             {/* Right Column - Sidebar/Stats */}
+             <div className="col-span-4 flex flex-col gap-3">
+                <motion.div 
+                   initial={{ opacity: 0, x: 20 }}
+                   animate={{ opacity: 1, x: 0 }}
+                   transition={{ duration: 0.6, delay: 1.4 }}
+                   className={`h-24 ${blockClass} bg-white/[0.03] p-3 flex flex-col items-center justify-center gap-2`}
+                >
+                   <div className={`w-10 h-10 rounded-full border-2 border-white/10`} />
+                   <div className={`h-2 w-1/2 ${lineClass}`} />
+                </motion.div>
+                
+                {[1, 2, 3].map((_, i) => (
+                   <motion.div 
+                     key={i}
+                     initial={{ opacity: 0, x: 20 }}
+                     animate={{ opacity: 1, x: 0 }}
+                     transition={{ duration: 0.5, delay: 1.5 + (i * 0.1) }}
+                     className={`h-8 ${lineClass} w-full opacity-40`} 
+                   />
+                ))}
+             </div>
+          </div>
+          
+          {/* Floating UI Element */}
+          <motion.div
+             initial={{ y: 20, opacity: 0 }}
+             animate={{ y: 0, opacity: 1 }}
+             transition={{ duration: 0.8, delay: 2, type: "spring" }}
+             className="absolute -right-4 -bottom-4 bg-black/80 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-2xl z-10"
+          >
+             <div className="flex gap-3 items-center">
+                <div className="h-2 w-2 rounded-full bg-volt-lime animate-pulse" />
+                <div className="space-y-1">
+                   <div className="h-1.5 w-16 bg-white/40 rounded-full" />
+                   <div className="h-1.5 w-10 bg-white/20 rounded-full" />
+                </div>
+             </div>
+          </motion.div>
+        </div>
+      );
+
     case "dashboard":
       return (
         <div className="space-y-3">
