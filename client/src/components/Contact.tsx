@@ -89,7 +89,7 @@ export function Contact() {
                 type="submit" 
                 className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
               >
-                Send Transmission <Send className="ml-2 w-4 h-4" />
+                Start the Conversation <Send className="ml-2 w-4 h-4" />
               </Button>
             </form>
           </div>

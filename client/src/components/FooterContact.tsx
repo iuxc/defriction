@@ -7,6 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
+import { useIsMobile } from "@/hooks/use-mobile";
 import { Send, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -24,13 +25,14 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
   
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { margin: "0px 0px -100px 0px" });
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
 
-  const showSticky = !isInView && stickyVisible;
+  const showSticky = !isInView && stickyVisible && !isMobile;
 
   const onSubmit = (data: any) => {
     toast({
@@ -141,7 +143,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                                           type="submit" 
                                           className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
                                       >
-                                          Send Transmission <Send className="ml-2 w-4 h-4" />
+                                          Start the Conversation <Send className="ml-2 w-4 h-4" />
                                       </Button>
                                   </motion.div>
                               </form>
