@@ -19,20 +19,9 @@ export function WorkGrid() {
       browserPosition: "right"
     },
     {
-      id: "aesop",
-      title: "Aesop",
-      subtitle: "Decoding the product filter.",
-      tags: ["UX", "Commerce"],
-      link: "#",
-      gradient: "from-ion-cyan/20 to-transparent",
-      colSpan: "md:col-span-1",
-      browserVariant: "mobile" as const,
-      browserPosition: "bottom"
-    },
-    {
       id: "bom",
       title: "BOM",
-      subtitle: "Designing for disaster visibility.",
+      subtitle: "Designing for daily delight.",
       tags: ["Brand", "Data", "Government"],
       link: "#",
       gradient: "from-flux-orange/20 to-transparent",
@@ -47,7 +36,7 @@ export function WorkGrid() {
        tags: ["SaaS", "Engineering"],
        link: "#",
        gradient: "from-volt-lime/20 to-transparent",
-       colSpan: "md:col-span-2",
+       colSpan: "md:col-span-3",
        browserVariant: "dashboard" as const,
        browserPosition: "right"
     }
