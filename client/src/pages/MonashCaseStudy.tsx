@@ -87,7 +87,7 @@ export default function MonashCaseStudy() {
               >
                 <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
                   From <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-500 to-gray-700">Gatekeeper</span> <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Gatekeeper</span> <br />
                   to <span className="text-white">Concierge.</span>
                 </h1>
               </motion.div>
@@ -125,15 +125,6 @@ export default function MonashCaseStudy() {
                transition={{ duration: 1, ease: "circOut", delay: 0.2 }}
                className="relative lg:h-[600px] flex flex-col items-center justify-center"
             >
-               {/* Ghosted Background Logo */}
-               <div className="absolute inset-0 flex items-center justify-center z-0 pointer-events-none opacity-10">
-                  <img 
-                    src="/assets/images/monash-crest.png" 
-                    alt="Monash University Crest" 
-                    className="w-[80%] h-auto object-contain blur-sm"
-                  />
-               </div>
-
                {/* Abstract Hero Visualization */}
                <div className="relative w-full max-w-lg z-10 mb-8">
                   <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet/30 to-volt-lime/30 blur-[60px] rounded-full opacity-60" />
