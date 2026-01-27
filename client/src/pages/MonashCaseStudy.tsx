@@ -109,11 +109,11 @@ export default function MonashCaseStudy() {
                 className="flex flex-col sm:flex-row gap-12 mb-10 pt-8 mt-8 border-t border-white/10"
               >
                 <div>
-                   <h3 className="text-xs font-mono text-gray-500 mb-2 uppercase tracking-widest">Client</h3>
+                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Client</h3>
                    <p className="text-white font-medium">Monash University</p>
                 </div>
                 <div>
-                   <h3 className="text-xs font-mono text-gray-500 mb-2 uppercase tracking-widest">Role</h3>
+                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
                    <p className="text-white font-medium">UI Design + Information Architecture</p>
                 </div>
               </motion.div>
@@ -168,7 +168,7 @@ export default function MonashCaseStudy() {
                  className="relative z-20"
                >
                  <Button 
-                    className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                    className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
                     onClick={() => window.open('https://www.figma.com', '_blank')}
                  >
                     Launch Interactive Demo
