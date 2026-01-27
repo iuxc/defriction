@@ -54,17 +54,21 @@ export function WorkGrid() {
         {/* ... content ... */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
+             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-6 backdrop-blur-md cursor-default">
+               <span className="relative flex h-2 w-2">
+                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                 <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+               </span>
+               <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                 01. The Work
+               </span>
+             </div>
              <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
                Selected <span className="text-gray-500">Work</span>
              </h2>
              <p className="text-gray-400 text-lg font-light leading-relaxed">
                Selected design solutions for complex ecosystems. From friction to flow.
              </p>
-          </div>
-          <div className="hidden md:block pb-2">
-            <span className="font-mono text-xs text-volt-lime uppercase tracking-widest animate-pulse">
-              ● System Status: Operational
-            </span>
           </div>
         </div>
 

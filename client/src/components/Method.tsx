@@ -40,14 +40,20 @@ export function Method() {
       </div>
 
       <div className="container mx-auto px-4 relative z-20">
-        <div className="text-center mb-20">
-          <span className="inline-block py-1 px-3 rounded-md bg-ion-cyan/5 border border-ion-cyan/20 text-xs font-mono text-ion-cyan uppercase tracking-widest mb-6 cursor-default">
-            02. The Method
-          </span>
+        <div className="text-left mb-20">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-6 backdrop-blur-md cursor-default">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+            </span>
+            <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+              02. The Method
+            </span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
             Built for <span className="text-gradient-purple">Velocity</span>
           </h2>
-          <p className="text-gray-400 text-lg font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-gray-400 text-lg font-light leading-relaxed max-w-3xl">
             I don't just hand off a strategy deck and walk away. I leverage the US-Australia timezone overlap to deliver production-ready design during your off-hours, while bringing the executive wisdom to ensure it actually works.
           </p>
         </div>
