@@ -3,9 +3,11 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
+  DialogClose,
 } from "@/components/ui/dialog";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { X } from "lucide-react";
 
 interface BioModalProps {
   open: boolean;
@@ -15,7 +17,11 @@ interface BioModalProps {
 export function BioModal({ open, onOpenChange }: BioModalProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none data-[state=open]:duration-500 data-[state=open]:slide-in-from-bottom-10 data-[state=open]:zoom-in-95 data-[state=closed]:duration-300 data-[state=closed]:slide-out-to-bottom-10 data-[state=closed]:zoom-out-95">
+      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95 data-[state=open]:slide-in-from-left-1/2 data-[state=open]:slide-in-from-top-[48%] data-[state=closed]:duration-300 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[state=closed]:slide-out-to-left-1/2 data-[state=closed]:slide-out-to-top-[48%]">
+        <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/20 p-2 opacity-70 ring-offset-background transition-opacity hover:opacity-100 hover:bg-black/40 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground md:right-8 md:top-8">
+          <X className="h-6 w-6 text-white" />
+          <span className="sr-only">Close</span>
+        </DialogClose>
         <div className="relative min-h-full">
           {/* Decorative background gradients */}
           <div className="absolute top-0 right-0 w-96 h-96 bg-volt-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
@@ -90,7 +96,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             <div className="flex flex-wrap justify-center gap-4 md:gap-8 pt-4 border-t border-white/5">
               {[
                 { label: "Runner", desc: "Discipline" },
-                { label: "Flautist", desc: "Precision" },
+                { label: "Flutist", desc: "Precision" },
                 { label: "Gamer", desc: "Systems" }
               ].map((item, i) => (
                 <div key={item.label} className="flex items-center gap-2 group cursor-default">
