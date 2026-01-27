@@ -39,59 +39,60 @@ export function Contact() {
           </p>
         </div>
 
-        <div className="glass-panel p-8 md:p-12 rounded-3xl relative">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet" />
-          
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Gradient Border Container */}
+        <div className="p-[1px] rounded-3xl bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet relative">
+          <div className="glass-panel p-8 md:p-12 rounded-3xl relative h-full bg-deep-basalt/90 backdrop-blur-xl">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="space-y-2">
+                  <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">Name</label>
+                  <Input 
+                    {...register("name")} 
+                    className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10" 
+                    placeholder="Enter your name" 
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">Email</label>
+                  <Input 
+                    {...register("email")} 
+                    className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10" 
+                    placeholder="name@company.com" 
+                  />
+                </div>
+              </div>
+
               <div className="space-y-2">
-                <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">Name</label>
-                <Input 
-                  {...register("name")} 
-                  className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10" 
-                  placeholder="Enter your name" 
+                <label className="text-xs font-mono text-volt-lime uppercase tracking-widest">Project Budget (AUD)</label>
+                <Select onValueChange={(value) => console.log(value)}>
+                  <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white transition-all focus:bg-white/10">
+                    <SelectValue placeholder="Select engagement level..." />
+                  </SelectTrigger>
+                  <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-xl">
+                    <SelectItem value="sprint">Sprint ($5k+ AUD)</SelectItem>
+                    <SelectItem value="project">Project ($15k+ AUD)</SelectItem>
+                    <SelectItem value="retainer">Retainer / Strategic Audit</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
+
+              <div className="space-y-2">
+                <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">The Brief</label>
+                <Textarea 
+                  {...register("message")} 
+                  className="bg-white/5 border-white/10 rounded-lg min-h-[150px] focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10 resize-none" 
+                  placeholder="What challenge are you trying to solve?" 
                 />
               </div>
-              <div className="space-y-2">
-                <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">Email</label>
-                <Input 
-                  {...register("email")} 
-                  className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10" 
-                  placeholder="name@company.com" 
-                />
-              </div>
-            </div>
 
-            <div className="space-y-2">
-              <label className="text-xs font-mono text-volt-lime uppercase tracking-widest">Project Budget (AUD)</label>
-              <Select onValueChange={(value) => console.log(value)}>
-                <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white transition-all focus:bg-white/10">
-                  <SelectValue placeholder="Select engagement level..." />
-                </SelectTrigger>
-                <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-xl">
-                  <SelectItem value="sprint">Sprint ($5k+ AUD)</SelectItem>
-                  <SelectItem value="project">Project ($15k+ AUD)</SelectItem>
-                  <SelectItem value="retainer">Retainer / Strategic Audit</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-
-            <div className="space-y-2">
-              <label className="text-xs font-mono text-gray-400 uppercase tracking-widest">The Brief</label>
-              <Textarea 
-                {...register("message")} 
-                className="bg-white/5 border-white/10 rounded-lg min-h-[150px] focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-700 transition-all focus:bg-white/10 resize-none" 
-                placeholder="What challenge are you trying to solve?" 
-              />
-            </div>
-
-            <Button 
-              type="submit" 
-              className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-xl text-lg transition-all duration-300 shadow-lg shadow-white/5"
-            >
-              Send Transmission <Send className="ml-2 w-4 h-4" />
-            </Button>
-          </form>
+              <Button 
+                type="submit" 
+                className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-xl text-lg transition-all duration-300 shadow-lg shadow-white/5"
+              >
+                Send Transmission <Send className="ml-2 w-4 h-4" />
+              </Button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
