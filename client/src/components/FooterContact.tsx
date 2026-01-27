@@ -13,9 +13,10 @@ import { cn } from "@/lib/utils";
 interface FooterContactProps {
   title?: React.ReactNode;
   className?: string;
+  stickyVisible?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyVisible = true }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
@@ -28,6 +29,8 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
     setMounted(true);
     return () => setMounted(false);
   }, []);
+
+  const showSticky = !isInView && stickyVisible;
 
   const onSubmit = (data: any) => {
     toast({
@@ -155,42 +158,47 @@ export function FooterContact({ title = "Ready to start?", className }: FooterCo
     <div ref={containerRef} className={cn("w-full px-4 relative z-10", className)}>
        {/* Billboard Button / Sticky Nav */}
        <AnimatePresence>
-        {!isOpen && (
+        {!isOpen && (isInView || showSticky) && (
             <motion.div
                 layoutId="contact-card"
                 className={cn(
                   "rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden cursor-pointer",
                   // When NOT in view (scrolling), fix to bottom
-                  !isInView 
+                  showSticky 
                     ? "fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90" 
                     : "mx-auto max-w-3xl relative"
                 )}
+                // Orange glow when sticky
+                style={showSticky ? { boxShadow: "0 0 40px rgba(249, 115, 22, 0.3)" } : {}}
                 onClick={() => setIsOpen(true)}
-                whileHover={!isInView ? {} : { scale: 1.02 }}
+                initial={showSticky ? { y: 100, opacity: 0 } : { opacity: 1 }}
+                animate={showSticky ? { y: 0, opacity: 1 } : { opacity: 1 }}
+                exit={showSticky ? { y: 100, opacity: 0 } : { opacity: 0 }}
+                whileHover={!showSticky ? {} : { scale: 1.02 }}
                 transition={{ duration: 0.5, type: "spring", bounce: 0.2 }}
             >
                 <div className="absolute inset-0 bg-volt-lime/5 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 <div className={cn(
                   "text-center pointer-events-none transition-all duration-500 flex items-center justify-between gap-8",
-                  !isInView ? "p-4 px-6 md:px-8" : "p-12 flex-col"
+                  showSticky ? "p-4 px-6 md:px-8" : "p-12 flex-col"
                 )}>
                     <motion.h3 
                       layoutId="title" 
                       className={cn(
                         "font-display font-bold text-white leading-tight text-left",
-                        !isInView ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center"
+                        showSticky ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center"
                       )}
                     >
                         {title}
                     </motion.h3>
 
-                    <motion.div layoutId="button-container" className={!isInView ? "shrink-0" : ""}>
+                    <motion.div layoutId="button-container" className={showSticky ? "shrink-0" : ""}>
                         <Button 
                             className={cn(
                               "bg-white text-black font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto",
                               // Hero button styles applied here
-                              "text-base px-8 py-6 h-auto",
+                              showSticky ? "text-sm px-6 py-4 h-auto" : "text-base px-8 py-6 h-auto",
                               // Orange gradient on hover
                               "hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black hover:scale-105"
                             )}
