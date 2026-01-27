@@ -7,7 +7,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { useIsMobile } from "@/hooks/use-mobile";
 import { Send, ArrowRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -25,14 +24,13 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
   
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { margin: "0px 0px -100px 0px" });
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     setMounted(true);
     return () => setMounted(false);
   }, []);
 
-  const showSticky = !isInView && stickyVisible && !isMobile;
+  const showSticky = !isInView && stickyVisible;
 
   const onSubmit = (data: any) => {
     toast({
@@ -167,7 +165,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                   "rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden cursor-pointer",
                   // When NOT in view (scrolling), fix to bottom
                   showSticky 
-                    ? "fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90" 
+                    ? "fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90 hidden md:block" 
                     : "mx-auto max-w-3xl relative"
                 )}
                 // Orange glow when sticky
