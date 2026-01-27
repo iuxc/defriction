@@ -19,7 +19,7 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-5xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel mb-8 border-white/10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-white/5 mb-8 backdrop-blur-md cursor-default">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-volt-lime opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-volt-lime"></span>

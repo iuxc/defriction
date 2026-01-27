@@ -29,7 +29,7 @@ export function About() {
                <div className="absolute -top-4 -left-4 glass-panel px-4 py-2 rounded-lg text-sm font-mono text-electric-violet border-electric-violet/30 animate-float" style={{ animationDelay: "1.5s" }}>
                  Multi-lingual 🌏
                </div>
-               <div className="absolute top-1/2 -right-10 glass-panel px-4 py-2 rounded-lg text-sm font-mono text-pink-400 border-pink-400/30 animate-float" style={{ animationDelay: "2.5s" }}>
+               <div className="absolute top-1/2 -left-10 glass-panel px-4 py-2 rounded-lg text-sm font-mono text-pink-400 border-pink-400/30 animate-float" style={{ animationDelay: "2.5s" }}>
                  Flutist 🎵
                </div>
                <div className="absolute -bottom-6 -left-6 glass-panel px-4 py-2 rounded-lg text-sm font-mono text-ion-cyan border-ion-cyan/30 animate-float" style={{ animationDelay: "2s" }}>
@@ -66,7 +66,7 @@ export function About() {
               ))}
             </div>
 
-            <Button variant="link" className="text-volt-lime p-0 hover:no-underline hover:text-white group" asChild>
+            <Button variant="outline" className="text-volt-lime border-volt-lime/20 hover:bg-volt-lime hover:text-black group" asChild>
               <Link href="/bio">
                 Read full bio <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>

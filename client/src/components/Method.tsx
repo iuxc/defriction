@@ -35,7 +35,7 @@ export function Method() {
 
       <div className="container mx-auto px-4 relative z-20">
         <div className="text-center mb-20">
-          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-gray-400 uppercase tracking-widest mb-6">
+          <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/5 text-xs font-mono text-gray-400 uppercase tracking-widest mb-6 cursor-default">
             The Methodology
           </span>
           <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
