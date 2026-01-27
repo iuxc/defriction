@@ -441,38 +441,74 @@ export default function MonashCaseStudy() {
            <div className="grid md:grid-cols-3 gap-8">
              {/* 1. Information Architecture */}
              <motion.div variants={fadeInUp} className="group space-y-6">
-                <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                <div 
+                  className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
+                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                >
                   <AbstractBrowser variant="ia-map" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
-                <div>
-                   <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Information Architecture</h4>
-                   <p className="text-gray-400 text-sm">The Logic</p>
+                <div className="flex items-end justify-between">
+                   <div>
+                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Information Architecture</h4>
+                      <p className="text-gray-400 text-sm">The Logic</p>
+                   </div>
+                   <Button 
+                      variant="outline" 
+                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
+                      onClick={() => window.open('https://www.figma.com', '_blank')}
+                    >
+                      See IA <ExternalLink className="ml-2 w-3 h-3" />
+                   </Button>
                 </div>
              </motion.div>
 
              {/* 2. Low-Fidelity Wireframe */}
              <motion.div variants={fadeInUp} className="group space-y-6">
-                <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl">
+                <div 
+                  className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
+                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                >
                    <AbstractBrowser variant="wireframe" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
-                <div>
-                   <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Low-Fidelity Wireframe</h4>
-                   <p className="text-gray-400 text-sm">The Skeleton</p>
+                <div className="flex items-end justify-between">
+                   <div>
+                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Low-Fidelity Wireframe</h4>
+                      <p className="text-gray-400 text-sm">The Skeleton</p>
+                   </div>
+                   <Button 
+                      variant="outline" 
+                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
+                      onClick={() => window.open('https://www.figma.com', '_blank')}
+                    >
+                      See Wireframe <ExternalLink className="ml-2 w-3 h-3" />
+                   </Button>
                 </div>
              </motion.div>
 
              {/* 3. High-Fidelity UI */}
              <motion.div variants={fadeInUp} className="group space-y-6">
-                <div className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8">
+                <div 
+                  className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8 cursor-pointer"
+                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                >
                    <img 
                      src="/assets/images/monash-shield.png" 
                      alt="Monash University Shield" 
                      className="w-full h-auto object-contain max-w-[240px]"
                    />
                 </div>
-                <div>
-                   <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">High-Fidelity UI</h4>
-                   <p className="text-gray-400 text-sm">The Polish</p>
+                <div className="flex items-end justify-between">
+                   <div>
+                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">High-Fidelity UI</h4>
+                      <p className="text-gray-400 text-sm">The Polish</p>
+                   </div>
+                   <Button 
+                      variant="outline" 
+                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
+                      onClick={() => window.open('https://www.figma.com', '_blank')}
+                    >
+                      See Demo <ExternalLink className="ml-2 w-3 h-3" />
+                   </Button>
                 </div>
              </motion.div>
            </div>
