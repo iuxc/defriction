@@ -87,7 +87,7 @@ export function Contact() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
+                className="w-full bg-white text-black hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
               >
                 Start the Conversation <Send className="ml-2 w-4 h-4" />
               </Button>
