@@ -370,17 +370,23 @@ export default function MonashCaseStudy() {
 
       </main>
 
-      <footer className="py-24 border-t border-white/10 text-center bg-black/20">
-         <div className="container mx-auto px-4">
-           <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-10 max-w-2xl mx-auto leading-tight">
-             Ready to transform your user flow?
-           </h3>
-           <Button 
-              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-10 py-8 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_40px_rgba(212,255,0,0.3)] hover:scale-105"
-              asChild
-            >
-              <Link href="/#contact">Start a Project</Link>
-            </Button>
+      <footer className="py-24 border-t border-white/10 bg-black/20">
+         <div className="container mx-auto px-4 text-center">
+           <div className="max-w-3xl mx-auto glass-panel p-12 rounded-[2rem] border border-white/10 relative overflow-hidden group">
+             <div className="absolute inset-0 bg-volt-lime/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+             
+             <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-tight">
+               Ready to transform your user flow?
+             </h3>
+             <Button 
+                className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] hover:scale-105"
+                asChild
+              >
+                <Link href="/#contact">
+                  Start a Project <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+           </div>
          </div>
       </footer>
     </div>

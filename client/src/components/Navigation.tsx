@@ -53,6 +53,19 @@ export function Navigation() {
     </Link>
   );
 
+  const handleNavClick = async (e: React.MouseEvent<HTMLAnchorElement>, target: string) => {
+    e.preventDefault();
+    if (location === "/") {
+      const element = document.querySelector(target);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", target);
+      }
+    } else {
+      window.location.href = `/${target}`;
+    }
+  };
+
   return (
     <nav
       className={cn(
@@ -68,12 +81,13 @@ export function Navigation() {
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-4">
           {/* Home Icon */}
-          <button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
-          >
-            <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-          </button>
+          <Link href="/">
+            <a 
+              className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
+            >
+              <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            </a>
+          </Link>
 
           <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
             {navItems.map((item) => {
@@ -87,7 +101,7 @@ export function Navigation() {
                     "relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 z-10 flex items-center gap-2",
                     isActive ? "text-white" : "text-gray-400 hover:text-white"
                   )}
-                  onClick={() => setActiveSection(item.id)}
+                  onClick={(e) => handleNavClick(e, item.href.substring(1))}
                 >
                   {isActive && (
                     <motion.div
@@ -104,9 +118,9 @@ export function Navigation() {
           </div>
           <Button 
             className="bg-gradient-to-b from-volt-lime/20 to-volt-lime/5 text-volt-lime hover:from-volt-lime/30 hover:to-volt-lime/10 border border-volt-lime/20 rounded-full px-6 transition-all duration-300 shadow-[inset_0_1px_0_rgba(212,255,0,0.2)] hover:shadow-[0_0_20px_rgba(212,255,0,0.2)] backdrop-blur-md"
-            asChild
+            onClick={(e) => handleNavClick(e, "#contact")}
           >
-            <a href="#contact">Start Project</a>
+            Start Project
           </Button>
         </div>
 
@@ -122,14 +136,13 @@ export function Navigation() {
               <div className="flex flex-col gap-8 mt-8">
                  <Logo />
                  <div className="flex flex-col gap-4">
-                  <button 
-                    onClick={() => {
-                       window.scrollTo({ top: 0, behavior: 'smooth' });
-                    }}
-                    className="text-lg font-medium text-gray-300 hover:text-white text-left flex items-center gap-2"
-                  >
-                    <Home className="w-5 h-5" /> Home
-                  </button>
+                  <Link href="/">
+                    <a 
+                      className="text-lg font-medium text-gray-300 hover:text-white text-left flex items-center gap-2"
+                    >
+                      <Home className="w-5 h-5" /> Home
+                    </a>
+                  </Link>
                   {navItems.map((item) => (
                     <a
                       key={item.name}
@@ -138,14 +151,14 @@ export function Navigation() {
                         "text-lg font-medium transition-colors",
                         activeSection === item.id ? "text-volt-lime" : "text-gray-300 hover:text-white"
                       )}
-                      onClick={() => setActiveSection(item.id)}
+                      onClick={(e) => handleNavClick(e, item.href.substring(1))}
                     >
                       {item.name}
                     </a>
                   ))}
-                  <a href="#contact" className="text-lg font-medium text-volt-lime">
+                  <button onClick={(e) => handleNavClick(e as any, "#contact")} className="text-lg font-medium text-volt-lime text-left">
                     Start Project
-                  </a>
+                  </button>
                  </div>
               </div>
             </SheetContent>

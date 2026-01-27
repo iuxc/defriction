@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { ArrowRight, Check } from "lucide-react";
 import { motion } from "framer-motion";
+import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 
 export default function Bio() {
   return (
@@ -10,31 +11,46 @@ export default function Bio() {
       <Navigation />
       
       {/* 1. Header: The Translator */}
-      <header className="relative min-h-[60vh] flex flex-col justify-center pt-32 pb-16 overflow-hidden">
+      <header className="relative min-h-[80vh] flex items-center justify-center pt-32 pb-16 overflow-hidden">
         <div className="absolute inset-0 bg-mesh-gradient opacity-20 pointer-events-none" />
         <div className="container mx-auto px-4 relative z-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl"
-          >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
-              <span className="w-2 h-2 rounded-full bg-volt-lime animate-pulse" />
-              <span className="font-mono text-xs text-volt-lime uppercase tracking-widest">
-                Identity: The Translator
-              </span>
-            </div>
-            
-            <h1 className="text-6xl md:text-8xl font-display font-bold leading-none mb-8">
-              The Translator.
-            </h1>
-            
-            <p className="text-xl md:text-3xl text-gray-400 font-light leading-relaxed max-w-3xl">
-              I speak <span className="text-white font-medium">Marketing</span> and I speak <span className="text-white font-medium">IT</span>. 
-              Most friction happens because these two departments are speaking different languages.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="max-w-4xl"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8 backdrop-blur-md">
+                <span className="w-2 h-2 rounded-full bg-volt-lime animate-pulse" />
+                <span className="font-mono text-xs text-volt-lime uppercase tracking-widest">
+                  Identity: The Translator
+                </span>
+              </div>
+              
+              <h1 className="text-6xl md:text-8xl font-display font-bold leading-none mb-8">
+                The Translator.
+              </h1>
+              
+              <p className="text-xl md:text-3xl text-gray-400 font-light leading-relaxed max-w-3xl">
+                I speak <span className="text-white font-medium">Marketing</span> and I speak <span className="text-white font-medium">IT</span>. 
+                Most friction happens because these two departments are speaking different languages.
+              </p>
+            </motion.div>
+
+            <motion.div
+               initial={{ opacity: 0, scale: 0.9, rotate: 5 }}
+               animate={{ opacity: 1, scale: 1, rotate: 0 }}
+               transition={{ duration: 1, delay: 0.2 }}
+               className="relative hidden lg:block"
+            >
+               <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime/20 to-electric-violet/20 blur-[80px] rounded-full" />
+               <AbstractBrowser 
+                 variant="profile" 
+                 className="w-full max-w-md mx-auto shadow-2xl shadow-black/50 rotate-y-12 transform perspective-1000 border-white/10 bg-black/60"
+               />
+            </motion.div>
+          </div>
         </div>
       </header>
 
@@ -52,10 +68,10 @@ export default function Bio() {
             <div className="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden">
                <div className="absolute top-0 right-0 w-64 h-64 bg-flux-orange/10 blur-[80px] rounded-full pointer-events-none" />
                <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed">
-                 "I currently serve as the AVP of Digital Strategy at the University of Oregon. I manage the big picture—multi-million dollar budgets, governance, and 5-year roadmaps. 
+                 I currently serve as the AVP of Digital Strategy at the University of Oregon. I manage the big picture—multi-million dollar budgets, governance, and 5-year roadmaps. 
                  <br /><br />
                  But I missed the precision of the craft. I missed the specific satisfaction of fixing a broken interaction or optimizing a load time. 
-                 <strong className="text-white"> 'Defriction' is my practice of getting back into the weeds.</strong> It is where I sharpen the tools that make me a better leader by day."
+                 <strong className="text-white"> 'Defriction' is my practice of getting back into the weeds.</strong> It is where I sharpen the tools that make me a better leader by day.
                </p>
             </div>
           </div>
@@ -109,7 +125,7 @@ export default function Bio() {
                 I don't just speak code.
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                "I speak conversion, brand, and journey. I know that speed matters and that pixel-perfection builds trust."
+                I speak conversion, brand, and journey. I know that speed matters and that pixel-perfection builds trust.
               </p>
             </div>
 
@@ -122,7 +138,7 @@ export default function Bio() {
                 I won't build tech debt.
               </h3>
               <p className="text-gray-400 text-lg leading-relaxed">
-                "I build systems that scale, survive governance, meet WCAG 2.1 standards, and pass security audits."
+                I build systems that scale, survive governance, meet WCAG 2.1 standards, and pass security audits.
               </p>
             </div>
 
@@ -159,24 +175,33 @@ export default function Bio() {
                    </div>
                 </div>
               ))}
-              
-              <div className="pt-8">
-                <Button 
-                  className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-lg px-8 py-6 h-auto rounded-full"
-                  asChild
-                >
-                  <Link href="/#contact">Work with me <ArrowRight className="ml-2 w-5 h-5" /></Link>
-                </Button>
-              </div>
            </div>
         </section>
 
       </main>
 
-      <footer className="py-8 bg-black/20 text-center border-t border-white/10">
-        <p className="font-mono text-xs text-gray-600">
-          © 2026 defriction design. MELBOURNE / EUGENE.
-        </p>
+      <footer className="py-24 border-t border-white/10 bg-black/20">
+         <div className="container mx-auto px-4 text-center">
+           <div className="max-w-3xl mx-auto glass-panel p-12 rounded-[2rem] border border-white/10 relative overflow-hidden group">
+             <div className="absolute inset-0 bg-volt-lime/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+             
+             <h3 className="text-4xl md:text-5xl font-display font-bold text-white mb-8 leading-tight">
+               Ready to ship?
+             </h3>
+             <Button 
+                className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-xl hover:shadow-[0_0_30px_rgba(212,255,0,0.3)] hover:scale-105"
+                asChild
+              >
+                <Link href="/#contact">
+                  Start a Project <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+           </div>
+           
+           <p className="font-mono text-xs text-gray-600 mt-12">
+             © 2026 defriction design. MELBOURNE / EUGENE.
+           </p>
+         </div>
       </footer>
     </div>
   );
