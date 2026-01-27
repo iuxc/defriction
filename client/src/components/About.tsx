@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 export function About() {
   const skills = ["Digital Strategy", "Brand Architecture", "React & Node", "Stakeholder Management"];
@@ -10,19 +11,15 @@ export function About() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div className="relative">
-            {/* Abstract Profile Image Representation */}
-            <div className="relative aspect-square max-w-md mx-auto">
-               <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 animate-pulse-slow" />
-               <div className="absolute inset-0 border border-white/10 rounded-3xl bg-deep-basalt/80 backdrop-blur-xl flex items-center justify-center p-8">
-                  <div className="text-center space-y-4">
-                     <div className="w-24 h-24 bg-gradient-to-br from-gray-800 to-black rounded-full mx-auto flex items-center justify-center border border-white/10 shadow-2xl">
-                        <span className="text-4xl">👋</span>
-                     </div>
-                     <div className="space-y-2">
-                        <div className="text-white font-bold font-display text-xl">The Strategist</div>
-                        <div className="text-gray-500 font-mono text-sm">US-Based • Australian Focus</div>
-                     </div>
-                  </div>
+            {/* Profile Image */}
+            <div className="relative aspect-square max-w-md mx-auto group">
+               <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 animate-pulse-slow group-hover:opacity-40 transition-opacity duration-500" />
+               <div className="absolute inset-0 border border-white/10 rounded-3xl bg-deep-basalt/80 backdrop-blur-xl overflow-hidden p-2">
+                  <img 
+                    src="/TheHuman.jpg" 
+                    alt="The Human" 
+                    className="w-full h-full object-cover rounded-2xl grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
                </div>
                
                {/* Floating Badges */}
@@ -60,8 +57,10 @@ export function About() {
               ))}
             </div>
 
-            <Button variant="link" className="text-volt-lime p-0 hover:no-underline hover:text-white group">
-              Read full bio <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+            <Button variant="link" className="text-volt-lime p-0 hover:no-underline hover:text-white group" asChild>
+              <Link href="/bio">
+                Read full bio <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </Link>
             </Button>
           </div>
         </div>
