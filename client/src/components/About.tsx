@@ -71,7 +71,7 @@ export function About() {
 
             <Button 
               variant="outline" 
-              className="text-volt-lime border-volt-lime/20 hover:bg-volt-lime hover:text-black group rounded-full"
+              className="text-purple-400 border-purple-400/20 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:text-white hover:border-transparent group rounded-full"
               onClick={() => setBioOpen(true)}
             >
               View Full Profile <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
