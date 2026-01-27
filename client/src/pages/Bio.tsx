@@ -184,7 +184,7 @@ export default function Bio() {
       <Section id="value" nextId="human">
         <div className="absolute inset-0 bg-gradient-to-b from-deep-basalt to-black -z-10" />
         
-        <div className="grid md:grid-cols-2 h-full gap-8">
+        <div className="grid md:grid-cols-2 h-full gap-8 relative z-10">
           
           {/* Left Column (To the CMO) */}
           <motion.div 
@@ -259,7 +259,7 @@ export default function Bio() {
               <div className="space-y-12">
                 {[
                   { title: "RUNNER", subtitle: "Discipline.", desc: "I don't miss deadlines." },
-                  { title: "FLAUTIST", subtitle: "Precision.", desc: "I obsess over the details." },
+                  { title: "FLUTIST", subtitle: "Precision.", desc: "I obsess over the details." },
                   { title: "GAMER", subtitle: "Systems.", desc: "I see the mechanics behind the fun." }
                 ].map((hook, i) => (
                   <motion.div 
@@ -287,23 +287,24 @@ export default function Bio() {
       </section>
 
       {/* Section 6: Footer Contact */}
-      <Section id="contact">
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="text-center"
-          >
-            <FooterContact title="Ready to ship?" />
-            
-            <p className="font-mono text-xs text-gray-600 mt-24 tracking-widest uppercase">
-              hello@defriction.design
-              <br /><br />
-              © 2026 defriction design. MELBOURNE / EUGENE.
-            </p>
-          </motion.div>
-      </Section>
+      <footer id="contact" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-center justify-center relative z-10">
+        <div className="container mx-auto px-4 text-center">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+            >
+              <FooterContact title="Ready to ship?" />
+              
+              <p className="font-mono text-xs text-gray-600 mt-24 tracking-widest uppercase">
+                hello@defriction.design
+                <br /><br />
+                © 2026 defriction design. MELBOURNE / EUGENE.
+              </p>
+            </motion.div>
+        </div>
+      </footer>
     </div>
   );
 }
