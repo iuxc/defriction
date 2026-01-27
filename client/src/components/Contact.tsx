@@ -25,7 +25,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-32 bg-deep-basalt relative overflow-hidden">
+    <section id="contact" className="min-h-screen py-32 bg-black/20 relative overflow-hidden flex flex-col justify-center">
       {/* Background Decor */}
       <div className="absolute bottom-0 left-0 w-full h-[500px] bg-gradient-to-t from-volt-lime/5 to-transparent pointer-events-none" />
 

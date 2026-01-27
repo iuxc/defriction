@@ -5,7 +5,7 @@ export function About() {
   const skills = ["Digital Strategy", "Brand Architecture", "React & Node", "Stakeholder Management"];
 
   return (
-    <section id="about" className="py-32 bg-black/20 relative border-y border-white/5">
+    <section id="about" className="min-h-screen py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           

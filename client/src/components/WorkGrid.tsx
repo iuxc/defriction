@@ -45,7 +45,7 @@ export function WorkGrid() {
   ];
 
   return (
-    <section id="work" className="py-32 bg-deep-basalt relative">
+    <section id="work" className="min-h-screen py-32 bg-deep-basalt relative flex flex-col justify-center">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">

@@ -46,8 +46,8 @@ export function Navigation() {
   }, []);
 
   const Logo = () => (
-    <Link href="/">
-      <a className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2">
+    <Link href="/#">
+      <a className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
         <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
       </a>
     </Link>
