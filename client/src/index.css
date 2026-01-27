@@ -55,7 +55,7 @@
   --radius-lg: 12px;
   
   --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   
   @keyframes float {
     0% { transform: translateY(0px); }

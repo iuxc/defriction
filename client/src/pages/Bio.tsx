@@ -133,14 +133,13 @@ export default function Bio() {
         <section className="grid md:grid-cols-12 gap-12 items-center border-t border-white/10 pt-24">
            <div className="md:col-span-5">
               <h2 className="text-5xl font-display font-bold mb-6">The Human.</h2>
-              <div className="w-full aspect-square bg-gray-800 rounded-2xl overflow-hidden relative border border-white/10 grayscale hover:grayscale-0 transition-all duration-700">
-                  {/* Placeholder for the HEIC image if it could be processed, or a stylistic replacement */}
+              <div className="w-full aspect-square bg-gray-800 rounded-2xl overflow-hidden relative border border-white/10 grayscale hover:grayscale-0 transition-all duration-700 group">
                   <div className="absolute inset-0 bg-gradient-to-tr from-deep-basalt via-transparent to-transparent opacity-60 z-10" />
-                   <div className="absolute inset-0 flex items-center justify-center bg-white/5">
-                      <span className="font-mono text-gray-600 text-xs">IMG_1971.HEIC [RENDER]</span>
-                   </div>
-                   {/* Abstract pattern to make it look decent without the real image */}
-                   <div className="absolute inset-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-100 via-gray-900 to-black" />
+                   <img 
+                     src="/TheHumaninAZ.jpg" 
+                     alt="The Human in AZ" 
+                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                   />
               </div>
            </div>
            
