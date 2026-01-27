@@ -70,9 +70,9 @@ export function Navigation() {
           {/* Home Icon */}
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 border border-white/10 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1)] hover:bg-white/10 transition-all duration-300 backdrop-blur-md group"
+            className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
           >
-            <Home className="w-4 h-4 text-gray-400 group-hover:text-white transition-colors" />
+            <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
           </button>
 
           <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
