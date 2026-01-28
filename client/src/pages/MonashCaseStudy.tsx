@@ -209,13 +209,13 @@ export default function MonashCaseStudy() {
             >
               <motion.div variants={fadeInUp} className="mb-16">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
-                  <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                  <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
                     01. The Problem (Current State)
                   </span>
                 </div>
                 
                 <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Administrative Burden.</span></h2>
-                <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
+                <p className="text-base text-gray-400 font-light leading-relaxed max-w-3xl">
                   Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://www.monash.edu/__data/assets/pdf_file/0010/2556235/MU-22-AS194-Pathways-Overview-Table-2022.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, <a href="https://connect.monash.edu/s/article/FAQ-2062" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">hidden 'Adjustment Factor' spreadsheets</a>, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
                 </p>
               </motion.div>
@@ -230,8 +230,8 @@ export default function MonashCaseStudy() {
                     variants={fadeInUp}
                     className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-start hover:bg-white/5 transition-colors"
                   >
-                     <h4 className={`text-3xl font-display font-bold mb-2 ${stat.color}`}>{stat.value}</h4>
-                     <div className="text-white font-medium mb-2">{stat.label}</div>
+                     <h4 className={`text-2xl font-display font-bold mb-2 ${stat.color}`}>{stat.value}</h4>
+                     <div className="text-white font-medium mb-2 text-base">{stat.label}</div>
                      <p className="text-sm text-gray-500 leading-relaxed">{stat.desc}</p>
                   </motion.div>
                 ))}
@@ -248,7 +248,7 @@ export default function MonashCaseStudy() {
                <div className="relative flex flex-col items-center justify-center w-full gap-8">
                    <AbstractBrowser variant="infinite-pdf" className="w-full max-w-xl shadow-2xl h-[400px]" />
                    
-                   <p className="text-xs text-gray-500 text-center max-w-md">
+                   <p className="text-sm text-gray-500 text-center max-w-md">
                      Rather than providing dynamic, searchable answers, the system often directs prospects to monolithic PDFs.
                    </p>
 
@@ -260,7 +260,7 @@ export default function MonashCaseStudy() {
                     >
                        <div className="flex items-center gap-2 mb-2">
                           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                          <span className="text-xs font-mono text-red-400 uppercase">Critical friction</span>
+                          <span className="text-sm font-mono text-red-400 uppercase">Critical friction</span>
                        </div>
                        <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
                     </motion.div>
@@ -283,12 +283,12 @@ export default function MonashCaseStudy() {
 
                 <div className="space-y-8">
                     <div>
-                        <h4 className="text-white font-bold mb-2 text-lg">Persona Emulation</h4>
+                        <h4 className="text-white font-bold mb-2 text-base">Persona Emulation</h4>
                         <p className="text-gray-400 text-sm leading-relaxed">I approached the website from the specific perspective of a TAFE Graduate and a Year 12 Student (Low ATAR), navigating as a user without prior knowledge of the university’s internal hierarchy.</p>
                     </div>
 
                     <div>
-                        <h4 className="text-white font-bold mb-2 text-lg">Step-by-Step Documentation</h4>
+                        <h4 className="text-white font-bold mb-2 text-base">Step-by-Step Documentation</h4>
                         <p className="text-gray-400 text-sm leading-relaxed">
                             Every interaction—from initial homepage searches to external application portals—was logged in real-time to capture the authentic student experience.
                         </p>
