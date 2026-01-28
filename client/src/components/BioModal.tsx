@@ -49,7 +49,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
           <div className="absolute top-0 right-0 w-96 h-96 bg-volt-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-electric-violet/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-          <div className="p-8 md:p-12 relative z-10 flex flex-col justify-center min-h-full">
+          <div className="p-8 md:p-12 relative z-10 flex flex-col justify-center">
             {/* Header */}
             <motion.div variants={item}>
               <DialogHeader className="mb-8 md:mb-12 text-left">
