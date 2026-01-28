@@ -17,7 +17,7 @@ export default function Home() {
         }
         backLink="/work/monash"
         alwaysSticky={true}
-        stickyClassName="bg-[#0B0F19]/90 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
+        stickyClassName="!bg-[#0B0F19] !backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
         monashSwitcher={true}
       />
     </PathwaysProvider>

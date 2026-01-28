@@ -243,7 +243,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                   !monashSwitcher && "overflow-hidden",
                   // When NOT in view (scrolling), fix to bottom
                   showSticky 
-                    ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90 block", stickyClassName)
+                    ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-[#0B0F19] block", stickyClassName)
                     : "mx-auto max-w-3xl relative"
                 )}
                 // Blue glow when sticky
