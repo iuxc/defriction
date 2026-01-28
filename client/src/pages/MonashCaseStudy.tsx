@@ -260,7 +260,7 @@ export default function MonashCaseStudy() {
                     >
                        <div className="flex items-center gap-2 mb-2">
                           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                          <span className="text-xs font-mono text-red-400 uppercase">Error</span>
+                          <span className="text-xs font-mono text-red-400 uppercase">Critical friction</span>
                        </div>
                        <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
                     </motion.div>
