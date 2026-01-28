@@ -270,9 +270,7 @@ export default function MonashCaseStudy() {
 
                     <div>
                         <h4 className="text-white font-bold mb-2 text-lg">Outcome Analysis</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            Each log concludes with a summary of the "unanswered questions" that prevent a student from confidently moving from the research phase to an active application.
-                        </p>
+                        <p className="text-gray-400 text-sm leading-relaxed">Each log concludes with a summary of the "missing information" that prevent a student from confidently moving from the research phase to an active application.</p>
                     </div>
                 </div>
               </motion.div>
