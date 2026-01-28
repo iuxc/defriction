@@ -6,9 +6,10 @@ export default function HiFi() {
     <>
       <PremiumPathwaysFinder />
       <FooterContact 
-        title={<span>Let's remove the <span className="text-orange-500">friction</span>.</span>} 
+        title={<span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>} 
         backLink="/work/monash"
         alwaysSticky={true}
+        stickyClassName="bg-[#050505] shadow-2xl border-white/10"
       />
     </>
   );

@@ -9,7 +9,7 @@ export default function Home() {
         <PathwaysFinder />
       </div>
       <FooterContact 
-        title={<span>Let's remove the <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent font-bold">friction</span>.</span>}
+        title={<span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>}
         backLink="/work/monash"
         alwaysSticky={true}
         stickyClassName="bg-[#050505] shadow-2xl border-white/10"
