@@ -68,23 +68,25 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             <div className="space-y-8">
               
               {/* Step 1 */}
-              <section className="space-y-4">
-                <div className="flex items-center gap-3 mb-2">
+              <section className="grid grid-cols-[max-content_1fr] gap-x-4">
+                <div className="pt-1">
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 1</span>
+                </div>
+                <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-900">Monash University Homepage</h3>
-                </div>
-                
-                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
-                  URL: https://www.monash.edu
-                </div>
+                  
+                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
+                    URL: https://www.monash.edu
+                  </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
-                      <li>The site provides a standard entry point for all prospective domestic students.</li>
-                      <li>User arrives looking for information on alternative entry methods.</li>
-                    </ul>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                      <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
+                        <li>The site provides a standard entry point for all prospective domestic students.</li>
+                        <li>User arrives looking for information on alternative entry methods.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -92,30 +94,32 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               <hr className="border-slate-200" />
 
               {/* Step 2 */}
-              <section className="space-y-4">
-                <div className="flex items-center gap-3 mb-2">
+              <section className="grid grid-cols-[max-content_1fr] gap-x-4">
+                <div className="pt-1">
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 2</span>
+                </div>
+                <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-900">Pathway Information Search</h3>
-                </div>
-                
-                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
-                  URL: https://www.monash.edu/study
-                </div>
-
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
-                    <p className="text-slate-600 text-sm">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
+                  
+                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
+                    URL: https://www.monash.edu/study
                   </div>
 
-                  <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                    <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
-                      <AlertCircle className="w-5 h-5" />
-                      Friction Point: Broken Links
-                    </h4>
-                    <p className="text-slate-700 text-sm">
-                      Multiple 404 errors were encountered when trying to access <code className="bg-red-100 px-1 py-0.5 rounded text-xs font-mono">/study/how-to-apply/pathways</code>, forcing a return to Google.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                      <p className="text-slate-600 text-sm">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
+                    </div>
+
+                    <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                      <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
+                        <AlertCircle className="w-5 h-5" />
+                        Friction Point: Broken Links
+                      </h4>
+                      <p className="text-slate-700 text-sm">
+                        Multiple 404 errors were encountered when trying to access <code className="bg-red-100 px-1 py-0.5 rounded text-xs font-mono">/study/how-to-apply/pathways</code>, forcing a return to Google.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -123,30 +127,32 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               <hr className="border-slate-200" />
 
               {/* Step 3 */}
-              <section className="space-y-4">
-                <div className="flex items-center gap-3 mb-2">
+              <section className="grid grid-cols-[max-content_1fr] gap-x-4">
+                <div className="pt-1">
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 3</span>
+                </div>
+                <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-900">Entry Pathways for Domestic Students</h3>
-                </div>
-                
-                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
-                  URL: https://www.monash.edu/study/courses/entry-pathways-domestic
-                </div>
-
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
-                    <p className="text-slate-600 text-sm">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
+                  
+                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
+                    URL: https://www.monash.edu/study/courses/entry-pathways-domestic
                   </div>
 
-                  <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                    <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
-                      <AlertTriangle className="w-5 h-5" />
-                      Friction Point: Information Overload
-                    </h4>
-                    <p className="text-slate-700 text-sm">
-                      No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                      <p className="text-slate-600 text-sm">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
+                    </div>
+
+                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                      <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5" />
+                        Friction Point: Information Overload
+                      </h4>
+                      <p className="text-slate-700 text-sm">
+                        No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -154,23 +160,25 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               <hr className="border-slate-200" />
 
               {/* Step 4 */}
-              <section className="space-y-4">
-                <div className="flex items-center gap-3 mb-2">
+              <section className="grid grid-cols-[max-content_1fr] gap-x-4">
+                <div className="pt-1">
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 4</span>
+                </div>
+                <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-900">Monash College ATAR Requirements</h3>
-                </div>
-                
-                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
-                  URL: https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements
-                </div>
+                  
+                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
+                    URL: https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements
+                  </div>
 
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
-                    <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
-                      <li>User moves to the College-specific page to check entry scores.</li>
-                      <li>Requirements for Part 1 and Part 2 diplomas are clearly listed by ATAR score.</li>
-                    </ul>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                      <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
+                        <li>User moves to the College-specific page to check entry scores.</li>
+                        <li>Requirements for Part 1 and Part 2 diplomas are clearly listed by ATAR score.</li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -178,30 +186,32 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               <hr className="border-slate-200" />
 
               {/* Step 5 */}
-              <section className="space-y-4">
-                <div className="flex items-center gap-3 mb-2">
+              <section className="grid grid-cols-[max-content_1fr] gap-x-4">
+                <div className="pt-1">
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 5</span>
+                </div>
+                <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-900">Destination Degrees & Scores</h3>
-                </div>
-                
-                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
-                  URL: https://www.monashcollege.edu.au/study/courses/diplomas/destination-degrees
-                </div>
-
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
-                    <p className="text-slate-600 text-sm">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
+                  
+                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
+                    URL: https://www.monashcollege.edu.au/study/courses/diplomas/destination-degrees
                   </div>
 
-                  <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                    <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
-                      <AlertCircle className="w-5 h-5" />
-                      Friction Point: Navigation Complexity
-                    </h4>
-                    <p className="text-slate-700 text-sm">
-                      Extensive "Dropdown" menus make it difficult to compare requirements across different degree options.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                      <p className="text-slate-600 text-sm">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
+                    </div>
+
+                    <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                      <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
+                        <AlertCircle className="w-5 h-5" />
+                        Friction Point: Navigation Complexity
+                      </h4>
+                      <p className="text-slate-700 text-sm">
+                        Extensive "Dropdown" menus make it difficult to compare requirements across different degree options.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -209,34 +219,35 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               <hr className="border-slate-200" />
 
               {/* Step 6 */}
-              <section className="space-y-4">
-                <div className="flex items-center gap-3 mb-2">
+              <section className="grid grid-cols-[max-content_1fr] gap-x-4">
+                <div className="pt-1">
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 6</span>
+                </div>
+                <div className="space-y-4">
                   <h3 className="text-xl font-bold text-slate-900">Application Process</h3>
-                </div>
-                
-                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
-                  URL: https://www.monashcollege.edu.au/study/how-to-apply
-                </div>
-
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
-                    <p className="text-slate-600 text-sm">Instructions for applying through VTAC for the February intake.</p>
+                  
+                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
+                    URL: https://www.monashcollege.edu.au/study/how-to-apply
                   </div>
 
-                  <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                    <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
-                      <AlertTriangle className="w-5 h-5" />
-                      Friction Point: Administrative Ambiguity
-                    </h4>
-                    <p className="text-slate-700 text-sm">
-                      No mention of mandatory VTAC application fees, and the Docklands campus location is not prominent until the end of the journey.
-                    </p>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                      <p className="text-slate-600 text-sm">Instructions for applying through VTAC for the February intake.</p>
+                    </div>
+
+                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                      <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
+                        <AlertTriangle className="w-5 h-5" />
+                        Friction Point: Administrative Ambiguity
+                      </h4>
+                      <p className="text-slate-700 text-sm">
+                        No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </section>
-
             </div>
 
             <div className="h-12" />
