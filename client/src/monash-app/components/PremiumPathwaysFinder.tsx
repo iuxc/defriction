@@ -1343,7 +1343,13 @@ export default function PremiumPathwaysFinder() {
         <div className="max-w-lg mx-auto">
           {/* Progress - Enhanced visibility or Start Over button */}
           {state.step !== 'welcome' && state.step !== 'international' && (
-            <div className="flex justify-center mb-8">
+            <div className="flex flex-col items-center justify-center mb-8">
+              <img 
+                src="/assets/monash-logo.png" 
+                alt="Monash University" 
+                className="h-16 w-auto object-contain mix-blend-screen mb-6 opacity-90"
+              />
+              
               {state.step === 'email' ? (
                 <motion.button
                   whileHover={{ scale: 1.02 }}
