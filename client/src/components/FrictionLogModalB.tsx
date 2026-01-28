@@ -16,8 +16,8 @@ interface FrictionLogModalBProps {
 export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="w-fit max-w-4xl h-[90vh] p-0 gap-0 bg-[#F3F4F6] text-slate-900 border-none overflow-hidden flex flex-col mx-auto shadow-2xl rounded-3xl">
-        <div className="relative z-10 flex-none p-8 border-b border-slate-200 bg-[#F3F4F6]/90 backdrop-blur-xl">
+      <DialogContent className="w-fit max-w-4xl h-[90vh] p-0 gap-0 bg-white text-slate-900 border-none overflow-hidden flex flex-col mx-auto shadow-2xl rounded-3xl">
+        <div className="relative z-10 flex-none p-8 border-b border-slate-200 bg-slate-50 text-slate-900">
           <div className="absolute right-6 top-6">
             <button 
               onClick={() => onOpenChange(false)}
