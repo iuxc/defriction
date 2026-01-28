@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 
@@ -54,7 +54,7 @@ export function Hero() {
             >
               <a href="#work">
                 See the Work
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <ChevronDown className="ml-2 w-4 h-4" />
               </a>
             </Button>
             
@@ -65,7 +65,7 @@ export function Hero() {
             >
               <a href="#method">
                 The Method 
-                <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
               </a>
             </Button>
           </div>
