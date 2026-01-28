@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+// import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import {
   GraduationCap,
@@ -27,6 +27,16 @@ import {
 } from 'lucide-react';
 import { Link } from 'wouter';
 import { StackingBar, Acronym } from './StackingBar';
+
+// Animations removed as requested
+const motion = {
+  div: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <div {...props} />,
+  button: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <button {...props} />,
+  span: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <span {...props} />,
+  a: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <a {...props} />,
+  img: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <img {...props} />,
+};
+const AnimatePresence = ({ children }: any) => <>{children}</>;
 
 // ============================================================================
 // MOCK DATA
