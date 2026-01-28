@@ -64,7 +64,7 @@ export default function MonashCaseStudy() {
   };
 
   return (
-    <div className="bg-deep-basalt text-white selection:bg-volt-lime selection:text-black font-sans overflow-x-hidden">
+    <div className="bg-deep-basalt text-white selection:bg-cyan-400 selection:text-black font-sans overflow-x-hidden">
       <Navigation forcedActive="work" />
       {/* Hero Section */}
       <section id="hero" className="min-h-screen relative flex items-center pt-20 overflow-hidden">
@@ -94,7 +94,7 @@ export default function MonashCaseStudy() {
               >
                 <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
                   From <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet">Gatekeeper</span> <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">Gatekeeper</span> <br />
                   to <span className="text-white">Concierge.</span>
                 </h1>
               </motion.div>
@@ -131,11 +131,11 @@ export default function MonashCaseStudy() {
                 className="flex flex-col sm:flex-row gap-12 mb-10 pt-8 mt-8 border-t border-white/10"
               >
                 <div>
-                   <h3 className="text-xs font-mono text-volt-lime mb-2 uppercase tracking-widest">Client</h3>
+                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Client</h3>
                    <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-cyan-400 transition-colors">Monash University</a>
                 </div>
                 <div>
-                   <h3 className="text-xs font-mono text-volt-lime mb-2 uppercase tracking-widest">Role</h3>
+                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
                    <p className="text-white font-medium">UI Design + Information Architecture</p>
                 </div>
               </motion.div>
@@ -149,7 +149,7 @@ export default function MonashCaseStudy() {
             >
                {/* Abstract Hero Visualization */}
                <div className="relative w-full max-w-lg z-10 mb-8">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-electric-violet/30 to-volt-lime/30 blur-[60px] rounded-full opacity-60" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/30 to-cyan-400/30 blur-[60px] rounded-full opacity-60" />
                   <AbstractBrowser 
                     variant="landing" 
                     className="w-full shadow-2xl shadow-black/80 border-white/10 rotate-y-12 rotate-x-6 transform perspective-1000 transition-transform hover:rotate-0 duration-700"
@@ -162,13 +162,13 @@ export default function MonashCaseStudy() {
                     className="absolute -right-12 top-20 glass-panel p-4 rounded-xl border border-white/10 shadow-xl max-w-[200px]"
                   >
                      <div className="flex items-center gap-3 mb-2">
-                        <div className="w-8 h-8 rounded-full bg-volt-lime/20 flex items-center justify-center text-volt-lime">
+                        <div className="w-8 h-8 rounded-full bg-cyan-400/20 flex items-center justify-center text-cyan-400">
                           <Check className="w-4 h-4" />
                         </div>
-                        <span className="text-xs font-mono text-volt-lime">ELIGIBLE</span>
+                        <span className="text-xs font-mono text-cyan-400">ELIGIBLE</span>
                      </div>
                      <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
-                       <div className="h-full w-[85%] bg-volt-lime" />
+                       <div className="h-full w-[85%] bg-cyan-400" />
                      </div>
                   </motion.div>
 
@@ -203,7 +203,7 @@ export default function MonashCaseStudy() {
                   </span>
                 </div>
                 
-                <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">Administrative Burden.</span></h2>
+                <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Administrative Burden.</span></h2>
                 <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
                   Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://www.monash.edu/__data/assets/pdf_file/0010/2556235/MU-22-AS194-Pathways-Overview-Table-2022.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, <a href="https://connect.monash.edu/s/article/FAQ-2062" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">hidden 'Adjustment Factor' spreadsheets</a>, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
                 </p>
@@ -389,7 +389,7 @@ export default function MonashCaseStudy() {
                 </p>
                 
                 <Button 
-                  className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
+                  className="bg-white text-black hover:bg-cyan-400 hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:scale-105"
                   onClick={() => setLocation('/monash/prototype/hifi')}
                 >
                   Try It Out
@@ -404,13 +404,13 @@ export default function MonashCaseStudy() {
                viewport={{ once: true, margin: "-10% 0px" }}
                variants={fadeInUp}
             >
-                <div className="absolute inset-0 bg-volt-lime/5 blur-[100px] rounded-full pointer-events-none" />
+                <div className="absolute inset-0 bg-cyan-400/5 blur-[100px] rounded-full pointer-events-none" />
                 
                 {/* Interactive Mockup */}
                 <div className="bg-[#0f1219] rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden transform transition-transform hover:scale-[1.01] duration-500">
                   <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
                     <span>PATHWAY_ENGINE</span>
-                    <span className="text-volt-lime">● ACTIVE</span>
+                    <span className="text-cyan-400">● ACTIVE</span>
                   </div>
                   
                   <div className="space-y-12 relative py-4">
@@ -440,7 +440,7 @@ export default function MonashCaseStudy() {
 
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm mb-1 px-4">
-                        <span className="text-volt-lime">Regional Bonus</span>
+                        <span className="text-cyan-400">Regional Bonus</span>
                         <span className="text-white font-mono text-lg">+5.00</span>
                       </div>
                       <div className="h-12 relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5 mx-4">
@@ -453,7 +453,7 @@ export default function MonashCaseStudy() {
                             whileInView={{ width: "5%" }}
                             viewport={{ once: false }}
                             transition={{ duration: 1, delay: 0.8, ease: [0.22, 1, 0.36, 1] }}
-                            className="absolute top-0 bottom-0 left-[65%] bg-volt-lime shadow-[0_0_30px_rgba(212,255,0,0.3)]"
+                            className="absolute top-0 bottom-0 left-[65%] bg-cyan-400 shadow-[0_0_30px_rgba(34,211,238,0.3)]"
                           />
                       </div>
                     </div>
@@ -476,7 +476,7 @@ export default function MonashCaseStudy() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 1.8 }}
-                          className="h-10 px-4 flex items-center bg-volt-lime text-black rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(212,255,0,0.4)]"
+                          className="h-10 px-4 flex items-center bg-cyan-400 text-black rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.4)]"
                        >
                           <Check className="w-4 h-4 mr-2" /> Eligible
                        </motion.div>
@@ -516,7 +516,7 @@ export default function MonashCaseStudy() {
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Information Architecture</h4>
+                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors">Information Architecture</h4>
                       <p className="text-gray-400 text-sm">The Logic</p>
                    </div>
                    <Button 
@@ -539,7 +539,7 @@ export default function MonashCaseStudy() {
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">Low-Fidelity Wireframe</h4>
+                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors">Low-Fidelity Wireframe</h4>
                       <p className="text-gray-400 text-sm">The Skeleton</p>
                    </div>
                    <Button 
@@ -566,7 +566,7 @@ export default function MonashCaseStudy() {
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-volt-lime transition-colors">High-Fidelity UI</h4>
+                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors">High-Fidelity UI</h4>
                       <p className="text-gray-400 text-sm">The Polish</p>
                    </div>
                    <Button 
@@ -611,7 +611,7 @@ export default function MonashCaseStudy() {
             className="container mx-auto px-4 text-left"
           >
            <p className="font-mono text-xs text-gray-600">
-             <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
+             <a href="mailto:brian@defriction.design" className="hover:text-cyan-400 transition-colors">
                brian@defriction.design
              </a>
            </p>
