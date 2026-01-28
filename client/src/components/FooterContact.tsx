@@ -21,9 +21,10 @@ interface FooterContactProps {
   monashSwitcher?: boolean;
   disableExpansion?: boolean;
   glowColor?: "blue" | "orange";
+  removeTextShadow?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false, glowColor = "blue" }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false, glowColor = "blue", removeTextShadow = false }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [switcherOpen, setSwitcherOpen] = useState(false);
@@ -272,7 +273,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                 )}>
                     <motion.div 
                       layoutId="title" 
-                      style={{ textShadow: "0 1px 0 #000" }}
+                      style={{ textShadow: removeTextShadow ? "none" : "0 1px 0 #000" }}
                       className={cn(
                         "font-display font-bold text-white leading-tight text-left flex items-center gap-4 relative",
                         isCompact ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"

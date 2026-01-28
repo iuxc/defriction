@@ -545,6 +545,7 @@ export default function MonashCaseStudy() {
                  withGradientShadow={true}
                  disableExpansion={true}
                  glowColor="orange"
+                 removeTextShadow={true}
                />
         </div>
       </div>
