@@ -134,11 +134,11 @@ export default function Documentation() {
             {/* Search Button */}
             <button 
               onClick={() => setSearchOpen(true)}
-              className="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 text-gray-400 hover:border-white/20 hover:text-white transition-colors w-64 rounded-md"
+              className="flex items-center gap-3 px-4 py-2 bg-white/10 border border-white text-white hover:bg-white/20 transition-colors w-64 rounded-md"
             >
-              <Search className="w-4 h-4" />
+              <Search className="w-4 h-4 text-white" />
               <span className="text-sm">Search docs...</span>
-              <kbd className="ml-auto px-2 py-0.5 text-xs bg-white/10 border border-white/10 rounded text-gray-400">⌘K</kbd>
+              <kbd className="ml-auto px-2 py-0.5 text-xs bg-white/10 border border-white rounded text-white">⌘K</kbd>
             </button>
           </div>
         </div>
