@@ -419,7 +419,7 @@ export default function PremiumPathwaysFinder() {
     setCurrentTip(tip);
     setShowTip(true);
   }, [state.step]);
-  
+
   // Calculate selection rank
   const getSelectionRank = () => {
     let baseAtar = 0;
@@ -1309,7 +1309,18 @@ export default function PremiumPathwaysFinder() {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-deep-sapphire via-monash-blue to-deep-sapphire font-sans">
+    <div className="min-h-screen bg-gradient-to-br from-deep-sapphire via-monash-blue to-deep-sapphire font-sans premium-theme">
+      <style>{`
+        .premium-theme {
+          --font-display: "Domine", serif;
+        }
+        .premium-theme h1, 
+        .premium-theme h2, 
+        .premium-theme h3, 
+        .premium-theme h4 {
+          font-family: var(--font-display);
+        }
+      `}</style>
       
       {/* Hero Background */}
       <div className="absolute inset-0 overflow-hidden">
