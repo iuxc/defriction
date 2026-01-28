@@ -279,24 +279,6 @@ export default function MonashCaseStudy() {
                         </p>
                     </div>
 
-                    <div>
-                        <h4 className="text-white font-bold mb-3 text-lg">Friction Identification</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">I flagged "friction points" where the user encountered:</p>
-                        <ul className="space-y-4 pl-4 border-l-2 border-white/10 ml-1">
-                            <li className="text-sm text-gray-400">
-                                <strong className="text-white block mb-1">Technical Failures</strong> 
-                                Broken internal links or 404 errors on high-intent pages.
-                            </li>
-                            <li className="text-sm text-gray-400">
-                                <strong className="text-white block mb-1">Cognitive Load</strong> 
-                                Overly complex jargon or "dropdown hell" navigation that requires high effort to compare options.
-                            </li>
-                            <li className="text-sm text-gray-400">
-                                <strong className="text-white block mb-1">Obscured Information</strong> 
-                                Critical details—such as specific credit maps or exclusion criteria—that are not presented on the web interface and are instead buried deep within PDF documents.
-                            </li>
-                        </ul>
-                    </div>
 
                 </div>
               </motion.div>
