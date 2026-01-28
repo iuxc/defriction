@@ -19,9 +19,10 @@ interface FooterContactProps {
   alwaysSticky?: boolean;
   withGradientShadow?: boolean;
   monashSwitcher?: boolean;
+  disableExpansion?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [switcherOpen, setSwitcherOpen] = useState(false);
@@ -38,6 +39,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
   }, []);
 
   const showSticky = alwaysSticky || (!isInView && stickyVisible);
+  const isCompact = showSticky || disableExpansion;
 
   const onSubmit = (data: any) => {
     toast({
@@ -244,7 +246,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                   // When NOT in view (scrolling), fix to bottom
                   showSticky 
                     ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-[#0B0F19] block", stickyClassName)
-                    : "mx-auto max-w-3xl relative"
+                    : cn("mx-auto relative", disableExpansion ? "max-w-4xl" : "max-w-3xl")
                 )}
                 // Blue glow when sticky
                 style={showSticky ? { boxShadow: "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
@@ -259,20 +261,20 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                 initial={showSticky ? { y: 100, opacity: 0 } : { opacity: 1 }}
                 animate={showSticky ? { y: 0, opacity: 1 } : { opacity: 1 }}
                 exit={showSticky ? { y: 100, opacity: 0 } : { opacity: 0 }}
-                whileHover={!showSticky ? {} : { scale: 1.02 }}
+                whileHover={!showSticky && !disableExpansion ? { scale: 1.02 } : {}}
                 transition={{ duration: 0.5, type: "spring", bounce: 0.2 }}
             >
                 <div className="absolute inset-0 bg-volt-lime/5 opacity-0 hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                 
                 <div className={cn(
                   "text-center pointer-events-none transition-all duration-500 flex items-center justify-between gap-8",
-                  showSticky ? "p-4 px-6 md:px-8" : "p-12 flex-col"
+                  isCompact ? "p-4 px-6 md:px-8" : "p-12 flex-col"
                 )}>
                     <motion.div 
                       layoutId="title" 
                       className={cn(
                         "font-display font-bold text-white leading-tight text-left flex items-center gap-4 relative",
-                        showSticky ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"
+                        isCompact ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"
                       )}
                     >
                         {title}
@@ -349,7 +351,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                         )}
                     </motion.div>
 
-                    <motion.div layoutId="button-container" className={cn(showSticky ? "shrink-0 flex items-center gap-3" : "")}>
+                    <motion.div layoutId="button-container" className={cn(isCompact ? "shrink-0 flex items-center gap-3" : "")}>
                         <Button 
                             onClick={(e) => {
                               // If this is Monash Switcher mode, stop propagation so we don't toggle the switcher
@@ -361,7 +363,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                             className={cn(
                               "font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto border-none",
                               // Hero button styles applied here
-                              showSticky 
+                              isCompact 
                                 ? "text-sm px-6 py-4 h-auto bg-gradient-to-r from-orange-400 to-red-500 text-black hover:bg-none hover:bg-white hover:text-black hover:scale-105" 
                                 : "bg-white text-black text-base px-6 py-4 h-auto hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black hover:scale-105"
                             )}
@@ -369,7 +371,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                             Start a Project <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
 
-                        {showSticky && backLink && (
+                        {isCompact && backLink && (
                           <>
                             <motion.button
                                 onClick={(e) => {

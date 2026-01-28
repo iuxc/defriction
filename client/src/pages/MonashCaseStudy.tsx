@@ -543,6 +543,7 @@ export default function MonashCaseStudy() {
                  stickyVisible={isPastHero}
                  className="max-w-4xl"
                  withGradientShadow={true}
+                 disableExpansion={true}
                />
         </div>
       </div>
