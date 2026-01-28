@@ -142,11 +142,11 @@ export default function MonashCaseStudy() {
                 className="flex flex-col sm:flex-row gap-12 mb-10 pt-8 mt-8 border-t border-white/10"
               >
                 <div>
-                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Client</h3>
+                   <h3 className="text-sm font-mono text-cyan-400 mb-2 uppercase tracking-widest">Client</h3>
                    <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-cyan-400 transition-colors">Monash University</a>
                 </div>
                 <div>
-                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
+                   <h3 className="text-sm font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
                    <p className="text-white font-medium">UI Design + Information Architecture</p>
                 </div>
               </motion.div>
@@ -176,7 +176,7 @@ export default function MonashCaseStudy() {
                         <div className="w-8 h-8 rounded-full bg-cyan-400/20 flex items-center justify-center text-cyan-400">
                           <Check className="w-4 h-4" />
                         </div>
-                        <span className="text-xs font-mono text-cyan-400">ELIGIBLE</span>
+                        <span className="text-sm font-mono text-cyan-400">ELIGIBLE</span>
                      </div>
                      <div className="h-1 w-full bg-white/10 rounded-full overflow-hidden">
                        <div className="h-full w-[85%] bg-cyan-400" />
@@ -188,8 +188,8 @@ export default function MonashCaseStudy() {
                     transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
                     className="absolute -left-8 bottom-32 glass-panel p-4 rounded-xl border border-white/10 shadow-xl"
                   >
-                     <div className="text-xs font-mono text-gray-400 mb-1">APPLICANTS</div>
-                     <div className="text-3xl font-display font-bold text-white">40k+</div>
+                     <div className="text-sm font-mono text-gray-400 mb-1">APPLICANTS</div>
+                     <div className="text-2xl font-display font-bold text-white">40k+</div>
                   </motion.div>
                </div>
 
@@ -361,13 +361,13 @@ export default function MonashCaseStudy() {
         >
           <motion.div variants={fadeInUp}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
-              <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+              <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
                 02. The Strategic Insight
               </span>
             </div>
 
-            <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">The Shift to Equity.</h2>
-            <p className="text-xl text-gray-400 font-light leading-relaxed mb-8">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">The Shift to Equity.</h2>
+            <p className="text-base text-gray-400 font-light leading-relaxed mb-8">
               The <a href="https://www.education.gov.au/australian-universities-accord" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">2024 Universities Accord</a> mandates a shift from a market-driven logic to an equity-driven mandate. I couldn't just reskin the page; I had to expose the backend logic to the frontend user. I pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
             </p>
             <div className="flex gap-4">
@@ -393,13 +393,13 @@ export default function MonashCaseStudy() {
                className="lg:col-span-5"
             >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
-                  <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+                  <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
                     03. The Proposed Solution
                   </span>
                 </div>
 
                 <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Visualizing the Invisible.</h3>
-                <p className="text-xl text-gray-400 leading-relaxed mb-8">
+                <p className="text-base text-gray-400 leading-relaxed mb-8">
                   I designed a dynamic component that visualizes the "hidden math" of admissions. Instead of a static table, the "stacking calculator" shows students exactly how close they are.
                 </p>
                 
@@ -423,7 +423,7 @@ export default function MonashCaseStudy() {
                 
                 {/* Interactive Mockup */}
                 <div className="bg-[#0f1219] rounded-2xl p-8 border border-white/10 shadow-2xl relative overflow-hidden transform transition-transform hover:scale-[1.01] duration-500">
-                  <div className="flex justify-between font-mono text-xs text-gray-500 mb-10 border-b border-white/5 pb-4">
+                  <div className="flex justify-between font-mono text-sm text-gray-500 mb-10 border-b border-white/5 pb-4">
                     <span>PATHWAY_ENGINE</span>
                     <span className="text-cyan-400">● ACTIVE</span>
                   </div>
@@ -432,7 +432,7 @@ export default function MonashCaseStudy() {
                     {/* Threshold Line */}
                     <div className="absolute inset-y-0 left-4 right-4 z-10 pointer-events-none">
                        <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/20 flex flex-col justify-end pb-8">
-                         <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
+                         <div className="ml-2 text-sm font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
                        </div>
                     </div>
 
@@ -440,7 +440,7 @@ export default function MonashCaseStudy() {
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm mb-1 px-4">
                         <span className="text-gray-400">Raw ATAR</span>
-                        <span className="text-white font-mono text-lg">65.00</span>
+                        <span className="text-white font-mono text-base">65.00</span>
                       </div>
                       <div className="h-12 bg-white/5 rounded-xl relative overflow-hidden ring-1 ring-white/5 mx-4">
                         <motion.div 
@@ -456,7 +456,7 @@ export default function MonashCaseStudy() {
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm mb-1 px-4">
                         <span className="text-cyan-400">Regional Bonus</span>
-                        <span className="text-white font-mono text-lg">+5.00</span>
+                        <span className="text-white font-mono text-base">+5.00</span>
                       </div>
                       <div className="h-12 relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5 mx-4">
                          {/* Spacer - ends at 65% */}
@@ -500,7 +500,7 @@ export default function MonashCaseStudy() {
                 </div>
                 
                 {/* Caption */}
-                <p className="text-xs font-mono text-gray-500 mt-4 text-left w-full px-8">
+                <p className="text-sm font-mono text-gray-500 mt-4 text-left w-full px-8">
                   The stacking calculator visualizes eligibility adjustments based on postcode, revealing a student's true Selection Rank beyond their raw ATAR.
                 </p>
             </motion.div>
@@ -517,7 +517,7 @@ export default function MonashCaseStudy() {
         >
            <motion.div variants={fadeInUp} className="text-center max-w-2xl mx-auto">
              <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">Visual Proof</h2>
-             <p className="text-gray-400 text-lg">From architectural diagrams to pixel-perfect production.</p>
+             <p className="text-gray-400 text-base">From architectural diagrams to pixel-perfect production.</p>
            </motion.div>
            
            <div className="grid md:grid-cols-3 gap-8">
@@ -531,12 +531,12 @@ export default function MonashCaseStudy() {
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors">Information Architecture</h4>
+                      <h4 className="text-white font-bold text-2xl mb-1 group-hover:text-cyan-400 transition-colors">Information Architecture</h4>
                       <p className="text-gray-400 text-sm">The Logic</p>
                    </div>
                    <Button 
                       variant="outline" 
-                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
+                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-sm h-8 px-4"
                       onClick={() => setLocation('/monash/prototype/docs')}
                     >
                       See IA <ExternalLink className="ml-2 w-3 h-3" />
@@ -554,12 +554,12 @@ export default function MonashCaseStudy() {
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors">Low-Fidelity Wireframe</h4>
+                      <h4 className="text-white font-bold text-2xl mb-1 group-hover:text-cyan-400 transition-colors">Low-Fidelity Wireframe</h4>
                       <p className="text-gray-400 text-sm">The Skeleton</p>
                    </div>
                    <Button 
                       variant="outline" 
-                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
+                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-sm h-8 px-4"
                       onClick={() => setLocation('/monash/prototype')}
                     >
                       See Wireframe <ExternalLink className="ml-2 w-3 h-3" />
@@ -581,12 +581,12 @@ export default function MonashCaseStudy() {
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
-                      <h4 className="text-white font-bold text-xl mb-1 group-hover:text-cyan-400 transition-colors">High-Fidelity UI</h4>
+                      <h4 className="text-white font-bold text-2xl mb-1 group-hover:text-cyan-400 transition-colors">High-Fidelity UI</h4>
                       <p className="text-gray-400 text-sm">The Polish</p>
                    </div>
                    <Button 
                       variant="outline" 
-                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
+                      className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-sm h-8 px-4"
                       onClick={() => setLocation('/monash/prototype/hifi')}
                     >
                       See Demo <ExternalLink className="ml-2 w-3 h-3" />
@@ -625,12 +625,12 @@ export default function MonashCaseStudy() {
             transition={{ duration: 0.8 }}
             className="container mx-auto px-4 text-left"
           >
-           <p className="font-mono text-xs text-gray-600">
+           <p className="font-mono text-sm text-gray-600">
              <a href="mailto:brian@defriction.design" className="hover:text-cyan-400 transition-colors">
                brian@defriction.design
              </a>
            </p>
-           <p className="font-mono text-xs text-gray-600 mt-2">
+           <p className="font-mono text-sm text-gray-600 mt-2">
              © 2026 defriction design. MELBOURNE / EUGENE.
            </p>
          </motion.div>
