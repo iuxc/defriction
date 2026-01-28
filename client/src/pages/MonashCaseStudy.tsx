@@ -616,34 +616,34 @@ export default function MonashCaseStudy() {
             {/* Left Wireframe */}
             <motion.div 
               initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 0.03, x: 0 }}
+              whileInView={{ opacity: 0.15, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1 }}
-              className="absolute -left-[10%] top-1/2 -translate-y-1/2 w-[600px] -rotate-12"
+              className="absolute -left-[10%] top-1/2 -translate-y-1/2 w-[600px] -rotate-12 backdrop-blur-sm"
             >
-               <AbstractBrowser variant="wireframe" theme="dark" className="w-full h-[400px] border-white/20" />
+               <AbstractBrowser variant="wireframe" theme="dark" className="w-full h-[400px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
             </motion.div>
 
             {/* Right Wireframe */}
             <motion.div 
               initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 0.03, x: 0 }}
+              whileInView={{ opacity: 0.15, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.2 }}
-              className="absolute -right-[10%] top-1/2 -translate-y-1/2 w-[600px] rotate-12"
+              className="absolute -right-[10%] top-1/2 -translate-y-1/2 w-[600px] rotate-12 backdrop-blur-sm"
             >
-               <AbstractBrowser variant="landing" theme="dark" className="w-full h-[400px] border-white/20" />
+               <AbstractBrowser variant="landing" theme="dark" className="w-full h-[400px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
             </motion.div>
             
             {/* Center Top Wireframe */}
              <motion.div 
               initial={{ opacity: 0, y: -50 }}
-              whileInView={{ opacity: 0.02, y: 0 }}
+              whileInView={{ opacity: 0.1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, delay: 0.4 }}
-              className="absolute left-1/2 -translate-x-1/2 -top-[40%] w-[500px] opacity-[0.02]"
+              className="absolute left-1/2 -translate-x-1/2 -top-[40%] w-[500px] backdrop-blur-sm"
             >
-               <AbstractBrowser variant="feature" theme="dark" className="w-full h-[300px] border-white/20" />
+               <AbstractBrowser variant="feature" theme="dark" className="w-full h-[300px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
             </motion.div>
         </div>
 
