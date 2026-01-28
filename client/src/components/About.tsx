@@ -49,7 +49,7 @@ export function About() {
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
               <p>
-                I currently lead Digital Strategy for the University of Oregon. 'Defriction' is where I get back to the craft—solving high-stakes design problems with executive precision.
+                Hi, I'm Brian. I currently lead Digital Strategy for the University of Oregon. <span className="lowercase font-bold bg-gradient-to-br from-[#002B5C] via-[#006DAE] to-[#002B5C] bg-clip-text text-transparent">defriction</span> is where I get back to the craft—solving high-stakes design problems with executive precision.
               </p>
             </div>
             
