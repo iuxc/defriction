@@ -184,7 +184,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                   <div className={cn(
                     // Match the card's positioning exactly but with higher z-index and pointer-events-none for container
                     showSticky 
-                      ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[90]", stickyClassName ? "" : "") 
+                      ? cn("fixed bottom-32 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[90]", stickyClassName ? "" : "") 
                       : "absolute bottom-0 left-4 right-4 mx-auto max-w-3xl z-[90]",
                     "pointer-events-none flex flex-col items-end justify-end"
                   )}>
@@ -224,7 +224,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                             University admissions shouldn’t be a maze. This prototype transforms the applicant journey from a <strong className="text-white font-medium">Gatekeeper</strong> (static PDFs) to a <strong className="text-white font-medium">Concierge</strong> (dynamic logic).
                           </p>
                           <p>
-                            By visualizing 'hidden math' like regional adjustment factors, we turn confusing cutoff ranks into clear, personalized pathways—directly supporting the 2024 Universities Accord mandate for equity and accessibility.
+                            By visualizing 'hidden math' like regional adjustment factors, I turn confusing cutoff ranks into clear, personalized pathways—directly supporting the 2024 Universities Accord mandate for equity and accessibility.
                           </p>
                         </div>
                       </div>
@@ -287,9 +287,14 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                   e.stopPropagation();
                                   setShowInfo(!showInfo);
                                 }}
-                                className="h-[52px] w-[52px] rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center pointer-events-auto transition-all duration-300 hover:scale-110"
+                                className="h-[52px] w-[52px] rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center pointer-events-auto group overflow-hidden transition-all duration-300 hover:w-[110px]"
                             >
-                                <Info className="w-5 h-5 text-white" />
+                                <div className="flex items-center justify-center w-full px-4">
+                                  <Info className="w-5 h-5 text-white shrink-0 group-hover:mr-2 transition-all" />
+                                  <span className="opacity-0 w-0 group-hover:opacity-100 group-hover:w-auto text-white whitespace-nowrap text-sm font-medium transition-all duration-300">
+                                      Info
+                                  </span>
+                                </div>
                             </motion.button>
 
                             <motion.a
