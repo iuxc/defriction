@@ -116,7 +116,7 @@ export default function Documentation() {
   return (
     <div className="min-h-screen bg-vapor-grey text-slate-700 font-inter">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/10 text-white">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#006DAE] backdrop-blur-xl border-b border-white/10 text-white">
         <div className="flex items-center justify-between px-6 h-16">
           <div className="flex items-center gap-6">
             <a href="/" className="hover:opacity-80 transition-opacity flex items-center gap-2">
