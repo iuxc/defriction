@@ -6,7 +6,7 @@ import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 mesh-gradient">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-12 md:pt-20 mesh-gradient">
       {/* ... existing dynamic background ... */}
       
       {/* Dynamic Background Elements */}
@@ -23,49 +23,49 @@ export function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="max-w-5xl mx-auto"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-md border border-white/10 bg-white/5 mb-4 md:mb-8 backdrop-blur-md cursor-default">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
             </span>
-            <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+            <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
               COMPLEX UI DESIGN + PROTOTYPING
             </span>
           </div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-8 leading-[1.1]">
+          <h1 className="text-[2rem] md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-4 md:mb-8 leading-[1.1]">
             <span className="block text-white">Complex UX Solved.</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet">
                Design That Flows.
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
+          <p className="text-base md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed">
             Helping Australian agencies and leaders remove the friction between 
             <span className="text-white font-medium"> big ideas </span> 
             and 
             <span className="text-white font-medium"> finished pixels</span>.
           </p>
           
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-row gap-3 md:gap-6 justify-center items-center">
             <Button 
-              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
+              className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-sm md:text-base px-4 md:px-6 py-2.5 md:py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
               asChild
             >
               <a href="#work">
                 See the Work
-                <ChevronDown className="ml-2 w-4 h-4" />
+                <ChevronDown className="ml-1.5 md:ml-2 w-3.5 md:w-4 h-3.5 md:h-4" />
               </a>
             </Button>
             
             <Button 
               variant="ghost" 
-              className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base gap-2 group rounded-full"
+              className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-sm md:text-base gap-1.5 md:gap-2 group rounded-full px-3 md:px-4"
               asChild
             >
               <a href="#method">
                 The Method 
-                <ChevronDown className="w-4 h-4" />
+                <ChevronDown className="w-3.5 md:w-4 h-3.5 md:h-4" />
               </a>
             </Button>
           </div>
