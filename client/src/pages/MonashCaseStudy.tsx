@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import { ArrowLeft, Check, ExternalLink, FileText } from "lucide-react";
+import { ArrowLeft, ArrowRight, ChevronRight, Check, ExternalLink, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 import { FooterContact } from "@/components/FooterContact";
@@ -123,13 +123,15 @@ export default function MonashCaseStudy() {
                     }}
                  >
                     Understand the Problem
+                    <ArrowRight className="ml-2 w-4 h-4" />
                  </Button>
                  <Button 
-                    variant="outline"
-                    className="rounded-full border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white transition-colors text-base h-auto px-6 py-4"
+                    variant="ghost"
+                    className="text-white hover:text-cyan-400 hover:bg-transparent font-medium text-base gap-2 group rounded-full px-6 py-4 h-auto"
                     onClick={() => setLocation('/monash/prototype/hifi')}
                  >
                     Launch Demo
+                    <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                  </Button>
               </motion.div>
 
