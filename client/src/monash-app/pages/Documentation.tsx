@@ -223,7 +223,7 @@ export default function Documentation() {
         </nav>
 
         {/* Main Content */}
-        <main className="flex-1 ml-64 p-8 max-w-4xl">
+        <main className="flex-1 ml-64 p-8 pb-40 max-w-4xl">
           {/* Introduction */}
           <section id="introduction" className="mb-16">
             <div className="flex items-center gap-3 mb-6">
