@@ -118,8 +118,8 @@ export default function Documentation() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/10 text-white">
         <div className="flex items-center justify-between px-6 h-16">
           <div className="flex items-center gap-6">
-            <a href="/" className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
+            <a href="/" className="hover:opacity-80 transition-opacity flex items-center gap-2">
+              <img src="/monash-logo-white.png" alt="Monash University" className="h-10 w-auto" />
             </a>
             
             <div className="h-6 w-px bg-white/10" />
@@ -837,7 +837,7 @@ export default function Documentation() {
         } 
         backLink="/work/monash"
         alwaysSticky={true}
-        stickyClassName="!bg-[#0B0F19] !backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
+        stickyClassName="!bg-[#0B0F19]/95 !backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
         monashSwitcher={true}
       />
     </div>
