@@ -55,7 +55,7 @@ const navSections = [
     ]
   },
 ];
-import { Link } from "wouter";
+import { FooterContact } from '@/components/FooterContact';
 
 export default function Documentation() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -116,7 +116,7 @@ export default function Documentation() {
     <div className="min-h-screen bg-vapor-grey text-slate-700">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/10 text-white">
-        <div className="flex items-center justify-between px-6 h-20">
+        <div className="flex items-center justify-between px-6 h-16">
           <div className="flex items-center gap-6">
             <a href="/" className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2">
               <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
@@ -145,15 +145,6 @@ export default function Documentation() {
               <Search className="w-4 h-4" />
               <span className="text-sm">Search docs...</span>
               <kbd className="ml-auto px-2 py-0.5 text-xs bg-white/10 border border-white/10 rounded text-gray-400">⌘K</kbd>
-            </button>
-
-            <div className="h-6 w-px bg-white/10" />
-
-            <button 
-              className="bg-gradient-to-b from-blue-400/20 to-blue-400/5 text-blue-400 hover:from-blue-400/30 hover:to-blue-400/10 border border-blue-400/20 rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 shadow-[inset_0_1px_0_rgba(96,165,250,0.2)] hover:shadow-[0_0_20px_rgba(96,165,250,0.2)] backdrop-blur-md"
-              onClick={() => window.location.href = "/#contact"}
-            >
-              Start Project
             </button>
           </div>
         </div>
@@ -201,9 +192,9 @@ export default function Documentation() {
       )}
 
       {/* Main Layout */}
-      <div className="flex pt-20">
+      <div className="flex pt-16">
         {/* Sidebar Navigation */}
-        <nav className="fixed left-0 top-20 bottom-0 w-64 bg-white/50 border-r border-slate-200 overflow-y-auto p-4">
+        <nav className="fixed left-0 top-16 bottom-0 w-64 bg-white/50 border-r border-slate-200 overflow-y-auto p-4">
           <div className="space-y-6">
             {navSections.map((section) => (
               <div key={section.title}>
@@ -843,6 +834,10 @@ export default function Documentation() {
           </footer>
         </main>
       </div>
+      
+      <FooterContact 
+        title={<span>Let's remove the <span className="text-orange-500">friction</span>.</span>} 
+      />
     </div>
   );
 }

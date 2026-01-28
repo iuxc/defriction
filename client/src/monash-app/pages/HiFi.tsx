@@ -1,13 +1,13 @@
 import PremiumPathwaysFinder from '../components/PremiumPathwaysFinder';
-import { PrototypeNav } from '../components/PrototypeNav';
+import { FooterContact } from '@/components/FooterContact';
 
 export default function HiFi() {
   return (
     <>
-      <PrototypeNav />
-      <div className="pt-24 bg-deep-basalt min-h-screen">
-        <PremiumPathwaysFinder />
-      </div>
+      <PremiumPathwaysFinder />
+      <FooterContact 
+        title={<span>Let's remove the <span className="text-orange-500">friction</span>.</span>} 
+      />
     </>
   );
 }
