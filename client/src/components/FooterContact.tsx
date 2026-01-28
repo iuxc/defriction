@@ -253,11 +253,10 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                 style={showSticky ? { boxShadow: glowColor === "orange" ? "0 0 40px rgba(249, 115, 22, 0.4)" : "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
                 onClick={() => {
                   if (monashSwitcher) {
-                    setSwitcherOpen(!switcherOpen);
-                    setShowInfo(false);
-                  } else {
-                    setIsOpen(true);
+                    // Do nothing in Monash Switcher mode (switcher handles itself)
+                    return;
                   }
+                  setIsOpen(true);
                 }}
                 initial={showSticky ? { y: 100, opacity: 0 } : { opacity: 1 }}
                 animate={showSticky ? { y: 0, opacity: 1 } : { opacity: 1 }}
