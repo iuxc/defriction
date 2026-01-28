@@ -615,35 +615,59 @@ export default function MonashCaseStudy() {
         <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
             {/* Left Wireframe */}
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 0.15, x: 0 }}
+              initial={{ opacity: 0, x: -50, rotate: -12 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ 
+                y: [0, -20, 0],
+                rotate: [-12, -10, -12]
+              }}
+              transition={{ 
+                duration: 1,
+                y: { duration: 6, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 8, repeat: Infinity, ease: "easeInOut" }
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 1 }}
-              className="absolute -left-[10%] top-1/2 -translate-y-1/2 w-[600px] -rotate-12 backdrop-blur-sm"
+              className="absolute -left-[10%] top-1/2 -translate-y-1/2 w-[600px] backdrop-blur-sm z-0"
             >
-               <AbstractBrowser variant="wireframe" theme="dark" className="w-full h-[400px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
+               <AbstractBrowser variant="wireframe" theme="dark" className="w-full h-[400px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl opacity-60" />
             </motion.div>
 
             {/* Right Wireframe */}
             <motion.div 
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 0.15, x: 0 }}
+              initial={{ opacity: 0, x: 50, rotate: 12 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              animate={{ 
+                y: [0, 25, 0],
+                rotate: [12, 14, 12]
+              }}
+              transition={{ 
+                duration: 1,
+                delay: 0.2,
+                y: { duration: 7, repeat: Infinity, ease: "easeInOut" },
+                rotate: { duration: 9, repeat: Infinity, ease: "easeInOut" }
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.2 }}
-              className="absolute -right-[10%] top-1/2 -translate-y-1/2 w-[600px] rotate-12 backdrop-blur-sm"
+              className="absolute -right-[10%] top-1/2 -translate-y-1/2 w-[600px] backdrop-blur-sm z-0"
             >
-               <AbstractBrowser variant="landing" theme="dark" className="w-full h-[400px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
+               <AbstractBrowser variant="landing" theme="dark" className="w-full h-[400px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl opacity-60" />
             </motion.div>
             
             {/* Center Top Wireframe */}
              <motion.div 
               initial={{ opacity: 0, y: -50 }}
-              whileInView={{ opacity: 0.1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              animate={{ 
+                y: [0, -15, 0],
+              }}
+              transition={{ 
+                duration: 1,
+                delay: 0.4,
+                y: { duration: 5, repeat: Infinity, ease: "easeInOut" }
+              }}
               viewport={{ once: true }}
-              transition={{ duration: 1, delay: 0.4 }}
-              className="absolute left-1/2 -translate-x-1/2 -top-[40%] w-[500px] backdrop-blur-sm"
+              className="absolute left-1/2 -translate-x-1/2 -top-[40%] w-[500px] backdrop-blur-sm z-0"
             >
-               <AbstractBrowser variant="feature" theme="dark" className="w-full h-[300px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl" />
+               <AbstractBrowser variant="feature" theme="dark" className="w-full h-[300px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl opacity-40" />
             </motion.div>
         </div>
 
