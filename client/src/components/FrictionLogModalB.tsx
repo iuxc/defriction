@@ -30,7 +30,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             <DialogTitle className="text-2xl font-display font-bold text-slate-900 mb-1">
               User B Friction Log
             </DialogTitle>
-            <DialogDescription className="text-lg font-medium text-[#A3CC00]">
+            <DialogDescription className="text-lg font-medium text-[#6B7280]">
               Year 12 Student with Low ATAR (60.00)
             </DialogDescription>
           </DialogHeader>
