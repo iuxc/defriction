@@ -7,8 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { Send, ArrowRight, X, Undo, Info, ChevronDown } from "lucide-react";
+import { Send, ArrowRight, X, Undo, Info, ChevronDown, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { useMutation } from "@tanstack/react-query";
 
 interface FooterContactProps {
   title?: React.ReactNode;
@@ -42,15 +43,46 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
 
   const showSticky = alwaysSticky || (!isInView && stickyVisible);
   const isCompact = showSticky || disableExpansion;
+  const [selectedBudget, setSelectedBudget] = useState<string>("");
+
+  const contactMutation = useMutation({
+    mutationFn: async (data: { name: string; email: string; budget?: string; message: string }) => {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Failed to send message");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Transmission Received",
+        description: "I'll analyze the signal and respond within 24 hours.",
+      });
+      reset();
+      setSelectedBudget("");
+      setIsOpen(false);
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Transmission Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const onSubmit = (data: any) => {
-    toast({
-      title: "Transmission Received",
-      description: "I'll analyze the signal and respond within 24 hours.",
+    contactMutation.mutate({
+      name: data.name,
+      email: data.email,
+      budget: selectedBudget,
+      message: data.message,
     });
-    // Optional: Close after submission
-    // setIsOpen(false);
-    reset();
   };
 
   const modalContent = (
@@ -126,14 +158,14 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
 
                                   <div className="space-y-2">
                                       <label className="text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-1 inline-block rounded-md">Project Budget (AUD)</label>
-                                      <Select onValueChange={(value) => console.log(value)}>
+                                      <Select value={selectedBudget} onValueChange={setSelectedBudget}>
                                           <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-orange-400/50 focus:ring-0 text-white transition-all focus:bg-white/10">
                                               <SelectValue placeholder="Select engagement level..." />
                                           </SelectTrigger>
                                           <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-xl shadow-xl z-[110]">
-                                              <SelectItem value="sprint">Sprint ($5k+ AUD)</SelectItem>
-                                              <SelectItem value="project">Project ($15k+ AUD)</SelectItem>
-                                              <SelectItem value="retainer">Retainer / Strategic Audit</SelectItem>
+                                              <SelectItem value="Sprint ($5k+ AUD)">Sprint ($5k+ AUD)</SelectItem>
+                                              <SelectItem value="Project ($15k+ AUD)">Project ($15k+ AUD)</SelectItem>
+                                              <SelectItem value="Retainer / Strategic Audit">Retainer / Strategic Audit</SelectItem>
                                           </SelectContent>
                                       </Select>
                                   </div>
@@ -150,9 +182,14 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                   <motion.div layoutId="button-container" className="w-full">
                                       <Button 
                                           type="submit" 
-                                          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-black hover:brightness-110 font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-orange-500/20"
+                                          disabled={contactMutation.isPending}
+                                          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-black hover:brightness-110 font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-orange-500/20 disabled:opacity-70"
                                       >
-                                          Start the Conversation <Send className="ml-2 w-4 h-4" />
+                                          {contactMutation.isPending ? (
+                                            <>Sending... <Loader2 className="ml-2 w-4 h-4 animate-spin" /></>
+                                          ) : (
+                                            <>Start the Conversation <Send className="ml-2 w-4 h-4" /></>
+                                          )}
                                       </Button>
                                   </motion.div>
                               </form>

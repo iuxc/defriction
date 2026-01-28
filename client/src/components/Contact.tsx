@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -10,18 +11,51 @@ import {
 } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { Send } from "lucide-react";
+import { Send, Loader2 } from "lucide-react";
+import { useMutation } from "@tanstack/react-query";
 
 export function Contact() {
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
+  const [selectedBudget, setSelectedBudget] = useState<string>("");
+
+  const contactMutation = useMutation({
+    mutationFn: async (data: { name: string; email: string; budget?: string; message: string }) => {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.error || "Failed to send message");
+      }
+      return response.json();
+    },
+    onSuccess: () => {
+      toast({
+        title: "Transmission Received",
+        description: "I'll analyze the signal and respond within 24 hours.",
+      });
+      reset();
+      setSelectedBudget("");
+    },
+    onError: (error: Error) => {
+      toast({
+        title: "Transmission Failed",
+        description: error.message || "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const onSubmit = (data: any) => {
-    toast({
-      title: "Transmission Received",
-      description: "I'll analyze the signal and respond within 24 hours.",
+    contactMutation.mutate({
+      name: data.name,
+      email: data.email,
+      budget: selectedBudget,
+      message: data.message,
     });
-    reset();
   };
 
   return (
@@ -64,14 +98,14 @@ export function Contact() {
 
               <div className="space-y-2">
                 <label className="text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-1 inline-block rounded-md">Project Budget (AUD)</label>
-                <Select onValueChange={(value) => console.log(value)}>
+                <Select value={selectedBudget} onValueChange={setSelectedBudget}>
                   <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white transition-all focus:bg-white/10">
                     <SelectValue placeholder="Select engagement level..." />
                   </SelectTrigger>
                   <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-xl shadow-xl">
-                    <SelectItem value="sprint">Sprint ($5k+ AUD)</SelectItem>
-                    <SelectItem value="project">Project ($15k+ AUD)</SelectItem>
-                    <SelectItem value="retainer">Retainer / Strategic Audit</SelectItem>
+                    <SelectItem value="Sprint ($5k+ AUD)">Sprint ($5k+ AUD)</SelectItem>
+                    <SelectItem value="Project ($15k+ AUD)">Project ($15k+ AUD)</SelectItem>
+                    <SelectItem value="Retainer / Strategic Audit">Retainer / Strategic Audit</SelectItem>
                   </SelectContent>
                 </Select>
               </div>
@@ -87,9 +121,14 @@ export function Contact() {
 
               <Button 
                 type="submit" 
-                className="w-full bg-white text-black hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
+                disabled={contactMutation.isPending}
+                className="w-full bg-white text-black hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5 disabled:opacity-70"
               >
-                Start the Conversation <Send className="ml-2 w-4 h-4" />
+                {contactMutation.isPending ? (
+                  <>Sending... <Loader2 className="ml-2 w-4 h-4 animate-spin" /></>
+                ) : (
+                  <>Start the Conversation <Send className="ml-2 w-4 h-4" /></>
+                )}
               </Button>
             </form>
           </div>
