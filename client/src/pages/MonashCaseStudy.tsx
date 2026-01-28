@@ -448,7 +448,7 @@ export default function MonashCaseStudy() {
                           whileInView={{ width: "65%" }}
                           viewport={{ once: false }}
                           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                          className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-l-xl"
+                          className="h-full bg-gradient-to-r from-blue-800 to-blue-600 rounded-l-xl"
                         />
                       </div>
                     </div>
@@ -491,7 +491,7 @@ export default function MonashCaseStudy() {
                           initial={{ opacity: 0, scale: 0.9 }}
                           whileInView={{ opacity: 1, scale: 1 }}
                           transition={{ delay: 1.8 }}
-                          className="h-10 px-4 flex items-center bg-cyan-400 text-black rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.4)]"
+                          className="h-10 px-4 flex items-center border border-cyan-400 text-cyan-400 bg-transparent rounded-full text-sm font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(34,211,238,0.2)]"
                        >
                           <Check className="w-4 h-4 mr-2" /> Eligible
                        </motion.div>
