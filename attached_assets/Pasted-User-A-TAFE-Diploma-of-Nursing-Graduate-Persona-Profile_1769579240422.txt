@@ -1,0 +1,58 @@
+User A: TAFE Diploma of Nursing Graduate
+Persona Profile
+
+Background: TAFE graduate with a Diploma of Nursing.
+
+Goal: Enter the Bachelor of Nursing at Monash University.
+
+Mental Model: "I have a professional qualification; I want to know exactly how much credit I get and how to apply."
+
+Journey Steps & Observations
+
+Step 1: Monash University Homepage
+
+Finding: The search bar is the primary entry point for course information.
+
+Observation: No specific "Pathways" or "TAFE" entry point is visible on the main landing page; navigation assumes a standard starting point.
+
+Step 2: Bachelor of Nursing Course Page
+
+Finding: Page displays the ATAR (76.85) and Monash Guarantee (70) for the 2026 intake.
+
+Friction: The interface is ATAR-centric. A TAFE graduate must scroll past significant high-school-specific data to find the "VET" entry requirements section.
+
+Step 3: VET/TAFE Entry Section
+
+Finding: Notes that entry into the second year is possible with a 75% average and Ahpra registration.
+
+Friction: High use of specialized acronyms (Ahpra, NMBA, VTAC) without inline definitions or tooltips for students coming from a TAFE environment.
+
+Step 4: Credit Search Tool
+
+Finding: User attempts to calculate how many units their specific TAFE Diploma will waive.
+
+Friction: Database Gaps. A search for "Diploma of Nursing" often returns no results for specific regional TAFE providers, leaving the user unable to calculate exact savings.
+
+Step 5: Nursing Pathways Page
+
+Finding: Suggests the Diploma of Tertiary Studies (DoTS) as a primary pathway.
+
+Friction: Conflicting Advice. This page suggests TAFE students should take the DoTS pathway (adding a year), whereas the course page says they can enter Year 2 directly.
+
+Step 6: VTAC Course Search (External)
+
+Finding: User leaves the Monash site to view official application requirements.
+
+Friction: Discovers critical exclusions—such as competency-based assessments without grades not being accepted—that were not stated on the Monash course page.
+
+Major Friction Points
+
+Conflicting Advice: The website contradicts itself on whether a TAFE graduate needs a "Pathways" year (DoTS) or can apply for direct entry.
+
+Credit Dead-ends: The search tool lacks data for common TAFE providers, making it impossible to confirm the "Year 2" entry promise.
+
+Key Information Missing
+
+Specific Unit Credit: No clear list of which units are waived for a standard Diploma of Nursing.
+
+Exclusion Clarity: Lack of early warning regarding "competency-based" (ungraded) TAFE results.
