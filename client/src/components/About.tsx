@@ -18,19 +18,19 @@ export function About() {
     { text: "Dog Lover 🐕", pos: "-bottom-2 -right-2", delay: 3 }
   ];
 
+  // Logic to show only 2 badges at a time cycling through
   const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % floatingBadges.length);
-    }, 3000);
+    }, 3000); // Change every 3 seconds
     return () => clearInterval(interval);
   }, [floatingBadges.length]);
 
   return (
-    <section id="about" className="min-h-screen md:py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center snap-start h-screen md:h-auto overflow-hidden">
-      {/* Desktop Layout */}
-      <div className="hidden md:block container mx-auto px-4">
+    <section id="about" className="min-h-screen py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center">
+      <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div className="text-left">
@@ -53,6 +53,7 @@ export function About() {
               </p>
             </div>
             
+            {/* Mini Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
               <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
                 <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Base</span>
@@ -78,6 +79,7 @@ export function About() {
           </div>
 
           <div className="relative order-first lg:order-last">
+            {/* Profile Image */}
             <div className="relative aspect-square max-w-md w-full mx-auto group lg:ml-auto lg:mr-24">
                <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-3xl opacity-20 blur-2xl rotate-6 group-hover:opacity-40 transition-opacity duration-500" />
                <div className="absolute inset-0 border border-white/10 rounded-3xl bg-deep-basalt/80 backdrop-blur-xl overflow-hidden p-2">
@@ -88,8 +90,10 @@ export function About() {
                   />
                </div>
                
+               {/* Floating Badges - Cycling Visibility */}
                <AnimatePresence>
                  {floatingBadges.map((badge, i) => {
+                   // Show current and next badge (2 visible at a time)
                    const isVisible = i === activeIndex || i === (activeIndex + 1) % floatingBadges.length;
                    
                    return isVisible && (
@@ -110,76 +114,7 @@ export function About() {
           </div>
         </div>
       </div>
-
-      {/* Mobile Layout */}
-      <div className="md:hidden flex flex-col h-full pt-16 px-4">
-        {/* Header */}
-        <div className="flex-shrink-0 mb-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 bg-white/5 mb-2 backdrop-blur-md cursor-default">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
-            </span>
-            <span className="font-mono text-[10px] tracking-widest text-gray-400 uppercase">
-              03. About
-            </span>
-          </div>
-          <h2 className="text-2xl font-display font-bold text-white">
-            The Executive Who <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Designs</span>.
-          </h2>
-        </div>
-
-        {/* Content */}
-        <div className="flex-1 flex flex-col min-h-0">
-          {/* Photo */}
-          <div className="relative w-32 h-32 mx-auto mb-4 flex-shrink-0">
-            <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-2xl opacity-30 blur-xl" />
-            <div className="relative w-full h-full border border-white/10 rounded-2xl bg-deep-basalt/80 overflow-hidden p-1">
-              <img 
-                src="/TheHuman.jpg" 
-                alt="The Human" 
-                className="w-full h-full object-cover rounded-xl"
-              />
-            </div>
-          </div>
-
-          {/* Bio */}
-          <p className="text-sm text-gray-400 text-center mb-4 leading-relaxed">
-            Hi, I'm Brian. I lead Digital Strategy for the University of Oregon. <span className="text-white font-medium">defriction</span> is where I solve high-stakes design problems with executive precision.
-          </p>
-
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-2 mb-4">
-            <div className="bg-white/5 border border-white/5 p-3 rounded-xl text-center">
-              <span className="block text-[10px] font-mono text-gray-500 uppercase mb-0.5">Base</span>
-              <span className="block text-white text-xs font-medium">Eugene, OR</span>
-            </div>
-            <div className="bg-white/5 border border-white/5 p-3 rounded-xl text-center">
-              <span className="block text-[10px] font-mono text-gray-500 uppercase mb-0.5">Exp</span>
-              <span className="block text-white text-xs font-medium">15+ Years</span>
-            </div>
-            <div className="bg-white/5 border border-white/5 p-3 rounded-xl text-center">
-              <span className="block text-[10px] font-mono text-gray-500 uppercase mb-0.5">Role</span>
-              <span className="block text-white text-xs font-medium">AVP</span>
-            </div>
-          </div>
-        </div>
-
-        {/* CTA at bottom */}
-        <div className="flex-shrink-0 pb-8">
-          <Button 
-            variant="outline" 
-            className="w-full text-purple-400 border-purple-400/20 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:text-white hover:border-transparent group rounded-full font-medium text-sm px-4 py-3 h-auto"
-            onClick={() => setBioOpen(true)}
-          >
-            View Full Profile <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-        </div>
-      </div>
-      
-      <div className="hidden md:block">
-        <NextSectionArrow targetId="contact" />
-      </div>
+      <NextSectionArrow targetId="contact" />
       
       <BioModal open={bioOpen} onOpenChange={setBioOpen} />
     </section>
