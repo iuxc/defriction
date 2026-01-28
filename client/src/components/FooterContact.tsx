@@ -351,8 +351,8 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                 className="h-[52px] w-[52px] rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center pointer-events-auto group overflow-hidden transition-all duration-300 hover:w-[110px]"
                             >
                                 <div className="flex items-center justify-center w-full px-4">
-                                  <Info className="w-5 h-5 text-white shrink-0 group-hover:mr-2 transition-all" />
-                                  <span className="opacity-0 w-0 group-hover:opacity-100 group-hover:w-auto text-white whitespace-nowrap text-sm font-medium transition-all duration-300">
+                                  <Info className="w-5 h-5 text-white shrink-0 group-hover:mr-2 transition-all duration-300" />
+                                  <span className="max-w-0 opacity-0 group-hover:max-w-[60px] group-hover:opacity-100 text-white whitespace-nowrap text-sm font-medium transition-all duration-300 overflow-hidden">
                                       Info
                                   </span>
                                 </div>
@@ -364,8 +364,8 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                 className="h-[52px] w-[52px] rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center pointer-events-auto group overflow-hidden transition-all duration-300 hover:w-[130px]"
                             >
                                 <div className="flex items-center justify-center w-full px-4">
-                                    <Undo className="w-5 h-5 text-white shrink-0 group-hover:mr-2 transition-all" />
-                                    <span className="opacity-0 w-0 group-hover:opacity-100 group-hover:w-auto text-white whitespace-nowrap text-sm font-medium transition-all duration-300">
+                                    <Undo className="w-5 h-5 text-white shrink-0 group-hover:mr-2 transition-all duration-300" />
+                                    <span className="max-w-0 opacity-0 group-hover:max-w-[80px] group-hover:opacity-100 text-white whitespace-nowrap text-sm font-medium transition-all duration-300 overflow-hidden">
                                         Go Back
                                     </span>
                                 </div>
