@@ -173,7 +173,7 @@ export default function MonashCaseStudy() {
                >
                  <Button 
                     className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
-                    onClick={() => setLocation('/monash/prototype')}
+                    onClick={() => setLocation('/monash/prototype/hifi')}
                  >
                     Launch Interactive Demo
                     <ExternalLink className="ml-2 w-4 h-4" />
@@ -203,7 +203,7 @@ export default function MonashCaseStudy() {
                 
                 <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by Administrative Burden.</h2>
                 <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
-                  Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">hidden 'Adjustment Factor' spreadsheets</a>, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
+                  Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://www.monash.edu/__data/assets/pdf_file/0010/2556235/MU-22-AS194-Pathways-Overview-Table-2022.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, hidden 'Adjustment Factor' spreadsheets, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
                 </p>
               </motion.div>
 
@@ -331,7 +331,7 @@ export default function MonashCaseStudy() {
                 
                 <Button 
                   className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
-                  onClick={() => setLocation('/monash/prototype')}
+                  onClick={() => setLocation('/monash/prototype/hifi')}
                 >
                   Try It Out
                   <ExternalLink className="ml-2 w-4 h-4" />
@@ -452,7 +452,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
-                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                  onClick={() => setLocation('/monash/prototype/docs')}
                 >
                   <AbstractBrowser variant="ia-map" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
@@ -464,7 +464,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => window.open('https://www.figma.com', '_blank')}
+                      onClick={() => setLocation('/monash/prototype/docs')}
                     >
                       See IA <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
@@ -475,7 +475,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
-                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                  onClick={() => setLocation('/monash/prototype')}
                 >
                    <AbstractBrowser variant="wireframe" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
@@ -487,7 +487,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => window.open('https://www.figma.com', '_blank')}
+                      onClick={() => setLocation('/monash/prototype')}
                     >
                       See Wireframe <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
@@ -498,7 +498,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8 cursor-pointer"
-                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                  onClick={() => setLocation('/monash/prototype/hifi')}
                 >
                    <img 
                      src="/assets/images/monash-shield.png" 
@@ -514,7 +514,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => window.open('https://www.figma.com', '_blank')}
+                      onClick={() => setLocation('/monash/prototype/hifi')}
                     >
                       See Demo <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
