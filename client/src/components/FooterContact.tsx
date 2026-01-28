@@ -206,10 +206,10 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                       <div className="relative z-10">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0">
-                              <Info className="w-4 h-4 text-orange-400" />
+                            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
+                              <Info className="w-4 h-4 text-blue-400" />
                             </div>
-                            <h3 className="text-lg font-display font-bold text-white">About the Project</h3>
+                            <h3 className="text-lg font-display font-bold text-white">What You Need To Know</h3>
                           </div>
                           <button 
                             onClick={() => setShowInfo(false)}
