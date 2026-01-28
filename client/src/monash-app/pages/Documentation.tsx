@@ -202,7 +202,7 @@ export default function Documentation() {
                         onClick={() => scrollToSection(item.id)}
                         className={`w-full text-left px-3 py-2 text-sm transition-colors ${
                           activeSection === item.id
-                            ? 'text-slate-900 bg-monash-blue/10 border-l-2 border-monash-blue'
+                            ? 'text-[#006DAE] bg-[#006DAE]/10 border-l-2 border-[#006DAE]'
                             : 'text-slate-500 hover:text-slate-900'
                         }`}
                       >
