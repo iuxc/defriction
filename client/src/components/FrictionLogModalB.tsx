@@ -41,7 +41,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             
             {/* User Profile */}
             <section className="bg-[#0B0F19] p-6 rounded-xl border border-slate-800 text-white shadow-xl">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-[#A3CC00] mb-4">Persona Profile</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wider mb-4 text-[#D4FF00]">Persona Profile</h3>
               <div className="grid md:grid-cols-2 gap-y-4 gap-x-8">
                 <div>
                   <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Background</div>
