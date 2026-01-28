@@ -475,13 +475,13 @@ function Year12CourseSelectStep() {
           <div className="space-y-2">
             {/* Base ATAR bar */}
             <div className="flex items-center gap-3">
-              <div className="w-24 text-sm text-gray-600">Base ATAR</div>
+              <div className="w-24 text-sm text-gray-900 font-medium">Base ATAR</div>
               <div className="flex-1 bg-gray-200 h-8 relative">
                 <div 
-                  className="bridge-bar bridge-current animate-grow"
+                  className="bridge-bar bridge-current animate-grow bg-black"
                   style={{ width: `${(sampleResult.breakdown.base / 100) * 100}%` }}
                 />
-                <span className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-sm">
+                <span className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-sm text-black font-bold">
                   {sampleResult.breakdown.base.toFixed(2)}
                 </span>
               </div>
@@ -490,16 +490,16 @@ function Year12CourseSelectStep() {
             {/* Regional bonus bar */}
             {sampleResult.breakdown.regional > 0 && (
               <div className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-                <div className="w-24 text-sm text-gray-600">Regional</div>
+                <div className="w-24 text-sm text-gray-900 font-medium">Regional</div>
                 <div className="flex-1 bg-gray-200 h-8 relative">
                   <div 
-                    className="bridge-bar bg-gray-600 animate-grow"
+                    className="bridge-bar bg-gray-700 animate-grow"
                     style={{ 
                       width: `${(sampleResult.breakdown.regional / 100) * 100}%`,
                       animationDelay: '0.3s'
                     }}
                   />
-                  <span className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-sm">
+                  <span className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-sm text-black font-bold">
                     +{sampleResult.breakdown.regional}
                   </span>
                 </div>
@@ -509,16 +509,16 @@ function Year12CourseSelectStep() {
             {/* Low SES bonus bar */}
             {sampleResult.breakdown.ses > 0 && (
               <div className="flex items-center gap-3 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-                <div className="w-24 text-sm text-gray-600">Low SES</div>
+                <div className="w-24 text-sm text-gray-900 font-medium">Low SES</div>
                 <div className="flex-1 bg-gray-200 h-8 relative">
                   <div 
-                    className="bridge-bar bg-gray-500 animate-grow"
+                    className="bridge-bar bg-gray-600 animate-grow"
                     style={{ 
                       width: `${(sampleResult.breakdown.ses / 100) * 100}%`,
                       animationDelay: '0.5s'
                     }}
                   />
-                  <span className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-sm">
+                  <span className="absolute right-2 top-1/2 -translate-y-1/2 font-mono text-sm text-black font-bold">
                     +{sampleResult.breakdown.ses}
                   </span>
                 </div>
@@ -526,13 +526,13 @@ function Year12CourseSelectStep() {
             )}
             
             {/* Total */}
-            <div className="flex items-center gap-3 pt-2 border-t border-gray-300 mt-2">
-              <div className="w-24 text-sm font-semibold">Total</div>
-              <div className="font-mono text-xl font-bold">
+            <div className="flex items-center gap-3 pt-2 border-t border-gray-400 mt-2">
+              <div className="w-24 text-sm font-bold text-gray-900">Total</div>
+              <div className="font-mono text-xl font-bold text-black">
                 {sampleResult.selectionRank.toFixed(2)}
               </div>
               {isPredicted && (
-                <span className="wire-state ml-2">Estimated (Predicted ATAR)</span>
+                <span className="wire-state ml-2 text-gray-900 font-medium">Estimated (Predicted ATAR)</span>
               )}
             </div>
           </div>
@@ -543,48 +543,48 @@ function Year12CourseSelectStep() {
       <h2 className="font-semibold mb-4">Course Eligibility</h2>
       <div className="space-y-3 mb-6">
         {year12Results.map((result) => (
-          <div key={result.course.id} className="border border-gray-200 p-4 bg-white">
+          <div key={result.course.id} className="border border-gray-300 p-4 bg-white">
             <div className="flex justify-between items-start mb-2">
               <div>
-                <div className="font-semibold text-gray-900">{result.course.name}</div>
-                <div className="text-sm text-gray-600">
+                <div className="font-semibold text-black">{result.course.name}</div>
+                <div className="text-sm text-gray-800 font-medium">
                   Cutoff: {result.course.cutoff} | VTAC: {result.course.vtacCode}
                 </div>
               </div>
-              <span className={`px-3 py-1 text-sm font-medium ${getEligibilityStyle(result.eligibility)}`}>
+              <span className={`px-3 py-1 text-sm font-bold ${getEligibilityStyle(result.eligibility)}`}>
                 {getEligibilityLabel(result.eligibility)}
               </span>
             </div>
             
             {/* Bridge Visualization for ineligible courses */}
             {(result.eligibility === 'ineligible' || result.eligibility === 'unlikely') && result.gap && (
-              <div className="mt-3 p-3 bg-gray-50 border border-dashed border-gray-300">
-                <span className="wire-label mb-2 block">Bridge Visualization</span>
+              <div className="mt-3 p-3 bg-gray-50 border border-dashed border-gray-400">
+                <span className="wire-label mb-2 block text-gray-900 font-bold">Bridge Visualization</span>
                 <div className="flex items-center gap-2 mb-2">
-                  <div className="flex-1 bg-gray-200 h-6 relative flex">
+                  <div className="flex-1 bg-gray-200 h-6 relative flex border border-gray-300">
                     {/* Your rank */}
                     <div 
-                      className="bridge-current h-full"
+                      className="bridge-current h-full bg-gray-800"
                       style={{ width: `${(result.selectionRank / result.course.cutoff) * 100}%` }}
                     />
                     {/* The gap */}
                     <div 
-                      className="bridge-gap h-full flex items-center justify-center text-xs"
+                      className="bridge-gap h-full flex items-center justify-center text-xs bg-gray-400 text-black font-bold"
                       style={{ width: `${(result.gap / result.course.cutoff) * 100}%` }}
                     >
                       Gap: {result.gap.toFixed(1)}
                     </div>
                   </div>
-                  <span className="font-mono text-sm">{result.course.cutoff}</span>
+                  <span className="font-mono text-sm text-black font-bold">{result.course.cutoff}</span>
                 </div>
                 
                 {/* Pathway CTA */}
                 <div className="flex items-center gap-2 mt-3 p-2 bg-gray-100 border border-gray-300">
-                  <div className="bridge-pathway w-4 h-4" />
-                  <span className="text-sm">
+                  <div className="bridge-pathway w-4 h-4 bg-gray-800" />
+                  <span className="text-sm text-gray-900">
                     <strong>Monash College</strong> can bridge this gap
                   </span>
-                  <Button variant="outline" size="sm" className="ml-auto">
+                  <Button variant="outline" size="sm" className="ml-auto border-gray-900 text-gray-900 hover:bg-gray-200 rounded-none">
                     Explore Pathway
                   </Button>
                 </div>
@@ -596,12 +596,12 @@ function Year12CourseSelectStep() {
       
       {/* Smart Route Output */}
       <div className="bg-gray-100 border-2 border-gray-300 p-4 mb-6 rounded-none">
-        <span className="wire-label mb-2 block">Smart Route Output</span>
-        <div className="font-semibold mb-2 text-gray-900">How to Apply (Year 12)</div>
-        <p className="text-sm text-gray-600 mb-3">
+        <span className="wire-label mb-2 block text-gray-900 font-bold">Smart Route Output</span>
+        <div className="font-semibold mb-2 text-black">How to Apply (Year 12)</div>
+        <p className="text-sm text-gray-900 mb-3 font-medium">
           As a Year 12 student, apply through VTAC (Victorian Tertiary Admissions Centre).
         </p>
-        <Button className="gap-2 rounded-none bg-gray-900 text-white hover:bg-black">
+        <Button className="gap-2 rounded-none bg-gray-900 text-white hover:bg-black w-full justify-center">
           <ExternalLink className="w-4 h-4" />
           Apply via VTAC
         </Button>
