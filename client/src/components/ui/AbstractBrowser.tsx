@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Clock } from "lucide-react";
 
 interface AbstractBrowserProps {
   variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal" | "ia-map" | "wireframe";
@@ -218,8 +219,7 @@ function Content({ variant, theme }: { variant: AbstractBrowserProps["variant"],
             <div className="flex items-center justify-between px-2">
               <div className="flex flex-col items-center gap-2">
                  <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center relative`}>
-                    <div className="w-0.5 h-4 bg-white/20 rounded-full rotate-45 origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
-                    <div className="w-0.5 h-3 bg-white/20 rounded-full rotate-[-45] origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
+                    <Clock className="w-6 h-6 text-white/40" />
                  </div>
                  <div className={`h-2 w-8 ${lineClass}`} />
               </div>
@@ -228,8 +228,7 @@ function Content({ variant, theme }: { variant: AbstractBrowserProps["variant"],
               </div>
               <div className="flex flex-col items-center gap-2">
                  <div className={`w-12 h-12 rounded-full border-2 border-white/10 flex items-center justify-center bg-white/5 relative`}>
-                    <div className="w-0.5 h-4 bg-white/40 rounded-full rotate-180 origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
-                    <div className="w-0.5 h-3 bg-white/40 rounded-full rotate-90 origin-bottom absolute bottom-1/2 left-1/2 -translate-x-1/2" />
+                    <Clock className="w-6 h-6 text-white/60" />
                  </div>
                  <div className={`h-2 w-8 ${lineClass}`} />
               </div>
