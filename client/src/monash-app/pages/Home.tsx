@@ -1,6 +1,7 @@
 import PathwaysFinder from '../components/PathwaysFinder';
 import { PathwaysProvider } from '../contexts/PathwaysContext';
 import { FooterContact } from '@/components/FooterContact';
+import { MonashSwitcher } from "@/components/MonashSwitcher";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
         title={
           <span className="flex items-center gap-3">
             <a href="/" onClick={(e) => e.stopPropagation()} className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 hover:opacity-80 transition-opacity">defriction</a>
+            <MonashSwitcher />
             <span className="text-gray-400 font-normal text-base">// Low-Fidelity Wireframe</span>
           </span>
         }

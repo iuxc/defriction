@@ -832,6 +832,7 @@ export default function Documentation() {
         title={
           <span className="flex items-center gap-3">
             <a href="/" onClick={(e) => e.stopPropagation()} className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 hover:opacity-80 transition-opacity">defriction</a>
+            <MonashSwitcher />
             <span className="text-gray-400 font-normal text-base">// Information Architecture</span>
           </span>
         } 
