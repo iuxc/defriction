@@ -189,7 +189,7 @@ export default function MonashCaseStudy() {
       </section>
       {/* 1. The Friction (The Problem) */}
       <Section id="friction" className="border-t border-white/5">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div 
               variants={stagger}
               initial="initial"
@@ -225,8 +225,42 @@ export default function MonashCaseStudy() {
                   </motion.div>
                 ))}
               </motion.div>
+            </motion.div>
 
-              <motion.div variants={fadeInUp} className="mt-16 space-y-8 border-t border-white/5 pt-12">
+            <motion.div
+               initial={{ opacity: 0, x: 50 }}
+               whileInView={{ opacity: 1, x: 0 }}
+               viewport={{ once: true }}
+               transition={{ duration: 1 }}
+               className="relative lg:h-[600px] flex items-center justify-center"
+            >
+               <div className="relative flex items-center justify-center">
+                   <AbstractBrowser variant="infinite-pdf" className="w-full shadow-2xl h-[400px]" />
+                   
+                   {/* Floating Alert - Positioned on the AbstractBrowser */}
+                   <motion.div 
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute -right-4 top-1/4 glass-panel p-4 rounded-xl border border-red-500/30 bg-red-500/10 backdrop-blur-md shadow-xl max-w-[200px]"
+                    >
+                       <div className="flex items-center gap-2 mb-2">
+                          <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                          <span className="text-xs font-mono text-red-400 uppercase">Error</span>
+                       </div>
+                       <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
+                    </motion.div>
+               </div>
+            </motion.div>
+        </div>
+
+        <div className="grid lg:grid-cols-2 gap-12 items-start pt-12 border-t border-white/5">
+              <motion.div 
+                variants={fadeInUp} 
+                initial="initial"
+                whileInView="whileInView"
+                viewport={{ once: true, margin: "-10% 0px" }}
+                className="space-y-8"
+              >
                 <div>
                     <h3 className="text-2xl font-display font-bold text-white mb-4">Friction Log Process</h3>
                     <p className="text-gray-400 leading-relaxed">To understand the true digital experience for non-traditional applicants, I conducted a behavioral audit using two distinct student personas. This process involves a "first-person" walkthrough of the Monash web ecosystem to identify where users lose momentum or encounter barriers.</p>
@@ -270,34 +304,16 @@ export default function MonashCaseStudy() {
                     </div>
                 </div>
               </motion.div>
-            </motion.div>
 
             <motion.div
                initial={{ opacity: 0, x: 50 }}
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
                transition={{ duration: 1 }}
-               className="flex flex-col gap-8 sticky top-32"
+               className="flex flex-col gap-8"
             >
-               <div className="relative flex items-center justify-center">
-                   <AbstractBrowser variant="infinite-pdf" className="w-full shadow-2xl h-[400px]" />
-                   
-                   {/* Floating Alert - Positioned on the AbstractBrowser */}
-                   <motion.div 
-                      animate={{ y: [0, -10, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                      className="absolute -right-4 top-1/4 glass-panel p-4 rounded-xl border border-red-500/30 bg-red-500/10 backdrop-blur-md shadow-xl max-w-[200px]"
-                    >
-                       <div className="flex items-center gap-2 mb-2">
-                          <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                          <span className="text-xs font-mono text-red-400 uppercase">Error</span>
-                       </div>
-                       <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
-                    </motion.div>
-               </div>
-
                {/* Friction Log Links - New Design */}
-               <div className="grid gap-4 mt-8">
+               <div className="grid gap-4">
                    <div className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-2">Detailed Findings</div>
                    
                    {/* User A Card */}
