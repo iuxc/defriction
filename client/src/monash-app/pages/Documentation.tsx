@@ -115,28 +115,47 @@ export default function Documentation() {
   return (
     <div className="min-h-screen bg-vapor-grey text-slate-700">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-vapor-grey/80 backdrop-blur-xl border-b border-slate-200">
-        <div className="flex items-center justify-between px-6 h-16">
-          <div className="flex items-center gap-4">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/10 text-white">
+        <div className="flex items-center justify-between px-6 h-20">
+          <div className="flex items-center gap-6">
+            <a href="/" className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
+            </a>
+            
+            <div className="h-6 w-px bg-white/10" />
+
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#006DAE] to-[#003399] flex items-center justify-center">
+              <div className="w-8 h-8 bg-gradient-to-br from-[#006DAE] to-[#003399] flex items-center justify-center rounded-sm">
                 <BookOpen className="w-4 h-4 text-white" />
               </div>
-              <span className="font-semibold text-slate-900">Pathways Finder</span>
-              <span className="text-slate-400">/ IA Specification</span>
+              <div className="flex flex-col leading-none">
+                <span className="font-semibold text-white">Pathways Finder</span>
+                <span className="text-gray-400 text-xs">IA Specification</span>
+              </div>
             </div>
-            <span className="px-2 py-0.5 text-xs font-medium bg-[#006DAE]/20 text-[#006DAE]">v2.0</span>
+            <span className="px-2 py-0.5 text-xs font-medium bg-[#006DAE]/20 text-[#006DAE] border border-[#006DAE]/30 rounded">v2.0</span>
           </div>
           
-          {/* Search Button */}
-          <button 
-            onClick={() => setSearchOpen(true)}
-            className="flex items-center gap-3 px-4 py-2 bg-slate-100 border border-slate-200 text-slate-500 hover:border-slate-300 transition-colors w-72"
-          >
-            <Search className="w-4 h-4" />
-            <span className="text-sm">Search documentation...</span>
-            <kbd className="ml-auto px-2 py-0.5 text-xs bg-white border border-slate-200">⌘K</kbd>
-          </button>
+          <div className="flex items-center gap-4">
+            {/* Search Button */}
+            <button 
+              onClick={() => setSearchOpen(true)}
+              className="flex items-center gap-3 px-4 py-2 bg-white/5 border border-white/10 text-gray-400 hover:border-white/20 hover:text-white transition-colors w-64 rounded-md"
+            >
+              <Search className="w-4 h-4" />
+              <span className="text-sm">Search docs...</span>
+              <kbd className="ml-auto px-2 py-0.5 text-xs bg-white/10 border border-white/10 rounded text-gray-400">⌘K</kbd>
+            </button>
+
+            <div className="h-6 w-px bg-white/10" />
+
+            <button 
+              className="bg-gradient-to-b from-blue-400/20 to-blue-400/5 text-blue-400 hover:from-blue-400/30 hover:to-blue-400/10 border border-blue-400/20 rounded-full px-5 py-2 text-sm font-medium transition-all duration-300 shadow-[inset_0_1px_0_rgba(96,165,250,0.2)] hover:shadow-[0_0_20px_rgba(96,165,250,0.2)] backdrop-blur-md"
+              onClick={() => window.location.href = "/#contact"}
+            >
+              Start Project
+            </button>
+          </div>
         </div>
       </header>
 
@@ -182,9 +201,9 @@ export default function Documentation() {
       )}
 
       {/* Main Layout */}
-      <div className="flex pt-16">
+      <div className="flex pt-20">
         {/* Sidebar Navigation */}
-        <nav className="fixed left-0 top-16 bottom-0 w-64 bg-white/50 border-r border-slate-200 overflow-y-auto p-4">
+        <nav className="fixed left-0 top-20 bottom-0 w-64 bg-white/50 border-r border-slate-200 overflow-y-auto p-4">
           <div className="space-y-6">
             {navSections.map((section) => (
               <div key={section.title}>
