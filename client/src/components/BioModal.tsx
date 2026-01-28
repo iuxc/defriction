@@ -54,17 +54,17 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             <motion.div variants={item}>
               <DialogHeader className="mb-8 md:mb-12 text-left">
                 <div className="flex items-center gap-3 mb-6">
-                  <Badge variant="outline" className="border-volt-lime/30 text-volt-lime bg-volt-lime/5 rounded-md px-3 py-1 font-mono tracking-widest uppercase">
-                    Confidential
-                  </Badge>
                   <span className="text-gray-500 font-mono text-sm">// EXECUTIVE PROFILE</span>
                 </div>
                 
                 <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
-                  The Executive Who <span className="text-gray-500">Designs</span>.
+                  The Executive Who <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Designs</span>.
                 </DialogTitle>
                 <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
                   I bridge the gap between boardroom strategy and pixel-perfect execution.
+                </p>
+                <p className="mt-6 text-base md:text-lg text-gray-400 font-light leading-relaxed max-w-2xl">
+                  Hi, I’m Brian. By day, I lead Digital Strategy for the University of Oregon, managing enterprise-scale ecosystems and large teams. But I’m not just an administrator—I’m a builder at heart. defriction is my outlet to get back to the craft I love: solving high-stakes design problems with the speed of a freelancer and the precision of an executive.
                 </p>
               </DialogHeader>
             </motion.div>
@@ -72,21 +72,21 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             {/* Body Grid */}
             <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 md:mb-12">
               <div className="space-y-4">
-                <h4 className="font-mono text-xs text-ion-cyan uppercase tracking-widest mb-2 border-b border-ion-cyan/20 pb-2 inline-block">The Scale</h4>
+                <h4 className="font-mono text-xs text-[#C4B5FD] uppercase tracking-widest mb-2 border-b border-[#C4B5FD]/20 pb-2 inline-block">The Scale</h4>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   Led teams of <strong className="text-white">75+</strong> across multiple timezones and managed enterprise-scale digital portfolios.
                 </p>
               </div>
               
               <div className="space-y-4">
-                <h4 className="font-mono text-xs text-electric-violet uppercase tracking-widest mb-2 border-b border-electric-violet/20 pb-2 inline-block">The Wins</h4>
+                <h4 className="font-mono text-xs text-[#C4B5FD] uppercase tracking-widest mb-2 border-b border-[#C4B5FD]/20 pb-2 inline-block">The Wins</h4>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   Merged <strong className="text-white">8 university websites</strong> into 1 unified gateway. Founded the office that hit <strong className="text-white">#1 Accessibility Ranking</strong> in the Big Ten.
                 </p>
               </div>
 
               <div className="space-y-4">
-                <h4 className="font-mono text-xs text-volt-lime uppercase tracking-widest mb-2 border-b border-volt-lime/20 pb-2 inline-block">The System</h4>
+                <h4 className="font-mono text-xs text-[#C4B5FD] uppercase tracking-widest mb-2 border-b border-[#C4B5FD]/20 pb-2 inline-block">The System</h4>
                 <p className="text-gray-400 leading-relaxed text-sm">
                   Pioneered the <strong className="text-white">'Rivet' Design System</strong> for Higher Ed. Scaled Rume Health ops to 20 states with <strong className="text-white">&lt;3% turnover</strong>.
                 </p>
@@ -127,7 +127,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
               ].map((item, i) => (
                 <div key={item.label} className="flex flex-col gap-1 group cursor-default text-center md:text-left flex-1">
                   <div className="flex items-center justify-center md:justify-start gap-2">
-                    <span className="text-white font-medium group-hover:text-volt-lime transition-colors">{item.label}</span>
+                    <span className="text-white font-medium">{item.label}</span>
                     <span className="text-gray-500 text-xs uppercase tracking-wider">// {item.title}</span>
                   </div>
                   <span className="text-gray-300 font-light">{item.desc}</span>
