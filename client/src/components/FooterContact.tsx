@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { Send, ArrowRight, X, Undo, Info } from "lucide-react";
+import { Send, ArrowRight, X, Undo, Info, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FooterContactProps {
@@ -18,11 +18,13 @@ interface FooterContactProps {
   backLink?: string;
   alwaysSticky?: boolean;
   withGradientShadow?: boolean;
+  monashSwitcher?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
+  const [switcherOpen, setSwitcherOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
   const [mounted, setMounted] = useState(false);
@@ -242,8 +244,8 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                     ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90 block", stickyClassName)
                     : "mx-auto max-w-3xl relative"
                 )}
-                // Orange glow when sticky
-                style={showSticky ? { boxShadow: "0 0 40px rgba(249, 115, 22, 0.3)" } : {}}
+                // Blue glow when sticky
+                style={showSticky ? { boxShadow: "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
                 onClick={() => setIsOpen(true)}
                 initial={showSticky ? { y: 100, opacity: 0 } : { opacity: 1 }}
                 animate={showSticky ? { y: 0, opacity: 1 } : { opacity: 1 }}
@@ -257,15 +259,74 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                   "text-center pointer-events-none transition-all duration-500 flex items-center justify-between gap-8",
                   showSticky ? "p-4 px-6 md:px-8" : "p-12 flex-col"
                 )}>
-                    <motion.h3 
+                    <motion.div 
                       layoutId="title" 
                       className={cn(
-                        "font-display font-bold text-white leading-tight text-left",
-                        showSticky ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center"
+                        "font-display font-bold text-white leading-tight text-left flex items-center gap-4",
+                        showSticky ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"
                       )}
                     >
                         {title}
-                    </motion.h3>
+                        
+                        {/* Monash Prototype Switcher */}
+                        {monashSwitcher && (
+                          <div className="relative pointer-events-auto">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                setSwitcherOpen(!switcherOpen);
+                                setShowInfo(false);
+                              }}
+                              className={cn(
+                                "flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300",
+                                "bg-white/10 backdrop-blur-md border border-white/20 shadow-lg",
+                                "hover:bg-white/20 hover:scale-105 active:scale-95",
+                                switcherOpen ? "bg-white/20 rotate-180" : ""
+                              )}
+                            >
+                              <ChevronDown className="w-4 h-4 text-white" />
+                            </button>
+
+                            <AnimatePresence>
+                              {switcherOpen && (
+                                <motion.div
+                                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                                  className="absolute bottom-full left-0 mb-3 w-64 p-2 rounded-xl bg-[#0B0F19]/90 backdrop-blur-xl border border-white/10 shadow-2xl z-[100] overflow-hidden"
+                                >
+                                  <div className="space-y-1">
+                                    <a 
+                                      href="/monash/prototype/hifi"
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-white/10 transition-colors group"
+                                    >
+                                      <span className="text-white font-medium text-sm group-hover:text-blue-400 transition-colors">High-Fidelity UI</span>
+                                      <span className="text-gray-500 text-xs">Polished Interface</span>
+                                    </a>
+                                    <a 
+                                      href="/monash/prototype"
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-white/10 transition-colors group"
+                                    >
+                                      <span className="text-white font-medium text-sm group-hover:text-blue-400 transition-colors">Low-Fidelity Wireframe</span>
+                                      <span className="text-gray-500 text-xs">Structure & Layout</span>
+                                    </a>
+                                    <a 
+                                      href="/monash/prototype/docs"
+                                      onClick={(e) => e.stopPropagation()}
+                                      className="flex flex-col px-3 py-2 rounded-lg hover:bg-white/10 transition-colors group"
+                                    >
+                                      <span className="text-white font-medium text-sm group-hover:text-blue-400 transition-colors">Information Architecture</span>
+                                      <span className="text-gray-500 text-xs">Documentation</span>
+                                    </a>
+                                  </div>
+                                </motion.div>
+                              )}
+                            </AnimatePresence>
+                          </div>
+                        )}
+                    </motion.div>
 
                     <motion.div layoutId="button-container" className={cn(showSticky ? "shrink-0 flex items-center gap-3" : "")}>
                         <Button 

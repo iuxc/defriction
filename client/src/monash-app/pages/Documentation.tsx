@@ -838,6 +838,7 @@ export default function Documentation() {
         backLink="/work/monash"
         alwaysSticky={true}
         stickyClassName="bg-[#050505] shadow-2xl border-white/10"
+        monashSwitcher={true}
       />
     </div>
   );
