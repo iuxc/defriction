@@ -114,7 +114,7 @@ export default function Documentation() {
   };
 
   return (
-    <div className="min-h-screen bg-vapor-grey text-slate-700">
+    <div className="min-h-screen bg-vapor-grey text-slate-700 font-inter">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/10 text-white">
         <div className="flex items-center justify-between px-6 h-16">
@@ -223,7 +223,7 @@ export default function Documentation() {
             <div className="flex items-center gap-3 mb-6">
               <span className="px-2 py-1 text-xs font-medium bg-monash-blue/15 text-monash-blue border border-monash-blue/30">OVERVIEW</span>
             </div>
-            <h1 className="text-4xl font-bold text-slate-900 mb-4">Pathways Finder Tool</h1>
+            <h1 className="text-4xl font-bold text-slate-900 mb-4 font-domine">Pathways Finder Tool</h1>
             <p className="text-xl text-slate-500 mb-8">Information Architecture & User Flow Specification</p>
             
             <p className="text-slate-600 leading-relaxed mb-8">
@@ -253,7 +253,7 @@ export default function Documentation() {
 
           {/* Revision Notes */}
           <section id="revision-notes" className="mb-16">
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Revision Notes</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 font-domine">Revision Notes</h2>
             <p className="text-slate-500 mb-6">Version 2.0 addresses five critical UX gaps identified in the design review:</p>
             
             <div className="overflow-hidden border border-slate-200">
@@ -301,7 +301,7 @@ export default function Documentation() {
             <div className="flex items-center gap-3 mb-6">
               <span className="px-2 py-1 text-xs font-medium bg-monash-blue/15 text-monash-blue border border-monash-blue/30">USER FLOWS</span>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Master Flow Diagram</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 font-domine">Master Flow Diagram</h2>
             <p className="text-slate-500 mb-6">The tool uses a progressive disclosure model, revealing only the fields relevant to each user's situation.</p>
             
             <div className="bg-white border border-slate-200 p-4 overflow-x-auto mb-8">
@@ -341,7 +341,7 @@ export default function Documentation() {
                     <span className="text-monash-blue font-bold">A</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Route A: Year 12</h3>
+                    <h3 className="font-semibold text-slate-900 font-domine">Route A: Year 12</h3>
                     <p className="text-sm text-slate-400">ATAR-based entry</p>
                   </div>
                 </div>
@@ -354,7 +354,7 @@ export default function Documentation() {
                     <span className="text-amber-700 font-bold">B</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Route B: TAFE</h3>
+                    <h3 className="font-semibold text-slate-900 font-domine">Route B: TAFE</h3>
                     <p className="text-sm text-slate-400">VET qualification entry</p>
                   </div>
                 </div>
@@ -367,7 +367,7 @@ export default function Documentation() {
                     <span className="text-green-700 font-bold">C</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Route C: Mature Age</h3>
+                    <h3 className="font-semibold text-slate-900 font-domine">Route C: Mature Age</h3>
                     <p className="text-sm text-slate-400">Non-ATAR entry</p>
                   </div>
                 </div>
@@ -380,7 +380,7 @@ export default function Documentation() {
                     <span className="text-amber-800 font-bold">D</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Route D: International</h3>
+                    <h3 className="font-semibold text-slate-900 font-domine">Route D: International</h3>
                     <p className="text-sm text-slate-400">Warm handoff</p>
                   </div>
                 </div>
@@ -394,7 +394,7 @@ export default function Documentation() {
             <div className="flex items-center gap-3 mb-6">
               <span className="px-2 py-1 text-xs font-medium bg-blue-500/20 text-monash-blue">ROUTE A</span>
             </div>
-            <h2 className="text-2xl font-bold text-slate-900 mb-6">Year 12 Student Flow</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mb-6 font-domine">Year 12 Student Flow</h2>
             
             <div className="bg-white border border-slate-200 p-4 overflow-x-auto mb-8">
               <pre className="font-mono text-xs text-monash-blue whitespace-pre leading-relaxed">
