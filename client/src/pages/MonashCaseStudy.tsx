@@ -251,7 +251,7 @@ export default function MonashCaseStudy() {
                     onClick={() => setShowFrictionModal(true)}
                   >
                     <FileText className="w-4 h-4" />
-                    Friction Log A
+                    View Friction Log A
                   </Button>
                   <Button 
                     variant="secondary"
@@ -259,7 +259,7 @@ export default function MonashCaseStudy() {
                     onClick={() => setShowFrictionModalB(true)}
                   >
                     <FileText className="w-4 h-4" />
-                    Friction Log B
+                    View Friction Log B
                   </Button>
                </motion.div>
 
