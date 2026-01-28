@@ -7,7 +7,7 @@ import { Contact } from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black">
+    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black md:snap-none snap-y snap-mandatory overflow-y-auto h-screen md:h-auto md:overflow-visible">
       <Navigation />
       <Hero />
       <WorkGrid />
