@@ -12,7 +12,7 @@ export default function Home() {
         title={<span>Let's remove the <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent font-bold">friction</span>.</span>}
         backLink="/work/monash"
         alwaysSticky={true}
-        stickyClassName="bg-black/95 backdrop-blur-xl border-white/10"
+        stickyClassName="bg-[#050505] shadow-2xl border-white/10"
       />
     </PathwaysProvider>
   );
