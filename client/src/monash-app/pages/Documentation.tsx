@@ -61,7 +61,6 @@ import { MonashSwitcher } from "@/components/MonashSwitcher";
 export default function Documentation() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [activeSection, setActiveSection] = useState('introduction');
 
   // Keyboard shortcut for search
   useEffect(() => {
@@ -77,51 +76,6 @@ export default function Documentation() {
     };
     document.addEventListener('keydown', handleKeyDown);
     return () => document.removeEventListener('keydown', handleKeyDown);
-  }, []);
-
-  // Scroll spy for active section
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('section[id]');
-      let current = '';
-      
-      // Console log for debugging (temporary)
-      // console.log('Scroll position:', window.scrollY);
-      // console.log('Sections found:', sections.length);
-
-      // Check if we're at the bottom of the page
-      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
-         // Highlight the last section if we're at the very bottom
-         if (sections.length > 0) {
-           const lastSection = sections[sections.length - 1];
-           const lastId = lastSection.getAttribute('id');
-           if (lastId) {
-             setActiveSection(lastId);
-             return;
-           }
-         }
-      }
-
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect();
-        // Use a larger offset (header height + buffer)
-        // Header is 64px (h-16). 
-        // If the section top is above 30% of viewport, it's probably the one we're reading
-        if (rect.top <= 200) {
-          current = section.getAttribute('id') || '';
-        }
-      });
-
-      if (current) {
-        setActiveSection(current);
-      }
-    };
-
-    // Run immediately
-    handleScroll();
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const filteredResults = searchQuery.trim()
@@ -228,11 +182,7 @@ export default function Documentation() {
                     <li key={item.id}>
                       <button
                         onClick={() => scrollToSection(item.id)}
-                        className={`w-full text-left px-3 py-2 text-sm transition-colors ${
-                          activeSection === item.id
-                            ? 'text-[#006DAE] bg-[#006DAE]/10 border-l-2 border-[#006DAE]'
-                            : 'text-slate-500 hover:text-slate-900'
-                        }`}
+                        className="w-full text-left px-3 py-2 text-sm transition-colors text-slate-500 hover:text-slate-900"
                       >
                         {item.label}
                       </button>
