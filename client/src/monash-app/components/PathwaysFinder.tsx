@@ -78,7 +78,7 @@ function WelcomeStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 0: Welcome</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">Find Your Pathway to Monash</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Find Your Pathway to Monash</h1>
       <p className="text-gray-600 mb-6">
         This tool will help you discover the best entry pathway based on your background and goals.
       </p>
@@ -131,7 +131,7 @@ function InternationalHandoffStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">International Students</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">Welcome, International Student!</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Welcome, International Student!</h1>
       <p className="text-gray-600 mb-6">
         International students have unique pathways and requirements. Our Global Admissions team can provide personalized guidance for your situation.
       </p>
@@ -173,7 +173,7 @@ function StatusSelectStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 1: Your Status</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">What best describes you?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">What best describes you?</h1>
       <p className="text-gray-600 mb-6">
         This helps us show you the most relevant pathway options.
       </p>
@@ -224,7 +224,7 @@ function Year12AtarTypeStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 2: ATAR Status</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">Do you have your ATAR yet?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Do you have your ATAR yet?</h1>
       
       <div className="space-y-4 mb-6">
         <div 
@@ -285,7 +285,7 @@ function Year12AtarInputStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 3: Your ATAR</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">
         {atarType === 'actual' ? 'Enter your ATAR' : 'Select your predicted ATAR range'}
       </h1>
       
@@ -368,7 +368,7 @@ function Year12PostcodeStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 4: Your Location</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">What's your postcode?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">What's your postcode?</h1>
       <p className="text-gray-600 mb-4">
         Regional and low-SES students may receive bonus points toward their Selection Rank.
       </p>
@@ -466,7 +466,7 @@ function Year12CourseSelectStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 5: Your Results</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">Your Selection Rank</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Your Selection Rank</h1>
       
       {/* Stacking Animation Visualization */}
       {sampleResult && (
@@ -635,7 +635,7 @@ function MatureQualificationStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 3: Your Qualification</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">What qualification do you hold?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">What qualification do you hold?</h1>
       
       <div className="wire-ghost p-3 mb-4">
         <span className="wire-label">Ghost Field: ATAR Input</span>
@@ -708,7 +708,7 @@ function MatureCourseSelectStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 4: Course Eligibility</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">Your Course Options</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Your Course Options</h1>
       
       <div className="wire-ghost p-3 mb-4">
         <span className="wire-label">Partial Match Badge System</span>
@@ -789,7 +789,7 @@ function EmailCaptureStep() {
           <div className="w-16 h-16 bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-4">
             <Mail className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold mb-2">Check Your Inbox!</h1>
+          <h1 className="text-2xl font-bold mb-2 text-slate-900">Check Your Inbox!</h1>
           <p className="text-gray-600 mb-6">
             We've sent your personalized pathway plan to <strong>{localEmail}</strong>
           </p>
@@ -805,7 +805,7 @@ function EmailCaptureStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 7: Save Your Results</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2">Email My Pathway Plan</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Email My Pathway Plan</h1>
       <p className="text-gray-600 mb-6">
         Get a summary of your personalized pathway options sent to your inbox.
       </p>
@@ -885,22 +885,8 @@ export default function PathwaysFinder() {
         <div className="text-center mb-6">
           <div className="flex items-center justify-center gap-3 mb-2 flex-wrap">
             <span className="wire-label">Gray Box Wireframe Prototype</span>
-            <a 
-              href="/docs" 
-              className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono uppercase tracking-wide border border-gray-400 text-gray-600 hover:bg-gray-800 hover:text-white hover:border-gray-800 transition-colors"
-            >
-              <ExternalLink className="w-3 h-3" />
-              IA Docs
-            </a>
-            <a 
-              href="/hifi" 
-              className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-mono uppercase tracking-wide border border-indigo-400 text-indigo-600 hover:bg-indigo-600 hover:text-white hover:border-indigo-600 transition-colors"
-            >
-              <ExternalLink className="w-3 h-3" />
-              Premium HiFi
-            </a>
           </div>
-          <h1 className="text-lg font-semibold mt-2">Pathways Finder</h1>
+          <h1 className="text-lg font-semibold mt-2 text-slate-900">Pathways Finder</h1>
         </div>
         
         {/* Progress */}
@@ -911,8 +897,6 @@ export default function PathwaysFinder() {
         {/* Current Step */}
         {renderStep()}
         
-        {/* State Debug Panel */}
-        <StateDebug />
       </div>
     </div>
   );
