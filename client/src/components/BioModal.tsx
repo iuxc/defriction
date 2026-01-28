@@ -53,10 +53,6 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             {/* Header */}
             <motion.div variants={item}>
               <DialogHeader className="mb-8 md:mb-12 text-left">
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="text-gray-500 font-mono text-sm">// EXECUTIVE PROFILE</span>
-                </div>
-                
                 <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
                   The Executive Who <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Designs</span>.
                 </DialogTitle>
