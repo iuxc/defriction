@@ -65,7 +65,7 @@ export function Hero() {
             >
               <a href="#method">
                 The Method 
-                <ChevronDown className="w-4 h-4 transition-transform group-hover:translate-y-1" />
+                <ChevronDown className="w-4 h-4" />
               </a>
             </Button>
           </div>
