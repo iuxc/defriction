@@ -8,6 +8,7 @@ import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
 import { FooterContact } from "@/components/FooterContact";
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 import { FrictionLogModal } from "@/components/FrictionLogModal";
+import { FrictionLogModalB } from "@/components/FrictionLogModalB";
 
 const Section = ({ 
   children, 
@@ -30,6 +31,7 @@ const Section = ({
 export default function MonashCaseStudy() {
   const [isPastHero, setIsPastHero] = useState(false);
   const [showFrictionModal, setShowFrictionModal] = useState(false);
+  const [showFrictionModalB, setShowFrictionModalB] = useState(false);
   const [, setLocation] = useLocation();
 
   useEffect(() => {
@@ -254,7 +256,7 @@ export default function MonashCaseStudy() {
                   <Button 
                     variant="secondary"
                     className="bg-white text-black hover:bg-gray-50 font-medium text-sm h-auto py-3 px-6 shadow-lg flex items-center gap-2 rounded-full transition-transform hover:scale-105"
-                    onClick={() => window.open('#', '_blank')}
+                    onClick={() => setShowFrictionModalB(true)}
                   >
                     <FileText className="w-4 h-4" />
                     Friction Log B
@@ -563,6 +565,7 @@ export default function MonashCaseStudy() {
          </motion.div>
       </footer>
       <FrictionLogModal open={showFrictionModal} onOpenChange={setShowFrictionModal} />
+      <FrictionLogModalB open={showFrictionModalB} onOpenChange={setShowFrictionModalB} />
     </div>
   );
 }
