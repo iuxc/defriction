@@ -292,7 +292,7 @@ export default function MonashCaseStudy() {
             >
                {/* Friction Log Links - New Design */}
                <div className="grid gap-4">
-                   <div className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-2">See Friction Logs</div>
+                   <div className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-2">Friction Log Files</div>
                    
                    {/* User A Card */}
                    <motion.button
