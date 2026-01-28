@@ -10,8 +10,8 @@ export default function HiFi() {
         title={
           <span className="flex items-center gap-3">
             <a href="/" onClick={(e) => e.stopPropagation()} style={{ textShadow: "none" }} className="pointer-events-auto bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 hover:opacity-80 transition-opacity">defriction</a>
-            <MonashSwitcher />
             <span className="text-gray-400 font-normal text-base">// High-Fidelity UI</span>
+            <MonashSwitcher />
           </span>
         } 
         backLink="/work/monash"
