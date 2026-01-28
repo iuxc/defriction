@@ -77,13 +77,6 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                 User B arrives at the Monash homepage, looking for information about alternative pathways for students with lower ATARs.
               </div>
 
-              <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                <h4 className="font-bold text-red-700 mb-2">Friction Point 1: Monash College is a SEPARATE WEBSITE</h4>
-                <div className="text-sm text-slate-700 space-y-2">
-                   <p>User B must leave monash.edu entirely and navigate to monashcollege.edu.au</p>
-                   <p><strong>Critical Observation:</strong> The website appears to be primarily targeted at INTERNATIONAL students. No clear domestic student pathway visible on homepage.</p>
-                </div>
-              </div>
             </section>
 
             <hr className="border-slate-200" />
