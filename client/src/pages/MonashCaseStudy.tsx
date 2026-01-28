@@ -177,7 +177,7 @@ export default function MonashCaseStudy() {
                >
                  <Button 
                     className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
-                    onClick={() => window.location.href = '/monash/prototype/hifi'}
+                    onClick={() => setLocation('/monash/prototype/hifi')}
                  >
                     Launch Interactive Demo
                     <ExternalLink className="ml-2 w-4 h-4" />
@@ -335,7 +335,7 @@ export default function MonashCaseStudy() {
                 
                 <Button 
                   className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
-                  onClick={() => window.location.href = '/monash/prototype/hifi'}
+                  onClick={() => setLocation('/monash/prototype/hifi')}
                 >
                   Try It Out
                   <ExternalLink className="ml-2 w-4 h-4" />
