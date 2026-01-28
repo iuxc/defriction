@@ -64,7 +64,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
                   I bridge the gap between boardroom strategy and pixel-perfect execution.
                 </p>
                 <p className="mt-6 text-base md:text-lg text-gray-400 font-light leading-relaxed max-w-2xl">
-                  Hi, I’m Brian. By day, I lead Digital Strategy for the University of Oregon, managing enterprise-scale ecosystems and large teams. But I’m not just an administrator—I’m a builder at heart. defriction is my outlet to get back to the craft I love: solving high-stakes design problems with the speed of a freelancer and the precision of an executive.
+                  Hi, I’m Brian. By day, I lead Digital Strategy for the University of Oregon, managing enterprise-scale ecosystems and large teams. But I’m not just an administrator—I’m a builder at heart. <strong className="text-white">defriction</strong> is my outlet to get back to the craft I love: solving high-stakes design problems with the speed of a freelancer and the precision of an executive.
                 </p>
               </DialogHeader>
             </motion.div>
