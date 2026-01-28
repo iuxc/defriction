@@ -403,13 +403,23 @@ export default function MonashCaseStudy() {
                   I designed a dynamic component that visualizes the "hidden math" of admissions. Instead of a static table, the "stacking calculator" shows students exactly how close they are.
                 </p>
                 
-                <Button 
-                  className="bg-white text-black hover:bg-cyan-400 hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:scale-105"
-                  onClick={() => setLocation('/monash/prototype/hifi')}
-                >
-                  Try It Out
-                  <ExternalLink className="ml-2 w-4 h-4" />
-                </Button>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button 
+                    className="bg-white text-black hover:bg-cyan-400 hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(34,211,238,0.4)] hover:scale-105"
+                    onClick={() => setLocation('/monash/prototype/hifi')}
+                  >
+                    Try It Out
+                    <ExternalLink className="ml-2 w-4 h-4" />
+                  </Button>
+                  <Button 
+                    variant="ghost"
+                    className="text-white hover:text-cyan-400 hover:bg-transparent font-medium text-base gap-2 group rounded-full px-6 py-4 h-auto"
+                    onClick={() => setLocation('/monash/prototype/docs')}
+                  >
+                    View Architecture
+                    <ExternalLink className="w-4 h-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
+                  </Button>
+                </div>
             </motion.div>
               
             <motion.div 
