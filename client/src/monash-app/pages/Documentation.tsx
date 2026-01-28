@@ -125,16 +125,9 @@ export default function Documentation() {
             
             <div className="h-6 w-px bg-white/10" />
 
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-[#006DAE] to-[#003399] flex items-center justify-center rounded-sm">
-                <BookOpen className="w-4 h-4 text-white" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-semibold text-white">Pathways Finder</span>
-                <span className="text-gray-400 text-xs">IA Specification</span>
-              </div>
+            <div className="flex items-center">
+              <span className="font-semibold text-white">Information Architecture Docs</span>
             </div>
-            <span className="px-2 py-0.5 text-xs font-medium bg-[#006DAE]/20 text-[#006DAE] border border-[#006DAE]/30 rounded">v2.0</span>
           </div>
           
           <div className="flex items-center gap-4">
