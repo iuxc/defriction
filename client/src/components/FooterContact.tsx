@@ -20,9 +20,10 @@ interface FooterContactProps {
   withGradientShadow?: boolean;
   monashSwitcher?: boolean;
   disableExpansion?: boolean;
+  glowColor?: "blue" | "orange";
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false, glowColor = "blue" }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [switcherOpen, setSwitcherOpen] = useState(false);
@@ -249,7 +250,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                     : cn("mx-auto relative", disableExpansion ? "max-w-4xl" : "max-w-3xl")
                 )}
                 // Blue glow when sticky
-                style={showSticky ? { boxShadow: "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
+                style={showSticky ? { boxShadow: glowColor === "orange" ? "0 0 40px rgba(249, 115, 22, 0.4)" : "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
                 onClick={() => {
                   if (monashSwitcher) {
                     setSwitcherOpen(!switcherOpen);

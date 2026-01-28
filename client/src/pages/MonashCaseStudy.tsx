@@ -544,6 +544,7 @@ export default function MonashCaseStudy() {
                  className="max-w-4xl"
                  withGradientShadow={true}
                  disableExpansion={true}
+                 glowColor="orange"
                />
         </div>
       </div>
