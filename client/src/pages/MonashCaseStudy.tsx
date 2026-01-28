@@ -248,7 +248,7 @@ export default function MonashCaseStudy() {
                <div className="relative flex flex-col items-center justify-center w-full gap-8">
                    <AbstractBrowser variant="infinite-pdf" className="w-full max-w-xl shadow-2xl h-[400px]" />
                    
-                   <p className="text-sm text-gray-500 text-center max-w-md">
+                   <p className="text-xs text-gray-500 text-center max-w-md">
                      Rather than providing dynamic, searchable answers, the system often directs prospects to monolithic PDFs.
                    </p>
 
@@ -260,9 +260,9 @@ export default function MonashCaseStudy() {
                     >
                        <div className="flex items-center gap-2 mb-2">
                           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                          <span className="text-sm font-mono text-red-400 uppercase">Critical friction</span>
+                          <span className="text-xs font-mono text-red-400 uppercase">Critical friction</span>
                        </div>
-                       <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
+                       <div className="text-xs text-white font-medium">Please refer to PDF Page 42, Section B.</div>
                     </motion.div>
                </div>
             </motion.div>
@@ -432,7 +432,7 @@ export default function MonashCaseStudy() {
                     {/* Threshold Line */}
                     <div className="absolute inset-y-0 left-4 right-4 z-10 pointer-events-none">
                        <div className="absolute left-[70%] top-0 bottom-0 border-l border-dashed border-white/20 flex flex-col justify-end pb-8">
-                         <div className="ml-2 text-sm font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
+                         <div className="ml-2 text-xs font-mono text-gray-500 rotate-90 origin-bottom-left whitespace-nowrap">Target: 70.00</div>
                        </div>
                     </div>
 
@@ -440,7 +440,7 @@ export default function MonashCaseStudy() {
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm mb-1 px-4">
                         <span className="text-gray-400">Raw ATAR</span>
-                        <span className="text-white font-mono text-base">65.00</span>
+                        <span className="text-white font-mono text-lg">65.00</span>
                       </div>
                       <div className="h-12 bg-white/5 rounded-xl relative overflow-hidden ring-1 ring-white/5 mx-4">
                         <motion.div 
@@ -456,7 +456,7 @@ export default function MonashCaseStudy() {
                     <div className="space-y-3">
                       <div className="flex justify-between text-sm mb-1 px-4">
                         <span className="text-cyan-400">Regional Bonus</span>
-                        <span className="text-white font-mono text-base">+5.00</span>
+                        <span className="text-white font-mono text-lg">+5.00</span>
                       </div>
                       <div className="h-12 relative rounded-xl bg-white/5 overflow-hidden ring-1 ring-white/5 mx-4">
                          {/* Spacer - ends at 65% */}
@@ -500,7 +500,7 @@ export default function MonashCaseStudy() {
                 </div>
                 
                 {/* Caption */}
-                <p className="text-sm font-mono text-gray-500 mt-4 text-left w-full px-8">
+                <p className="text-xs font-mono text-gray-500 mt-4 text-left w-full px-8">
                   The stacking calculator visualizes eligibility adjustments based on postcode, revealing a student's true Selection Rank beyond their raw ATAR.
                 </p>
             </motion.div>

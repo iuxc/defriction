@@ -125,9 +125,9 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                   </div>
 
                                   <div className="space-y-2">
-                                      <label className="text-xs font-mono text-ion-cyan uppercase tracking-widest font-bold bg-ion-cyan/5 px-2 py-1 inline-block rounded-md">Project Budget (AUD)</label>
+                                      <label className="text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-1 inline-block rounded-md">Project Budget (AUD)</label>
                                       <Select onValueChange={(value) => console.log(value)}>
-                                          <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white transition-all focus:bg-white/10">
+                                          <SelectTrigger className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-orange-400/50 focus:ring-0 text-white transition-all focus:bg-white/10">
                                               <SelectValue placeholder="Select engagement level..." />
                                           </SelectTrigger>
                                           <SelectContent className="bg-deep-basalt border-white/10 text-white rounded-xl shadow-xl z-[110]">
@@ -142,7 +142,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                       <label className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">The Brief</label>
                                       <Textarea 
                                           {...register("message")} 
-                                          className="bg-white/5 border-white/10 rounded-lg min-h-[150px] focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none" 
+                                          className="bg-white/5 border-white/10 rounded-lg min-h-[150px] focus:border-orange-400/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none" 
                                           placeholder="What challenge are you trying to solve?" 
                                       />
                                   </div>
@@ -150,7 +150,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                   <motion.div layoutId="button-container" className="w-full">
                                       <Button 
                                           type="submit" 
-                                          className="w-full bg-white text-black hover:bg-volt-lime hover:text-black font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-white/5"
+                                          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-black hover:brightness-110 font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-orange-500/20"
                                       >
                                           Start the Conversation <Send className="ml-2 w-4 h-4" />
                                       </Button>
