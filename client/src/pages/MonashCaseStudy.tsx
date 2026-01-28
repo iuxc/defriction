@@ -113,14 +113,23 @@ export default function MonashCaseStudy() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.15 }}
-                className="mb-2"
+                className="mb-2 flex flex-col sm:flex-row gap-4"
               >
                  <Button 
-                    className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
+                    className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(59,130,246,0.6)] hover:scale-105"
+                    onClick={() => {
+                      const element = document.getElementById('friction');
+                      if (element) element.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                 >
+                    Understand the Problem
+                 </Button>
+                 <Button 
+                    variant="outline"
+                    className="rounded-full border-white/20 bg-transparent text-white hover:bg-white/10 hover:text-white transition-colors text-base h-auto px-6 py-4"
                     onClick={() => setLocation('/monash/prototype/hifi')}
                  >
-                    Launch Interactive Demo
-                    <ExternalLink className="ml-2 w-4 h-4" />
+                    Launch Demo
                  </Button>
               </motion.div>
 
@@ -299,13 +308,13 @@ export default function MonashCaseStudy() {
                        whileHover={{ scale: 1.02 }}
                        whileTap={{ scale: 0.98 }}
                        onClick={() => setShowFrictionModal(true)}
-                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-[#A3CC00]/50 hover:shadow-[0_0_30px_rgba(163,204,0,0.1)]"
+                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]"
                    >
-                       <div className="absolute inset-0 bg-gradient-to-r from-[#A3CC00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                               <h3 className="font-bold text-white group-hover:text-[#A3CC00] transition-colors">User A: TAFE Graduate</h3>
-                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#A3CC00]" />
+                               <h3 className="font-bold text-white group-hover:text-cyan-400 transition-colors">User A: TAFE Graduate</h3>
+                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-cyan-400" />
                            </div>
                            <p className="text-sm text-gray-400 leading-relaxed">
                                Encountered broken pathways, 0 credit results, and conflicting advice between departments.
@@ -318,13 +327,13 @@ export default function MonashCaseStudy() {
                        whileHover={{ scale: 1.02 }}
                        whileTap={{ scale: 0.98 }}
                        onClick={() => setShowFrictionModalB(true)}
-                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-[#A3CC00]/50 hover:shadow-[0_0_30px_rgba(163,204,0,0.1)]"
+                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-cyan-400/50 hover:shadow-[0_0_30px_rgba(34,211,238,0.1)]"
                    >
-                       <div className="absolute inset-0 bg-gradient-to-r from-[#A3CC00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                               <h3 className="font-bold text-white group-hover:text-[#A3CC00] transition-colors">User B: Year 12 Pathway</h3>
-                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#A3CC00]" />
+                               <h3 className="font-bold text-white group-hover:text-cyan-400 transition-colors">User B: Year 12 Pathway</h3>
+                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-cyan-400" />
                            </div>
                            <p className="text-sm text-gray-400 leading-relaxed">
                                Struggled with "dropdown hell", hidden adjustment factors, and ATAR-centric navigation.
@@ -433,7 +442,7 @@ export default function MonashCaseStudy() {
                           whileInView={{ width: "65%" }}
                           viewport={{ once: false }}
                           transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1] }}
-                          className="h-full bg-gradient-to-r from-electric-violet to-purple-500 rounded-l-xl"
+                          className="h-full bg-gradient-to-r from-blue-600 to-cyan-500 rounded-l-xl"
                         />
                       </div>
                     </div>
