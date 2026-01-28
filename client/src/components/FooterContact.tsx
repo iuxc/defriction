@@ -16,9 +16,10 @@ interface FooterContactProps {
   stickyVisible?: boolean;
   backLink?: string;
   alwaysSticky?: boolean;
+  withGradientShadow?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyVisible = true, backLink, alwaysSticky = false }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
@@ -161,7 +162,18 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
        {/* Billboard Button / Sticky Nav */}
        <AnimatePresence>
         {!isOpen && (isInView || showSticky) && (
-            <motion.div
+            <>
+              {/* Gradient Shadow Overlay for Sticky State */}
+              {showSticky && withGradientShadow && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  className="fixed bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/80 to-transparent pointer-events-none z-[75]"
+                />
+              )}
+
+              <motion.div
                 layoutId="contact-card"
                 className={cn(
                   "rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden cursor-pointer",
@@ -225,6 +237,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                     </motion.div>
                 </div>
             </motion.div>
+            </>
         )}
       </AnimatePresence>
 
