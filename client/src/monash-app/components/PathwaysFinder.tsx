@@ -302,7 +302,7 @@ function Year12AtarInputStep() {
             value={localAtar}
             onChange={(e) => setLocalAtar(e.target.value)}
             placeholder="e.g., 75.50"
-            className="text-lg rounded-none border-2 border-gray-900 focus-visible:ring-0 focus-visible:border-black"
+            className="text-lg rounded-none border-2 border-gray-900 focus-visible:ring-0 focus-visible:border-black text-gray-900 bg-white"
           />
         </div>
       ) : (
@@ -383,7 +383,7 @@ function Year12PostcodeStep() {
           value={localPostcode}
           onChange={(e) => handlePostcodeChange(e.target.value)}
           placeholder="e.g., 3000"
-          className="text-lg rounded-none border-2 border-gray-900 focus-visible:ring-0 focus-visible:border-black"
+          className="text-lg rounded-none border-2 border-gray-900 focus-visible:ring-0 focus-visible:border-black text-gray-900 bg-white"
         />
         
         {postcodeData && (
@@ -819,7 +819,7 @@ function EmailCaptureStep() {
           value={localEmail}
           onChange={(e) => setLocalEmail(e.target.value)}
           placeholder="your.email@example.com"
-          className="text-lg rounded-none border-2 border-gray-900 focus-visible:ring-0 focus-visible:border-black"
+          className="text-lg rounded-none border-2 border-gray-900 focus-visible:ring-0 focus-visible:border-black text-gray-900 bg-white"
         />
       </div>
       
