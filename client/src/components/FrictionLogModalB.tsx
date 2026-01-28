@@ -274,7 +274,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             <div className="h-0" />
 
             {/* Summary Section */}
-            <div className="bg-slate-50 border-t border-slate-200 -mx-8 -mb-24 mt-12 pb-24">
+            <div className="bg-slate-50 border-t border-slate-200 -mx-8 -mb-24 mt-12 pb-12">
               <div className="p-8 max-w-3xl mx-auto">
                 <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
                   <div className="md:pr-8 py-4 md:py-0">
