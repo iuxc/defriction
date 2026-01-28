@@ -13,21 +13,18 @@ export function Method() {
       title: "Timezone Arbitrage",
       desc: "Brief me during your Australian workday. I execute while you sleep. You wake up to finished designs the next morning.",
       gradient: "from-volt-lime/20 to-transparent",
-      border: "hover:border-volt-lime/50",
       browserVariant: "timezone" as const
     },
     {
       title: "Dual-Track Brain",
       desc: "I speak the language of the Boardroom and the Figma file. I bridge the gap between executive goals and pixel-perfect execution.",
       gradient: "from-ion-cyan/20 to-transparent",
-      border: "hover:border-ion-cyan/50",
       browserVariant: "brain" as const
     },
     {
       title: "Zero Overhead",
       desc: "W-8BEN. No Super. No Payroll. Just a clean Wise invoice.",
       gradient: "from-electric-violet/20 to-transparent",
-      border: "hover:border-electric-violet/50",
       browserVariant: "invoice" as const
     }
   ];
@@ -65,8 +62,19 @@ export function Method() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`glass-card p-1 rounded-2xl relative overflow-hidden group ${method.border} flex flex-col h-full`}
+              className={`glass-card p-1 rounded-2xl relative overflow-hidden group hover:!border-transparent flex flex-col h-full`}
             >
+               {/* Gradient Border Overlay */}
+               <div 
+                 className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-r from-volt-lime to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
+                 style={{
+                   mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                   maskComposite: 'exclude',
+                   WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
+                   WebkitMaskComposite: 'xor'
+                 }}
+               />
+
                {/* Inner Glow */}
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${method.gradient} opacity-20 rounded-full blur-3xl -mr-16 -mt-16 transition-opacity group-hover:opacity-40`} />
               
