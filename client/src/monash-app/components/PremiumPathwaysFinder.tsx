@@ -143,10 +143,10 @@ function GlassCard({ children, className = '' }: { children: React.ReactNode; cl
     <motion.div
       layout
       transition={{ 
-        layout: { duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }
+        layout: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
       }}
       className={clsx(
-        'bg-white rounded-none shadow-2xl shadow-slate-900/20 border border-slate-200',
+        'bg-white rounded-none shadow-2xl shadow-slate-900/20 border border-slate-200 font-sans',
         className
       )}
     >
@@ -161,10 +161,10 @@ function FadeContent({ children, stepKey }: { children: React.ReactNode; stepKey
     <AnimatePresence mode="wait">
       <motion.div
         key={stepKey}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2, ease: 'easeInOut' }}
+        initial={{ opacity: 0, scale: 0.98, y: 10, filter: 'blur(4px)' }}
+        animate={{ opacity: 1, scale: 1, y: 0, filter: 'blur(0px)' }}
+        exit={{ opacity: 0, scale: 0.98, y: -10, filter: 'blur(2px)' }}
+        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       >
         {children}
       </motion.div>
@@ -217,19 +217,19 @@ function SelectionCard({
 }) {
   return (
     <motion.button
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
+      animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       transition={{ 
-        duration: 0.4, 
-        delay: index * 0.1,
+        duration: 0.6, 
+        delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1]
       }}
-      whileHover={!disabled ? { scale: 1.02, y: -2 } : {}}
+      whileHover={!disabled ? { scale: 1.02, y: -2, backgroundColor: selected ? undefined : '#F8FAFC' } : {}}
       whileTap={!disabled ? { scale: 0.98 } : {}}
       onClick={onClick}
       disabled={disabled}
       className={clsx(
-        'relative w-full p-6 rounded-none border-2 text-left transition-all duration-300',
+        'relative w-full p-6 rounded-none border-2 text-left transition-colors duration-500',
         selected 
           ? 'border-monash-blue bg-vapor-grey shadow-lg shadow-monash-blue/20' 
           : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm hover:shadow-md',
@@ -237,22 +237,26 @@ function SelectionCard({
       )}
     >
       <div className={clsx(
-        'w-12 h-12 rounded-none flex items-center justify-center mb-4 transition-colors',
+        'w-12 h-12 rounded-none flex items-center justify-center mb-4 transition-colors duration-500',
         selected ? 'bg-monash-blue text-white' : 'bg-vapor-grey text-slate-700'
       )}>
         <Icon className="w-6 h-6" />
       </div>
-      <h3 className="font-semibold text-slate-900 mb-1">{title}</h3>
-      <p className="text-sm text-slate-500">{description}</p>
-      {selected && (
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          className="absolute top-4 right-4 w-6 h-6 bg-monash-blue rounded-none flex items-center justify-center"
-        >
-          <CheckCircle2 className="w-4 h-4 text-white" />
-        </motion.div>
-      )}
+      <h3 className="font-display font-semibold text-slate-900 mb-1">{title}</h3>
+      <p className="text-sm font-sans text-slate-500">{description}</p>
+      <AnimatePresence>
+        {selected && (
+          <motion.div
+            initial={{ scale: 0, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0, opacity: 0 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="absolute top-4 right-4 w-6 h-6 bg-monash-blue rounded-none flex items-center justify-center"
+          >
+            <CheckCircle2 className="w-4 h-4 text-white" />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.button>
   );
 }
@@ -494,10 +498,10 @@ export default function PremiumPathwaysFinder() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="text-3xl font-bold text-slate-900 tracking-tight mb-3">
+              <h1 className="text-3xl font-display font-bold text-slate-900 tracking-tight mb-3">
                 Find Your Pathway
               </h1>
-              <p className="text-slate-500 max-w-sm mx-auto">
+              <p className="text-slate-500 max-w-sm mx-auto font-sans">
                 Let's discover the best way for you to get into your dream course.
               </p>
             </motion.div>
@@ -522,10 +526,10 @@ export default function PremiumPathwaysFinder() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 What best describes you?
               </h2>
-              <p className="text-slate-500">Choose the option that fits your situation</p>
+              <p className="text-slate-500 font-sans">Choose the option that fits your situation</p>
             </motion.div>
             
             <div className="grid grid-cols-2 gap-4">
@@ -585,10 +589,10 @@ export default function PremiumPathwaysFinder() {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 Your <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> Score
               </h2>
-              <p className="text-slate-500">Do you have your final <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> or a prediction?</p>
+              <p className="text-slate-500 font-sans">Do you have your final <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> or a prediction?</p>
             </div>
             
             <div className="grid grid-cols-2 gap-4">
@@ -1031,16 +1035,16 @@ export default function PremiumPathwaysFinder() {
                   : <AlertCircle className="w-8 h-8 text-amber-600" />
                 }
               </motion.div>
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 {isDirectEntry ? 'Direct Entry Available!' : 'Pathway Required'}
               </h2>
-              <p className="text-slate-500">{state.selectedCourse?.name}</p>
+              <p className="text-slate-500 font-sans">{state.selectedCourse?.name}</p>
             </div>
             
             {isDirectEntry ? (
               <div className="bg-emerald-50 rounded-none p-6 border border-emerald-200">
-                <h3 className="font-bold text-emerald-900 mb-2">You qualify for direct entry!</h3>
-                <p className="text-sm text-emerald-700 mb-4">
+                <h3 className="font-display font-bold text-emerald-900 mb-2">You qualify for direct entry!</h3>
+                <p className="text-sm font-sans text-emerald-700 mb-4">
                   Your {state.tafeQual?.name} articulates directly to this course. 
                   You may also be eligible for credit for prior learning.
                 </p>
@@ -1055,8 +1059,8 @@ export default function PremiumPathwaysFinder() {
               </div>
             ) : (
               <div className="bg-amber-50 rounded-none p-6 border border-amber-200">
-                <h3 className="font-bold text-amber-900 mb-2">Foundation Year Required</h3>
-                <p className="text-sm text-amber-700 mb-4">
+                <h3 className="font-display font-bold text-amber-900 mb-2">Foundation Year Required</h3>
+                <p className="text-sm font-sans text-amber-700 mb-4">
                   Your qualification doesn't directly articulate to {state.selectedCourse?.name}. 
                   Consider completing a foundation year or bridging course.
                 </p>
@@ -1079,10 +1083,10 @@ export default function PremiumPathwaysFinder() {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 Choose Your Course
               </h2>
-              <p className="text-slate-500">As a mature age student, you have flexible entry options</p>
+              <p className="text-slate-500 font-sans">As a mature age student, you have flexible entry options</p>
             </div>
             
             {/* Ghost Field Notice - ATAR fields are NOT shown */}
@@ -1108,8 +1112,8 @@ export default function PremiumPathwaysFinder() {
                       : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm'
                   )}
                 >
-                  <h3 className="font-semibold text-slate-900">{course.name}</h3>
-                  <p className="text-sm text-slate-500">{course.faculty}</p>
+                  <h3 className="font-display font-semibold text-slate-900">{course.name}</h3>
+                  <p className="text-sm font-sans text-slate-500">{course.faculty}</p>
                 </motion.button>
               ))}
             </div>
@@ -1138,15 +1142,15 @@ export default function PremiumPathwaysFinder() {
               >
                 <Briefcase className="w-8 h-8 text-monash-blue" />
               </motion.div>
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 Your Pathway Options
               </h2>
-              <p className="text-slate-500">{state.selectedCourse?.name}</p>
+              <p className="text-slate-500 font-sans">{state.selectedCourse?.name}</p>
             </div>
             
             <div className="bg-vapor-grey rounded-none p-6 border border-electric-sky/30">
-              <h3 className="font-bold text-indigo-900 mb-3">Apply Direct (No <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> Required)</h3>
-              <ul className="space-y-2 text-sm text-deep-sapphire mb-4">
+              <h3 className="font-display font-bold text-indigo-900 mb-3">Apply Direct (No <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> Required)</h3>
+              <ul className="space-y-2 text-sm font-sans text-deep-sapphire mb-4">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-monash-blue" />
                   Submit a personal statement
@@ -1190,10 +1194,10 @@ export default function PremiumPathwaysFinder() {
               >
                 <Globe className="w-8 h-8 text-monash-blue" />
               </motion.div>
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 Welcome, International Student!
               </h2>
-              <p className="text-slate-500">
+              <p className="text-slate-500 font-sans">
                 International students have unique pathways. Let's connect you with a specialist advisor.
               </p>
             </div>
@@ -1210,8 +1214,8 @@ export default function PremiumPathwaysFinder() {
                     <MessageCircle className="w-6 h-6 text-monash-blue" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Live Chat</h3>
-                    <p className="text-sm text-slate-500">Chat with an advisor now</p>
+                    <h3 className="font-display font-semibold text-slate-900">Live Chat</h3>
+                    <p className="text-sm font-sans text-slate-500">Chat with an advisor now</p>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 ml-auto" />
                 </div>
@@ -1228,8 +1232,8 @@ export default function PremiumPathwaysFinder() {
                     <Calendar className="w-6 h-6 text-emerald-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Book a Video Call</h3>
-                    <p className="text-sm text-slate-500">Schedule a 1:1 consultation</p>
+                    <h3 className="font-display font-semibold text-slate-900">Book a Video Call</h3>
+                    <p className="text-sm font-sans text-slate-500">Schedule a 1:1 consultation</p>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 ml-auto" />
                 </div>
@@ -1246,8 +1250,8 @@ export default function PremiumPathwaysFinder() {
                     <FileText className="w-6 h-6 text-amber-600" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-slate-900">Country-Specific Guide</h3>
-                    <p className="text-sm text-slate-500">Download entry requirements for your country</p>
+                    <h3 className="font-display font-semibold text-slate-900">Country-Specific Guide</h3>
+                    <p className="text-sm font-sans text-slate-500">Download entry requirements for your country</p>
                   </div>
                   <ChevronRight className="w-5 h-5 text-slate-400 ml-auto" />
                 </div>
@@ -1271,10 +1275,10 @@ export default function PremiumPathwaysFinder() {
               >
                 <Mail className="w-8 h-8 text-monash-blue" />
               </motion.div>
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
                 Save Your Results
               </h2>
-              <p className="text-slate-500">We'll email you a summary of your personalized pathway</p>
+              <p className="text-slate-500 font-sans">We'll email you a summary of your personalized pathway</p>
             </div>
             
             <InputField
@@ -1305,21 +1309,7 @@ export default function PremiumPathwaysFinder() {
   };
   
   return (
-    <div className="min-h-screen bg-gradient-to-br from-deep-sapphire via-monash-blue to-deep-sapphire">
-      {/* Navigation Bar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            {/* Links removed as requested */}
-          </div>
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            <img src="/images/monash-logo-new.png" alt="Monash University" className="h-8" />
-          </div>
-          <div className="flex items-center gap-4">
-            {/* Links removed as requested */}
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen bg-gradient-to-br from-deep-sapphire via-monash-blue to-deep-sapphire font-sans">
       
       {/* Hero Background */}
       <div className="absolute inset-0 overflow-hidden">
@@ -1328,7 +1318,7 @@ export default function PremiumPathwaysFinder() {
       </div>
       
       {/* Main Content */}
-      <div className="relative pt-32 pb-16 px-4">
+      <div className="relative pt-12 pb-16 px-4">
         <div className="max-w-lg mx-auto">
           {/* Progress - Enhanced visibility or Start Over button */}
           {state.step !== 'welcome' && state.step !== 'international' && (

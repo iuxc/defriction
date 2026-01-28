@@ -177,7 +177,7 @@ export default function MonashCaseStudy() {
                >
                  <Button 
                     className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
-                    onClick={() => setLocation('/monash/prototype/hifi')}
+                    onClick={() => window.open('/monash/prototype/hifi', '_blank')}
                  >
                     Launch Interactive Demo
                     <ExternalLink className="ml-2 w-4 h-4" />
@@ -297,7 +297,7 @@ export default function MonashCaseStudy() {
 
             <h2 className="text-5xl md:text-6xl font-display font-bold mb-8 leading-tight">The Shift to Equity.</h2>
             <p className="text-xl text-gray-400 font-light leading-relaxed mb-8">
-              The <a href="#" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">2024 Universities Accord</a> mandates a shift from a market-driven logic to an equity-driven mandate. I couldn't just reskin the page; I had to expose the backend logic to the frontend user. I pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
+              The <a href="https://www.education.gov.au/australian-universities-accord" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">2024 Universities Accord</a> mandates a shift from a market-driven logic to an equity-driven mandate. I couldn't just reskin the page; I had to expose the backend logic to the frontend user. I pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
             </p>
             <div className="flex gap-4">
                <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Equity First</div>
@@ -335,7 +335,7 @@ export default function MonashCaseStudy() {
                 
                 <Button 
                   className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
-                  onClick={() => setLocation('/monash/prototype/hifi')}
+                  onClick={() => window.open('/monash/prototype/hifi', '_blank')}
                 >
                   Try It Out
                   <ExternalLink className="ml-2 w-4 h-4" />
@@ -456,7 +456,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
-                  onClick={() => setLocation('/monash/prototype/docs')}
+                  onClick={() => window.open('/monash/prototype/docs', '_blank')}
                 >
                   <AbstractBrowser variant="ia-map" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
@@ -468,7 +468,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => setLocation('/monash/prototype/docs')}
+                      onClick={() => window.open('/monash/prototype/docs', '_blank')}
                     >
                       See IA <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
@@ -479,7 +479,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
-                  onClick={() => setLocation('/monash/prototype')}
+                  onClick={() => window.open('/monash/prototype', '_blank')}
                 >
                    <AbstractBrowser variant="wireframe" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
@@ -491,7 +491,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => setLocation('/monash/prototype')}
+                      onClick={() => window.open('/monash/prototype', '_blank')}
                     >
                       See Wireframe <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
@@ -502,7 +502,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8 cursor-pointer"
-                  onClick={() => setLocation('/monash/prototype/hifi')}
+                  onClick={() => window.open('/monash/prototype/hifi', '_blank')}
                 >
                    <img 
                      src="/assets/images/monash-shield.png" 
@@ -518,7 +518,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => setLocation('/monash/prototype/hifi')}
+                      onClick={() => window.open('/monash/prototype/hifi', '_blank')}
                     >
                       See Demo <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
