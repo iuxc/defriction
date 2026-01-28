@@ -189,7 +189,7 @@ export default function MonashCaseStudy() {
       </section>
       {/* 1. The Friction (The Problem) */}
       <Section id="friction" className="border-t border-white/5">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 items-start">
             <motion.div 
               variants={stagger}
               initial="initial"
@@ -277,47 +277,67 @@ export default function MonashCaseStudy() {
                whileInView={{ opacity: 1, x: 0 }}
                viewport={{ once: true }}
                transition={{ duration: 1 }}
-               className="relative lg:h-[600px] flex items-center justify-center"
+               className="flex flex-col gap-8 sticky top-32"
             >
-               <AbstractBrowser variant="infinite-pdf" className="w-full max-w-md shadow-2xl h-[500px]" />
-               
-               {/* Document Links */}
-               <motion.div 
-                 initial={{ opacity: 0, y: 20 }}
-                 whileInView={{ opacity: 1, y: 0 }}
-                 transition={{ delay: 0.5 }}
-                 className="absolute bottom-8 left-0 right-0 flex justify-center gap-4 z-20"
-               >
-                  <Button 
-                    variant="secondary"
-                    className="bg-white text-black hover:bg-gray-50 font-medium text-sm h-auto py-3 px-6 shadow-lg flex items-center gap-2 rounded-full transition-transform hover:scale-105"
-                    onClick={() => setShowFrictionModal(true)}
-                  >
-                    <FileText className="w-4 h-4" />
-                    View Friction Log A
-                  </Button>
-                  <Button 
-                    variant="secondary"
-                    className="bg-white text-black hover:bg-gray-50 font-medium text-sm h-auto py-3 px-6 shadow-lg flex items-center gap-2 rounded-full transition-transform hover:scale-105"
-                    onClick={() => setShowFrictionModalB(true)}
-                  >
-                    <FileText className="w-4 h-4" />
-                    View Friction Log B
-                  </Button>
-               </motion.div>
+               <div className="relative flex items-center justify-center">
+                   <AbstractBrowser variant="infinite-pdf" className="w-full shadow-2xl h-[400px]" />
+                   
+                   {/* Floating Alert - Positioned on the AbstractBrowser */}
+                   <motion.div 
+                      animate={{ y: [0, -10, 0] }}
+                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                      className="absolute -right-4 top-1/4 glass-panel p-4 rounded-xl border border-red-500/30 bg-red-500/10 backdrop-blur-md shadow-xl max-w-[200px]"
+                    >
+                       <div className="flex items-center gap-2 mb-2">
+                          <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+                          <span className="text-xs font-mono text-red-400 uppercase">Error</span>
+                       </div>
+                       <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
+                    </motion.div>
+               </div>
 
-               {/* Floating Alert */}
-               <motion.div 
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -right-4 top-1/4 glass-panel p-4 rounded-xl border border-red-500/30 bg-red-500/10 backdrop-blur-md shadow-xl max-w-[200px]"
-                >
-                   <div className="flex items-center gap-2 mb-2">
-                      <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-                      <span className="text-xs font-mono text-red-400 uppercase">Error</span>
-                   </div>
-                   <div className="text-sm text-white font-medium">Please refer to PDF Page 42, Section B.</div>
-                </motion.div>
+               {/* Friction Log Links - New Design */}
+               <div className="grid gap-4 mt-8">
+                   <div className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-2">Detailed Findings</div>
+                   
+                   {/* User A Card */}
+                   <motion.button
+                       whileHover={{ scale: 1.02 }}
+                       whileTap={{ scale: 0.98 }}
+                       onClick={() => setShowFrictionModal(true)}
+                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-[#006DAE]/50 hover:shadow-[0_0_30px_rgba(0,109,174,0.1)]"
+                   >
+                       <div className="absolute inset-0 bg-gradient-to-r from-[#006DAE]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="relative z-10">
+                           <div className="flex items-center justify-between mb-2">
+                               <h3 className="font-bold text-white group-hover:text-[#006DAE] transition-colors">User A: TAFE Graduate</h3>
+                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#006DAE]" />
+                           </div>
+                           <p className="text-sm text-gray-400 leading-relaxed">
+                               Encountered broken pathways, 0 credit results, and conflicting advice between departments.
+                           </p>
+                       </div>
+                   </motion.button>
+
+                   {/* User B Card */}
+                   <motion.button
+                       whileHover={{ scale: 1.02 }}
+                       whileTap={{ scale: 0.98 }}
+                       onClick={() => setShowFrictionModalB(true)}
+                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-[#A3CC00]/50 hover:shadow-[0_0_30px_rgba(163,204,0,0.1)]"
+                   >
+                       <div className="absolute inset-0 bg-gradient-to-r from-[#A3CC00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="relative z-10">
+                           <div className="flex items-center justify-between mb-2">
+                               <h3 className="font-bold text-white group-hover:text-[#A3CC00] transition-colors">User B: Year 12 Pathway</h3>
+                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#A3CC00]" />
+                           </div>
+                           <p className="text-sm text-gray-400 leading-relaxed">
+                               Struggled with "dropdown hell", hidden adjustment factors, and ATAR-centric navigation.
+                           </p>
+                       </div>
+                   </motion.button>
+               </div>
             </motion.div>
         </div>
       </Section>
