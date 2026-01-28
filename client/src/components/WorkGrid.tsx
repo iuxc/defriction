@@ -41,7 +41,7 @@ export function WorkGrid() {
        subtitle: "Stealth mode products.",
        tags: ["SaaS", "Engineering"],
        link: "#",
-       gradient: "from-volt-lime/20 to-transparent",
+       gradient: "from-cyan-400/20 to-transparent",
        colSpan: "md:col-span-3",
        browserVariant: "dashboard" as const,
        browserPosition: "right"
@@ -93,7 +93,7 @@ export function WorkGrid() {
                           </Badge>
                         ))}
                       </div>
-                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-volt-lime group-hover:text-black transition-all duration-300 shrink-0 ml-4">
+                      <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-cyan-400 group-hover:text-black transition-all duration-300 shrink-0 ml-4">
                         <ArrowUpRight className="w-5 h-5" />
                       </div>
                     </div>
