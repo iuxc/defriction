@@ -194,7 +194,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                         {title}
                     </motion.h3>
 
-                    <motion.div layoutId="button-container" className={showSticky ? "shrink-0" : ""}>
+                    <motion.div layoutId="button-container" className={cn(showSticky ? "shrink-0 flex items-center gap-3" : "")}>
                         <Button 
                             className={cn(
                               "font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto",
@@ -206,28 +206,24 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                         >
                             Start a Project <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
+
+                        {showSticky && backLink && (
+                            <motion.a
+                                href={backLink}
+                                onClick={(e) => e.stopPropagation()}
+                                className="h-[52px] w-[52px] rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center pointer-events-auto group overflow-hidden transition-all duration-300 hover:w-[130px]"
+                            >
+                                <div className="flex items-center justify-center w-full px-4">
+                                    <Undo className="w-5 h-5 text-white shrink-0 group-hover:mr-2 transition-all" />
+                                    <span className="opacity-0 w-0 group-hover:opacity-100 group-hover:w-auto text-white whitespace-nowrap text-sm font-medium transition-all duration-300">
+                                        Go Back
+                                    </span>
+                                </div>
+                            </motion.a>
+                        )}
                     </motion.div>
                 </div>
             </motion.div>
-        )}
-
-        {!isOpen && (isInView || showSticky) && backLink && (
-            <motion.a
-                href={backLink}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                className={cn(
-                    "fixed z-[90] w-14 h-14 rounded-full glass-panel border border-white/10 bg-deep-basalt/90 backdrop-blur-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.3)] hover:scale-105 transition-all hover:bg-white/10 hover:border-white/30",
-                    // When NOT in view (scrolling), fix to bottom alongside the bar
-                    showSticky 
-                        ? "bottom-6 right-6 md:right-8" 
-                        : "hidden"
-                )}
-                style={{ boxShadow: "0 0 20px rgba(0,0,0,0.3)" }}
-            >
-                <Undo className="w-6 h-6 text-white" />
-            </motion.a>
         )}
       </AnimatePresence>
 
