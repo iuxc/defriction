@@ -164,7 +164,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   URL: https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
                     <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
