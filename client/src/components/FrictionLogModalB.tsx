@@ -65,7 +65,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             </section>
 
             {/* Journey Timeline - Reverted to Simpler Log A Style */}
-            <div className="space-y-16">
+            <div className="space-y-8">
               
               {/* Step 1 */}
               <section className="space-y-4">
@@ -239,42 +239,44 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
             </div>
 
-            <hr className="border-slate-200" />
+            <div className="h-12" />
 
             {/* Summary Section */}
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                <h3 className="font-bold text-red-800 mb-4 flex items-center gap-2">
-                  <AlertCircle className="w-5 h-5" />
-                  Major Friction Points
-                </h3>
-                <ul className="space-y-3">
-                  <li className="text-sm text-red-900">
-                    <strong className="block font-semibold mb-1">Site Reliability</strong>
-                    404 errors on high-intent "Pathways" URLs create an immediate sense of distrust.
-                  </li>
-                  <li className="text-sm text-red-900">
-                    <strong className="block font-semibold mb-1">Navigation Fatigue</strong>
-                    "Dropdown hell" in the destination degree section makes it hard to map out a multi-year plan.
-                  </li>
-                </ul>
-              </div>
+            <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+              <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
+                <div className="bg-red-50/50 p-8">
+                  <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5" />
+                    Major Friction Points
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="text-sm text-slate-700">
+                      <strong className="block font-semibold text-red-900 mb-1">Site Reliability</strong>
+                      404 errors on high-intent "Pathways" URLs create an immediate sense of distrust.
+                    </li>
+                    <li className="text-sm text-slate-700">
+                      <strong className="block font-semibold text-red-900 mb-1">Navigation Fatigue</strong>
+                      "Dropdown hell" in the destination degree section makes it hard to map out a multi-year plan.
+                    </li>
+                  </ul>
+                </div>
 
-              <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                <h3 className="font-bold text-slate-800 mb-4 flex items-center gap-2">
-                  <Info className="w-5 h-5" />
-                  Key Information Missing
-                </h3>
-                <ul className="space-y-3">
-                  <li className="text-sm text-slate-700">
-                    <strong className="block font-semibold text-slate-900 mb-1">Total Cost</strong>
-                    Exact fee structures for the pathway year are not displayed alongside the course info.
-                  </li>
-                  <li className="text-sm text-slate-700">
-                    <strong className="block font-semibold text-slate-900 mb-1">Campus Logistics</strong>
-                    Lack of prominence regarding the Docklands location, which may surprise students expecting Clayton or Peninsula.
-                  </li>
-                </ul>
+                <div className="bg-slate-50/50 p-8">
+                  <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
+                    <Info className="w-5 h-5 text-slate-600" />
+                    Key Information Missing
+                  </h3>
+                  <ul className="space-y-4">
+                    <li className="text-sm text-slate-700">
+                      <strong className="block font-semibold text-slate-900 mb-1">Total Cost</strong>
+                      Exact fee structures for the pathway year are not displayed alongside the course info.
+                    </li>
+                    <li className="text-sm text-slate-700">
+                      <strong className="block font-semibold text-slate-900 mb-1">Campus Logistics</strong>
+                      Lack of prominence regarding the Docklands location, which may surprise students expecting Clayton or Peninsula.
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
