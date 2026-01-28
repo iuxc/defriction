@@ -6,7 +6,7 @@ import { MonashSwitcher } from "@/components/MonashSwitcher";
 export default function Home() {
   return (
     <PathwaysProvider>
-      <div className="pb-40">
+      <div className="pb-40 font-inter">
         <PathwaysFinder />
       </div>
       <FooterContact 

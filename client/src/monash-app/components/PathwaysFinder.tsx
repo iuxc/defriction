@@ -77,7 +77,7 @@ function WelcomeStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 0: Welcome</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Find Your Pathway to Monash</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">Find Your Pathway to Monash</h1>
       <p className="text-gray-600 mb-6">
         This tool will help you discover the best entry pathway based on your background and goals.
       </p>
@@ -130,13 +130,13 @@ function InternationalHandoffStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">International Students</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Welcome, International Student!</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">Welcome, International Student!</h1>
       <p className="text-gray-600 mb-6">
         International students have unique pathways and requirements. Our Global Admissions team can provide personalized guidance for your situation.
       </p>
       
       <div className="bg-gray-50 border-2 border-gray-900 p-6 mb-6 rounded-none">
-        <h2 className="font-semibold mb-4 text-gray-900">Connect with a Global Advisor</h2>
+        <h2 className="font-semibold mb-4 text-gray-900 font-domine">Connect with a Global Advisor</h2>
         <div className="space-y-3">
           <Button variant="outline" className="w-full justify-start gap-3 rounded-none border-gray-900 text-gray-900 hover:bg-gray-100 hover:text-black">
             <MessageCircle className="w-4 h-4" />
@@ -172,7 +172,7 @@ function StatusSelectStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 1: Your Status</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">What best describes you?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">What best describes you?</h1>
       <p className="text-gray-600 mb-6">
         This helps us show you the most relevant pathway options.
       </p>
@@ -223,7 +223,7 @@ function Year12AtarTypeStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 2: ATAR Status</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Do you have your ATAR yet?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">Do you have your ATAR yet?</h1>
       
       <div className="space-y-4 mb-6">
         <div 
@@ -284,7 +284,7 @@ function Year12AtarInputStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 3: Your ATAR</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">
         {atarType === 'actual' ? 'Enter your ATAR' : 'Select your predicted ATAR range'}
       </h1>
       
@@ -367,7 +367,7 @@ function Year12PostcodeStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 4: Your Location</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">What's your postcode?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">What's your postcode?</h1>
       <p className="text-gray-600 mb-4">
         Regional and low-SES students may receive bonus points toward their Selection Rank.
       </p>
@@ -465,7 +465,7 @@ function Year12CourseSelectStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 5: Your Results</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Your Selection Rank</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">Your Selection Rank</h1>
       
       {/* Stacking Animation Visualization */}
       {sampleResult && (
@@ -540,7 +540,7 @@ function Year12CourseSelectStep() {
       )}
       
       {/* Course Results */}
-      <h2 className="font-semibold mb-4">Course Eligibility</h2>
+      <h2 className="font-semibold mb-4 font-domine">Course Eligibility</h2>
       <div className="space-y-3 mb-6">
         {year12Results.map((result) => (
           <div key={result.course.id} className="border border-gray-300 p-4 bg-white">
@@ -634,7 +634,7 @@ function MatureQualificationStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 3: Your Qualification</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">What qualification do you hold?</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">What qualification do you hold?</h1>
       
       <div className="wire-ghost p-3 mb-4 border border-dashed border-gray-400 bg-gray-50 rounded-none">
         <span className="wire-label">Ghost Field: ATAR Input</span>
@@ -707,7 +707,7 @@ function MatureCourseSelectStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 4: Course Eligibility</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Your Course Options</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">Your Course Options</h1>
       
       <div className="wire-ghost p-3 mb-4 border border-dashed border-gray-400 bg-gray-50 rounded-none">
         <span className="wire-label">Partial Match Badge System</span>
@@ -788,7 +788,7 @@ function EmailCaptureStep() {
           <div className="w-16 h-16 bg-gray-900 rounded-none flex items-center justify-center mx-auto mb-4">
             <Mail className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-2xl font-bold mb-2 text-slate-900">Check Your Inbox!</h1>
+          <h1 className="text-2xl font-bold mb-2 text-slate-900 font-domine">Check Your Inbox!</h1>
           <p className="text-gray-600 mb-6">
             We've sent your personalized pathway plan to <strong>{localEmail}</strong>
           </p>
@@ -804,7 +804,7 @@ function EmailCaptureStep() {
   return (
     <div className="wire-panel animate-slide-in">
       <span className="wire-label">Step 7: Save Your Results</span>
-      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900">Email My Pathway Plan</h1>
+      <h1 className="text-2xl font-bold mt-4 mb-2 text-slate-900 font-domine">Email My Pathway Plan</h1>
       <p className="text-gray-600 mb-6">
         Get a summary of your personalized pathway options sent to your inbox.
       </p>
@@ -885,7 +885,7 @@ export default function PathwaysFinder() {
           <div className="flex items-center justify-center gap-3 mb-2 flex-wrap">
             <span className="wire-label">Gray Box Wireframe Prototype</span>
           </div>
-          <h1 className="text-lg font-semibold mt-2 text-slate-900">Pathways Finder</h1>
+          <h1 className="text-lg font-semibold mt-2 text-slate-900 font-domine">Pathways Finder</h1>
         </div>
         
         {/* Progress */}
