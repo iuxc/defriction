@@ -159,65 +159,8 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
     </AnimatePresence>
   );
 
-  // Info Modal Content
-  const infoModalContent = (
-    <AnimatePresence>
-      {showInfo && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[120] flex items-center justify-center p-4"
-        >
-          {/* Backdrop */}
-          <div 
-            className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" 
-            onClick={() => setShowInfo(false)}
-          />
-
-          {/* Liquid Glass Modal */}
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0, y: 20 }}
-            animate={{ scale: 1, opacity: 1, y: 0 }}
-            exit={{ scale: 0.9, opacity: 0, y: 20 }}
-            transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="relative w-full max-w-lg rounded-2xl overflow-hidden glass-panel border border-white/20 shadow-2xl backdrop-blur-2xl bg-black/40"
-          >
-             {/* Gradient Shine */}
-             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
-             
-             {/* Content */}
-             <div className="p-8 relative z-10">
-               <div className="flex items-start gap-4 mb-4">
-                 <div className="w-10 h-10 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0">
-                   <Info className="w-5 h-5 text-orange-400" />
-                 </div>
-                 <h3 className="text-xl font-display font-bold text-white pt-1">About the Project</h3>
-               </div>
-               
-               <div className="text-gray-200 leading-relaxed text-sm space-y-4 font-light">
-                 <p>
-                   University admissions shouldn’t be a maze. This prototype transforms the applicant journey from a <strong className="text-white font-medium">Gatekeeper</strong> (static PDFs) to a <strong className="text-white font-medium">Concierge</strong> (dynamic logic).
-                 </p>
-                 <p>
-                   By visualizing 'hidden math' like regional adjustment factors, we turn confusing cutoff ranks into clear, personalized pathways—directly supporting the 2024 Universities Accord mandate for equity and accessibility.
-                 </p>
-               </div>
-
-               <div className="mt-8 flex justify-end">
-                 <Button 
-                   onClick={() => setShowInfo(false)}
-                   className="bg-white/10 hover:bg-white/20 text-white rounded-full px-6"
-                 >
-                   Close
-                 </Button>
-               </div>
-             </div>
-          </motion.div>
-        </motion.div>
-      )}
-    </AnimatePresence>
-  );
+  // Info Modal Content - Refactored to be attached to UI
+  // const infoModalContent = ... (removed)
 
   return (
     <div ref={containerRef} className={cn("w-full px-4 relative z-10", className)}>
@@ -234,6 +177,61 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                   className="fixed bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-[#0B0F19] via-[#0B0F19]/80 to-transparent pointer-events-none z-[75]"
                 />
               )}
+
+              {/* Info Modal Attached to Friction UI */}
+              <AnimatePresence>
+                {showInfo && (
+                  <div className={cn(
+                    // Match the card's positioning exactly but with higher z-index and pointer-events-none for container
+                    showSticky 
+                      ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[90]", stickyClassName ? "" : "") 
+                      : "absolute bottom-0 left-4 right-4 mx-auto max-w-3xl z-[90]",
+                    "pointer-events-none flex flex-col items-end justify-end"
+                  )}>
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                      className={cn(
+                        "pointer-events-auto", // Re-enable clicks
+                        "absolute bottom-full right-0 mb-4", // Position above and right
+                        "w-full max-w-md p-6 rounded-2xl",
+                        "bg-[#0B0F19] border border-white/20 shadow-2xl", // Darker style
+                        "text-left"
+                      )}
+                    >
+                      {/* Gradient Shine */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-2xl" />
+                      
+                      <div className="relative z-10">
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <div className="w-8 h-8 rounded-full bg-orange-500/20 flex items-center justify-center shrink-0">
+                              <Info className="w-4 h-4 text-orange-400" />
+                            </div>
+                            <h3 className="text-lg font-display font-bold text-white">About the Project</h3>
+                          </div>
+                          <button 
+                            onClick={() => setShowInfo(false)}
+                            className="text-gray-400 hover:text-white transition-colors"
+                          >
+                            <X className="w-5 h-5" />
+                          </button>
+                        </div>
+                        
+                        <div className="text-gray-300 leading-relaxed text-sm space-y-3 font-light">
+                          <p>
+                            University admissions shouldn’t be a maze. This prototype transforms the applicant journey from a <strong className="text-white font-medium">Gatekeeper</strong> (static PDFs) to a <strong className="text-white font-medium">Concierge</strong> (dynamic logic).
+                          </p>
+                          <p>
+                            By visualizing 'hidden math' like regional adjustment factors, we turn confusing cutoff ranks into clear, personalized pathways—directly supporting the 2024 Universities Accord mandate for equity and accessibility.
+                          </p>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </div>
+                )}
+              </AnimatePresence>
 
               <motion.div
                 layoutId="contact-card"
@@ -287,7 +285,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                             <motion.button
                                 onClick={(e) => {
                                   e.stopPropagation();
-                                  setShowInfo(true);
+                                  setShowInfo(!showInfo);
                                 }}
                                 className="h-[52px] w-[52px] rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center pointer-events-auto transition-all duration-300 hover:scale-110"
                             >
@@ -318,8 +316,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
       {/* Expanded Form Overlay (Portal) */}
       {mounted && createPortal(modalContent, document.body)}
 
-      {/* Info Modal Overlay (Portal) */}
-      {mounted && createPortal(infoModalContent, document.body)}
+      {/* Info Modal Overlay (Portal) - REMOVED, now attached to Friction UI */}
       
       {/* Placeholder to hold space when closed/sticky */}
       <div className={cn("w-full transition-all duration-300", isOpen ? "invisible h-[200px]" : isInView ? "invisible h-0" : "h-[300px] invisible")} />
