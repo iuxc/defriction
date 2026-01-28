@@ -526,13 +526,13 @@ export default function MonashCaseStudy() {
         </motion.div>
       </Section>
 
-      <footer id="footer" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-end justify-start">
+      <footer id="footer" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-end">
          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="container mx-auto px-4 text-left"
+            className="container mx-auto px-4 text-left w-full"
           >
            
            <p className="font-mono text-xs text-gray-600 mt-12">

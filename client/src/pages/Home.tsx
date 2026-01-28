@@ -15,15 +15,17 @@ export default function Home() {
       <About />
       <Contact />
       
-      <footer className="py-8 bg-black text-left px-4 md:px-8 border-t border-white/10">
-        <p className="font-mono text-xs text-gray-600">
-          <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
-            brian@defriction.design
-          </a>
-        </p>
-        <p className="font-mono text-xs text-gray-600 mt-2">
-          © 2026 defriction design. MELBOURNE / EUGENE.
-        </p>
+      <footer className="py-8 bg-black border-t border-white/10">
+        <div className="container mx-auto px-4 md:px-8 text-left">
+          <p className="font-mono text-xs text-gray-600">
+            <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
+              brian@defriction.design
+            </a>
+          </p>
+          <p className="font-mono text-xs text-gray-600 mt-2">
+            © 2026 defriction design. MELBOURNE / EUGENE.
+          </p>
+        </div>
       </footer>
     </div>
   );
