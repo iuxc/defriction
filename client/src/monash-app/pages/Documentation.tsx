@@ -85,11 +85,29 @@ export default function Documentation() {
       const sections = document.querySelectorAll('section[id]');
       let current = '';
       
+      // Console log for debugging (temporary)
+      // console.log('Scroll position:', window.scrollY);
+      // console.log('Sections found:', sections.length);
+
+      // Check if we're at the bottom of the page
+      if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight - 50) {
+         // Highlight the last section if we're at the very bottom
+         if (sections.length > 0) {
+           const lastSection = sections[sections.length - 1];
+           const lastId = lastSection.getAttribute('id');
+           if (lastId) {
+             setActiveSection(lastId);
+             return;
+           }
+         }
+      }
+
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect();
-        // If the top of the section is within the viewport (or above it)
-        // We use 150px offset to account for the header + some breathing room
-        if (rect.top <= 150) {
+        // Use a larger offset (header height + buffer)
+        // Header is 64px (h-16). 
+        // If the section top is above 30% of viewport, it's probably the one we're reading
+        if (rect.top <= 200) {
           current = section.getAttribute('id') || '';
         }
       });
@@ -99,10 +117,10 @@ export default function Documentation() {
       }
     };
 
-    // Run once on mount to set initial state correctly
+    // Run immediately
     handleScroll();
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
