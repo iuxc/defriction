@@ -72,7 +72,7 @@ export function MonashSwitcher() {
                   Polished Interface
                 </span>
                 {isActive('/monash/prototype/hifi') && (
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/50 shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                  <div className="" />
                 )}
               </a>
 
@@ -106,7 +106,7 @@ export function MonashSwitcher() {
                   Structure & Layout
                 </span>
                 {isActive('/monash/prototype') && (
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/50 shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                  <div className="" />
                 )}
               </a>
 
@@ -140,7 +140,7 @@ export function MonashSwitcher() {
                   Documentation
                 </span>
                 {isActive('/monash/prototype/docs') && (
-                  <div className="absolute left-0 top-0 bottom-0 w-1 bg-white/50 shadow-[0_0_10px_rgba(255,255,255,0.5)]" />
+                  <div className="" />
                 )}
               </a>
             </div>
