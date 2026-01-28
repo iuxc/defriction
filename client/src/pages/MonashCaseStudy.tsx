@@ -10,6 +10,44 @@ import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 import { FrictionLogModal } from "@/components/FrictionLogModal";
 import { FrictionLogModalB } from "@/components/FrictionLogModalB";
 
+const Acronym = ({
+  short,
+  full,
+  testId,
+  className = "",
+}: {
+  short: string;
+  full: string;
+  testId: string;
+  className?: string;
+}) => {
+  return (
+    <span
+      className={`relative inline-flex align-baseline group ${className}`}
+      tabIndex={0}
+      data-testid={testId}
+    >
+      <span
+        className="underline decoration-dotted underline-offset-[3px] decoration-white/35 group-hover:decoration-cyan-400/90 group-focus-visible:decoration-cyan-400/90 transition-colors"
+        aria-describedby={`${testId}-tooltip`}
+      >
+        {short}
+      </span>
+
+      <span
+        id={`${testId}-tooltip`}
+        role="tooltip"
+        className="pointer-events-none absolute left-1/2 top-[1.65em] z-50 w-max max-w-[260px] -translate-x-1/2 rounded-lg border border-white/10 bg-[#0B0F19]/95 px-3 py-2 text-xs leading-relaxed text-white shadow-[0_20px_60px_rgba(0,0,0,0.55)] opacity-0 translate-y-1 blur-[1px] transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:blur-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:blur-0"
+        data-testid={`${testId}-tooltip`}
+      >
+        <span className="font-medium text-white">{short}</span>
+        <span className="text-white/70"> — {full}</span>
+        <span className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-l border-t border-white/10 bg-[#0B0F19]/95" />
+      </span>
+    </span>
+  );
+};
+
 const Section = ({ 
   children, 
   id, 
@@ -222,8 +260,8 @@ export default function MonashCaseStudy() {
 
               <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-6">
                 {[
-                  { label: "The Dead End", value: "0 Results", desc: "A TAFE graduate searching for credit gets 0 results because the database is incomplete.", color: "text-red-400" },
-                  { label: "The Hidden Math", value: "Hidden +5", desc: "A regional student with an ATAR of 65 sees a cutoff of 70 and abandons the site.", color: "text-orange-400" },
+                  { label: "The Dead End", value: "0 Results", desc: <>A <Acronym short="TAFE" full="Technical and Further Education" testId="tooltip-tafe-deadend" /> graduate searching for credit gets 0 results because the database is incomplete.</>, color: "text-red-400" },
+                  { label: "The Hidden Math", value: "Hidden +5", desc: <>A regional student with an <Acronym short="ATAR" full="Australian Tertiary Admission Rank" testId="tooltip-atar-hiddenmath" /> of 65 sees a cutoff of 70 and abandons the site.</>, color: "text-orange-400" },
                 ].map((stat, i) => (
                   <motion.div 
                     key={i} 
@@ -284,7 +322,7 @@ export default function MonashCaseStudy() {
                 <div className="space-y-8">
                     <div>
                         <h4 className="text-white font-bold mb-2 text-base">Persona Emulation</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed">I approached the website from the specific perspective of a TAFE Graduate and a Year 12 Student (Low ATAR), navigating as a user without prior knowledge of the university’s internal hierarchy.</p>
+                        <p className="text-gray-400 text-sm leading-relaxed">I approached the website from the specific perspective of a <Acronym short="TAFE" full="Technical and Further Education" testId="tooltip-tafe-persona" /> Graduate and a Year 12 Student (Low <Acronym short="ATAR" full="Australian Tertiary Admission Rank" testId="tooltip-atar-persona" />), navigating as a user without prior knowledge of the university’s internal hierarchy.</p>
                     </div>
 
                     <div>
@@ -643,7 +681,7 @@ export default function MonashCaseStudy() {
               transition={{ duration: 1, delay: 0.4 }}
               className="absolute left-1/2 -translate-x-1/2 -top-[40%] w-[500px] backdrop-blur-sm z-0"
             >
-               <AbstractBrowser variant="feature" theme="dark" className="w-full h-[300px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl opacity-30" />
+               <AbstractBrowser variant="landing" theme="dark" className="w-full h-[300px] border-white/20 bg-white/5 backdrop-blur-md shadow-2xl opacity-30" />
             </motion.div>
         </div>
 
