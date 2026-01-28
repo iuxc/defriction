@@ -359,7 +359,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                               }
                             }}
                             className={cn(
-                              "font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto",
+                              "font-medium rounded-full transition-all duration-300 shadow-xl pointer-events-auto border-none",
                               // Hero button styles applied here
                               showSticky 
                                 ? "text-sm px-6 py-4 h-auto bg-gradient-to-r from-orange-400 to-red-500 text-black hover:bg-none hover:bg-white hover:text-black hover:scale-105" 

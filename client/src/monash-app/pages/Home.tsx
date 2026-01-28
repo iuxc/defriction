@@ -12,12 +12,12 @@ export default function Home() {
         title={
           <span className="flex items-center gap-3">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
-            <span className="text-gray-500 font-normal text-base">// Low-Fidelity Wireframe</span>
+            <span className="text-gray-400 font-normal text-base">// Low-Fidelity Wireframe</span>
           </span>
         }
         backLink="/work/monash"
         alwaysSticky={true}
-        stickyClassName="bg-deep-basalt/90 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
+        stickyClassName="bg-[#0B0F19]/90 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
         monashSwitcher={true}
       />
     </PathwaysProvider>
