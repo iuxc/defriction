@@ -39,9 +39,9 @@ export function FrictionLogModal({ open, onOpenChange }: FrictionLogModalProps) 
         <ScrollArea className="flex-1">
           <div className="p-8 max-w-3xl mx-auto space-y-12">
             
-            {/* Persona Profile */}
+            {/* User Profile */}
             <section className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Persona Profile</h3>
+              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">User Profile</h3>
               <div className="space-y-2">
                 <div className="flex gap-4">
                   <span className="font-semibold min-w-[120px] text-slate-900">Background:</span>
@@ -381,22 +381,29 @@ export function FrictionLogModal({ open, onOpenChange }: FrictionLogModalProps) 
             <section className="bg-slate-900 text-white p-8 rounded-2xl">
               <h3 className="text-2xl font-bold mb-6">User A's Journey Summary</h3>
               <div className="grid md:grid-cols-2 gap-8">
-                <ol className="list-decimal list-inside space-y-2 text-slate-300 text-sm">
-                  <li>Started at monash.edu homepage</li>
-                  <li>Searched "Bachelor of Nursing"</li>
-                  <li>Found course page, scrolled to Entry Requirements</li>
-                  <li>Found VET section with minimal info</li>
-                  <li>Tried Credit Search tool - NO RESULTS</li>
-                  <li>Found Pathways page - MISLEADING (suggests DoTS instead)</li>
-                  <li>Had to leave Monash site and go to VTAC</li>
-                  <li>Found complete requirements on VTAC</li>
-                </ol>
-                <div className="flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/20 pt-6 md:pt-0 md:pl-8">
-                  <div className="text-4xl font-bold text-red-400 mb-2">6+ Pages</div>
-                  <div className="text-sm text-slate-400 mb-6">visited across 2 websites</div>
-                  <div className="text-white font-medium">
-                    Still missing: Specific credit/unit information for Diploma of Nursing
+                <div className="space-y-4">
+                  <div className="flex justify-between items-center border-b border-white/20 pb-2">
+                     <span className="text-slate-400">Total Steps</span>
+                     <span className="font-bold">6+ pages</span>
                   </div>
+                  <div className="flex justify-between items-center border-b border-white/20 pb-2">
+                     <span className="text-slate-400">Time Estimated</span>
+                     <span className="font-bold">20-30 minutes</span>
+                  </div>
+                  <div className="flex justify-between items-center border-b border-white/20 pb-2">
+                     <span className="text-slate-400">Dead Ends</span>
+                     <span className="font-bold text-red-400">2 (Credit Search & Pathways)</span>
+                  </div>
+                </div>
+                
+                <div className="flex flex-col justify-center border-t md:border-t-0 md:border-l border-white/20 pt-6 md:pt-0 md:pl-8">
+                  <h4 className="font-bold text-slate-300 mb-2">Key Information Still Missing:</h4>
+                  <ul className="list-disc list-inside space-y-1 text-sm text-slate-400">
+                    <li>Exact credit amount for Diploma of Nursing</li>
+                    <li>Whether Ahpra registration is strict or flexible</li>
+                    <li>Cost of VTAC application vs Direct entry</li>
+                    <li>Total duration of degree with credit</li>
+                  </ul>
                 </div>
               </div>
             </section>
