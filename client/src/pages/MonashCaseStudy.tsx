@@ -235,9 +235,7 @@ export default function MonashCaseStudy() {
                 <div className="space-y-8">
                     <div>
                         <h4 className="text-white font-bold mb-2 text-lg">Persona Emulation</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            We approached the website from the specific perspective of a TAFE Graduate and a Year 12 Student (Low ATAR), navigating as a user without prior knowledge of the university’s internal hierarchy.
-                        </p>
+                        <p className="text-gray-400 text-sm leading-relaxed">I approached the website from the specific perspective of a TAFE Graduate and a Year 12 Student (Low ATAR), navigating as a user without prior knowledge of the university’s internal hierarchy.</p>
                     </div>
 
                     <div>
