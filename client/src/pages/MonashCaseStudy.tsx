@@ -235,7 +235,7 @@ export default function MonashCaseStudy() {
                className="relative lg:h-[600px] flex items-center justify-center"
             >
                <div className="relative flex items-center justify-center w-full">
-                   <AbstractBrowser variant="infinite-pdf" className="w-full shadow-2xl h-[400px]" />
+                   <AbstractBrowser variant="infinite-pdf" className="w-full max-w-xl shadow-2xl h-[400px]" />
                    
                    {/* Floating Alert - Positioned on the AbstractBrowser */}
                    <motion.div 
