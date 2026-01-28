@@ -4,7 +4,7 @@ import "../monash-app/index.css"; // Import prototype styles
 
 export default function MonashPrototypeWrapper() {
   return (
-    <div className="flex-1 w-full h-screen overflow-auto relative prototype-theme bg-white">
+    <div className="flex-1 w-full min-h-screen relative prototype-theme">
       <Router base="/monash/prototype">
         <style>{`
           .prototype-theme {
