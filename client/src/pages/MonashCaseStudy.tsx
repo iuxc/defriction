@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ArrowLeft, Check, ExternalLink, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { AbstractBrowser } from "@/components/ui/AbstractBrowser";
@@ -28,6 +28,7 @@ const Section = ({
 
 export default function MonashCaseStudy() {
   const [isPastHero, setIsPastHero] = useState(false);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -172,7 +173,7 @@ export default function MonashCaseStudy() {
                >
                  <Button 
                     className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
-                    onClick={() => window.open('https://www.figma.com', '_blank')}
+                    onClick={() => setLocation('/monash/prototype')}
                  >
                     Launch Interactive Demo
                     <ExternalLink className="ml-2 w-4 h-4" />
@@ -330,7 +331,7 @@ export default function MonashCaseStudy() {
                 
                 <Button 
                   className="bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(212,255,0,0.4)] hover:scale-105"
-                  onClick={() => window.open('https://www.figma.com', '_blank')}
+                  onClick={() => setLocation('/monash/prototype')}
                 >
                   Try It Out
                   <ExternalLink className="ml-2 w-4 h-4" />

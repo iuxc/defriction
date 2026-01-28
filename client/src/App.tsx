@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import MonashCaseStudy from "@/pages/MonashCaseStudy";
+import MonashPrototypeWrapper from "@/pages/MonashPrototype";
 import NotFound from "@/pages/not-found";
 import { ScrollToTop } from "@/components/ScrollToTop";
 
@@ -13,6 +14,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/work/monash" component={MonashCaseStudy} />
+      <Route path="/monash/prototype/*?" component={MonashPrototypeWrapper} />
       <Route component={NotFound} />
     </Switch>
   );
