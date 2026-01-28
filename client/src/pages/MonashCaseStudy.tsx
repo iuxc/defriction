@@ -249,9 +249,7 @@ export default function MonashCaseStudy() {
 
                     <div>
                         <h4 className="text-white font-bold mb-3 text-lg">Friction Identification</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
-                            We flagged "friction points" where the user encountered:
-                        </p>
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4">I flagged "friction points" where the user encountered:</p>
                         <ul className="space-y-4 pl-4 border-l-2 border-white/10 ml-1">
                             <li className="text-sm text-gray-400">
                                 <strong className="text-white block mb-1">Technical Failures</strong> 
