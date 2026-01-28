@@ -7,16 +7,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useForm } from "react-hook-form";
 import { useToast } from "@/hooks/use-toast";
-import { Send, ArrowRight, X } from "lucide-react";
+import { Send, ArrowRight, X, Undo } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface FooterContactProps {
   title?: React.ReactNode;
   className?: string;
   stickyVisible?: boolean;
+  backLink?: string;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyVisible = true }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyVisible = true, backLink }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
@@ -208,6 +209,25 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                     </motion.div>
                 </div>
             </motion.div>
+        )}
+
+        {!isOpen && (isInView || showSticky) && backLink && (
+            <motion.a
+                href={backLink}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                className={cn(
+                    "fixed z-[90] w-14 h-14 rounded-full glass-panel border border-white/10 bg-deep-basalt/90 backdrop-blur-xl flex items-center justify-center shadow-[0_0_40px_rgba(0,0,0,0.3)] hover:scale-105 transition-all hover:bg-white/10 hover:border-white/30",
+                    // When NOT in view (scrolling), fix to bottom alongside the bar
+                    showSticky 
+                        ? "bottom-6 right-6 md:right-8" 
+                        : "hidden"
+                )}
+                style={{ boxShadow: "0 0 20px rgba(0,0,0,0.3)" }}
+            >
+                <Undo className="w-6 h-6 text-white" />
+            </motion.a>
         )}
       </AnimatePresence>
 

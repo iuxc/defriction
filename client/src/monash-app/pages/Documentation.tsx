@@ -837,6 +837,7 @@ export default function Documentation() {
       
       <FooterContact 
         title={<span>Let's remove the <span className="text-orange-500">friction</span>.</span>} 
+        backLink="/"
       />
     </div>
   );
