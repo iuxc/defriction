@@ -234,7 +234,7 @@ export default function MonashCaseStudy() {
                transition={{ duration: 1 }}
                className="relative lg:h-[600px] flex items-center justify-center"
             >
-               <div className="relative flex items-center justify-center">
+               <div className="relative flex items-center justify-center w-full">
                    <AbstractBrowser variant="infinite-pdf" className="w-full shadow-2xl h-[400px]" />
                    
                    {/* Floating Alert - Positioned on the AbstractBrowser */}
@@ -314,20 +314,20 @@ export default function MonashCaseStudy() {
             >
                {/* Friction Log Links - New Design */}
                <div className="grid gap-4">
-                   <div className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-2">Detailed Findings</div>
+                   <div className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-2">See Friction Logs</div>
                    
                    {/* User A Card */}
                    <motion.button
                        whileHover={{ scale: 1.02 }}
                        whileTap={{ scale: 0.98 }}
                        onClick={() => setShowFrictionModal(true)}
-                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-[#006DAE]/50 hover:shadow-[0_0_30px_rgba(0,109,174,0.1)]"
+                       className="text-left group relative overflow-hidden rounded-2xl bg-[#0B0F19] border border-white/10 p-6 transition-all hover:border-[#A3CC00]/50 hover:shadow-[0_0_30px_rgba(163,204,0,0.1)]"
                    >
-                       <div className="absolute inset-0 bg-gradient-to-r from-[#006DAE]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                       <div className="absolute inset-0 bg-gradient-to-r from-[#A3CC00]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                        <div className="relative z-10">
                            <div className="flex items-center justify-between mb-2">
-                               <h3 className="font-bold text-white group-hover:text-[#006DAE] transition-colors">User A: TAFE Graduate</h3>
-                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#006DAE]" />
+                               <h3 className="font-bold text-white group-hover:text-[#A3CC00] transition-colors">User A: TAFE Graduate</h3>
+                               <FileText className="w-4 h-4 text-gray-500 group-hover:text-[#A3CC00]" />
                            </div>
                            <p className="text-sm text-gray-400 leading-relaxed">
                                Encountered broken pathways, 0 credit results, and conflicting advice between departments.
