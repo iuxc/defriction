@@ -205,7 +205,7 @@ export default function MonashCaseStudy() {
                   </span>
                 </div>
                 
-                <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by Administrative Burden.</h2>
+                <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-600">Administrative Burden.</span></h2>
                 <p className="text-xl text-gray-400 font-light leading-relaxed max-w-3xl">
                   Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://www.monash.edu/__data/assets/pdf_file/0010/2556235/MU-22-AS194-Pathways-Overview-Table-2022.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, <a href="https://connect.monash.edu/s/article/FAQ-2062" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">hidden 'Adjustment Factor' spreadsheets</a>, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
                 </p>
@@ -226,6 +226,59 @@ export default function MonashCaseStudy() {
                      <p className="text-sm text-gray-500 leading-relaxed">{stat.desc}</p>
                   </motion.div>
                 ))}
+              </motion.div>
+
+              <motion.div variants={fadeInUp} className="mt-16 space-y-8 border-t border-white/5 pt-12">
+                <div>
+                    <h3 className="text-2xl font-display font-bold text-white mb-4">Friction Log Process</h3>
+                    <p className="text-gray-400 leading-relaxed">
+                        To understand the true digital experience for non-traditional applicants, we conducted a behavioral audit using two distinct student personas. This process involves a "first-person" walkthrough of the Monash web ecosystem to identify where users lose momentum or encounter barriers.
+                    </p>
+                </div>
+
+                <div className="space-y-8">
+                    <div>
+                        <h4 className="text-white font-bold mb-2 text-lg">Persona Emulation</h4>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            We approached the website from the specific perspective of a TAFE Graduate and a Year 12 Student (Low ATAR), navigating as a user without prior knowledge of the university’s internal hierarchy.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 className="text-white font-bold mb-2 text-lg">Step-by-Step Documentation</h4>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Every interaction—from initial homepage searches to external application portals—was logged in real-time to capture the authentic student experience.
+                        </p>
+                    </div>
+
+                    <div>
+                        <h4 className="text-white font-bold mb-3 text-lg">Friction Identification</h4>
+                        <p className="text-gray-400 text-sm leading-relaxed mb-4">
+                            We flagged "friction points" where the user encountered:
+                        </p>
+                        <ul className="space-y-4 pl-4 border-l-2 border-white/10 ml-1">
+                            <li className="text-sm text-gray-400">
+                                <strong className="text-white block mb-1">Technical Failures</strong> 
+                                Broken internal links or 404 errors on high-intent pages.
+                            </li>
+                            <li className="text-sm text-gray-400">
+                                <strong className="text-white block mb-1">Cognitive Load</strong> 
+                                Overly complex jargon or "dropdown hell" navigation that requires high effort to compare options.
+                            </li>
+                            <li className="text-sm text-gray-400">
+                                <strong className="text-white block mb-1">Obscured Information</strong> 
+                                Critical details—such as specific credit maps or exclusion criteria—that are not presented on the web interface and are instead buried deep within PDF documents.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h4 className="text-white font-bold mb-2 text-lg">Outcome Analysis</h4>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Each log concludes with a summary of the "unanswered questions" that prevent a student from confidently moving from the research phase to an active application.
+                        </p>
+                    </div>
+                </div>
               </motion.div>
             </motion.div>
 
