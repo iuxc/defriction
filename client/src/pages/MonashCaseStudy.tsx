@@ -610,8 +610,44 @@ export default function MonashCaseStudy() {
         </motion.div>
       </Section>
       {/* CTA Section */}
-      <div className="py-32 bg-deep-basalt border-t border-white/5">
-        <div className="container mx-auto px-4 flex justify-center">
+      <div className="py-32 bg-deep-basalt border-t border-white/5 relative overflow-hidden">
+        {/* Abstract Background Wireframes */}
+        <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
+            {/* Left Wireframe */}
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 0.03, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="absolute -left-[10%] top-1/2 -translate-y-1/2 w-[600px] -rotate-12"
+            >
+               <AbstractBrowser variant="wireframe" theme="dark" className="w-full h-[400px] border-white/20" />
+            </motion.div>
+
+            {/* Right Wireframe */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 0.03, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="absolute -right-[10%] top-1/2 -translate-y-1/2 w-[600px] rotate-12"
+            >
+               <AbstractBrowser variant="landing" theme="dark" className="w-full h-[400px] border-white/20" />
+            </motion.div>
+            
+            {/* Center Top Wireframe */}
+             <motion.div 
+              initial={{ opacity: 0, y: -50 }}
+              whileInView={{ opacity: 0.02, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4 }}
+              className="absolute left-1/2 -translate-x-1/2 -top-[40%] w-[500px] opacity-[0.02]"
+            >
+               <AbstractBrowser variant="feature" theme="dark" className="w-full h-[300px] border-white/20" />
+            </motion.div>
+        </div>
+
+        <div className="container mx-auto px-4 flex justify-center relative z-10">
              <FooterContact 
                  title={
                    <span>
