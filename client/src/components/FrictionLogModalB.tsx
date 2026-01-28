@@ -73,10 +73,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 1</span>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">Monash University Homepage</h3>
-                  
-                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                    URL: https://www.monash.edu
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Monash University Homepage</h3>
+                    <a href="https://www.monash.edu" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-mono hover:text-[#006DAE] hover:underline block mt-1">
+                      https://www.monash.edu
+                    </a>
                   </div>
 
                   <div className="space-y-6">
@@ -99,10 +100,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 2</span>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">Pathway Information Search</h3>
-                  
-                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                    URL: https://www.monash.edu/study
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Pathway Information Search</h3>
+                    <a href="https://www.monash.edu/study" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-mono hover:text-[#006DAE] hover:underline block mt-1">
+                      https://www.monash.edu/study
+                    </a>
                   </div>
 
                   <div className="space-y-6">
@@ -132,10 +134,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 3</span>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">Entry Pathways for Domestic Students</h3>
-                  
-                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                    URL: https://www.monash.edu/study/courses/entry-pathways-domestic
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Entry Pathways for Domestic Students</h3>
+                    <a href="https://www.monash.edu/study/courses/entry-pathways-domestic" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-mono hover:text-[#006DAE] hover:underline block mt-1">
+                      https://www.monash.edu/study/courses/entry-pathways-domestic
+                    </a>
                   </div>
 
                   <div className="space-y-6">
@@ -165,10 +168,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 4</span>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">Monash College ATAR Requirements</h3>
-                  
-                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                    URL: https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Monash College ATAR Requirements</h3>
+                    <a href="https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-mono hover:text-[#006DAE] hover:underline block mt-1">
+                      https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements
+                    </a>
                   </div>
 
                   <div className="space-y-6">
@@ -191,10 +195,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 5</span>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">Destination Degrees & Scores</h3>
-                  
-                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                    URL: https://www.monashcollege.edu.au/study/courses/diplomas/destination-degrees
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Destination Degrees & Scores</h3>
+                    <a href="https://www.monashcollege.edu.au/study/courses/diplomas/destination-degrees" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-mono hover:text-[#006DAE] hover:underline block mt-1">
+                      https://www.monashcollege.edu.au/study/courses/diplomas/destination-degrees
+                    </a>
                   </div>
 
                   <div className="space-y-6">
@@ -224,10 +229,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                   <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 6</span>
                 </div>
                 <div className="space-y-4">
-                  <h3 className="text-xl font-bold text-slate-900">Application Process</h3>
-                  
-                  <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100">
-                    URL: https://www.monashcollege.edu.au/study/how-to-apply
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-900">Application Process</h3>
+                    <a href="https://www.monashcollege.edu.au/study/how-to-apply" target="_blank" rel="noopener noreferrer" className="text-sm text-slate-500 font-mono hover:text-[#006DAE] hover:underline block mt-1">
+                      https://www.monashcollege.edu.au/study/how-to-apply
+                    </a>
                   </div>
 
                   <div className="space-y-6">
