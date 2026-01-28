@@ -15,9 +15,10 @@ interface FooterContactProps {
   className?: string;
   stickyVisible?: boolean;
   backLink?: string;
+  alwaysSticky?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyVisible = true, backLink }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyVisible = true, backLink, alwaysSticky = false }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
@@ -31,7 +32,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
     return () => setMounted(false);
   }, []);
 
-  const showSticky = !isInView && stickyVisible;
+  const showSticky = alwaysSticky || (!isInView && stickyVisible);
 
   const onSubmit = (data: any) => {
     toast({

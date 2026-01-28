@@ -821,15 +821,8 @@ export default function Documentation() {
 
           {/* Footer */}
           <footer className="border-t border-slate-200 pt-8 mt-16">
-            <div className="flex items-center justify-between text-sm text-slate-400">
-              <div>
-                <p>Pathways Finder Information Architecture v2.0</p>
-                <p className="text-gray-600">Monash University Digital Strategy</p>
-              </div>
-              <div className="text-right">
-                <p>Last updated: January 2026</p>
-                <p className="text-gray-600">Document maintained by Product Design</p>
-              </div>
+            <div className="flex items-center justify-center text-sm text-slate-400">
+              <p>For demonstration purposes only. May not be reproduced without written permission.</p>
             </div>
           </footer>
         </main>
@@ -837,7 +830,8 @@ export default function Documentation() {
       
       <FooterContact 
         title={<span>Let's remove the <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent font-bold">friction</span>.</span>} 
-        backLink="/"
+        backLink="/work/monash"
+        alwaysSticky={true}
       />
     </div>
   );

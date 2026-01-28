@@ -7,7 +7,8 @@ export default function HiFi() {
       <PremiumPathwaysFinder />
       <FooterContact 
         title={<span>Let's remove the <span className="text-orange-500">friction</span>.</span>} 
-        backLink="/"
+        backLink="/work/monash"
+        alwaysSticky={true}
       />
     </>
   );
