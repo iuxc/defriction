@@ -391,13 +391,13 @@ function Year12PostcodeStep() {
             <div className="font-semibold text-gray-900">{postcodeData.region}</div>
             <div className="flex gap-4 mt-2">
               {postcodeData.isRegional && (
-                <span className="wire-state">Regional +{postcodeData.regionalBonus} pts</span>
+                <span className="wire-state bg-gray-600 text-white">Regional +{postcodeData.regionalBonus} pts</span>
               )}
               {postcodeData.isLowSES && (
-                <span className="wire-state">Low SES +{postcodeData.sesBonus} pts</span>
+                <span className="wire-state bg-gray-500 text-white">Low SES +{postcodeData.sesBonus} pts</span>
               )}
               {!postcodeData.isRegional && !postcodeData.isLowSES && (
-                <span className="wire-state">Metro (No bonus)</span>
+                <span className="wire-state bg-gray-300 text-gray-800">Metro (No bonus)</span>
               )}
             </div>
           </div>
@@ -451,14 +451,14 @@ function Year12CourseSelectStep() {
     switch (eligibility) {
       case 'eligible':
       case 'likely':
-        return 'bg-gray-800 text-white';
+        return 'bg-gray-900 text-white rounded-none';
       case 'borderline':
-        return 'bg-gray-500 text-white';
+        return 'bg-gray-600 text-white rounded-none';
       case 'unlikely':
       case 'ineligible':
-        return 'bg-gray-300 text-gray-700';
+        return 'bg-gray-200 text-gray-900 rounded-none border border-gray-300';
       default:
-        return 'bg-gray-200';
+        return 'bg-gray-200 text-gray-900 rounded-none';
     }
   };
   
@@ -543,11 +543,11 @@ function Year12CourseSelectStep() {
       <h2 className="font-semibold mb-4">Course Eligibility</h2>
       <div className="space-y-3 mb-6">
         {year12Results.map((result) => (
-          <div key={result.course.id} className="border border-gray-200 p-4">
+          <div key={result.course.id} className="border border-gray-200 p-4 bg-white">
             <div className="flex justify-between items-start mb-2">
               <div>
-                <div className="font-semibold">{result.course.name}</div>
-                <div className="text-sm text-gray-500">
+                <div className="font-semibold text-gray-900">{result.course.name}</div>
+                <div className="text-sm text-gray-600">
                   Cutoff: {result.course.cutoff} | VTAC: {result.course.vtacCode}
                 </div>
               </div>
@@ -595,24 +595,24 @@ function Year12CourseSelectStep() {
       </div>
       
       {/* Smart Route Output */}
-      <div className="bg-gray-100 border-2 border-gray-300 p-4 mb-6">
+      <div className="bg-gray-100 border-2 border-gray-300 p-4 mb-6 rounded-none">
         <span className="wire-label mb-2 block">Smart Route Output</span>
-        <div className="font-semibold mb-2">How to Apply (Year 12)</div>
+        <div className="font-semibold mb-2 text-gray-900">How to Apply (Year 12)</div>
         <p className="text-sm text-gray-600 mb-3">
           As a Year 12 student, apply through VTAC (Victorian Tertiary Admissions Centre).
         </p>
-        <Button className="gap-2">
+        <Button className="gap-2 rounded-none bg-gray-900 text-white hover:bg-black">
           <ExternalLink className="w-4 h-4" />
           Apply via VTAC
         </Button>
       </div>
       
       <div className="flex justify-between">
-        <Button variant="ghost" onClick={goBack} className="gap-2">
+        <Button variant="ghost" onClick={goBack} className="gap-2 rounded-none text-gray-900 hover:bg-gray-100">
           <ArrowLeft className="w-4 h-4" />
           Back
         </Button>
-        <Button onClick={() => goToStep('email-capture')} variant="outline" className="gap-2">
+        <Button onClick={() => goToStep('email-capture')} variant="outline" className="gap-2 rounded-none border-gray-900 text-gray-900 hover:bg-gray-100 hover:text-black">
           <Mail className="w-4 h-4" />
           Email My Results
         </Button>
