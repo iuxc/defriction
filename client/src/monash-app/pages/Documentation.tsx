@@ -83,15 +83,25 @@ export default function Documentation() {
   useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll('section[id]');
-      let current = 'introduction';
+      let current = '';
+      
       sections.forEach((section) => {
-        const sectionTop = (section as HTMLElement).offsetTop;
-        if (window.scrollY >= sectionTop - 100) {
-          current = section.getAttribute('id') || 'introduction';
+        const rect = section.getBoundingClientRect();
+        // If the top of the section is within the viewport (or above it)
+        // We use 150px offset to account for the header + some breathing room
+        if (rect.top <= 150) {
+          current = section.getAttribute('id') || '';
         }
       });
-      setActiveSection(current);
+
+      if (current) {
+        setActiveSection(current);
+      }
     };
+
+    // Run once on mount to set initial state correctly
+    handleScroll();
+
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
