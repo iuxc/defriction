@@ -271,7 +271,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                     <motion.div 
                       layoutId="title" 
                       className={cn(
-                        "font-display font-bold text-white leading-tight text-left flex items-center gap-4",
+                        "font-display font-bold text-white leading-tight text-left flex items-center gap-4 relative",
                         showSticky ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"
                       )}
                     >
@@ -279,7 +279,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                         
                         {/* Monash Prototype Switcher */}
                         {monashSwitcher && (
-                          <div className="relative pointer-events-auto">
+                          <div className="pointer-events-auto">
                             <button
                               onClick={(e) => {
                                 e.stopPropagation();
