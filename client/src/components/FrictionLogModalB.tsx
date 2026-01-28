@@ -64,166 +64,178 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               </div>
             </section>
 
-            {/* Journey Timeline */}
-            <div className="relative pl-12 space-y-12">
-              {/* Continuous Line */}
-              <div className="absolute left-[23px] top-4 bottom-4 w-0.5 bg-slate-300/50 rounded-full" />
+            {/* Journey Timeline - Reverted to Simpler Log A Style */}
+            <div className="space-y-16">
               
               {/* Step 1 */}
-              <div className="relative">
-                <div className="absolute -left-[49px] top-0 w-12 h-12 rounded-full bg-slate-900 border-[3px] border-[#F3F4F6] shadow-lg flex items-center justify-center text-white text-lg font-bold z-10 ring-1 ring-slate-900/10">1</div>
+              <section className="space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 1</span>
+                  <h3 className="text-xl font-bold text-slate-900">Monash University Homepage</h3>
+                </div>
                 
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">Monash University Homepage</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Finding</h4>
-                      <p className="text-slate-700 text-base leading-relaxed">User arrives looking for information on alternative entry methods.</p>
-                    </div>
-                    
-                    <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-5 flex gap-4">
-                      <div className="bg-blue-100 rounded-full p-2 h-fit shrink-0">
-                        <Info className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                         <div className="font-bold text-blue-900 text-sm mb-1">Observation</div>
-                         <p className="text-blue-800/80 text-sm leading-relaxed">The site provides a standard entry point for all prospective domestic students.</p>
-                      </div>
-                    </div>
+                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
+                  URL: https://www.monash.edu
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
+                      <li>The site provides a standard entry point for all prospective domestic students.</li>
+                      <li>User arrives looking for information on alternative entry methods.</li>
+                    </ul>
                   </div>
                 </div>
-              </div>
+              </section>
+
+              <hr className="border-slate-200" />
 
               {/* Step 2 */}
-              <div className="relative">
-                <div className="absolute -left-[49px] top-0 w-12 h-12 rounded-full bg-red-500 border-[3px] border-[#F3F4F6] shadow-lg flex items-center justify-center text-white text-lg font-bold z-10 ring-1 ring-red-500/20">2</div>
+              <section className="space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 2</span>
+                  <h3 className="text-xl font-bold text-slate-900">Pathway Information Search</h3>
+                </div>
                 
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">Pathway Information Search</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Finding</h4>
-                      <p className="text-slate-700 text-base leading-relaxed">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
-                    </div>
-                    
-                    <div className="bg-red-50/50 border border-red-100 rounded-xl p-5 flex gap-4">
-                      <div className="bg-red-100 rounded-full p-2 h-fit shrink-0">
-                        <AlertCircle className="w-5 h-5 text-red-600" />
-                      </div>
-                      <div>
-                         <div className="font-bold text-red-900 text-sm mb-1">Friction: Broken Links</div>
-                         <p className="text-red-800/80 text-sm leading-relaxed">Multiple 404 errors were encountered when trying to access <code className="bg-red-100 px-1.5 py-0.5 rounded text-xs font-mono font-bold mx-1">/study/how-to-apply/pathways</code>, forcing a return to Google.</p>
-                      </div>
-                    </div>
+                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
+                  URL: https://www.monash.edu/study
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                    <p className="text-slate-600 text-sm">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
+                  </div>
+
+                  <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
+                      <AlertCircle className="w-5 h-5" />
+                      Friction Point: Broken Links
+                    </h4>
+                    <p className="text-slate-700 text-sm">
+                      Multiple 404 errors were encountered when trying to access <code className="bg-red-100 px-1 py-0.5 rounded text-xs font-mono">/study/how-to-apply/pathways</code>, forcing a return to Google.
+                    </p>
                   </div>
                 </div>
-              </div>
+              </section>
+
+              <hr className="border-slate-200" />
 
               {/* Step 3 */}
-              <div className="relative">
-                <div className="absolute -left-[49px] top-0 w-12 h-12 rounded-full bg-orange-500 border-[3px] border-[#F3F4F6] shadow-lg flex items-center justify-center text-white text-lg font-bold z-10 ring-1 ring-orange-500/20">3</div>
+              <section className="space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 3</span>
+                  <h3 className="text-xl font-bold text-slate-900">Entry Pathways for Domestic Students</h3>
+                </div>
                 
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">Entry Pathways for Domestic Students Page</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Finding</h4>
-                      <p className="text-slate-700 text-base leading-relaxed">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
-                    </div>
-                    
-                    <div className="bg-orange-50/50 border border-orange-100 rounded-xl p-5 flex gap-4">
-                      <div className="bg-orange-100 rounded-full p-2 h-fit shrink-0">
-                        <AlertTriangle className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <div>
-                         <div className="font-bold text-orange-900 text-sm mb-1">Friction: Information Overload</div>
-                         <p className="text-orange-800/80 text-sm leading-relaxed">No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.</p>
-                      </div>
-                    </div>
+                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
+                  URL: https://www.monash.edu/study/courses/entry-pathways-domestic
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                    <p className="text-slate-600 text-sm">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
+                  </div>
+
+                  <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                    <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5" />
+                      Friction Point: Information Overload
+                    </h4>
+                    <p className="text-slate-700 text-sm">
+                      No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
+                    </p>
                   </div>
                 </div>
-              </div>
+              </section>
+
+              <hr className="border-slate-200" />
 
               {/* Step 4 */}
-              <div className="relative">
-                <div className="absolute -left-[49px] top-0 w-12 h-12 rounded-full bg-slate-900 border-[3px] border-[#F3F4F6] shadow-lg flex items-center justify-center text-white text-lg font-bold z-10 ring-1 ring-slate-900/10">4</div>
+              <section className="space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 4</span>
+                  <h3 className="text-xl font-bold text-slate-900">Monash College ATAR Requirements</h3>
+                </div>
                 
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">Monash College ATAR Requirements</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Finding</h4>
-                      <p className="text-slate-700 text-base leading-relaxed">User moves to the College-specific page to check entry scores.</p>
-                    </div>
-                    
-                    <div className="bg-blue-50/50 border border-blue-100 rounded-xl p-5 flex gap-4">
-                      <div className="bg-blue-100 rounded-full p-2 h-fit shrink-0">
-                        <Info className="w-5 h-5 text-blue-600" />
-                      </div>
-                      <div>
-                         <div className="font-bold text-blue-900 text-sm mb-1">Observation</div>
-                         <p className="text-blue-800/80 text-sm leading-relaxed">Requirements for Part 1 and Part 2 diplomas are clearly listed by ATAR score.</p>
-                      </div>
-                    </div>
+                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
+                  URL: https://www.monashcollege.edu.au/study/courses/diplomas/entry-requirements
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                    <ul className="list-disc list-outside ml-4 space-y-2 text-slate-600 text-sm">
+                      <li>User moves to the College-specific page to check entry scores.</li>
+                      <li>Requirements for Part 1 and Part 2 diplomas are clearly listed by ATAR score.</li>
+                    </ul>
                   </div>
                 </div>
-              </div>
+              </section>
+
+              <hr className="border-slate-200" />
 
               {/* Step 5 */}
-              <div className="relative">
-                <div className="absolute -left-[49px] top-0 w-12 h-12 rounded-full bg-red-500 border-[3px] border-[#F3F4F6] shadow-lg flex items-center justify-center text-white text-lg font-bold z-10 ring-1 ring-red-500/20">5</div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">Destination Degrees & Scores</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Finding</h4>
-                      <p className="text-slate-700 text-base leading-relaxed">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
-                    </div>
-                    
-                    <div className="bg-red-50/50 border border-red-100 rounded-xl p-5 flex gap-4">
-                      <div className="bg-red-100 rounded-full p-2 h-fit shrink-0">
-                        <AlertCircle className="w-5 h-5 text-red-600" />
-                      </div>
-                      <div>
-                         <div className="font-bold text-red-900 text-sm mb-1">Friction: Navigation Complexity</div>
-                         <p className="text-red-800/80 text-sm leading-relaxed">Extensive "Dropdown" menus make it difficult to compare requirements across different degree options.</p>
-                      </div>
-                    </div>
-                  </div>
+              <section className="space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 5</span>
+                  <h3 className="text-xl font-bold text-slate-900">Destination Degrees & Scores</h3>
                 </div>
-              </div>
+                
+                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
+                  URL: https://www.monashcollege.edu.au/study/courses/diplomas/destination-degrees
+                </div>
 
-               {/* Step 6 */}
-               <div className="relative">
-                <div className="absolute -left-[49px] top-0 w-12 h-12 rounded-full bg-orange-500 border-[3px] border-[#F3F4F6] shadow-lg flex items-center justify-center text-white text-lg font-bold z-10 ring-1 ring-orange-500/20">6</div>
-                
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-slate-200/60 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold text-slate-900 mb-6">Application Process</h3>
-                  
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-2">Finding</h4>
-                      <p className="text-slate-700 text-base leading-relaxed">Instructions for applying through VTAC for the February intake.</p>
-                    </div>
-                    
-                    <div className="bg-orange-50/50 border border-orange-100 rounded-xl p-5 flex gap-4">
-                      <div className="bg-orange-100 rounded-full p-2 h-fit shrink-0">
-                        <AlertTriangle className="w-5 h-5 text-orange-600" />
-                      </div>
-                      <div>
-                         <div className="font-bold text-orange-900 text-sm mb-1">Friction: Administrative Ambiguity</div>
-                         <p className="text-orange-800/80 text-sm leading-relaxed">No mention of mandatory VTAC application fees, and the Docklands campus location is not prominent until the end of the journey.</p>
-                      </div>
-                    </div>
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                    <p className="text-slate-600 text-sm">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
+                  </div>
+
+                  <div className="bg-red-50 p-6 rounded-xl border border-red-100">
+                    <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
+                      <AlertCircle className="w-5 h-5" />
+                      Friction Point: Navigation Complexity
+                    </h4>
+                    <p className="text-slate-700 text-sm">
+                      Extensive "Dropdown" menus make it difficult to compare requirements across different degree options.
+                    </p>
                   </div>
                 </div>
-              </div>
+              </section>
+
+              <hr className="border-slate-200" />
+
+              {/* Step 6 */}
+              <section className="space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="bg-slate-900 text-white text-xs font-bold px-2 py-1 rounded">STEP 6</span>
+                  <h3 className="text-xl font-bold text-slate-900">Application Process</h3>
+                </div>
+                
+                <div className="text-sm text-slate-500 font-mono bg-slate-50 px-3 py-2 rounded border border-slate-100 mb-4">
+                  URL: https://www.monashcollege.edu.au/study/how-to-apply
+                </div>
+
+                <div className="space-y-6">
+                  <div>
+                    <h4 className="font-bold text-slate-900 mb-2">Observations</h4>
+                    <p className="text-slate-600 text-sm">Instructions for applying through VTAC for the February intake.</p>
+                  </div>
+
+                  <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                    <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
+                      <AlertTriangle className="w-5 h-5" />
+                      Friction Point: Administrative Ambiguity
+                    </h4>
+                    <p className="text-slate-700 text-sm">
+                      No mention of mandatory VTAC application fees, and the Docklands campus location is not prominent until the end of the journey.
+                    </p>
+                  </div>
+                </div>
+              </section>
 
             </div>
 
