@@ -185,7 +185,7 @@ export default function MonashCaseStudy() {
       </section>
 
       {/* 1. The Friction (The Problem) */}
-      <Section id="friction">
+      <Section id="friction" className="border-t border-white/5">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div 
               variants={stagger}
@@ -275,7 +275,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 2. The Insight (The Strategy) */}
-      <Section id="insight">
+      <Section id="insight" className="border-t border-white/5 bg-black/20">
         <motion.div 
           className="grid lg:grid-cols-2 gap-20 items-center"
           variants={stagger}
@@ -308,7 +308,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 3. The Solution (Interactive) */}
-      <Section id="solution">
+      <Section id="solution" className="border-t border-white/5">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
             <motion.div 
                initial="initial"
@@ -433,7 +433,7 @@ export default function MonashCaseStudy() {
       </Section>
 
       {/* 4. The Gallery */}
-      <Section id="gallery">
+      <Section id="gallery" className="border-t border-white/5 bg-black/20">
         <motion.div 
           className="space-y-16"
           initial="initial"
@@ -526,33 +526,38 @@ export default function MonashCaseStudy() {
         </motion.div>
       </Section>
 
-      <footer id="footer" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-end">
+      {/* CTA Section */}
+      <div className="py-32 bg-deep-basalt border-t border-white/5">
+        <div className="container mx-auto px-4 flex justify-center">
+             <FooterContact 
+                 title={
+                   <>
+                     Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
+                   </>
+                 } 
+                 stickyVisible={isPastHero}
+                 className="max-w-4xl"
+               />
+        </div>
+      </div>
+
+      <footer id="footer" className="py-8 bg-black border-t border-white/10">
          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="container mx-auto px-4 text-left w-full"
+            className="container mx-auto px-4 text-left"
           >
-           
-           <p className="font-mono text-xs text-gray-600 mt-12">
+           <p className="font-mono text-xs text-gray-600">
              <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
                brian@defriction.design
              </a>
-             <br /><br />
+           </p>
+           <p className="font-mono text-xs text-gray-600 mt-2">
              © 2026 defriction design. MELBOURNE / EUGENE.
            </p>
          </motion.div>
-
-         {/* Footer Contact - Moved outside motion.div to prevent lazy loading issues */}
-         <FooterContact 
-             title={
-               <>
-                 Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
-               </>
-             } 
-             stickyVisible={isPastHero}
-           />
       </footer>
     </div>
   );
