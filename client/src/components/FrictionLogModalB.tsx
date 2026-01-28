@@ -16,7 +16,7 @@ interface FrictionLogModalBProps {
 export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps) {
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl h-[85vh] p-0 gap-0 bg-white text-slate-900 border-none overflow-hidden flex flex-col">
+      <DialogContent className="w-fit max-w-3xl h-[85vh] p-0 gap-0 bg-white text-slate-900 border-none overflow-hidden flex flex-col mx-auto">
         <div className="relative z-10 flex-none p-6 border-b border-slate-100 bg-white/80 backdrop-blur-md">
           <div className="absolute right-4 top-4">
             <button 
@@ -30,7 +30,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             <DialogTitle className="text-2xl font-display font-bold text-slate-900 mb-1">
               User B Friction Log
             </DialogTitle>
-            <DialogDescription className="text-lg font-medium text-monash-blue">
+            <DialogDescription className="text-lg font-medium text-[#A3CC00]">
               Year 12 Student with Low ATAR (60.00)
             </DialogDescription>
           </DialogHeader>
@@ -40,20 +40,20 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
           <div className="p-8 max-w-3xl mx-auto space-y-12">
             
             {/* User Profile */}
-            <section className="bg-slate-50 p-6 rounded-xl border border-slate-100">
-              <h3 className="text-sm font-bold uppercase tracking-wider text-slate-500 mb-4">Persona Profile</h3>
+            <section className="bg-[#0B0F19] p-6 rounded-xl border border-slate-800 text-white shadow-xl">
+              <h3 className="text-sm font-bold uppercase tracking-wider text-[#A3CC00] mb-4">Persona Profile</h3>
               <div className="grid md:grid-cols-2 gap-y-4 gap-x-8">
                 <div>
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Background</div>
-                  <div className="text-slate-900 font-medium">Victorian Year 12 student</div>
+                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Background</div>
+                  <div className="text-white font-medium">Victorian Year 12 student</div>
                 </div>
                 <div>
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">ATAR</div>
-                  <div className="text-slate-900 font-medium">60.00 (below typical direct entry requirements)</div>
+                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">ATAR</div>
+                  <div className="text-white font-medium">60.00 (below typical direct entry requirements)</div>
                 </div>
                 <div className="md:col-span-2">
-                  <div className="text-xs font-semibold text-slate-400 uppercase tracking-wider mb-1">Goal</div>
-                  <div className="text-slate-900 font-medium">Find a pathway to a Monash degree via a Monash College diploma.</div>
+                  <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-1">Goal</div>
+                  <div className="text-white font-medium">Find a pathway to a Monash degree via a Monash College diploma.</div>
                 </div>
               </div>
             </section>
@@ -63,18 +63,12 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               
               {/* Step 1 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-slate-900 border-4 border-white shadow-sm" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Step 1: Monash University Homepage</h3>
+                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-slate-900 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">1</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Monash University Homepage</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <Search className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm mb-1">Finding</div>
-                        <p className="text-slate-600 text-sm leading-relaxed">User arrives looking for information on alternative entry methods.</p>
-                      </div>
-                    </div>
+                  <div className="pl-1">
+                    <p className="text-slate-700 text-base leading-relaxed">User arrives looking for information on alternative entry methods.</p>
                   </div>
                   
                   <div className="bg-blue-50 border border-blue-100 p-4 rounded-lg">
@@ -91,18 +85,12 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 2 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-red-500 border-4 border-white shadow-sm" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Step 2: Pathway Information Search</h3>
+                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">2</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Pathway Information Search</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <MousePointerClick className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm mb-1">Finding</div>
-                        <p className="text-slate-600 text-sm leading-relaxed">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
-                      </div>
-                    </div>
+                  <div className="pl-1">
+                    <p className="text-slate-700 text-base leading-relaxed">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
                   </div>
                   
                   <div className="bg-red-50 border border-red-100 p-4 rounded-lg">
@@ -119,18 +107,12 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 3 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-orange-500 border-4 border-white shadow-sm" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Step 3: Entry Pathways for Domestic Students Page</h3>
+                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">3</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Entry Pathways for Domestic Students Page</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <FileQuestion className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm mb-1">Finding</div>
-                        <p className="text-slate-600 text-sm leading-relaxed">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
-                      </div>
-                    </div>
+                  <div className="pl-1">
+                    <p className="text-slate-700 text-base leading-relaxed">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
                   </div>
                   
                   <div className="bg-orange-50 border border-orange-100 p-4 rounded-lg">
@@ -147,18 +129,12 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 4 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-slate-900 border-4 border-white shadow-sm" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Step 4: Monash College ATAR Requirements</h3>
+                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-slate-900 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">4</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Monash College ATAR Requirements</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <Search className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm mb-1">Finding</div>
-                        <p className="text-slate-600 text-sm leading-relaxed">User moves to the College-specific page to check entry scores.</p>
-                      </div>
-                    </div>
+                  <div className="pl-1">
+                    <p className="text-slate-700 text-base leading-relaxed">User moves to the College-specific page to check entry scores.</p>
                   </div>
                   
                   <div className="bg-blue-50 border border-blue-100 p-4 rounded-lg">
@@ -175,18 +151,12 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 5 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-red-500 border-4 border-white shadow-sm" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Step 5: Destination Degrees & Scores</h3>
+                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">5</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Destination Degrees & Scores</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <MousePointerClick className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm mb-1">Finding</div>
-                        <p className="text-slate-600 text-sm leading-relaxed">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
-                      </div>
-                    </div>
+                  <div className="pl-1">
+                    <p className="text-slate-700 text-base leading-relaxed">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
                   </div>
                   
                   <div className="bg-red-50 border border-red-100 p-4 rounded-lg">
@@ -203,18 +173,12 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
                {/* Step 6 */}
                <div className="relative">
-                <div className="absolute -left-[41px] top-0 w-5 h-5 rounded-full bg-orange-500 border-4 border-white shadow-sm" />
-                <h3 className="text-xl font-bold text-slate-900 mb-2">Step 6: Application Process</h3>
+                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">6</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-2">Application Process</h3>
                 
                 <div className="space-y-4">
-                  <div className="bg-white border border-slate-200 p-4 rounded-lg shadow-sm">
-                    <div className="flex items-start gap-3">
-                      <FileQuestion className="w-5 h-5 text-slate-400 mt-0.5 shrink-0" />
-                      <div>
-                        <div className="font-semibold text-slate-900 text-sm mb-1">Finding</div>
-                        <p className="text-slate-600 text-sm leading-relaxed">Instructions for applying through VTAC for the February intake.</p>
-                      </div>
-                    </div>
+                  <div className="pl-1">
+                    <p className="text-slate-700 text-base leading-relaxed">Instructions for applying through VTAC for the February intake.</p>
                   </div>
                   
                   <div className="bg-orange-50 border border-orange-100 p-4 rounded-lg">
