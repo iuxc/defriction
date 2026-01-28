@@ -524,10 +524,10 @@ export default function MonashCaseStudy() {
              {/* 1. Information Architecture */}
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
-                  className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
+                  className="aspect-[4/3] bg-[#0B0F19] rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
                   onClick={() => setLocation('/monash/prototype/docs')}
                 >
-                  <AbstractBrowser variant="ia-map" theme="light" className="w-full h-full border-0 bg-transparent" />
+                  <AbstractBrowser variant="ia-map" theme="dark" className="w-full h-full border-0 bg-transparent" />
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
@@ -547,10 +547,10 @@ export default function MonashCaseStudy() {
              {/* 2. Low-Fidelity Wireframe */}
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
-                  className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
+                  className="aspect-[4/3] bg-[#0B0F19] rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
                   onClick={() => setLocation('/monash/prototype')}
                 >
-                   <AbstractBrowser variant="wireframe" theme="light" className="w-full h-full border-0 bg-transparent" />
+                   <AbstractBrowser variant="wireframe" theme="dark" className="w-full h-full border-0 bg-transparent" />
                 </div>
                 <div className="flex items-end justify-between">
                    <div>
@@ -570,13 +570,13 @@ export default function MonashCaseStudy() {
              {/* 3. High-Fidelity UI */}
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
-                  className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8 cursor-pointer"
+                  className="aspect-[4/3] bg-[#0B0F19] rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8 cursor-pointer"
                   onClick={() => setLocation('/monash/prototype/hifi')}
                 >
                    <img 
                      src="/assets/images/monash-shield.png" 
                      alt="Monash University Shield" 
-                     className="w-full h-auto object-contain max-w-[240px]"
+                     className="w-full h-auto object-contain max-w-[240px] opacity-80 group-hover:opacity-100 transition-opacity"
                    />
                 </div>
                 <div className="flex items-end justify-between">
