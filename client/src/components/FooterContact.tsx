@@ -272,6 +272,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                 )}>
                     <motion.div 
                       layoutId="title" 
+                      style={{ textShadow: "0 1px 0 #000" }}
                       className={cn(
                         "font-display font-bold text-white leading-tight text-left flex items-center gap-4 relative",
                         isCompact ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"
