@@ -837,7 +837,7 @@ export default function Documentation() {
         } 
         backLink="/work/monash"
         alwaysSticky={true}
-        stickyClassName="bg-[#050505] shadow-2xl border-white/10"
+        stickyClassName="bg-deep-basalt/90 backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
         monashSwitcher={true}
       />
     </div>
