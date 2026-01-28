@@ -62,19 +62,9 @@ export function Method() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.5 }}
-              className={`glass-card p-1 rounded-2xl relative overflow-hidden group hover:!border-transparent flex flex-col h-full`}
+              className={`glass-card p-1 rounded-2xl relative overflow-hidden group flex flex-col h-full`}
+              style={{ "--glass-border-color": "212, 255, 0" } as React.CSSProperties}
             >
-               {/* Gradient Border Overlay */}
-               <div 
-                 className="absolute inset-0 rounded-2xl p-[1px] bg-gradient-to-r from-volt-lime to-green-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
-                 style={{
-                   mask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                   maskComposite: 'exclude',
-                   WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-                   WebkitMaskComposite: 'xor'
-                 }}
-               />
-
                {/* Inner Glow */}
               <div className={`absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl ${method.gradient} opacity-20 rounded-full blur-3xl -mr-16 -mt-16 transition-opacity group-hover:opacity-40`} />
               
