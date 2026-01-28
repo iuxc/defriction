@@ -96,7 +96,7 @@ function WelcomeStep() {
               }}
             />
             <div>
-              <div className="font-semibold">I am a Domestic Student</div>
+              <div className="font-semibold text-slate-900">I am a Domestic Student</div>
               <div className="text-sm text-gray-500">Australian citizen, permanent resident, or NZ citizen</div>
             </div>
           </Label>
@@ -114,7 +114,7 @@ function WelcomeStep() {
               }}
             />
             <div>
-              <div className="font-semibold">I am an International Student</div>
+              <div className="font-semibold text-slate-900">I am an International Student</div>
               <div className="text-sm text-gray-500">Studying on a student visa</div>
             </div>
           </Label>
@@ -186,7 +186,7 @@ function StatusSelectStep() {
             goToStep('year12-atar-type');
           }}
         >
-          <div className="font-semibold">Year 12 Student</div>
+          <div className="font-semibold text-slate-900">Year 12 Student</div>
           <div className="text-sm text-gray-500">Currently completing or recently completed Year 12 with an ATAR</div>
         </div>
         
@@ -197,7 +197,7 @@ function StatusSelectStep() {
             goToStep('mature-qualification');
           }}
         >
-          <div className="font-semibold">Mature Age / TAFE Graduate</div>
+          <div className="font-semibold text-slate-900">Mature Age / TAFE Graduate</div>
           <div className="text-sm text-gray-500">Completed a TAFE diploma, certificate, or have work experience</div>
         </div>
       </div>
@@ -234,7 +234,7 @@ function Year12AtarTypeStep() {
             goToStep('year12-atar-input');
           }}
         >
-          <div className="font-semibold">Yes, I have my actual ATAR</div>
+          <div className="font-semibold text-slate-900">Yes, I have my actual ATAR</div>
           <div className="text-sm text-gray-500">I know my exact score (e.g., 75.50)</div>
         </div>
         
@@ -245,7 +245,7 @@ function Year12AtarTypeStep() {
             goToStep('year12-atar-input');
           }}
         >
-          <div className="font-semibold">No, I'm estimating / predicting</div>
+          <div className="font-semibold text-slate-900">No, I'm estimating / predicting</div>
           <div className="text-sm text-gray-500">I'll select a range based on my expected results</div>
         </div>
       </div>
@@ -318,7 +318,7 @@ function Year12AtarInputStep() {
             {ranges.map(range => (
               <div key={range.id} className="flex items-center space-x-3 p-3 border border-gray-200 hover:border-gray-400 mb-2">
                 <RadioGroupItem value={range.id} id={range.id} />
-                <Label htmlFor={range.id} className="flex-1 cursor-pointer">
+                <Label htmlFor={range.id} className="flex-1 cursor-pointer text-slate-900">
                   {range.label}
                 </Label>
               </div>
@@ -653,7 +653,7 @@ function MatureQualificationStep() {
             <div key={qual.id} className="flex items-center space-x-3 p-3 border border-gray-200 hover:border-gray-400 mb-2">
               <RadioGroupItem value={qual.id} id={qual.id} />
               <Label htmlFor={qual.id} className="flex-1 cursor-pointer">
-                <div>{qual.name}</div>
+                <div className="text-slate-900">{qual.name}</div>
                 <div className="text-sm text-gray-500">{qual.field} • {qual.level.replace('-', ' ').replace(/\b\w/g, l => l.toUpperCase())}</div>
               </Label>
             </div>
