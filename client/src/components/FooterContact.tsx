@@ -13,13 +13,14 @@ import { cn } from "@/lib/utils";
 interface FooterContactProps {
   title?: React.ReactNode;
   className?: string;
+  stickyClassName?: string;
   stickyVisible?: boolean;
   backLink?: string;
   alwaysSticky?: boolean;
   withGradientShadow?: boolean;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
   const { toast } = useToast();
@@ -179,7 +180,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyVisi
                   "rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 overflow-hidden cursor-pointer",
                   // When NOT in view (scrolling), fix to bottom
                   showSticky 
-                    ? "fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90 block" 
+                    ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-deep-basalt/90 block", stickyClassName)
                     : "mx-auto max-w-3xl relative"
                 )}
                 // Orange glow when sticky
