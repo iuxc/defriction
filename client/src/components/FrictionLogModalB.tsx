@@ -44,7 +44,6 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#A3CC00]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-[#A3CC00]/20 transition-all duration-700" />
               
               <h3 className="relative z-10 text-xs font-bold uppercase tracking-widest text-[#A3CC00] mb-6 flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-[#A3CC00]" />
                 Persona Profile
               </h3>
               
