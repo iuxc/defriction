@@ -248,7 +248,7 @@ export default function MonashCaseStudy() {
                <div className="relative flex flex-col items-center justify-center w-full gap-8">
                    <AbstractBrowser variant="infinite-pdf" className="w-full max-w-xl shadow-2xl h-[400px]" />
                    
-                   <p className="text-sm text-gray-500 font-mono text-center max-w-md">
+                   <p className="text-xs text-gray-500 text-center max-w-md">
                      Rather than providing dynamic, searchable answers, the system often directs prospects to monolithic PDFs.
                    </p>
 
