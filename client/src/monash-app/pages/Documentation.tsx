@@ -836,7 +836,7 @@ export default function Documentation() {
       </div>
       
       <FooterContact 
-        title={<span>Let's remove the <span className="text-orange-500">friction</span>.</span>} 
+        title={<span>Let's remove the <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent font-bold">friction</span>.</span>} 
         backLink="/"
       />
     </div>
