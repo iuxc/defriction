@@ -11,7 +11,7 @@ import {
   courses,
   tafeQualifications,
   atarRanges
-} from '@/data/mockData';
+} from '../data/mockData';
 
 // User status types
 export type UserStatus = 'year12' | 'mature-age' | null;

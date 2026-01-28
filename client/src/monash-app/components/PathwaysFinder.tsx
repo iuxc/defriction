@@ -1,8 +1,8 @@
-import { usePathways, type Step } from '@/contexts/PathwaysContext';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { usePathways, type Step } from '../contexts/PathwaysContext';
+import { Button } from './ui/button';
+import { Input } from './ui/input';
+import { Label } from './ui/label';
+import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { ArrowLeft, ArrowRight, RotateCcw, Mail, ExternalLink, MessageCircle, Calendar } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
