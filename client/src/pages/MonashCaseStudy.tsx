@@ -19,7 +19,7 @@ const Section = ({
   nextId?: string, 
   className?: string 
 }) => (
-  <section id={id} className={`relative flex flex-col justify-center py-20 ${className}`}>
+  <section id={id} className={`relative flex flex-col justify-center py-28 ${className}`}>
     <div className="container mx-auto px-4 relative z-10">
       {children}
     </div>
@@ -526,13 +526,13 @@ export default function MonashCaseStudy() {
         </motion.div>
       </Section>
 
-      <footer id="footer" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-center justify-center">
+      <footer id="footer" className="py-24 border-t border-white/10 bg-black/20 min-h-[50vh] flex items-end justify-start">
          <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="container mx-auto px-4 text-center"
+            className="container mx-auto px-4 text-left"
           >
            
            <p className="font-mono text-xs text-gray-600 mt-12">

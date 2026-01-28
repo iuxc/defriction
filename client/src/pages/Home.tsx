@@ -15,7 +15,7 @@ export default function Home() {
       <About />
       <Contact />
       
-      <footer className="py-8 bg-black text-center border-t border-white/10">
+      <footer className="py-8 bg-black text-left px-4 md:px-8 border-t border-white/10">
         <p className="font-mono text-xs text-gray-600">
           <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
             brian@defriction.design
