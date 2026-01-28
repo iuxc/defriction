@@ -64,7 +64,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             </section>
 
             {/* Journey Timeline - Reverted to Simpler Log A Style */}
-            <div className="space-y-8 pl-8">
+            <div className="space-y-8 px-8">
               
               {/* Step 1 */}
               <section className="grid grid-cols-[max-content_1fr] gap-x-4">
