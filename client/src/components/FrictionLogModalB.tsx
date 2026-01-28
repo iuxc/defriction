@@ -59,11 +59,11 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             </section>
 
             {/* Journey Timeline */}
-            <div className="relative pl-8 border-l-2 border-slate-100 space-y-16">
+            <div className="relative pl-16 border-l-2 border-slate-100 space-y-16">
               
               {/* Step 1 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-slate-900 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">1</div>
+                <div className="absolute -left-[89px] top-0 w-12 h-12 rounded-full bg-slate-900 border-4 border-white shadow-sm flex items-center justify-center text-white text-lg font-bold z-10">1</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Monash University Homepage</h3>
                 
                 <div className="space-y-4">
@@ -85,7 +85,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 2 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">2</div>
+                <div className="absolute -left-[89px] top-0 w-12 h-12 rounded-full bg-red-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-lg font-bold z-10">2</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Pathway Information Search</h3>
                 
                 <div className="space-y-4">
@@ -107,7 +107,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 3 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">3</div>
+                <div className="absolute -left-[89px] top-0 w-12 h-12 rounded-full bg-orange-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-lg font-bold z-10">3</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Entry Pathways for Domestic Students Page</h3>
                 
                 <div className="space-y-4">
@@ -129,7 +129,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 4 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-slate-900 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">4</div>
+                <div className="absolute -left-[89px] top-0 w-12 h-12 rounded-full bg-slate-900 border-4 border-white shadow-sm flex items-center justify-center text-white text-lg font-bold z-10">4</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Monash College ATAR Requirements</h3>
                 
                 <div className="space-y-4">
@@ -151,7 +151,7 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
               {/* Step 5 */}
               <div className="relative">
-                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-red-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">5</div>
+                <div className="absolute -left-[89px] top-0 w-12 h-12 rounded-full bg-red-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-lg font-bold z-10">5</div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Destination Degrees & Scores</h3>
                 
                 <div className="space-y-4">
@@ -173,7 +173,10 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
 
                {/* Step 6 */}
                <div className="relative">
-                <div className="absolute -left-[41px] top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-xs font-bold">6</div>
+                <div className="absolute -left-[89px] top-0 w-12 h-12 rounded-full bg-orange-500 border-4 border-white shadow-sm flex items-center justify-center text-white text-lg font-bold z-10">6</div>
+                {/* Mask to hide bottom line */}
+                <div className="absolute -left-[67px] top-[48px] bottom-[-200px] w-[6px] bg-white z-0" />
+                
                 <h3 className="text-xl font-bold text-slate-900 mb-2">Application Process</h3>
                 
                 <div className="space-y-4">
