@@ -43,7 +43,7 @@ export function FrictionLogModal({ open, onOpenChange }: FrictionLogModalProps) 
             <section className="bg-[#0B0F19] p-8 rounded-3xl border border-slate-800 text-white shadow-xl mb-16 relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#006DAE]/20 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/2 group-hover:bg-[#006DAE]/30 transition-all duration-700" />
               
-              <h3 className="relative z-10 text-xs font-bold uppercase tracking-widest text-[#006DAE] mb-6 flex items-center gap-2">
+              <h3 className="relative z-10 text-xs font-bold uppercase tracking-widest text-[#A3CC00] mb-6 flex items-center gap-2">
                 Persona Profile
               </h3>
               
