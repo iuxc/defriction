@@ -56,6 +56,7 @@ const navSections = [
   },
 ];
 import { FooterContact } from '@/components/FooterContact';
+import { MonashSwitcher } from "@/components/MonashSwitcher";
 
 export default function Documentation() {
   const [searchOpen, setSearchOpen] = useState(false);
