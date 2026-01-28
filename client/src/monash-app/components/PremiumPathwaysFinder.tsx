@@ -1310,18 +1310,22 @@ export default function PremiumPathwaysFinder() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-slate-200 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <Link href="/" className="text-sm text-slate-600 hover:text-monash-blue transition-colors flex items-center gap-1">
-              <FileText className="w-4 h-4" />
-              Wireframe
+            <Link href="/">
+              <a className="text-sm text-slate-600 hover:text-monash-blue transition-colors flex items-center gap-1">
+                <FileText className="w-4 h-4" />
+                Wireframe
+              </a>
             </Link>
           </div>
           <div className="absolute left-1/2 transform -translate-x-1/2">
             <img src="/images/monash-logo.png" alt="Monash University" className="h-8" />
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/docs" className="text-sm text-slate-600 hover:text-monash-blue transition-colors flex items-center gap-1">
-              <BookOpen className="w-4 h-4" />
-              IA Docs
+            <Link href="/docs">
+              <a className="text-sm text-slate-600 hover:text-monash-blue transition-colors flex items-center gap-1">
+                <BookOpen className="w-4 h-4" />
+                IA Docs
+              </a>
             </Link>
           </div>
         </div>

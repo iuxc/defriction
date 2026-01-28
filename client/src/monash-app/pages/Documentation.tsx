@@ -55,6 +55,7 @@ const navSections = [
     ]
   },
 ];
+import { Link } from "wouter";
 
 export default function Documentation() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -137,12 +138,16 @@ export default function Documentation() {
             <kbd className="ml-auto px-2 py-0.5 text-xs bg-white border border-slate-200">⌘K</kbd>
           </button>
           
-          <a href="/" className="text-sm text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1">
-            Wireframe <ExternalLink className="w-3 h-3" />
-          </a>
-          <a href="/hifi" className="text-sm text-monash-blue hover:text-electric-sky transition-colors flex items-center gap-1">
-            Premium HiFi <ExternalLink className="w-3 h-3" />
-          </a>
+          <Link href="/">
+            <a className="text-sm text-slate-500 hover:text-slate-900 transition-colors flex items-center gap-1">
+              Wireframe <ExternalLink className="w-3 h-3" />
+            </a>
+          </Link>
+          <Link href="/hifi">
+            <a className="text-sm text-monash-blue hover:text-electric-sky transition-colors flex items-center gap-1">
+              Premium HiFi <ExternalLink className="w-3 h-3" />
+            </a>
+          </Link>
         </div>
       </header>
 
