@@ -65,7 +65,7 @@ export default function MonashCaseStudy() {
 
   return (
     <div className="bg-deep-basalt text-white selection:bg-volt-lime selection:text-black font-sans overflow-x-hidden">
-      <Navigation />
+      <Navigation forcedActive="work" />
       {/* Hero Section */}
       <section id="hero" className="min-h-screen relative flex items-center pt-20 overflow-hidden">
         {/* Background Elements */}
@@ -94,7 +94,7 @@ export default function MonashCaseStudy() {
               >
                 <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
                   From <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Gatekeeper</span> <br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet">Gatekeeper</span> <br />
                   to <span className="text-white">Concierge.</span>
                 </h1>
               </motion.div>
@@ -112,15 +112,30 @@ export default function MonashCaseStudy() {
               <motion.div 
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="mb-2"
+              >
+                 <Button 
+                    className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
+                    onClick={() => setLocation('/monash/prototype/hifi')}
+                 >
+                    Launch Interactive Demo
+                    <ExternalLink className="ml-2 w-4 h-4" />
+                 </Button>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="flex flex-col sm:flex-row gap-12 mb-10 pt-8 mt-8 border-t border-white/10"
               >
                 <div>
-                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Client</h3>
+                   <h3 className="text-xs font-mono text-volt-lime mb-2 uppercase tracking-widest">Client</h3>
                    <a href="https://monash.edu" target="_blank" rel="noopener noreferrer" className="text-white font-medium hover:text-cyan-400 transition-colors">Monash University</a>
                 </div>
                 <div>
-                   <h3 className="text-xs font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
+                   <h3 className="text-xs font-mono text-volt-lime mb-2 uppercase tracking-widest">Role</h3>
                    <p className="text-white font-medium">UI Design + Information Architecture</p>
                 </div>
               </motion.div>
@@ -167,21 +182,6 @@ export default function MonashCaseStudy() {
                   </motion.div>
                </div>
 
-               {/* Centered CTA */}
-               <motion.div
-                 initial={{ opacity: 0, y: 20 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ delay: 1, duration: 0.5 }}
-                 className="relative z-20"
-               >
-                 <Button 
-                    className="bg-white text-black hover:bg-gradient-to-r hover:from-blue-500 hover:to-cyan-500 hover:text-black font-medium text-base px-8 py-6 h-auto rounded-full transition-all duration-300 shadow-[0_0_30px_rgba(255,255,255,0.1)] hover:shadow-[0_0_40px_rgba(59,130,246,0.6)] hover:scale-105"
-                    onClick={() => setLocation('/monash/prototype/hifi')}
-                 >
-                    Launch Interactive Demo
-                    <ExternalLink className="ml-2 w-4 h-4" />
-                 </Button>
-               </motion.div>
             </motion.div>
           </div>
         </div>

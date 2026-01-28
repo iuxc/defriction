@@ -6,10 +6,14 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-export function Navigation() {
+interface NavigationProps {
+  forcedActive?: string;
+}
+
+export function Navigation({ forcedActive }: NavigationProps) {
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
-  const [activeSection, setActiveSection] = useState("");
+  const [activeSection, setActiveSection] = useState(forcedActive || "");
 
   const navItems = [
     { name: "Work", href: "/#work", id: "work" },
@@ -21,21 +25,23 @@ export function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
 
-      // Scroll Spy Logic
-      const sections = navItems.map(item => item.id);
-      let current = "";
-      
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          // Check if top of section is near the viewing area (top third)
-          if (rect.top <= 200 && rect.bottom >= 200) {
-            current = section;
+      if (!forcedActive) {
+        // Scroll Spy Logic
+        const sections = navItems.map(item => item.id);
+        let current = "";
+        
+        for (const section of sections) {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            // Check if top of section is near the viewing area (top third)
+            if (rect.top <= 200 && rect.bottom >= 200) {
+              current = section;
+            }
           }
         }
+        setActiveSection(current);
       }
-      setActiveSection(current);
     };
 
     // Initial check
@@ -43,7 +49,7 @@ export function Navigation() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [forcedActive]);
 
   const Logo = () => (
     <Link href="/#">
