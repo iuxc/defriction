@@ -113,14 +113,18 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                       <p className="text-slate-600 text-sm">User attempts to navigate to specialized pathway pages via the "Study" menu.</p>
                     </div>
 
-                    <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                      <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
-                        <AlertCircle className="w-5 h-5" />
-                        Friction Point: Broken Links
-                      </h4>
-                      <p className="text-slate-700 text-sm">
-                        Multiple 404 errors were encountered when trying to access <code className="bg-red-100 px-1 py-0.5 rounded text-xs font-mono">/study/how-to-apply/pathways</code>, forcing a return to Google.
-                      </p>
+                    <div className="bg-red-50 p-6 rounded-xl border border-red-100 flex gap-4">
+                      <div className="pt-1 shrink-0">
+                        <AlertCircle className="w-5 h-5 text-red-700" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-red-700 mb-2">
+                          Friction Point: Broken Links
+                        </h4>
+                        <p className="text-slate-700 text-sm">
+                          Multiple 404 errors were encountered when trying to access <code className="bg-red-100 px-1 py-0.5 rounded text-xs font-mono">/study/how-to-apply/pathways</code>, forcing a return to Google.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -147,14 +151,18 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                       <p className="text-slate-600 text-sm">A landing page that lists DoTS, DoHE, and Monash College Diplomas.</p>
                     </div>
 
-                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                      <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5" />
-                        Friction Point: Information Overload
-                      </h4>
-                      <p className="text-slate-700 text-sm">
-                        No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
-                      </p>
+                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100 flex gap-4">
+                      <div className="pt-1 shrink-0">
+                        <AlertTriangle className="w-5 h-5 text-orange-700" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-orange-700 mb-2">
+                          Friction Point: Information Overload
+                        </h4>
+                        <p className="text-slate-700 text-sm">
+                          No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -208,14 +216,18 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                       <p className="text-slate-600 text-sm">Table showing the required "Pass" or "Credit" average needed to move into the second year of a degree.</p>
                     </div>
 
-                    <div className="bg-red-50 p-6 rounded-xl border border-red-100">
-                      <h4 className="font-bold text-red-700 mb-2 flex items-center gap-2">
-                        <AlertCircle className="w-5 h-5" />
-                        Friction Point: Navigation Complexity
-                      </h4>
-                      <p className="text-slate-700 text-sm">
-                        Extensive "Dropdown" menus make it difficult to compare requirements across different degree options.
-                      </p>
+                    <div className="bg-red-50 p-6 rounded-xl border border-red-100 flex gap-4">
+                      <div className="pt-1 shrink-0">
+                        <AlertCircle className="w-5 h-5 text-red-700" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-red-700 mb-2">
+                          Friction Point: Navigation Complexity
+                        </h4>
+                        <p className="text-slate-700 text-sm">
+                          Extensive "Dropdown" menus make it difficult to compare requirements across different degree options.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -242,14 +254,18 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
                       <p className="text-slate-600 text-sm">Instructions for applying through VTAC for the February intake.</p>
                     </div>
 
-                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100">
-                      <h4 className="font-bold text-orange-700 mb-2 flex items-center gap-2">
-                        <AlertTriangle className="w-5 h-5" />
-                        Friction Point: Administrative Ambiguity
-                      </h4>
-                      <p className="text-slate-700 text-sm">
-                        No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
-                      </p>
+                    <div className="bg-orange-50 p-6 rounded-xl border border-orange-100 flex gap-4">
+                      <div className="pt-1 shrink-0">
+                        <AlertTriangle className="w-5 h-5 text-orange-700" />
+                      </div>
+                      <div>
+                        <h4 className="font-bold text-orange-700 mb-2">
+                          Friction Point: Administrative Ambiguity
+                        </h4>
+                        <p className="text-slate-700 text-sm">
+                          No "Pathways Calculator" exists to help a student with a 60.00 ATAR choose between the different diploma types.
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -262,37 +278,49 @@ export function FrictionLogModalB({ open, onOpenChange }: FrictionLogModalBProps
             <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
               <div className="grid md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-slate-200">
                 <div className="bg-red-50/50 p-8">
-                  <h3 className="font-bold text-red-900 mb-4 flex items-center gap-2">
-                    <AlertCircle className="w-5 h-5" />
-                    Major Friction Points
-                  </h3>
-                  <ul className="space-y-4">
-                    <li className="text-sm text-slate-700">
-                      <strong className="block font-semibold text-red-900 mb-1">Site Reliability</strong>
-                      404 errors on high-intent "Pathways" URLs create an immediate sense of distrust.
-                    </li>
-                    <li className="text-sm text-slate-700">
-                      <strong className="block font-semibold text-red-900 mb-1">Navigation Fatigue</strong>
-                      "Dropdown hell" in the destination degree section makes it hard to map out a multi-year plan.
-                    </li>
-                  </ul>
+                  <div className="flex gap-4">
+                    <div className="pt-1 shrink-0">
+                      <AlertCircle className="w-5 h-5 text-red-900" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-red-900 mb-4">
+                        Major Friction Points
+                      </h3>
+                      <ul className="space-y-4">
+                        <li className="text-sm text-slate-700">
+                          <strong className="block font-semibold text-red-900 mb-1">Site Reliability</strong>
+                          404 errors on high-intent "Pathways" URLs create an immediate sense of distrust.
+                        </li>
+                        <li className="text-sm text-slate-700">
+                          <strong className="block font-semibold text-red-900 mb-1">Navigation Fatigue</strong>
+                          "Dropdown hell" in the destination degree section makes it hard to map out a multi-year plan.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="bg-slate-50/50 p-8">
-                  <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
-                    <Info className="w-5 h-5 text-slate-600" />
-                    Key Information Missing
-                  </h3>
-                  <ul className="space-y-4">
-                    <li className="text-sm text-slate-700">
-                      <strong className="block font-semibold text-slate-900 mb-1">Total Cost</strong>
-                      Exact fee structures for the pathway year are not displayed alongside the course info.
-                    </li>
-                    <li className="text-sm text-slate-700">
-                      <strong className="block font-semibold text-slate-900 mb-1">Campus Logistics</strong>
-                      Lack of prominence regarding the Docklands location, which may surprise students expecting Clayton or Peninsula.
-                    </li>
-                  </ul>
+                  <div className="flex gap-4">
+                    <div className="pt-1 shrink-0">
+                      <Info className="w-5 h-5 text-slate-600" />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-slate-900 mb-4">
+                        Key Information Missing
+                      </h3>
+                      <ul className="space-y-4">
+                        <li className="text-sm text-slate-700">
+                          <strong className="block font-semibold text-slate-900 mb-1">Total Cost</strong>
+                          Exact fee structures for the pathway year are not displayed alongside the course info.
+                        </li>
+                        <li className="text-sm text-slate-700">
+                          <strong className="block font-semibold text-slate-900 mb-1">Campus Logistics</strong>
+                          Lack of prominence regarding the Docklands location, which may surprise students expecting Clayton or Peninsula.
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
