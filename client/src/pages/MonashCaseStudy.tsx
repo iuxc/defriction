@@ -37,7 +37,7 @@ const Acronym = ({
       <span
         id={`${testId}-tooltip`}
         role="tooltip"
-        className="pointer-events-none absolute left-1/2 top-[1.65em] z-50 w-max max-w-[260px] -translate-x-1/2 rounded-lg border border-white/10 bg-[#0B0F19]/95 px-3 py-2 text-xs leading-relaxed text-white shadow-[0_20px_60px_rgba(0,0,0,0.55)] opacity-0 translate-y-1 blur-[1px] transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-hover:blur-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:blur-0"
+        className="pointer-events-none absolute left-1/2 top-[1.65em] z-50 w-max max-w-[260px] -translate-x-1/2 rounded-lg border border-white/10 bg-[#0B0F19]/95 px-3 py-2 text-xs leading-relaxed text-white shadow-[0_20px_60px_rgba(0,0,0,0.55)] opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
         data-testid={`${testId}-tooltip`}
       >
         <span className="font-medium text-white">{short}</span>
