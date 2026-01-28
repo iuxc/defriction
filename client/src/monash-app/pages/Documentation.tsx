@@ -120,7 +120,7 @@ export default function Documentation() {
         <div className="flex items-center justify-between px-6 h-16">
           <div className="flex items-center gap-6">
             <a href="/" className="hover:opacity-80 transition-opacity flex items-center gap-2">
-              <img src="/monash-logo-white.png" alt="Monash University" className="h-[46px] w-auto" />
+              <img src="/monash-logo-white.png" alt="Monash University" className="h-[53px] w-auto" />
             </a>
             
             <div className="h-6 w-px bg-white/10" />
