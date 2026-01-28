@@ -24,7 +24,7 @@ export function MonashSwitcher() {
           "flex items-center justify-center w-8 h-8 rounded-full transition-all duration-300",
           "bg-white/10 backdrop-blur-md border border-white/20 shadow-lg",
           "hover:bg-white/20 hover:scale-105 active:scale-95",
-          switcherOpen ? "bg-white/20 rotate-180" : ""
+          switcherOpen ? "bg-white/20 rotate-0" : "rotate-180"
         )}
       >
         <ChevronDown className="w-4 h-4 text-white" />
@@ -36,7 +36,7 @@ export function MonashSwitcher() {
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-full left-0 mb-6 w-72 p-2 rounded-xl bg-[#0B0F19] border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[150] overflow-hidden"
+            className="absolute bottom-full right-0 mb-6 w-72 p-2 rounded-xl bg-[#0B0F19] border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[150] overflow-hidden"
           >
             {/* Glass shine effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
