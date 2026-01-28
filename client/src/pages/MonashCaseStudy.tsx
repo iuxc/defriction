@@ -536,9 +536,9 @@ export default function MonashCaseStudy() {
         <div className="container mx-auto px-4 flex justify-center">
              <FooterContact 
                  title={
-                   <>
+                   <span>
                      Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
-                   </>
+                   </span>
                  } 
                  stickyVisible={isPastHero}
                  className="max-w-4xl"
