@@ -66,7 +66,6 @@ export default function MonashCaseStudy() {
   return (
     <div className="bg-deep-basalt text-white selection:bg-volt-lime selection:text-black font-sans overflow-x-hidden">
       <Navigation />
-      
       {/* Hero Section */}
       <section id="hero" className="min-h-screen relative flex items-center pt-20 overflow-hidden">
         {/* Background Elements */}
@@ -188,7 +187,6 @@ export default function MonashCaseStudy() {
         </div>
         <NextSectionArrow targetId="friction" />
       </section>
-
       {/* 1. The Friction (The Problem) */}
       <Section id="friction" className="border-t border-white/5">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -231,9 +229,7 @@ export default function MonashCaseStudy() {
               <motion.div variants={fadeInUp} className="mt-16 space-y-8 border-t border-white/5 pt-12">
                 <div>
                     <h3 className="text-2xl font-display font-bold text-white mb-4">Friction Log Process</h3>
-                    <p className="text-gray-400 leading-relaxed">
-                        To understand the true digital experience for non-traditional applicants, we conducted a behavioral audit using two distinct student personas. This process involves a "first-person" walkthrough of the Monash web ecosystem to identify where users lose momentum or encounter barriers.
-                    </p>
+                    <p className="text-gray-400 leading-relaxed">To understand the true digital experience for non-traditional applicants, I conducted a behavioral audit using two distinct student personas. This process involves a "first-person" walkthrough of the Monash web ecosystem to identify where users lose momentum or encounter barriers.</p>
                 </div>
 
                 <div className="space-y-8">
@@ -331,7 +327,6 @@ export default function MonashCaseStudy() {
             </motion.div>
         </div>
       </Section>
-
       {/* 2. The Insight (The Strategy) */}
       <Section id="insight" className="border-t border-white/5 bg-black/20">
         <motion.div 
@@ -364,7 +359,6 @@ export default function MonashCaseStudy() {
           </motion.div>
         </motion.div>
       </Section>
-
       {/* 3. The Solution (Interactive) */}
       <Section id="solution" className="border-t border-white/5">
         <div className="grid lg:grid-cols-12 gap-16 items-center">
@@ -489,7 +483,6 @@ export default function MonashCaseStudy() {
             </motion.div>
         </div>
       </Section>
-
       {/* 4. The Gallery */}
       <Section id="gallery" className="border-t border-white/5 bg-black/20">
         <motion.div 
@@ -583,7 +576,6 @@ export default function MonashCaseStudy() {
            
         </motion.div>
       </Section>
-
       {/* CTA Section */}
       <div className="py-32 bg-deep-basalt border-t border-white/5">
         <div className="container mx-auto px-4 flex justify-center">
@@ -602,7 +594,6 @@ export default function MonashCaseStudy() {
                />
         </div>
       </div>
-
       <footer id="footer" className="py-8 bg-black border-t border-white/10">
          <motion.div 
             initial={{ opacity: 0, y: 20 }}
