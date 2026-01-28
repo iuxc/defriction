@@ -456,7 +456,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
-                  onClick={() => window.open('/monash/prototype/docs', '_blank')}
+                  onClick={() => setLocation('/monash/prototype/docs')}
                 >
                   <AbstractBrowser variant="ia-map" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
@@ -468,7 +468,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => window.open('/monash/prototype/docs', '_blank')}
+                      onClick={() => setLocation('/monash/prototype/docs')}
                     >
                       See IA <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
@@ -479,7 +479,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl cursor-pointer"
-                  onClick={() => window.open('/monash/prototype', '_blank')}
+                  onClick={() => setLocation('/monash/prototype')}
                 >
                    <AbstractBrowser variant="wireframe" theme="light" className="w-full h-full border-0 bg-transparent" />
                 </div>
@@ -491,7 +491,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => window.open('/monash/prototype', '_blank')}
+                      onClick={() => setLocation('/monash/prototype')}
                     >
                       See Wireframe <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
@@ -502,7 +502,7 @@ export default function MonashCaseStudy() {
              <motion.div variants={fadeInUp} className="group space-y-6">
                 <div 
                   className="aspect-[4/3] bg-white rounded-2xl overflow-hidden border border-white/10 relative group-hover:border-white/30 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl flex items-center justify-center p-8 cursor-pointer"
-                  onClick={() => window.open('/monash/prototype/hifi', '_blank')}
+                  onClick={() => setLocation('/monash/prototype/hifi')}
                 >
                    <img 
                      src="/assets/images/monash-shield.png" 
@@ -518,7 +518,7 @@ export default function MonashCaseStudy() {
                    <Button 
                       variant="outline" 
                       className="rounded-full border-white/20 bg-transparent text-white hover:bg-white hover:text-black transition-colors text-xs h-8 px-4"
-                      onClick={() => window.open('/monash/prototype/hifi', '_blank')}
+                      onClick={() => setLocation('/monash/prototype/hifi')}
                     >
                       See Demo <ExternalLink className="ml-2 w-3 h-3" />
                    </Button>
