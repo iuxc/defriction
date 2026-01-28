@@ -147,14 +147,13 @@ function getEligibilityStatus(score: number, cutoff: number, isPredicted: boolea
 // COMPONENTS
 // ============================================================================
 
-// Glass Container - stable container with layout animation for smooth resizing
+// Glass Container - stable container without layout animation to prevent scroll jitter
 function GlassCard({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
     <motion.div
-      layout
-      transition={{ 
-        layout: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
-      }}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
       className={clsx(
         'bg-white rounded-none shadow-2xl shadow-slate-900/20 border border-slate-200 font-sans',
         className
@@ -1341,43 +1340,46 @@ export default function PremiumPathwaysFinder() {
       {/* Main Content */}
       <div className="relative pt-12 pb-16 px-4">
         <div className="max-w-lg mx-auto">
-          {/* Progress - Enhanced visibility or Start Over button */}
-          {state.step !== 'welcome' && state.step !== 'international' && (
-            <div className="flex flex-col items-center justify-center mb-8">
-              <img 
-                src="/assets/monash-logo.png" 
-                alt="Monash University" 
-                className="h-16 w-auto object-contain mix-blend-screen mb-6 opacity-90"
-              />
-              
-              {state.step === 'email' ? (
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  onClick={() => setState({
-                    step: 'welcome',
-                    status: null,
-                    atarType: null,
-                    actualAtar: null,
-                    predictedRange: null,
-                    postcode: '',
-                    postcodeData: null,
-                    selectedCourse: null,
-                    tafeQual: null,
-                    email: ''
-                  })}
-                  className="bg-white/90 backdrop-blur-sm rounded-none px-6 py-3 shadow-lg border border-slate-200 flex items-center gap-2 text-monash-blue font-semibold hover:bg-white transition-colors"
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  Start Over
-                </motion.button>
-              ) : (
-                <div className="px-6 py-3">
-                  <ProgressSteps currentStep={getStepNumber().current} totalSteps={getStepNumber().total} />
-                </div>
-              )}
-            </div>
-          )}
+          {/* Logo - Always visible */}
+          <div className="flex flex-col items-center justify-center mb-8">
+            <img 
+              src="/assets/monash-logo.png" 
+              alt="Monash University" 
+              className="h-20 w-auto object-contain mix-blend-screen mb-6 opacity-90"
+            />
+            
+            {/* Progress Indicators - Hidden on Welcome/International */}
+            {state.step !== 'welcome' && state.step !== 'international' && (
+              <>
+                {state.step === 'email' ? (
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setState({
+                      step: 'welcome',
+                      status: null,
+                      atarType: null,
+                      actualAtar: null,
+                      predictedRange: null,
+                      postcode: '',
+                      postcodeData: null,
+                      selectedCourse: null,
+                      tafeQual: null,
+                      email: ''
+                    })}
+                    className="bg-white/90 backdrop-blur-sm rounded-none px-6 py-3 shadow-lg border border-slate-200 flex items-center gap-2 text-monash-blue font-semibold hover:bg-white transition-colors"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                    Start Over
+                  </motion.button>
+                ) : (
+                  <div className="px-6 py-3">
+                    <ProgressSteps currentStep={getStepNumber().current} totalSteps={getStepNumber().total} />
+                  </div>
+                )}
+              </>
+            )}
+          </div>
           
           {/* Glass Card - stable container with content fade */}
           <div className="relative">
