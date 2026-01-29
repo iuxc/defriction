@@ -11,7 +11,7 @@ export function Contact() {
           <h2 className="text-xl md:text-5xl font-display font-bold mb-2 md:mb-4 text-white">
             Let's remove the <span className="bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent">friction</span>.
           </h2>
-          <p className="text-gray-400 text-sm md:text-lg font-light">
+          <p className="text-gray-300 text-sm md:text-lg font-light">
             Tell me what you're working on—or book a call if you'd rather talk it through.
           </p>
         </div>

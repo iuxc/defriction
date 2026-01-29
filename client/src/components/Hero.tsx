@@ -36,7 +36,7 @@ export function Hero() {
             </span>
           </h1>
           
-          <p className="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed px-2 md:px-0">
+          <p className="text-lg md:text-2xl text-gray-300 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed px-2 md:px-0">
             Overflow for agencies. Firepower for startups. Senior UX work from a designer who runs with the brief.
           </p>
           
