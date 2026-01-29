@@ -584,7 +584,7 @@ export default function MonashCaseStudy() {
                 <div className="flex items-end justify-between">
                    <div>
                       <h4 className="text-white font-bold text-2xl mb-1 group-hover:text-cyan-400 transition-colors">Information Architecture</h4>
-                      <p className="text-gray-400 text-sm">The Logic</p>
+                      <p className="text-gray-400 text-sm">The logic</p>
                    </div>
                    <Button 
                       variant="outline" 
@@ -607,7 +607,7 @@ export default function MonashCaseStudy() {
                 <div className="flex items-end justify-between">
                    <div>
                       <h4 className="text-white font-bold text-2xl mb-1 group-hover:text-cyan-400 transition-colors">Low-Fidelity Wireframe</h4>
-                      <p className="text-gray-400 text-sm">The Skeleton</p>
+                      <p className="text-gray-400 text-sm">The structure</p>
                    </div>
                    <Button 
                       variant="outline" 
@@ -634,7 +634,7 @@ export default function MonashCaseStudy() {
                 <div className="flex items-end justify-between">
                    <div>
                       <h4 className="text-white font-bold text-2xl mb-1 group-hover:text-cyan-400 transition-colors">High-Fidelity UI</h4>
-                      <p className="text-gray-400 text-sm">The Polish</p>
+                      <p className="text-gray-400 text-sm">The finish</p>
                    </div>
                    <Button 
                       variant="outline" 
@@ -651,6 +651,85 @@ export default function MonashCaseStudy() {
            
         </motion.div>
       </Section>
+
+      {/* The Process Section */}
+      <Section id="process" className="border-t border-white/5">
+        <motion.div 
+          className="grid lg:grid-cols-2 gap-20 items-center"
+          variants={stagger}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-10% 0px" }}
+        >
+          <motion.div variants={fadeInUp}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+              <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
+                How I Worked
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">Weekend Sprint.</h2>
+            <p className="text-base text-gray-400 font-light leading-relaxed mb-8">
+              From research to functional prototype: one weekend. That included learning the Australian higher education system from scratch—ATAR calculations, VTAC processes, equity schemes, pathway structures. No client brief. No hand-holding. Just a problem worth solving.
+            </p>
+          </motion.div>
+          
+          <motion.div variants={fadeInUp} className="relative">
+            <div className="grid grid-cols-2 gap-6">
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="text-sm font-mono text-cyan-400 mb-3 uppercase tracking-widest">Day 1</div>
+                <h4 className="text-white font-bold text-lg mb-2">Research</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">Policy analysis, friction log, user journey mapping</p>
+              </div>
+              <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+                <div className="text-sm font-mono text-cyan-400 mb-3 uppercase tracking-widest">Day 2</div>
+                <h4 className="text-white font-bold text-lg mb-2">Design</h4>
+                <p className="text-gray-400 text-sm leading-relaxed">IA, wireframes, high-fidelity prototype</p>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      </Section>
+
+      {/* The Impact Section */}
+      <Section id="impact" className="border-t border-white/5 bg-black/20">
+        <motion.div 
+          className="max-w-3xl mx-auto text-center"
+          variants={stagger}
+          initial="initial"
+          whileInView="whileInView"
+          viewport={{ once: true, margin: "-10% 0px" }}
+        >
+          <motion.div variants={fadeInUp}>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
+              <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
+                If This Shipped
+              </span>
+            </div>
+
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">What changes.</h2>
+            <p className="text-base text-gray-400 font-light leading-relaxed mb-12">
+              This is a concept, so there are no KPIs. But if Monash built this, here's what I'd expect:
+            </p>
+          </motion.div>
+          
+          <motion.div variants={fadeInUp} className="grid md:grid-cols-2 gap-8 text-left">
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+              <h4 className="text-white font-bold text-lg mb-3">For students</h4>
+              <p className="text-gray-400 leading-relaxed">Clarity instead of confusion. Especially for first-gen and rural students without a support network.</p>
+            </div>
+            <div className="bg-white/5 border border-white/10 rounded-2xl p-8">
+              <h4 className="text-white font-bold text-lg mb-3">For Monash</h4>
+              <p className="text-gray-400 leading-relaxed">More qualified applications from equity groups. Fewer drop-offs in the funnel. Progress toward Accord targets.</p>
+            </div>
+          </motion.div>
+          
+          <motion.p variants={fadeInUp} className="text-lg text-gray-500 mt-12 italic">
+            The current process is a gatekeeper. This turns it into a concierge.
+          </motion.p>
+        </motion.div>
+      </Section>
+
       {/* CTA Section */}
       <div className="py-32 bg-deep-basalt border-t border-white/5 relative overflow-hidden">
         {/* Abstract Background Wireframes */}
