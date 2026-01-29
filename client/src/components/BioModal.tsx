@@ -44,7 +44,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none duration-200 animate-in fade-in-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+      <DialogContent className="max-w-4xl w-screen h-screen md:h-auto md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white p-0 overflow-hidden md:rounded-3xl max-h-screen md:max-h-[90vh] overflow-y-auto m-0 rounded-none duration-200 animate-in fade-in-0 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] !block !gap-0">
         <DialogClose className="absolute right-4 top-4 z-50 rounded-full bg-black/20 p-2 opacity-70 ring-offset-background transition-opacity hover:opacity-100 hover:bg-black/40 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground md:right-8 md:top-8">
           <X className="h-6 w-6 text-white" />
           <span className="sr-only">Close</span>
