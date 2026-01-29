@@ -29,22 +29,19 @@ export function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
             </span>
             <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
-              COMPLEX UI DESIGN + PROTOTYPING
+              SENIOR UX • ASYNC • OVERNIGHT
             </span>
           </div>
           
           <h1 className="text-4xl md:text-7xl lg:text-8xl font-display font-bold tracking-tight mb-6 md:mb-8 leading-[1.05]">
-            <span className="block text-white hero-headline">Complex UX Solved.</span>
+            <span className="block text-white hero-headline">Send a Problem.</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-volt-lime via-ion-cyan to-electric-violet hero-gradient-text">
-               Design That Flows.
+               Sleep on It. Literally.
             </span>
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed px-2 md:px-0">
-            Helping Australian agencies and leaders remove the friction between 
-            <span className="text-white font-medium"> big ideas </span> 
-            and 
-            <span className="text-white font-medium"> finished pixels</span>.
+            Overnight design overflow for agencies who need senior work without the supervision.
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
