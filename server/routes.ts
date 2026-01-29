@@ -47,7 +47,7 @@ export async function registerRoutes(
       const { client, fromEmail } = await getUncachableResendClient();
 
       const emailResult = await client.emails.send({
-        from: fromEmail || "onboarding@resend.dev",
+        from: `${name} <${fromEmail || "onboarding@resend.dev"}>`,
         to: "brian@defriction.design",
         replyTo: email,
         subject: `New Contact Form Submission from ${name}`,
