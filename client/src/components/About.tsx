@@ -29,7 +29,7 @@ export function About() {
   }, [floatingBadges.length]);
 
   return (
-    <section id="about" className="min-h-screen py-16 md:py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center overflow-hidden">
+    <section id="about" className="min-h-[100dvh] md:min-h-screen py-16 md:py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center overflow-hidden">
       <div className="container mx-auto px-4 h-full md:h-auto flex flex-col justify-center">
         {/* Mobile Layout */}
         <div className="lg:hidden flex flex-col h-full justify-center gap-4">

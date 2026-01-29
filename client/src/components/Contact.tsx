@@ -2,7 +2,7 @@ import { ContactForm } from "@/components/ContactForm";
 
 export function Contact() {
   return (
-    <section id="contact" className="min-h-screen pt-20 pb-24 md:py-32 bg-black/20 relative overflow-hidden flex flex-col justify-center">
+    <section id="contact" className="min-h-[100dvh] md:min-h-screen pt-20 pb-24 md:py-32 contact-section relative overflow-hidden flex flex-col justify-center">
       <div className="absolute bottom-0 left-0 w-full h-[200px] md:h-[500px] bg-gradient-to-t from-volt-lime/5 to-transparent pointer-events-none" />
 
       <div className="container mx-auto px-4 max-w-3xl relative z-10 flex flex-col justify-center">

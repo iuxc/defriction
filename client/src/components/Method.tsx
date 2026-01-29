@@ -30,7 +30,7 @@ export function Method() {
   ];
 
   return (
-    <section id="method" className="min-h-screen py-16 md:py-32 relative overflow-hidden flex flex-col justify-center bg-black/20">
+    <section id="method" className="min-h-[100dvh] md:min-h-screen py-16 md:py-32 relative overflow-hidden flex flex-col justify-center method-section">
       {/* Background gradients */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl mx-auto opacity-30 pointer-events-none">
         <div className="absolute inset-0 bg-gradient-to-r from-deep-basalt via-transparent to-deep-basalt z-10" />

@@ -81,12 +81,12 @@ export function Navigation({ forcedActive }: NavigationProps) {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
           ? cn(
-              "py-3 md:py-4 backdrop-blur-xl border-b",
+              "py-4 md:py-4 backdrop-blur-xl border-b",
               theme === "light" && isMobile 
                 ? "bg-white/90 border-gray-200" 
                 : "bg-deep-basalt/80 border-white/5"
             )
-          : "py-4 md:py-6 bg-transparent"
+          : "py-5 md:py-6 bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between md:justify-between items-center">
