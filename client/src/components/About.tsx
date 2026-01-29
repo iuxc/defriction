@@ -29,9 +29,69 @@ export function About() {
   }, [floatingBadges.length]);
 
   return (
-    <section id="about" className="min-h-screen py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+    <section id="about" className="min-h-screen md:min-h-screen h-screen md:h-auto py-16 md:py-32 bg-deep-basalt relative border-y border-white/5 flex flex-col justify-center snap-start md:snap-align-none overflow-hidden">
+      <div className="container mx-auto px-4 h-full md:h-auto flex flex-col justify-center">
+        {/* Mobile Layout */}
+        <div className="lg:hidden flex flex-col h-full justify-center gap-4">
+          {/* Photo - smaller on mobile */}
+          <div className="relative w-32 h-32 mx-auto shrink-0">
+            <div className="absolute inset-0 bg-gradient-to-tr from-volt-lime via-ion-cyan to-electric-violet rounded-2xl opacity-20 blur-xl" />
+            <div className="absolute inset-0 border border-white/10 rounded-2xl bg-deep-basalt/80 backdrop-blur-xl overflow-hidden p-1">
+              <img 
+                src="/TheHuman.jpg" 
+                alt="The Human" 
+                className="w-full h-full object-cover rounded-xl grayscale"
+              />
+            </div>
+          </div>
+          
+          {/* Content */}
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md border border-white/10 bg-white/5 mb-3 backdrop-blur-md cursor-default">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
+              </span>
+              <span className="font-mono text-[10px] tracking-widest text-gray-400 uppercase">
+                03. About
+              </span>
+            </div>
+            <h2 className="text-2xl font-display font-bold mb-3 leading-tight text-white">
+              The Executive Who <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Designs</span>.
+            </h2>
+            
+            <p className="text-sm text-gray-400 font-light leading-relaxed mb-4 px-2">
+              Hi, I'm Brian. I lead Digital Strategy for the University of Oregon. <span className="lowercase font-bold text-white">defriction</span> is where I solve high-stakes design problems with executive precision.
+            </p>
+            
+            {/* Mini Cards - Horizontal scroll on mobile */}
+            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mx-4 px-4 scrollbar-hide mb-4">
+              <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[120px]">
+                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Base</span>
+                <span className="block text-white text-sm font-medium">Eugene, OR</span>
+              </div>
+              <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[120px]">
+                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Experience</span>
+                <span className="block text-white text-sm font-medium">15+ Years</span>
+              </div>
+              <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[140px]">
+                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Current Role</span>
+                <span className="block text-white text-sm font-medium">AVP, Digital Strategy</span>
+              </div>
+            </div>
+
+            <Button 
+              variant="outline" 
+              className="text-purple-400 border-purple-400/20 hover:bg-gradient-to-r hover:from-purple-400 hover:to-pink-500 hover:text-white hover:border-transparent group rounded-full font-medium text-sm px-5 py-3 h-auto"
+              onClick={() => setBioOpen(true)}
+            >
+              View Full Profile <ArrowRight className="ml-2 w-4 h-4" />
+            </Button>
+          </div>
+        </div>
+
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
           <div className="text-left">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-6 backdrop-blur-md cursor-default">

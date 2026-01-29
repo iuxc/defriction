@@ -49,30 +49,86 @@ export function WorkGrid() {
   ];
 
   return (
-    <section id="work" className="min-h-screen py-32 bg-deep-basalt relative flex flex-col justify-center">
-      <div className="container mx-auto px-4">
-        {/* ... content ... */}
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+    <section id="work" className="min-h-screen md:min-h-screen h-screen md:h-auto py-16 md:py-32 bg-deep-basalt relative flex flex-col justify-center snap-start md:snap-align-none overflow-hidden">
+      <div className="container mx-auto px-4 flex flex-col h-full md:h-auto justify-center">
+        {/* Header - Compact on mobile */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-16 gap-4 md:gap-6">
           <div className="max-w-2xl">
-             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-6 backdrop-blur-md cursor-default">
+             <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-md border border-white/10 bg-white/5 mb-3 md:mb-6 backdrop-blur-md cursor-default">
                <span className="relative flex h-2 w-2">
                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
                </span>
-               <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
+               <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
                  01. The Work
                </span>
              </div>
-             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white">
+             <h2 className="text-3xl md:text-5xl font-display font-bold mb-2 md:mb-6 text-white">
                Selected <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Work</span>
              </h2>
-             <p className="text-gray-400 text-lg font-light leading-relaxed">
+             <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed hidden md:block">
                Selected design solutions for complex ecosystems. From friction to flow.
              </p>
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Mobile: Horizontal scroll carousel */}
+        <div className="md:hidden flex-1 flex flex-col justify-center min-h-0">
+          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
+            {projectsData.map((project, index) => (
+              <Link key={project.id} href={project.link}>
+                <a className="snap-center shrink-0 w-[85vw] max-w-[320px]">
+                  <motion.div 
+                    className="h-full glass-card rounded-2xl overflow-hidden relative min-h-[280px] flex flex-col"
+                  >
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />
+                    
+                    <div className="relative p-5 flex flex-col h-full z-10">
+                      <div className="flex justify-between items-start mb-4">
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.tags.slice(0, 2).map((tag) => (
+                            <Badge key={tag} variant="secondary" className="bg-white/5 text-gray-400 border-white/10 backdrop-blur-sm rounded-md px-2 py-0.5 font-mono text-[10px] font-normal">
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                        <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center shrink-0 ml-2">
+                          <ArrowUpRight className="w-4 h-4" />
+                        </div>
+                      </div>
+                      
+                      <div className="flex-1 flex flex-col justify-between">
+                        <div className="space-y-2">
+                          <h3 className="text-xl font-display font-bold text-white">
+                            {project.title}
+                          </h3>
+                          <p className="text-gray-400 font-light text-sm leading-snug">
+                            {project.subtitle}
+                          </p>
+                        </div>
+
+                        <div className="mt-4 -mb-5 -mx-5">
+                          <AbstractBrowser 
+                            variant={project.browserVariant} 
+                            className="w-full shadow-xl opacity-80"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </a>
+              </Link>
+            ))}
+          </div>
+          <div className="flex justify-center gap-2 mt-3">
+            {projectsData.map((_, i) => (
+              <div key={i} className="w-1.5 h-1.5 rounded-full bg-white/20" />
+            ))}
+          </div>
+        </div>
+
+        {/* Desktop: Grid layout */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
           {projectsData.map((project, index) => (
             <Link key={project.id} href={project.link}>
               <a className={`group block h-full ${project.colSpan}`}>
