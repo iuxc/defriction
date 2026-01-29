@@ -1,8 +1,11 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
+import { CredibilityBar } from "@/components/CredibilityBar";
+import { TheProblem } from "@/components/TheProblem";
 import { WorkGrid } from "@/components/WorkGrid";
-import { Method } from "@/components/Method";
+import { WhyMe } from "@/components/WhyMe";
 import { About } from "@/components/About";
+import { Testimonial } from "@/components/Testimonial";
 import { Contact } from "@/components/Contact";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 
@@ -11,9 +14,12 @@ export default function Home() {
     <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black overflow-y-auto pb-16 md:pb-0">
       <Navigation />
       <Hero />
+      <CredibilityBar />
+      <TheProblem />
       <WorkGrid />
-      <Method />
+      <WhyMe />
       <About />
+      <Testimonial />
       <Contact />
       
       <footer className="hidden md:block py-8 pb-8 bg-black border-t border-white/10">

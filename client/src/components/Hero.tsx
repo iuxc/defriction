@@ -25,7 +25,7 @@ export function Hero() {
         >
           <div className="inline-flex items-center gap-2 px-3 md:px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-6 md:mb-8 backdrop-blur-md cursor-default">
             <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
-              SENIOR UX • ASYNC • OVERNIGHT
+              OVERNIGHT UX OVERFLOW
             </span>
           </div>
           
@@ -37,7 +37,7 @@ export function Hero() {
           </h1>
           
           <p className="text-lg md:text-2xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 font-light leading-relaxed px-2 md:px-0">
-            Overnight design overflow for agencies who need senior work without the supervision.
+            Overflow for agencies. Firepower for startups. Senior UX work from a designer who runs with the brief.
           </p>
           
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center">
@@ -56,8 +56,8 @@ export function Hero() {
               className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base gap-2 group rounded-full"
               asChild
             >
-              <a href="#method">
-                The Method 
+              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+                Book a Call 
                 <ChevronDown className="w-4 h-4" />
               </a>
             </Button>

@@ -11,11 +11,11 @@ export function About() {
   const [bioOpen, setBioOpen] = useState(false);
 
   const floatingBadges = [
-    { text: "15+ Years Exp", pos: "-top-6 -right-6", delay: 0 },
-    { text: "Multi-lingual 🌏", pos: "-top-4 -left-4", delay: 2 },
-    { text: "Flutist 🎵", pos: "top-1/2 -left-10", delay: 4 },
-    { text: "Cyclist 🚴", pos: "-bottom-6 -left-6", delay: 1 },
-    { text: "Dog Lover 🐕", pos: "-bottom-2 -right-2", delay: 3 }
+    { text: "20+ Years Exp", pos: "-top-6 -right-6", delay: 0 },
+    { text: "Multi-lingual", pos: "-top-4 -left-4", delay: 2 },
+    { text: "Flutist", pos: "top-1/2 -left-10", delay: 4 },
+    { text: "Cyclist", pos: "-bottom-6 -left-6", delay: 1 },
+    { text: "Dog Lover", pos: "-bottom-2 -right-2", delay: 3 }
   ];
 
   // Logic to show only 2 badges at a time cycling through
@@ -53,7 +53,7 @@ export function About() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
               </span>
               <span className="font-mono text-[10px] tracking-widest text-gray-400 uppercase">
-                03. About
+                ABOUT
               </span>
             </div>
             <h2 className="text-2xl font-display font-bold mb-3 leading-tight text-white">
@@ -61,21 +61,21 @@ export function About() {
             </h2>
             
             <p className="text-sm text-gray-400 font-light leading-relaxed mb-4 px-2">
-              Hi, I'm Brian. I lead Digital Strategy for the University of Oregon. <span className="lowercase font-bold text-white">defriction</span> is where I solve high-stakes design problems with executive precision.
+              I'm Brian. By day, I lead Digital Strategy for the University of Oregon—web governance, UX, content, the works. <span className="lowercase font-bold text-white">defriction</span> is where I get back to the craft.
             </p>
             
             {/* Mini Cards - Horizontal scroll on mobile */}
             <div className="flex gap-3 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-3 -mx-4 px-4 scrollbar-hide touch-pan-x mb-4">
               <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[120px]">
-                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Base</span>
+                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Based in</span>
                 <span className="block text-white text-sm font-medium">Eugene, OR</span>
               </div>
               <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[120px]">
                 <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Experience</span>
-                <span className="block text-white text-sm font-medium">15+ Years</span>
+                <span className="block text-white text-sm font-medium">20+ Years</span>
               </div>
               <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[140px]">
-                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Current Role</span>
+                <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Day job</span>
                 <span className="block text-white text-sm font-medium">AVP, Digital Strategy</span>
               </div>
             </div>
@@ -100,7 +100,7 @@ export function About() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
               </span>
               <span className="font-mono text-xs tracking-widest text-gray-400 uppercase">
-                03. About
+                ABOUT
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight text-white">
@@ -109,22 +109,25 @@ export function About() {
             
             <div className="space-y-6 text-lg text-gray-400 font-light leading-relaxed mb-10">
               <p>
-                Hi, I'm Brian. I currently lead Digital Strategy for the University of Oregon. <span className="lowercase font-bold text-white">defriction</span> is where I get back to the craft—solving high-stakes design problems with executive precision.
+                I'm Brian. By day, I lead Digital Strategy for the University of Oregon—web governance, UX, content, the works.
+              </p>
+              <p>
+                <span className="lowercase font-bold text-white">defriction</span> is where I get back to the craft: solving high-stakes design problems with the perspective of someone who's sat in the rooms where work gets approved or killed.
               </p>
             </div>
             
             {/* Mini Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
               <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
-                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Base</span>
+                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Based in</span>
                 <span className="block text-white font-medium">Eugene, OR (PST)</span>
               </div>
               <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
                 <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Experience</span>
-                <span className="block text-white font-medium">15+ Years</span>
+                <span className="block text-white font-medium">20+ Years</span>
               </div>
               <div className="bg-white/5 border border-white/5 p-4 rounded-xl backdrop-blur-sm">
-                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Current Role</span>
+                <span className="block text-xs font-mono text-gray-500 uppercase tracking-widest mb-1">Day job</span>
                 <span className="block text-white font-medium">AVP, Digital Strategy</span>
               </div>
             </div>

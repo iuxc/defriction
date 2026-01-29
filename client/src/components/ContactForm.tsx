@@ -161,15 +161,16 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
         </div>
 
         <div className="space-y-1 md:space-y-2">
-          <label className="text-[10px] md:text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-0.5 md:py-1 inline-block rounded-md">Project Budget (AUD)</label>
+          <label className="text-[10px] md:text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-0.5 md:py-1 inline-block rounded-md">Project Type</label>
           <Select value={selectedBudget} onValueChange={setSelectedBudget}>
             <SelectTrigger data-testid="select-budget" className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-orange-400/50 focus:ring-0 text-white transition-all focus:bg-white/10 text-sm md:text-base">
-              <SelectValue placeholder="Select engagement level..." />
+              <SelectValue placeholder="Select project type..." />
             </SelectTrigger>
             <SelectContent className={cn("bg-deep-basalt border-white/10 text-white rounded-xl shadow-xl", selectContentClassName)}>
-              <SelectItem value="Sprint ($5k+ AUD)">Sprint ($5k+ AUD)</SelectItem>
-              <SelectItem value="Project ($15k+ AUD)">Project ($15k+ AUD)</SelectItem>
-              <SelectItem value="Retainer / Strategic Audit">Retainer / Strategic Audit</SelectItem>
+              <SelectItem value="Overflow">Overflow</SelectItem>
+              <SelectItem value="New project">New project</SelectItem>
+              <SelectItem value="Retainer">Retainer</SelectItem>
+              <SelectItem value="Not sure">Not sure</SelectItem>
             </SelectContent>
           </Select>
         </div>

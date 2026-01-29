@@ -60,14 +60,14 @@ export function WorkGrid() {
                  <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
                </span>
                <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
-                 01. The Work
+                 THE WORK
                </span>
              </div>
              <h2 className="text-3xl md:text-5xl font-display font-bold mb-2 md:mb-6 text-white">
                Selected <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Work</span>
              </h2>
              <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed hidden md:block">
-               Selected design solutions for complex ecosystems. From friction to flow.
+               Complex problems, solved. Friction, removed.
              </p>
           </div>
         </div>
@@ -183,7 +183,7 @@ export function WorkGrid() {
           ))}
         </div>
       </div>
-      <NextSectionArrow targetId="method" />
+      <NextSectionArrow targetId="whyme" />
     </section>
   );
 }
