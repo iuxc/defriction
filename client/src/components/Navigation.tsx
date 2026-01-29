@@ -1,8 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Menu, Home } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
@@ -26,7 +25,6 @@ export function Navigation({ forcedActive }: NavigationProps) {
       setScrolled(window.scrollY > 20);
 
       if (!forcedActive) {
-        // Scroll Spy Logic
         const sections = navItems.map(item => item.id);
         let current = "";
         
@@ -34,7 +32,6 @@ export function Navigation({ forcedActive }: NavigationProps) {
           const element = document.getElementById(section);
           if (element) {
             const rect = element.getBoundingClientRect();
-            // Check if top of section is near the viewing area (top third)
             if (rect.top <= 200 && rect.bottom >= 200) {
               current = section;
             }
@@ -44,18 +41,19 @@ export function Navigation({ forcedActive }: NavigationProps) {
       }
     };
 
-    // Initial check
     handleScroll();
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [forcedActive]);
 
-  const Logo = () => (
-    <Link href="/#">
-      <a className="text-xl font-display font-bold tracking-tight hover:opacity-80 transition-opacity flex items-center gap-2" onClick={() => window.scrollTo(0, 0)}>
-        <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
-      </a>
+  const Logo = ({ className, size = "default" }: { className?: string; size?: "default" | "large" }) => (
+    <Link href="/#" className={cn(
+      "font-display font-bold tracking-tight hover:opacity-80 transition-all duration-300 flex items-center gap-2",
+      size === "large" ? "text-2xl" : "text-xl",
+      className
+    )} onClick={() => window.scrollTo(0, 0)}>
+      <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
     </Link>
   );
 
@@ -77,28 +75,37 @@ export function Navigation({ forcedActive }: NavigationProps) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "py-4 bg-deep-basalt/80 backdrop-blur-xl border-b border-white/5"
-          : "py-6 bg-transparent"
+          ? "py-3 md:py-4 bg-deep-basalt/80 backdrop-blur-xl border-b border-white/5"
+          : "py-4 md:py-6 bg-transparent"
       )}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Logo />
+      <div className="container mx-auto px-4 flex justify-between md:justify-between items-center">
+        {/* Mobile: Centered logo when scrolled, left-aligned when not */}
+        <div className={cn(
+          "md:hidden transition-all duration-300",
+          scrolled ? "absolute left-1/2 -translate-x-1/2" : ""
+        )}>
+          <Logo size={scrolled ? "default" : "large"} />
+        </div>
+        
+        {/* Desktop: Always left-aligned */}
+        <div className="hidden md:block">
+          <Logo />
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-4">
-          {/* Home Icon */}
-          <Link href="/">
-            <a 
-              className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
-              onClick={(e) => {
-                if (location === "/") {
-                  e.preventDefault();
-                  window.scrollTo({ top: 0, behavior: "smooth" });
-                }
-              }}
-            >
-              <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
-            </a>
+          <Link 
+            href="/"
+            className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
+            onClick={(e) => {
+              if (location === "/") {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
+              }
+            }}
+          >
+            <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
           </Link>
 
           <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
@@ -136,46 +143,11 @@ export function Navigation({ forcedActive }: NavigationProps) {
           </Button>
         </div>
 
-        {/* Mobile Nav */}
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="text-white hover:bg-white/10">
-                <Menu className="w-6 h-6" />
-              </Button>
-            </SheetTrigger>
-            <SheetContent className="bg-deep-basalt border-l border-white/10 w-[300px]">
-              <div className="flex flex-col gap-8 mt-8">
-                 <Logo />
-                 <div className="flex flex-col gap-4">
-                  <Link href="/">
-                    <a 
-                      className="text-lg font-medium text-gray-300 hover:text-white text-left flex items-center gap-2"
-                    >
-                      <Home className="w-5 h-5" /> Home
-                    </a>
-                  </Link>
-                  {navItems.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={cn(
-                        "text-lg font-medium transition-colors",
-                        activeSection === item.id ? "text-volt-lime" : "text-gray-300 hover:text-white"
-                      )}
-                      onClick={(e) => handleNavClick(e, item.href.substring(1))}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                  <button onClick={(e) => handleNavClick(e as any, "#contact")} className="text-lg font-medium text-volt-lime text-left">
-                    Start Project
-                  </button>
-                 </div>
-              </div>
-            </SheetContent>
-          </Sheet>
-        </div>
+        {/* Mobile: Empty spacer for layout balance when not scrolled */}
+        <div className={cn(
+          "md:hidden w-16",
+          scrolled ? "invisible" : "invisible"
+        )} />
       </div>
     </nav>
   );

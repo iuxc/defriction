@@ -166,4 +166,9 @@
   .glow-text {
     text-shadow: 0 0 20px rgba(212, 255, 0, 0.3);
   }
+  
+  /* Safe area for bottom nav on iOS */
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
 }

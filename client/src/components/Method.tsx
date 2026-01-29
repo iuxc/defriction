@@ -59,12 +59,9 @@ export function Method() {
         <div className="md:hidden flex-1 flex flex-col justify-center min-h-0">
           <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
             {methodsData.map((method, index) => (
-              <motion.div 
+              <div 
                 key={method.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="snap-center shrink-0 w-[85vw] max-w-[320px] glass-card p-1 rounded-2xl relative overflow-hidden flex flex-col"
+                className="snap-center shrink-0 w-[90vw] max-w-[340px] glass-card p-1 rounded-2xl relative overflow-hidden flex flex-col"
                 style={{ "--glass-border-color": "212, 255, 0" } as React.CSSProperties}
               >
                 <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-bl ${method.gradient} opacity-20 rounded-full blur-3xl -mr-10 -mt-10`} />
@@ -85,7 +82,7 @@ export function Method() {
                     />
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
           <div className="flex justify-center gap-2 mt-3">

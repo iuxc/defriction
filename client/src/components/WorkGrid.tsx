@@ -76,9 +76,8 @@ export function WorkGrid() {
         <div className="md:hidden flex-1 flex flex-col justify-center min-h-0">
           <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
             {projectsData.map((project, index) => (
-              <Link key={project.id} href={project.link}>
-                <a className="snap-center shrink-0 w-[85vw] max-w-[320px]">
-                  <motion.div 
+              <Link key={project.id} href={project.link} className="snap-center shrink-0 w-[90vw] max-w-[340px]">
+                  <div 
                     className="h-full glass-card rounded-2xl overflow-hidden relative min-h-[280px] flex flex-col"
                   >
                     <div className={`absolute inset-0 bg-gradient-to-br ${project.gradient} opacity-20`} />
@@ -115,8 +114,7 @@ export function WorkGrid() {
                         </div>
                       </div>
                     </div>
-                  </motion.div>
-                </a>
+                  </div>
               </Link>
             ))}
           </div>
