@@ -42,7 +42,7 @@ export function WhyMe() {
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-2 md:mb-6">
-            Built for agencies who <span className="bg-gradient-to-r from-volt-lime to-green-500 bg-clip-text text-transparent">can't babysit</span>.
+            Built for agencies who <span className="bg-gradient-to-r from-volt-lime to-green-500 bg-clip-text text-transparent">can't babysit</span>
           </h2>
         </div>
 

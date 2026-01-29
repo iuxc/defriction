@@ -67,7 +67,7 @@ export function Hero() {
       
       {/* Bottom fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep-basalt to-transparent pointer-events-none" />
-      <NextSectionArrow targetId="work" />
+      <NextSectionArrow targetId="problem" />
     </section>
   );
 }
