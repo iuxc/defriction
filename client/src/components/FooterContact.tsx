@@ -152,10 +152,10 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                         
                         <div className="text-gray-300 leading-relaxed text-sm space-y-3 font-light">
                           <p>
-                            University admissions shouldn’t be a maze. This prototype transforms the applicant journey from a <strong className="text-white font-medium">Gatekeeper</strong> (static PDFs) to a <strong className="text-white font-medium">Concierge</strong> (dynamic logic).
+                            Monash applicants currently navigate dozens of pages to figure out if they qualify. This prototype replaces that maze with 3–5 questions and a clear answer.
                           </p>
                           <p>
-                            By visualizing 'hidden math' like regional adjustment factors, I turn confusing cutoff ranks into clear, personalized pathways—directly supporting the 2024 Universities Accord mandate for equity and accessibility.
+                            It also reveals equity bonuses most students don't know they have—helping first-gen and rural applicants see they're closer than they think.
                           </p>
                         </div>
                       </div>
