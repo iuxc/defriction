@@ -64,7 +64,7 @@ export function WorkGrid() {
                </span>
              </div>
              <h2 className="text-3xl md:text-5xl font-display font-bold mb-2 md:mb-6 text-white">
-               Selected <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Work</span>
+               <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Work</span> That Ships.
              </h2>
              <p className="text-gray-400 text-base md:text-lg font-light leading-relaxed hidden md:block">
                Complex problems, solved. Friction, removed.
