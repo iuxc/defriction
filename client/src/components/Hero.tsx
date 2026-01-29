@@ -45,8 +45,8 @@ export function Hero() {
               className="hero-cta-button bg-white text-black hover:bg-volt-lime hover:text-black font-medium text-base px-6 py-4 h-auto rounded-full transition-all duration-300 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(212,255,0,0.4)] hover:scale-105"
               asChild
             >
-              <a href="#work">
-                See the Work
+              <a href="#problem">
+                How It Works
                 <ChevronDown className="ml-2 w-4 h-4" />
               </a>
             </Button>
@@ -56,8 +56,8 @@ export function Hero() {
               className="text-white hover:text-volt-lime hover:bg-transparent font-medium text-base gap-2 group rounded-full"
               asChild
             >
-              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
-                Book a Call 
+              <a href="#work">
+                View Case Studies 
                 <ChevronDown className="w-4 h-4" />
               </a>
             </Button>
