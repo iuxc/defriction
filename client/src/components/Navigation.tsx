@@ -18,7 +18,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
 
   const navItems = [
     { name: "Work", href: "/#work", id: "work" },
-    { name: "Method", href: "/#method", id: "method" },
+    { name: "Approach", href: "/#whyme", id: "whyme" },
     { name: "About", href: "/#about", id: "about" },
   ];
 

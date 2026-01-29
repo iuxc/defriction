@@ -38,7 +38,7 @@ export function WhyMe() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-gray-400"></span>
             </span>
             <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
-              WHY IT WORKS
+              APPROACH
             </span>
           </div>
           <h2 className="text-3xl md:text-5xl font-display font-bold text-white mb-2 md:mb-6">
