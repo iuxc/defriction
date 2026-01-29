@@ -225,7 +225,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                                 : "bg-white text-black text-base px-6 py-4 h-auto hover:bg-gradient-to-r hover:from-orange-400 hover:to-red-500 hover:text-black hover:scale-105"
                             )}
                         >
-                            Start a Project <ArrowRight className="ml-2 w-4 h-4" />
+                            Let's Talk <ArrowRight className="ml-2 w-4 h-4" />
                         </Button>
 
                         {isCompact && backLink && (

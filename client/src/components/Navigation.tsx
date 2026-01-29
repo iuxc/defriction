@@ -151,7 +151,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
             className="h-[44px] bg-gradient-to-b from-orange-400/20 to-orange-400/5 text-orange-400 hover:from-orange-400/30 hover:to-orange-400/10 border border-orange-400/20 rounded-full px-6 transition-all duration-300 shadow-[inset_0_1px_0_rgba(251,146,60,0.2)] hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] backdrop-blur-md"
             onClick={(e) => handleNavClick(e, "#contact")}
           >
-            Start Project
+            Let's Talk
           </Button>
         </div>
 
