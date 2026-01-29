@@ -80,7 +80,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                               animate={{ opacity: 1, y: 0 }}
                               transition={{ delay: 0.1, duration: 0.4 }}
                           >
-                              <ContactForm selectContentClassName="z-[110]" />
+                              <ContactForm selectContentClassName="z-[110]" onClose={() => setIsOpen(false)} />
                           </motion.div>
                       </div>
                   </div>

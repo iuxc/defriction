@@ -11,11 +11,12 @@ import { cn } from "@/lib/utils";
 
 interface ContactFormProps {
   onSuccess?: () => void;
+  onClose?: () => void;
   className?: string;
   selectContentClassName?: string;
 }
 
-export function ContactForm({ onSuccess, className, selectContentClassName }: ContactFormProps) {
+export function ContactForm({ onSuccess, onClose, className, selectContentClassName }: ContactFormProps) {
   const { register, handleSubmit, reset, setValue } = useForm();
   const [selectedBudget, setSelectedBudget] = useState<string>("");
   const [formLoadTime] = useState<number>(Date.now());
@@ -106,6 +107,20 @@ export function ContactForm({ onSuccess, className, selectContentClassName }: Co
               >
                 Thanks, I will be in touch tomorrow.
               </motion.p>
+
+              <motion.button
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                onClick={() => {
+                  setShowSuccess(false);
+                  onClose?.();
+                }}
+                className="mt-6 px-6 py-2 rounded-full border border-white/30 text-white/80 text-sm font-medium hover:bg-white/10 hover:border-white/50 transition-all"
+                data-testid="button-close-form"
+              >
+                Close Form
+              </motion.button>
             </motion.div>
           </motion.div>
         )}
