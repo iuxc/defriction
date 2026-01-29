@@ -126,7 +126,7 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
         )}
       </AnimatePresence>
 
-      <form onSubmit={handleSubmit(onSubmit)} className={cn("space-y-8", showSuccess && "invisible")}>
+      <form onSubmit={handleSubmit(onSubmit)} className={cn("space-y-4 md:space-y-8", showSuccess && "invisible")}>
         <input
           type="text"
           {...register("website")}
@@ -136,34 +136,34 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
           aria-hidden="true"
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="space-y-2">
-            <label className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Name</label>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
+          <div className="space-y-1 md:space-y-2">
+            <label className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Name</label>
             <Input 
               {...register("name")} 
               required
               data-testid="input-name"
-              className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10" 
+              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
               placeholder="Enter your name" 
             />
           </div>
-          <div className="space-y-2">
-            <label className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Email</label>
+          <div className="space-y-1 md:space-y-2">
+            <label className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Email</label>
             <Input 
               {...register("email")} 
               type="email"
               required
               data-testid="input-email"
-              className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10" 
+              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
               placeholder="name@company.com" 
             />
           </div>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-1 inline-block rounded-md">Project Budget (AUD)</label>
+        <div className="space-y-1 md:space-y-2">
+          <label className="text-[10px] md:text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-0.5 md:py-1 inline-block rounded-md">Project Budget (AUD)</label>
           <Select value={selectedBudget} onValueChange={setSelectedBudget}>
-            <SelectTrigger data-testid="select-budget" className="bg-white/5 border-white/10 rounded-lg h-12 focus:border-orange-400/50 focus:ring-0 text-white transition-all focus:bg-white/10">
+            <SelectTrigger data-testid="select-budget" className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-orange-400/50 focus:ring-0 text-white transition-all focus:bg-white/10 text-sm md:text-base">
               <SelectValue placeholder="Select engagement level..." />
             </SelectTrigger>
             <SelectContent className={cn("bg-deep-basalt border-white/10 text-white rounded-xl shadow-xl", selectContentClassName)}>
@@ -174,13 +174,13 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
           </Select>
         </div>
 
-        <div className="space-y-2">
-          <label className="text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">The Brief</label>
+        <div className="space-y-1 md:space-y-2">
+          <label className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">The Brief</label>
           <Textarea 
             {...register("message")} 
             required
             data-testid="textarea-message"
-            className="bg-white/5 border-white/10 rounded-lg min-h-[150px] focus:border-orange-400/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none" 
+            className="bg-white/5 border-white/10 rounded-lg min-h-[100px] md:min-h-[150px] focus:border-orange-400/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none text-sm md:text-base" 
             placeholder="What challenge are you trying to solve?" 
           />
         </div>
@@ -189,7 +189,7 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
           type="submit" 
           disabled={contactMutation.isPending}
           data-testid="button-submit"
-          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-black hover:brightness-110 font-bold h-14 rounded-full text-lg transition-all duration-300 shadow-xl shadow-orange-500/20 disabled:opacity-70"
+          className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-black hover:brightness-110 font-bold h-12 md:h-14 rounded-full text-base md:text-lg transition-all duration-300 shadow-xl shadow-orange-500/20 disabled:opacity-70"
         >
           {contactMutation.isPending ? (
             <>Sending... <Loader2 className="ml-2 w-4 h-4 animate-spin" /></>
