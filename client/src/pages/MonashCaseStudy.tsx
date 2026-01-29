@@ -768,7 +768,7 @@ export default function MonashCaseStudy() {
             </motion.div>
         </div>
 
-        <div className="container mx-auto px-4 flex justify-center relative z-10">
+        <div className="container mx-auto px-4 flex flex-col items-center relative z-10">
              <FooterContact 
                  title={
                    <span>
@@ -782,6 +782,15 @@ export default function MonashCaseStudy() {
                  glowColor="orange"
                  removeTextShadow={true}
                />
+             <a
+               href="https://calendly.com"
+               target="_blank"
+               rel="noopener noreferrer"
+               className="inline-flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors text-sm font-medium mt-6"
+             >
+               Or book a call directly
+               <ExternalLink className="w-4 h-4" />
+             </a>
         </div>
       </div>
       <footer id="footer" className="py-8 bg-black border-t border-white/10">
