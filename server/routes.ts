@@ -9,6 +9,8 @@ const contactFormSchema = z.object({
   email: z.string().email("Valid email is required"),
   budget: z.string().optional(),
   message: z.string().min(1, "Message is required"),
+  website: z.string().optional(),
+  formLoadTime: z.number().optional(),
 });
 
 export async function registerRoutes(
@@ -27,7 +29,20 @@ export async function registerRoutes(
         });
       }
 
-      const { name, email, budget, message } = result.data;
+      const { name, email, budget, message, website, formLoadTime } = result.data;
+
+      if (website && website.length > 0) {
+        console.log("Honeypot triggered - spam blocked");
+        return res.json({ success: true, id: "blocked" });
+      }
+
+      if (formLoadTime) {
+        const timeDiff = Date.now() - formLoadTime;
+        if (timeDiff < 3000) {
+          console.log("Form submitted too fast - likely bot");
+          return res.json({ success: true, id: "blocked" });
+        }
+      }
 
       const { client, fromEmail } = await getUncachableResendClient();
 
