@@ -130,8 +130,8 @@ export default function MonashCaseStudy() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-orange-500/30 bg-orange-500/10 mb-6 backdrop-blur-md">
-                  <span className="font-mono text-sm tracking-widest text-orange-400 uppercase">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-emerald-500/30 bg-emerald-500/10 mb-6 backdrop-blur-md">
+                  <span className="font-mono text-sm tracking-widest text-emerald-400 uppercase">
                     Concept Project
                   </span>
                 </div>
