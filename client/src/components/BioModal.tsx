@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
 import { Button } from "@/components/ui/button";
-import { X, ArrowRight } from "lucide-react";
+import { X, ArrowRight, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface BioModalProps {
@@ -130,7 +130,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
               <Separator className="bg-white/10 mb-8 md:mb-12" />
             </motion.div>
 
-            <motion.div variants={item} className="mb-8 md:mb-12">
+            <motion.div variants={item} className="mb-6 md:mb-8">
               <h4 className="font-mono text-xs text-gray-500 uppercase tracking-widest mb-6">The Person</h4>
               <div className="flex flex-col md:flex-row justify-between gap-6 text-sm">
                 {[
@@ -146,7 +146,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
               </div>
             </motion.div>
 
-            <motion.div variants={item} className="text-center md:text-left">
+            <motion.div variants={item} className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-center md:text-left">
               <Button 
                 onClick={handleContactClick}
                 className="bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:brightness-110 font-medium text-base px-8 py-4 h-auto rounded-full transition-all duration-300 shadow-xl shadow-purple-500/20"
@@ -155,6 +155,16 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
                 Let's Talk
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
+              <a 
+                href="https://calendly.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium"
+                data-testid="link-calendly-bio"
+              >
+                Or book a call directly
+                <ExternalLink className="w-4 h-4" />
+              </a>
             </motion.div>
           </div>
         </motion.div>

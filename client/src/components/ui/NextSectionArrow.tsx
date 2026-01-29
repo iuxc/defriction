@@ -12,7 +12,7 @@ export const NextSectionArrow = ({ targetId }: NextSectionArrowProps) => (
       document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth" });
     }}
     className={cn(
-      "absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 hover:text-volt-lime transition-colors p-4 z-[90] cursor-pointer hidden md:block"
+      "absolute bottom-10 left-1/2 -translate-x-1/2 text-gray-500 hover:text-volt-lime transition-colors p-4 z-[40] cursor-pointer hidden md:block"
     )}
     animate={{ y: [0, 10, 0] }}
     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
