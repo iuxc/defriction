@@ -241,7 +241,7 @@ export default function MonashCaseStudy() {
         </div>
         <NextSectionArrow targetId="friction" />
       </section>
-      {/* 1. The Friction (The Problem) */}
+      {/* 1. The Problem */}
       <Section id="friction" className="border-t border-white/5">
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div 
@@ -253,20 +253,20 @@ export default function MonashCaseStudy() {
               <motion.div variants={fadeInUp} className="mb-16">
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
                   <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
-                    01. The Problem (Current State)
+                    The Problem
                   </span>
                 </div>
                 
                 <h2 className="text-4xl md:text-6xl font-display font-bold mb-8 leading-tight">Admissions by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-600">Administrative Burden.</span></h2>
                 <p className="text-base text-gray-400 font-light leading-relaxed max-w-3xl">
-                  Currently, applying to university isn't just about grades; it's about navigating a maze. Students are forced to self-diagnose their eligibility <a href="https://www.monash.edu/__data/assets/pdf_file/0010/2556235/MU-22-AS194-Pathways-Overview-Table-2022.pdf" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">using static PDFs</a>, <a href="https://connect.monash.edu/s/article/FAQ-2062" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">hidden 'Adjustment Factor' spreadsheets</a>, and confusing academic acronyms. The system acts as a Gatekeeper, checking IDs at the door, rather than a Concierge helping users find their way.
+                  Applying to Monash as a non-traditional student means navigating 6 to 24 pages across three different websites. Critical information is buried in PDFs, hidden in help documents, and wrapped in acronyms like <Acronym short="ATAR" full="Australian Tertiary Admission Rank" testId="tooltip-atar-problem" />, <Acronym short="VTAC" full="Victorian Tertiary Admissions Centre" testId="tooltip-vtac-problem" />, <Acronym short="AQF" full="Australian Qualifications Framework" testId="tooltip-aqf-problem" />, and <Acronym short="DoTS" full="Declaration of Thesis Submission" testId="tooltip-dots-problem" />. The result? Students are forced to become detectives—piecing together eligibility requirements, calculating their own scores, and guessing whether they qualify.
                 </p>
               </motion.div>
 
               <motion.div variants={stagger} className="grid sm:grid-cols-2 gap-6">
                 {[
-                  { label: "The Dead End", value: "0 Results", desc: <>A <Acronym short="TAFE" full="Technical and Further Education" testId="tooltip-tafe-deadend" /> graduate searching for credit gets 0 results because the database is incomplete.</>, color: "text-red-400" },
-                  { label: "The Hidden Math", value: "Hidden +5", desc: <>A regional student with an <Acronym short="ATAR" full="Australian Tertiary Admission Rank" testId="tooltip-atar-hiddenmath" /> of 65 sees a cutoff of 70 and abandons the site.</>, color: "text-orange-400" },
+                  { label: "0 Results", value: "0 Results", desc: <>The credit search tool returned no results for a Diploma of Nursing—even from a listed provider.</>, color: "text-red-400" },
+                  { label: "Hidden +5", value: "Hidden +5", desc: <>Equity bonuses for geography and socioeconomic status exist, but students don't know they have them.</>, color: "text-orange-400" },
                 ].map((stat, i) => (
                   <motion.div 
                     key={i} 
@@ -274,7 +274,6 @@ export default function MonashCaseStudy() {
                     className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-start hover:bg-white/5 transition-colors"
                   >
                      <h4 className={`text-2xl font-display font-bold mb-2 ${stat.color}`}>{stat.value}</h4>
-                     <div className="text-white font-medium mb-2 text-base">{stat.label}</div>
                      <p className="text-sm text-gray-500 leading-relaxed">{stat.desc}</p>
                   </motion.div>
                 ))}
@@ -320,25 +319,13 @@ export default function MonashCaseStudy() {
                 className="space-y-8"
               >
                 <div>
-                    <h3 className="text-2xl font-display font-bold text-white mb-4">Friction Log Process</h3>
-                    <p className="text-gray-400 leading-relaxed">To understand the true digital experience for non-traditional applicants, I conducted a behavioral audit using two distinct student personas. This process involves a "first-person" walkthrough of the Monash web ecosystem to identify where users lose momentum or encounter barriers.</p>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 backdrop-blur-md cursor-default mb-4">
+                      <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">Friction Log</span>
+                    </div>
+                    <h3 className="text-3xl font-display font-bold text-white mb-4">What I found.</h3>
+                    <p className="text-gray-400 leading-relaxed">I walked through the current experience as two different users: a <Acronym short="TAFE" full="Technical and Further Education" testId="tooltip-tafe-friction" /> graduate with a Diploma of Nursing, and a Year 12 student with a low <Acronym short="ATAR" full="Australian Tertiary Admission Rank" testId="tooltip-atar-friction" />. Both hit dead ends, broken links, and jargon walls.</p>
                 </div>
 
-                <div className="space-y-8">
-                    <div>
-                        <h4 className="text-white font-bold mb-2 text-base">Persona Emulation</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed">I approached the website from the specific perspective of a <Acronym short="TAFE" full="Technical and Further Education" testId="tooltip-tafe-persona" /> Graduate and a Year 12 Student (Low <Acronym short="ATAR" full="Australian Tertiary Admission Rank" testId="tooltip-atar-persona" />), navigating as a user without prior knowledge of the university’s internal hierarchy.</p>
-                    </div>
-
-                    <div>
-                        <h4 className="text-white font-bold mb-2 text-base">Step-by-Step Documentation</h4>
-                        <p className="text-gray-400 text-sm leading-relaxed">
-                            Every interaction—from initial homepage searches to external application portals—was logged in real-time to capture the authentic student experience.
-                        </p>
-                    </div>
-
-
-                </div>
               </motion.div>
 
             <motion.div
@@ -366,7 +353,7 @@ export default function MonashCaseStudy() {
                                <FileText className="w-4 h-4 text-gray-500 group-hover:text-cyan-400" />
                            </div>
                            <p className="text-sm text-gray-400 leading-relaxed">
-                               Encountered broken pathways, 0 credit results, and conflicting advice between departments.
+                               Encountered broken pathways, a credit tool that returned nothing, and conflicting advice between departments.
                            </p>
                        </div>
                    </motion.button>
@@ -385,7 +372,7 @@ export default function MonashCaseStudy() {
                                <FileText className="w-4 h-4 text-gray-500 group-hover:text-cyan-400" />
                            </div>
                            <p className="text-sm text-gray-400 leading-relaxed">
-                               Struggled with "dropdown hell", hidden adjustment factors, and ATAR-centric navigation.
+                               Struggled with "dropdown hell," unclear diploma structures, and a surprise campus location revealed only at the end.
                            </p>
                        </div>
                    </motion.button>
@@ -405,17 +392,18 @@ export default function MonashCaseStudy() {
           <motion.div variants={fadeInUp}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
               <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
-                02. The Strategic Insight
+                The Strategic Insight
               </span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-8 leading-tight">The Shift to Equity.</h2>
             <p className="text-base text-gray-400 font-light leading-relaxed mb-8">
-              The <a href="https://www.education.gov.au/australian-universities-accord" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">2024 Universities Accord</a> mandates a shift from a market-driven logic to an equity-driven mandate. I couldn't just reskin the page; I had to expose the backend logic to the frontend user. I pivoted the entire architecture from asking <span className="text-white font-medium">"Am I eligible?"</span> to asking <span className="text-white font-medium">"Who are you?"</span>—routing Year 12s, TAFE grads, and Mature Age students down distinct, personalized paths.
+              Australia's <a href="https://www.education.gov.au/australian-universities-accord" target="_blank" rel="noopener noreferrer" className="text-white hover:text-cyan-400 underline decoration-white/20 hover:decoration-cyan-400 transition-all">University Accord</a> mandates that 80% of the workforce hold tertiary qualifications by 2050. That's 1.8 million more students—most of them first-generation, rural, or low-income. These are exactly the students who struggle most with the current process. They don't have guidance counselors or parents who've navigated the system. If Monash wants to meet those targets, the website can't be a maze. It has to be a guide.
             </p>
-            <div className="flex gap-4">
-               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Equity First</div>
-               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Radical Transparency</div>
+            <div className="flex flex-wrap gap-3">
+               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Equity Focus</div>
+               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Policy</div>
+               <div className="px-4 py-2 rounded-md border border-ion-cyan/20 bg-ion-cyan/5 text-sm text-ion-cyan font-mono">Transparency</div>
             </div>
           </motion.div>
           
@@ -437,14 +425,25 @@ export default function MonashCaseStudy() {
             >
                 <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-white/10 bg-white/5 mb-8 backdrop-blur-md cursor-default">
                   <span className="font-mono text-sm tracking-widest text-gray-400 uppercase">
-                    03. The Proposed Solution
+                    The Proposed Solution
                   </span>
                 </div>
 
                 <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Visualizing the Invisible.</h3>
-                <p className="text-base text-gray-400 leading-relaxed mb-8">
-                  I designed a dynamic component that visualizes the "hidden math" of admissions. Instead of a static table, the "stacking calculator" shows students exactly how close they are.
+                <p className="text-base text-gray-400 leading-relaxed mb-6">
+                  Instead of asking students to navigate dozens of pages and calculate their own eligibility, I designed a tool that asks 3–5 questions and shows them exactly where they stand. The interface displays their score alongside the course requirement—including equity bonuses they didn't know they had. If they're close but not quite there, the tool suggests "bridge" pathways to get them across the line.
                 </p>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                    <h4 className="text-white font-bold text-sm mb-2">Why stacked progress bars?</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">Many students don't know they qualify for geographic or socioeconomic bonuses. The stacked bar reveals hidden points they've already earned—turning confusion into confidence.</p>
+                  </div>
+                  <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                    <h4 className="text-white font-bold text-sm mb-2">Why stay within Monash's brand?</h4>
+                    <p className="text-gray-400 text-sm leading-relaxed">This is a concept, but it had to feel real. I worked within their existing design system to show I can deliver work that fits a client's brand—not just my preferences.</p>
+                  </div>
+                </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Button 
