@@ -50,7 +50,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
           <span className="sr-only">Close</span>
         </DialogClose>
         <motion.div 
-          className="relative min-h-full"
+          className="relative"
           variants={container}
           initial="hidden"
           animate="show"
@@ -58,7 +58,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
           <div className="absolute top-0 right-0 w-96 h-96 bg-volt-lime/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-electric-violet/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none" />
 
-          <div className="p-8 md:p-12 relative z-10 flex flex-col justify-center">
+          <div className="p-8 md:p-12 pb-8 relative z-10 flex flex-col">
             <motion.div variants={item}>
               <DialogHeader className="mb-8 md:mb-12 text-left">
                 <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
