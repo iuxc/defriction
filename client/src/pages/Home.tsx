@@ -7,7 +7,7 @@ import { Contact } from "@/components/Contact";
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black">
+    <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black md:snap-none snap-y snap-mandatory overflow-y-auto h-screen md:h-auto md:overflow-visible">
       <Navigation />
       <Hero />
       <WorkGrid />
@@ -15,7 +15,7 @@ export default function Home() {
       <About />
       <Contact />
       
-      <footer className="py-8 bg-black border-t border-white/10">
+      <footer className="py-8 bg-black border-t border-white/10 snap-start md:snap-align-none">
         <div className="container mx-auto px-4 md:px-8 text-left">
           <p className="font-mono text-xs text-gray-600">
             <a href="mailto:brian@defriction.design" className="hover:text-volt-lime transition-colors">
