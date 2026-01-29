@@ -65,7 +65,7 @@ export function About() {
             </p>
             
             {/* Mini Cards - Horizontal scroll on mobile */}
-            <div className="flex gap-3 overflow-x-auto snap-x snap-mandatory pb-3 -mx-4 px-4 scrollbar-hide mb-4">
+            <div className="flex gap-3 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-3 -mx-4 px-4 scrollbar-hide touch-pan-x mb-4">
               <div className="snap-center shrink-0 bg-white/5 border border-white/5 p-3 rounded-xl backdrop-blur-sm min-w-[120px]">
                 <span className="block text-[10px] font-mono text-gray-500 uppercase tracking-widest mb-0.5">Base</span>
                 <span className="block text-white text-sm font-medium">Eugene, OR</span>

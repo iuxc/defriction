@@ -74,7 +74,7 @@ export function WorkGrid() {
 
         {/* Mobile: Horizontal scroll carousel */}
         <div className="md:hidden flex-1 flex flex-col justify-center min-h-0">
-          <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-hide">
+          <div className="flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory gap-4 pb-4 -mx-4 px-4 scrollbar-hide touch-pan-x">
             {projectsData.map((project, index) => (
               <Link key={project.id} href={project.link} className="snap-center shrink-0 w-[90vw] max-w-[340px]">
                   <div 
