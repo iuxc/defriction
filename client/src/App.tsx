@@ -8,6 +8,8 @@ import MonashCaseStudy from "@/pages/MonashCaseStudy";
 import MonashPrototypeWrapper from "@/pages/MonashPrototype";
 import NotFound from "@/pages/not-found";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { ThemeProvider } from "@/contexts/ThemeContext";
+import { PasswordProtection } from "@/components/PasswordProtection";
 
 function Router() {
   return (
@@ -20,18 +22,18 @@ function Router() {
   );
 }
 
-import { PasswordProtection } from "@/components/PasswordProtection";
-
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <PasswordProtection>
-          <ScrollToTop />
-          <Toaster />
-          <Router />
-        </PasswordProtection>
-      </TooltipProvider>
+      <ThemeProvider>
+        <TooltipProvider>
+          <PasswordProtection>
+            <ScrollToTop />
+            <Toaster />
+            <Router />
+          </PasswordProtection>
+        </TooltipProvider>
+      </ThemeProvider>
     </QueryClientProvider>
   );
 }

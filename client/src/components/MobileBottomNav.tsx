@@ -2,10 +2,12 @@ import { Home, Briefcase, Zap, User, Mail } from "lucide-react";
 import { useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
+import { useTheme } from "@/contexts/ThemeContext";
 
 export function MobileBottomNav() {
   const [location] = useLocation();
   const [activeSection, setActiveSection] = useState("");
+  const { theme } = useTheme();
 
   const navItems = [
     { name: "Home", icon: Home, href: "#hero", id: "hero" },
@@ -45,7 +47,12 @@ export function MobileBottomNav() {
   };
 
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-deep-basalt/95 backdrop-blur-xl border-t border-white/10 safe-area-bottom">
+    <nav className={cn(
+      "md:hidden fixed bottom-0 left-0 right-0 z-50 backdrop-blur-xl border-t safe-area-bottom transition-colors duration-300",
+      theme === "light" 
+        ? "bg-white/95 border-gray-200" 
+        : "bg-deep-basalt/95 border-white/10"
+    )}>
       <div className="flex justify-around items-center h-16 px-2">
         {navItems.map((item) => {
           const Icon = item.icon;
@@ -58,8 +65,8 @@ export function MobileBottomNav() {
               className={cn(
                 "flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-xl transition-all duration-300 min-w-[60px]",
                 isActive 
-                  ? "text-volt-lime" 
-                  : "text-gray-500 active:text-white"
+                  ? theme === "light" ? "text-electric-violet" : "text-volt-lime"
+                  : theme === "light" ? "text-gray-400 active:text-gray-900" : "text-gray-500 active:text-white"
               )}
             >
               <Icon className={cn(
@@ -76,8 +83,8 @@ export function MobileBottomNav() {
           className={cn(
             "flex flex-col items-center justify-center gap-1 py-2 px-3 rounded-xl transition-all duration-300 min-w-[60px]",
             activeSection === "contact"
-              ? "text-orange-400"
-              : "text-orange-400/70 active:text-orange-400"
+              ? "text-orange-500"
+              : "text-orange-400/70 active:text-orange-500"
           )}
         >
           <Mail className={cn(

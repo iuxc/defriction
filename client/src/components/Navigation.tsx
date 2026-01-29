@@ -1,9 +1,10 @@
 import { Link, useLocation } from "wouter";
 import { cn } from "@/lib/utils";
 import { useEffect, useState } from "react";
-import { Home } from "lucide-react";
+import { Home, Sun, Moon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface NavigationProps {
   forcedActive?: string;
@@ -13,6 +14,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
   const [location] = useLocation();
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState(forcedActive || "");
+  const { theme, toggleTheme, isMobile } = useTheme();
 
   const navItems = [
     { name: "Work", href: "/#work", id: "work" },
@@ -53,7 +55,10 @@ export function Navigation({ forcedActive }: NavigationProps) {
       size === "large" ? "text-2xl" : "text-xl",
       className
     )} onClick={() => window.scrollTo(0, 0)}>
-      <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">defriction</span>
+      <span className={cn(
+        "bg-clip-text text-transparent bg-gradient-to-r",
+        theme === "light" && isMobile ? "from-gray-900 to-gray-600" : "from-white to-gray-400"
+      )}>defriction</span>
     </Link>
   );
 
@@ -75,7 +80,12 @@ export function Navigation({ forcedActive }: NavigationProps) {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
-          ? "py-3 md:py-4 bg-deep-basalt/80 backdrop-blur-xl border-b border-white/5"
+          ? cn(
+              "py-3 md:py-4 backdrop-blur-xl border-b",
+              theme === "light" && isMobile 
+                ? "bg-white/90 border-gray-200" 
+                : "bg-deep-basalt/80 border-white/5"
+            )
           : "py-4 md:py-6 bg-transparent"
       )}
     >
@@ -86,6 +96,29 @@ export function Navigation({ forcedActive }: NavigationProps) {
           scrolled ? "absolute left-1/2 -translate-x-1/2" : ""
         )}>
           <Logo size={scrolled ? "default" : "large"} />
+        </div>
+        
+        {/* Mobile: Theme toggle on right */}
+        <div className={cn(
+          "md:hidden ml-auto",
+          scrolled ? "absolute right-4" : ""
+        )}>
+          <button
+            onClick={toggleTheme}
+            className={cn(
+              "p-2 rounded-full transition-all duration-300",
+              theme === "light" && isMobile
+                ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                : "bg-white/10 text-white hover:bg-white/20"
+            )}
+            aria-label="Toggle theme"
+          >
+            {theme === "light" ? (
+              <Moon className="w-5 h-5" />
+            ) : (
+              <Sun className="w-5 h-5" />
+            )}
+          </button>
         </div>
         
         {/* Desktop: Always left-aligned */}
@@ -143,12 +176,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
           </Button>
         </div>
 
-        {/* Mobile: Empty spacer for layout balance when not scrolled */}
-        <div className={cn(
-          "md:hidden w-16",
-          scrolled ? "invisible" : "invisible"
-        )} />
-      </div>
+        </div>
     </nav>
   );
 }

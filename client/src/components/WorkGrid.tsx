@@ -128,8 +128,7 @@ export function WorkGrid() {
         {/* Desktop: Grid layout */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-3 gap-6">
           {projectsData.map((project, index) => (
-            <Link key={project.id} href={project.link}>
-              <a className={`group block h-full ${project.colSpan}`}>
+            <Link key={project.id} href={project.link} className={`group block h-full ${project.colSpan}`}>
                 <motion.div 
                   whileHover={{ y: -5 }}
                   transition={{ duration: 0.3 }}
@@ -180,7 +179,6 @@ export function WorkGrid() {
                     </div>
                   </div>
                 </motion.div>
-              </a>
             </Link>
           ))}
         </div>

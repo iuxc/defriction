@@ -172,3 +172,75 @@
     padding-bottom: env(safe-area-inset-bottom, 0px);
   }
 }
+
+/* Light mode styles for mobile only */
+@media (max-width: 767px) {
+  .light-mode {
+    --color-background: #FFFFFF;
+    --color-foreground: #1a1a2e;
+    --deep-basalt: #FFFFFF;
+    --vapor-white: #1a1a2e;
+  }
+  
+  .light-mode body {
+    background-color: #F8FAFC;
+    color: #1a1a2e;
+  }
+  
+  .light-mode .bg-deep-basalt {
+    background-color: #FFFFFF;
+  }
+  
+  .light-mode .bg-black\/20 {
+    background-color: rgba(241, 245, 249, 0.8);
+  }
+  
+  .light-mode .text-white {
+    color: #1a1a2e;
+  }
+  
+  .light-mode .text-gray-400 {
+    color: #64748B;
+  }
+  
+  .light-mode .text-gray-500 {
+    color: #94A3B8;
+  }
+  
+  .light-mode .text-gray-600 {
+    color: #475569;
+  }
+  
+  .light-mode .border-white\/5,
+  .light-mode .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .light-mode .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.03);
+  }
+  
+  .light-mode .bg-white\/10 {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .light-mode .glass-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+    border-color: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+  
+  .light-mode .glass-panel {
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .light-mode .mesh-gradient {
+    background-color: #F8FAFC;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(0, 224, 255, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(212, 255, 0, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(248, 250, 252, 1) 0px, transparent 50%);
+  }
+}
