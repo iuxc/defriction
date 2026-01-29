@@ -92,7 +92,7 @@ export function MobileBottomNav() {
                 className={cn(
                   "relative flex flex-col items-center justify-center gap-0.5 py-2 px-4 rounded-full transition-colors duration-200 min-w-[55px] z-10",
                   isActive 
-                    ? "text-white font-semibold"
+                    ? theme === "light" ? "text-electric-violet font-bold" : "text-white font-semibold"
                     : theme === "light" ? "text-gray-600" : "text-gray-400"
                 )}
               >
@@ -100,9 +100,9 @@ export function MobileBottomNav() {
                   <motion.div
                     layoutId="mobile-active-pill"
                     className={cn(
-                      "absolute inset-0 rounded-full border shadow-lg backdrop-blur-sm",
+                      "absolute inset-0 rounded-full border shadow-lg backdrop-blur-xl",
                       theme === "light"
-                        ? "bg-gradient-to-r from-electric-violet to-purple-600 border-purple-300/50 shadow-purple-500/30"
+                        ? "bg-white/80 border-electric-violet/40 shadow-electric-violet/20"
                         : "bg-gradient-to-r from-volt-lime/20 via-ion-cyan/20 to-electric-violet/20 border-white/20"
                     )}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}

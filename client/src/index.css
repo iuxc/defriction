@@ -264,7 +264,8 @@
   }
   
   .light-mode .method-section {
-    background-color: #FFFFFF;
+    background-color: #FFFFFF !important;
+    background-image: none !important;
   }
   
   .light-mode .contact-section {
