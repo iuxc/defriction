@@ -18,9 +18,10 @@ interface FooterContactProps {
   disableExpansion?: boolean;
   glowColor?: "blue" | "orange";
   removeTextShadow?: boolean;
+  infoContent?: React.ReactNode;
 }
 
-export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false, glowColor = "blue", removeTextShadow = false }: FooterContactProps) {
+export function FooterContact({ title = "Ready to start?", className, stickyClassName, stickyVisible = true, backLink, alwaysSticky = false, withGradientShadow = false, monashSwitcher = false, disableExpansion = false, glowColor = "blue", removeTextShadow = false, infoContent }: FooterContactProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [showInfo, setShowInfo] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -151,12 +152,16 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                         </div>
                         
                         <div className="text-gray-300 leading-relaxed text-sm space-y-3 font-light">
-                          <p>
-                            Monash applicants currently navigate dozens of pages to figure out if they qualify. This prototype replaces that maze with 3–5 questions and a clear answer.
-                          </p>
-                          <p>
-                            It also reveals equity bonuses most students don't know they have—helping first-gen and rural applicants see they're closer than they think.
-                          </p>
+                          {infoContent || (
+                            <>
+                              <p>
+                                Monash applicants currently navigate dozens of pages to figure out if they qualify. This prototype replaces that maze with 3–5 questions and a clear answer.
+                              </p>
+                              <p>
+                                It also reveals equity bonuses most students don't know they have—helping first-gen and rural applicants see they're closer than they think.
+                              </p>
+                            </>
+                          )}
                         </div>
                       </div>
                     </motion.div>

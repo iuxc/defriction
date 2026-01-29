@@ -812,6 +812,12 @@ export default function Documentation() {
         alwaysSticky={true}
         stickyClassName="!bg-[#0B0F19]/85 !backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
         monashSwitcher={true}
+        infoContent={
+          <>
+            <p>This is where the logic lives. Before any pixels, I mapped the decision tree: what questions to ask, in what order, and how each answer routes the user toward their pathway.</p>
+            <p>If the high-fidelity demo is the "what," this is the "why."</p>
+          </>
+        }
       />
     </div>
   );

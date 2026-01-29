@@ -21,6 +21,12 @@ export default function Home() {
         alwaysSticky={true}
         stickyClassName="!bg-[#0B0F19]/85 !backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
         monashSwitcher={true}
+        infoContent={
+          <>
+            <p>Structure before polish. This clickable wireframe tests the flow and logic without the distraction of visual design.</p>
+            <p>If something doesn't work here, no amount of styling will fix it.</p>
+          </>
+        }
       />
     </PathwaysProvider>
   );
