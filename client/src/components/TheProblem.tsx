@@ -19,9 +19,9 @@ export function TheProblem() {
           className="max-w-4xl mx-auto text-center"
         >
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-md border border-orange-500/20 bg-orange-500/5 mb-6 md:mb-8 backdrop-blur-md cursor-default">
-            <AlertTriangle className="w-3 h-3 md:w-4 md:h-4 text-orange-400" />
-            <span className="font-mono text-[10px] md:text-xs tracking-widest text-orange-400 uppercase">
+          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-md border border-white/10 bg-white/5 mb-6 md:mb-8 backdrop-blur-md cursor-default">
+            <AlertTriangle className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />
+            <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
               The Reality
             </span>
           </div>
