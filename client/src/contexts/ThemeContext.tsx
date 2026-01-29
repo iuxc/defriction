@@ -11,13 +11,7 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('defriction-theme');
-      return (saved === 'light' || saved === 'dark') ? saved : 'dark';
-    }
-    return 'dark';
-  });
+  const [theme, setTheme] = useState<Theme>("dark");
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -31,7 +25,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('defriction-theme', theme);
     if (isMobile) {
       document.documentElement.classList.toggle("light-mode", theme === "light");
     } else {
