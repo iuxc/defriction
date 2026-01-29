@@ -75,10 +75,10 @@ export function Method() {
                     {method.desc}
                   </p>
 
-                  <div className="mt-auto -mb-5 -mx-5">
+                  <div className="mt-auto -mb-2 mx-0">
                     <AbstractBrowser 
                       variant={method.browserVariant} 
-                      className="w-full shadow-xl opacity-80"
+                      className="w-full shadow-xl opacity-90 rounded-lg overflow-hidden"
                     />
                   </div>
                 </div>

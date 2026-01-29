@@ -81,12 +81,12 @@ export function Navigation({ forcedActive }: NavigationProps) {
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
         scrolled
           ? cn(
-              "py-4 md:py-4 backdrop-blur-xl border-b",
+              "py-5 md:py-4 backdrop-blur-xl border-b",
               theme === "light" && isMobile 
                 ? "bg-white/90 border-gray-200" 
                 : "bg-deep-basalt/80 border-white/5"
             )
-          : "py-5 md:py-6 bg-transparent"
+          : "py-6 md:py-6 bg-transparent"
       )}
     >
       <div className="container mx-auto px-4 flex justify-between md:justify-between items-center">
@@ -106,16 +106,16 @@ export function Navigation({ forcedActive }: NavigationProps) {
           <button
             onClick={toggleTheme}
             className={cn(
-              "flex items-center gap-1.5 px-2 py-1.5 rounded-full transition-all duration-300 border",
+              "flex items-center gap-1.5 px-2.5 py-2 rounded-full transition-all duration-300 border",
               theme === "light" && isMobile
                 ? "bg-gray-100 border-gray-200"
                 : "bg-white/10 border-white/10"
             )}
             aria-label="Toggle theme"
           >
-            <Sun className={cn(
+            <Moon className={cn(
               "w-3.5 h-3.5 transition-colors",
-              theme === "dark" ? "text-yellow-400" : "text-gray-400"
+              theme === "light" ? "text-electric-violet" : "text-gray-500"
             )} />
             <div className={cn(
               "w-8 h-4 rounded-full relative transition-colors",
@@ -126,9 +126,9 @@ export function Navigation({ forcedActive }: NavigationProps) {
                 theme === "light" ? "translate-x-4" : "translate-x-0.5"
               )} />
             </div>
-            <Moon className={cn(
+            <Sun className={cn(
               "w-3.5 h-3.5 transition-colors",
-              theme === "light" ? "text-electric-violet" : "text-gray-500"
+              theme === "dark" ? "text-yellow-400" : "text-gray-400"
             )} />
           </button>
         </div>

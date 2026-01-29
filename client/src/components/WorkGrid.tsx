@@ -106,10 +106,10 @@ export function WorkGrid() {
                           </p>
                         </div>
 
-                        <div className="mt-4 -mb-5 -mx-5">
+                        <div className="mt-4 -mb-2 mx-0">
                           <AbstractBrowser 
                             variant={project.browserVariant} 
-                            className="w-full shadow-xl opacity-80"
+                            className="w-full shadow-xl opacity-90 rounded-lg overflow-hidden"
                           />
                         </div>
                       </div>

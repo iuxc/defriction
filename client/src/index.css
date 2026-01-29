@@ -238,14 +238,33 @@
   .light-mode .mesh-gradient {
     background-color: #F8FAFC;
     background-image: 
-      radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 0%, rgba(0, 224, 255, 0.08) 0px, transparent 50%),
-      radial-gradient(at 100% 100%, rgba(212, 255, 0, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(0, 224, 255, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(212, 255, 0, 0.08) 0px, transparent 50%),
       radial-gradient(at 0% 100%, rgba(248, 250, 252, 1) 0px, transparent 50%);
   }
   
+  .light-mode .hero-headline {
+    color: #1a1a2e;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+  
+  .light-mode .hero-gradient-text {
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.15));
+  }
+  
+  .light-mode .hero-cta-button {
+    background: linear-gradient(135deg, #7C3AED 0%, #6D28D9 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+  }
+  
+  .light-mode .hero-cta-button:hover {
+    background: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  }
+  
   .light-mode .method-section {
-    background-color: #F1F5F9;
+    background-color: #FFFFFF;
   }
   
   .light-mode .contact-section {
@@ -256,14 +275,51 @@
     background-color: #E2E8F0;
   }
   
-  .light-mode .abstract-browser {
-    background-color: #FFFFFF;
+  .light-mode .glass-card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.85) 100%);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  }
+  
+  .light-mode .glass-card .border-white\/10 {
+    border-color: rgba(0, 0, 0, 0.08);
+  }
+  
+  .light-mode .glass-card .bg-white\/5 {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  .light-mode .glass-card .bg-black\/40,
+  .light-mode .glass-card .bg-gradient-to-br {
+    background: rgba(241, 245, 249, 0.9);
+  }
+  
+  /* Contact form light mode styles */
+  .light-mode .contact-section .bg-deep-basalt\/90 {
+    background-color: rgba(255, 255, 255, 0.95);
     border-color: rgba(0, 0, 0, 0.1);
   }
   
-  .light-mode .abstract-browser-chrome {
-    background-color: #F1F5F9;
-    border-color: rgba(0, 0, 0, 0.08);
+  .light-mode .contact-section input,
+  .light-mode .contact-section textarea,
+  .light-mode .contact-section [data-testid="select-budget"] {
+    background-color: rgba(241, 245, 249, 0.8) !important;
+    border-color: rgba(0, 0, 0, 0.1) !important;
+    color: #1a1a2e !important;
+  }
+  
+  .light-mode .contact-section input::placeholder,
+  .light-mode .contact-section textarea::placeholder {
+    color: #94A3B8 !important;
+  }
+  
+  .light-mode .contact-section label {
+    color: #475569 !important;
+  }
+  
+  .light-mode .contact-section .text-orange-400 {
+    color: #EA580C !important;
+    background-color: rgba(234, 88, 12, 0.1) !important;
   }
 }
 

@@ -76,9 +76,9 @@ export function MobileBottomNav() {
 
         {/* Center 3 items with Liquid Glass effect */}
         <div className={cn(
-          "flex gap-1 p-1 rounded-full border backdrop-blur-md relative",
+          "flex gap-0.5 p-1 rounded-full border backdrop-blur-xl relative shadow-lg",
           theme === "light"
-            ? "bg-gray-100/80 border-gray-200/50"
+            ? "bg-white/60 border-gray-300/50 shadow-black/5"
             : "bg-white/5 border-white/10"
         )}>
           {navItems.filter(item => centerItems.includes(item.id)).map((item) => {
@@ -92,17 +92,17 @@ export function MobileBottomNav() {
                 className={cn(
                   "relative flex flex-col items-center justify-center gap-0.5 py-2 px-4 rounded-full transition-colors duration-200 min-w-[55px] z-10",
                   isActive 
-                    ? "text-white"
-                    : theme === "light" ? "text-gray-500" : "text-gray-400"
+                    ? "text-white font-semibold"
+                    : theme === "light" ? "text-gray-600" : "text-gray-400"
                 )}
               >
                 {isActive && (
                   <motion.div
                     layoutId="mobile-active-pill"
                     className={cn(
-                      "absolute inset-0 rounded-full border shadow-lg",
+                      "absolute inset-0 rounded-full border shadow-lg backdrop-blur-sm",
                       theme === "light"
-                        ? "bg-gradient-to-r from-electric-violet/90 to-purple-600/90 border-purple-400/30"
+                        ? "bg-gradient-to-r from-electric-violet to-purple-600 border-purple-300/50 shadow-purple-500/30"
                         : "bg-gradient-to-r from-volt-lime/20 via-ion-cyan/20 to-electric-violet/20 border-white/20"
                     )}
                     transition={{ type: "spring", stiffness: 400, damping: 30 }}
