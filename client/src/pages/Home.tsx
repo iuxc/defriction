@@ -5,7 +5,6 @@ import { TheProblem } from "@/components/TheProblem";
 import { WorkGrid } from "@/components/WorkGrid";
 import { WhyMe } from "@/components/WhyMe";
 import { About } from "@/components/About";
-import { Testimonial } from "@/components/Testimonial";
 import { Contact } from "@/components/Contact";
 import { MobileBottomNav } from "@/components/MobileBottomNav";
 
@@ -19,7 +18,6 @@ export default function Home() {
       <WorkGrid />
       <WhyMe />
       <About />
-      <Testimonial />
       <Contact />
       
       <footer className="hidden md:block py-8 pb-8 bg-black border-t border-white/10">
