@@ -56,7 +56,7 @@ export function MobileBottomNav() {
         ? "bg-white/90 border-gray-200" 
         : "bg-deep-basalt/90 border-white/10"
     )}>
-      <div className="flex justify-around items-center h-16 px-2">
+      <div className="flex justify-around items-center h-16 px-2 pt-1">
         {/* Home button - outside glass */}
         <button
           onClick={(e) => handleNavClick(e, "#hero")}
