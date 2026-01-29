@@ -138,32 +138,34 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           <div className="space-y-1 md:space-y-2">
-            <label className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Name</label>
+            <label htmlFor="contact-name" className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Name</label>
             <Input 
               {...register("name")} 
+              id="contact-name"
               required
               data-testid="input-name"
-              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
+              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-2 focus:ring-volt-lime/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
               placeholder="Enter your name" 
             />
           </div>
           <div className="space-y-1 md:space-y-2">
-            <label className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Email</label>
+            <label htmlFor="contact-email" className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Email</label>
             <Input 
               {...register("email")} 
+              id="contact-email"
               type="email"
               required
               data-testid="input-email"
-              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
+              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-2 focus:ring-volt-lime/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
               placeholder="name@company.com" 
             />
           </div>
         </div>
 
         <div className="space-y-1 md:space-y-2">
-          <label className="text-[10px] md:text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-0.5 md:py-1 inline-block rounded-md">Project Type</label>
+          <label htmlFor="contact-project-type" className="text-[10px] md:text-xs font-mono text-orange-400 uppercase tracking-widest font-bold bg-orange-400/10 px-2 py-0.5 md:py-1 inline-block rounded-md">Project Type</label>
           <Select value={selectedBudget} onValueChange={setSelectedBudget}>
-            <SelectTrigger data-testid="select-budget" className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-orange-400/50 focus:ring-0 text-white transition-all focus:bg-white/10 text-sm md:text-base">
+            <SelectTrigger id="contact-project-type" data-testid="select-budget" aria-label="Select project type" className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-orange-400/50 focus:ring-2 focus:ring-orange-400/30 text-white transition-all focus:bg-white/10 text-sm md:text-base">
               <SelectValue placeholder="Select project type..." />
             </SelectTrigger>
             <SelectContent className={cn("bg-deep-basalt border-white/10 text-white rounded-xl shadow-xl", selectContentClassName)}>
@@ -176,12 +178,13 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
         </div>
 
         <div className="space-y-1 md:space-y-2">
-          <label className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">The Brief</label>
+          <label htmlFor="contact-message" className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">The Brief</label>
           <Textarea 
             {...register("message")} 
+            id="contact-message"
             required
             data-testid="textarea-message"
-            className="bg-white/5 border-white/10 rounded-lg min-h-[100px] md:min-h-[150px] focus:border-orange-400/50 focus:ring-0 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none text-sm md:text-base" 
+            className="bg-white/5 border-white/10 rounded-lg min-h-[100px] md:min-h-[150px] focus:border-orange-400/50 focus:ring-2 focus:ring-orange-400/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none text-sm md:text-base" 
             placeholder="What challenge are you trying to solve?" 
           />
         </div>

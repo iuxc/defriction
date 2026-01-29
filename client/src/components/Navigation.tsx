@@ -109,7 +109,8 @@ export function Navigation({ forcedActive }: NavigationProps) {
         <div className="hidden md:flex items-center gap-4">
           <Link 
             href="/"
-            className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80"
+            aria-label="Go to homepage"
+            className="flex items-center justify-center transition-all duration-300 group px-2 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-volt-lime focus-visible:ring-offset-2 focus-visible:ring-offset-deep-basalt rounded-md"
             onClick={(e) => {
               if (location === "/") {
                 e.preventDefault();
@@ -117,7 +118,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
               }
             }}
           >
-            <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" />
+            <Home className="w-5 h-5 text-gray-400 group-hover:text-white transition-colors" aria-hidden="true" />
           </Link>
 
           <div className="flex gap-1 bg-white/5 p-1 rounded-full border border-white/5 backdrop-blur-md relative">
@@ -129,7 +130,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
                   key={item.name}
                   href={item.href}
                   className={cn(
-                    "relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 z-10 flex items-center gap-2",
+                    "relative px-5 py-2 rounded-full text-sm font-medium transition-colors duration-300 z-10 flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-volt-lime focus-visible:ring-offset-1 focus-visible:ring-offset-transparent",
                     isActive ? "text-white" : "text-gray-400 hover:text-white"
                   )}
                   onClick={(e) => handleNavClick(e, item.href.substring(1))}
@@ -148,7 +149,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
             })}
           </div>
           <Button 
-            className="h-[44px] bg-gradient-to-b from-orange-400/20 to-orange-400/5 text-orange-400 hover:from-orange-400/30 hover:to-orange-400/10 border border-orange-400/20 rounded-full px-6 transition-all duration-300 shadow-[inset_0_1px_0_rgba(251,146,60,0.2)] hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] backdrop-blur-md"
+            className="h-[44px] bg-gradient-to-b from-orange-400/20 to-orange-400/5 text-orange-400 hover:from-orange-400/30 hover:to-orange-400/10 border border-orange-400/20 rounded-full px-6 transition-all duration-300 shadow-[inset_0_1px_0_rgba(251,146,60,0.2)] hover:shadow-[0_0_20px_rgba(251,146,60,0.2)] backdrop-blur-md focus-visible:ring-2 focus-visible:ring-orange-400 focus-visible:ring-offset-2 focus-visible:ring-offset-deep-basalt"
             onClick={(e) => handleNavClick(e, "#contact")}
           >
             Let's Talk

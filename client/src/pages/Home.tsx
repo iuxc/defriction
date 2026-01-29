@@ -12,13 +12,15 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-deep-basalt text-white selection:bg-volt-lime selection:text-black overflow-y-auto pb-16 md:pb-0">
       <Navigation />
-      <Hero />
-      <CredibilityBar />
-      <TheProblem />
-      <WorkGrid />
-      <WhyMe />
-      <About />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <CredibilityBar />
+        <TheProblem />
+        <WorkGrid />
+        <WhyMe />
+        <About />
+        <Contact />
+      </main>
       
       <footer className="hidden md:block py-8 pb-8 bg-black border-t border-white/10">
         <div className="container mx-auto px-4 md:px-8 text-left">
