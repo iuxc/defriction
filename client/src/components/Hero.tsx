@@ -6,7 +6,7 @@ import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen md:min-h-screen h-screen md:h-auto flex items-center justify-center overflow-hidden pt-16 md:pt-20 mesh-gradient snap-start md:snap-align-none">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-20 mesh-gradient">
       {/* ... existing dynamic background ... */}
       
       {/* Dynamic Background Elements */}

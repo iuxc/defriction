@@ -98,7 +98,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
           <Logo size={scrolled ? "default" : "large"} />
         </div>
         
-        {/* Mobile: Theme toggle on right */}
+        {/* Mobile: Theme switch toggle on right */}
         <div className={cn(
           "md:hidden ml-auto",
           scrolled ? "absolute right-4" : ""
@@ -106,18 +106,30 @@ export function Navigation({ forcedActive }: NavigationProps) {
           <button
             onClick={toggleTheme}
             className={cn(
-              "p-2 rounded-full transition-all duration-300",
+              "flex items-center gap-1.5 px-2 py-1.5 rounded-full transition-all duration-300 border",
               theme === "light" && isMobile
-                ? "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                : "bg-white/10 text-white hover:bg-white/20"
+                ? "bg-gray-100 border-gray-200"
+                : "bg-white/10 border-white/10"
             )}
             aria-label="Toggle theme"
           >
-            {theme === "light" ? (
-              <Moon className="w-5 h-5" />
-            ) : (
-              <Sun className="w-5 h-5" />
-            )}
+            <Sun className={cn(
+              "w-3.5 h-3.5 transition-colors",
+              theme === "dark" ? "text-yellow-400" : "text-gray-400"
+            )} />
+            <div className={cn(
+              "w-8 h-4 rounded-full relative transition-colors",
+              theme === "light" ? "bg-electric-violet" : "bg-gray-600"
+            )}>
+              <div className={cn(
+                "absolute top-0.5 w-3 h-3 rounded-full bg-white shadow-sm transition-transform duration-200",
+                theme === "light" ? "translate-x-4" : "translate-x-0.5"
+              )} />
+            </div>
+            <Moon className={cn(
+              "w-3.5 h-3.5 transition-colors",
+              theme === "light" ? "text-electric-violet" : "text-gray-500"
+            )} />
           </button>
         </div>
         

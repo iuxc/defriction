@@ -49,7 +49,7 @@ export function WorkGrid() {
   ];
 
   return (
-    <section id="work" className="min-h-screen md:min-h-screen h-screen md:h-auto py-16 md:py-32 bg-deep-basalt relative flex flex-col justify-center snap-start md:snap-align-none overflow-hidden">
+    <section id="work" className="min-h-screen py-16 md:py-32 bg-deep-basalt relative flex flex-col justify-center overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col h-full md:h-auto justify-center">
         {/* Header - Compact on mobile */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-6 md:mb-16 gap-4 md:gap-6">
