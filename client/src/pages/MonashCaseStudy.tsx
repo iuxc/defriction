@@ -130,6 +130,11 @@ export default function MonashCaseStudy() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
               >
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-orange-500/30 bg-orange-500/10 mb-6 backdrop-blur-md">
+                  <span className="font-mono text-sm tracking-widest text-orange-400 uppercase">
+                    Concept Project
+                  </span>
+                </div>
                 <h1 className="text-6xl md:text-8xl font-display font-bold leading-[0.95] mb-8 tracking-tight">
                   From <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-400 to-indigo-400">Gatekeeper</span> <br />
@@ -143,7 +148,7 @@ export default function MonashCaseStudy() {
                 transition={{ duration: 0.8, delay: 0.1 }}
               >
                 <p className="text-2xl text-gray-400 font-light max-w-lg leading-relaxed mb-10">
-                  A uniquely Australian concept for unifying the admissions journey for 40,000+ applicants.
+                  A concept for unifying the admissions journey for 40,000+ applicants.
                 </p>
               </motion.div>
 
@@ -185,7 +190,7 @@ export default function MonashCaseStudy() {
                 </div>
                 <div>
                    <h3 className="text-sm font-mono text-cyan-400 mb-2 uppercase tracking-widest">Role</h3>
-                   <p className="text-white font-medium">UI Design + Information Architecture</p>
+                   <p className="text-white font-medium">UI Design &bull; Information Architecture</p>
                 </div>
               </motion.div>
             </motion.div>
