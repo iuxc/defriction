@@ -120,14 +120,15 @@ export default function LorboCaseStudy() {
                       if (element) element.scrollIntoView({ behavior: 'smooth' });
                     }}
                  >
-                    View the Site
+                    Understand the Problem
                     <ChevronDown className="ml-2 w-4 h-4" />
                  </Button>
                  <Button 
                     variant="ghost"
                     className="text-white hover:text-purple-400 hover:bg-transparent font-medium text-base gap-2 group rounded-full px-6 py-4 h-auto"
+                    onClick={() => window.open('https://lorbo.app', '_blank')}
                  >
-                    Read the Business Plan
+                    View the Site
                     <ExternalLink className="w-4 h-4 transition-transform group-hover:-translate-y-1 group-hover:translate-x-1" />
                  </Button>
               </motion.div>
