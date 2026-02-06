@@ -158,10 +158,20 @@ export default function LorboCaseStudy() {
             >
                <div className="relative w-full max-w-lg z-10 mb-8">
                   <div className="absolute inset-0 bg-gradient-to-tr from-purple-600/30 to-violet-400/30 blur-[60px] rounded-full opacity-60" />
-                  <AbstractBrowser 
-                    variant="sms-to-story" 
-                    className="w-full shadow-2xl shadow-black/80 border-white/10 rotate-y-12 rotate-x-6 transform perspective-1000 transition-transform hover:rotate-0 duration-700"
+                  
+                  <img 
+                    src="/images/lorbo-owl.webp" 
+                    alt="Lorbo the owl" 
+                    className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[340px] h-auto z-0 pointer-events-none select-none drop-shadow-[0_0_40px_rgba(139,92,246,0.3)]"
+                    style={{ top: '50%', marginTop: '-20px' }}
                   />
+
+                  <div className="relative z-10">
+                    <AbstractBrowser 
+                      variant="sms-to-story" 
+                      className="w-full shadow-2xl shadow-black/80 border-white/10 rotate-y-12 rotate-x-6 transform perspective-1000 transition-transform hover:rotate-0 duration-700"
+                    />
+                  </div>
                   
                   <motion.div 
                     animate={{ y: [0, -20, 0] }}
