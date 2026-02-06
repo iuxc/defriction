@@ -16,7 +16,7 @@ interface FooterContactProps {
   withGradientShadow?: boolean;
   monashSwitcher?: boolean;
   disableExpansion?: boolean;
-  glowColor?: "blue" | "orange";
+  glowColor?: "blue" | "orange" | "purple";
   removeTextShadow?: boolean;
   infoContent?: React.ReactNode;
 }
@@ -181,7 +181,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                     : cn("mx-auto relative", disableExpansion ? "max-w-4xl" : "max-w-3xl")
                 )}
                 // Blue glow when sticky
-                style={showSticky ? { boxShadow: glowColor === "orange" ? "0 0 40px rgba(249, 115, 22, 0.4)" : "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
+                style={showSticky ? { boxShadow: glowColor === "orange" ? "0 0 40px rgba(249, 115, 22, 0.4)" : glowColor === "purple" ? "0 0 40px rgba(139, 92, 246, 0.4)" : "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
                 onClick={() => {
                   if (monashSwitcher) {
                     // Do nothing in Monash Switcher mode (switcher handles itself)

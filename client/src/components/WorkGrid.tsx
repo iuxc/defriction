@@ -29,7 +29,7 @@ export function WorkGrid() {
       title: "Lorbo",
       subtitle: "The journal that writes itself.",
       tags: ["Brand", "Product", "AI"],
-      link: "#",
+      link: "/work/lorbo",
       gradient: "from-purple-500/20 to-transparent",
       colSpan: "md:col-span-1",
       browserVariant: "sms-journal" as const,
