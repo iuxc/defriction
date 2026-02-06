@@ -19,7 +19,7 @@ export function WorkGrid() {
       subtitle: "Unifying the admissions journey for 40,000+ applicants.",
       tags: ["Strategy", "IA", "Education"],
       link: "/work/monash",
-      gradient: "from-electric-violet/20 to-transparent",
+      gradient: "from-blue-500/20 to-transparent",
       colSpan: "md:col-span-2",
       browserVariant: "landing" as const,
       browserPosition: "right"
