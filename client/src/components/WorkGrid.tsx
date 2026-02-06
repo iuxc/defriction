@@ -26,13 +26,13 @@ export function WorkGrid() {
     },
     {
       id: "bom",
-      title: "BOM",
-      subtitle: "Designing for daily delight.",
-      tags: ["Brand", "Data", "Government"],
+      title: "Lorbo",
+      subtitle: "The journal that writes itself.",
+      tags: ["Brand", "Product", "AI"],
       link: "#",
       gradient: "from-flux-orange/20 to-transparent",
       colSpan: "md:col-span-1",
-      browserVariant: "data" as const,
+      browserVariant: "sms-journal" as const,
       browserPosition: "bottom"
     },
     {

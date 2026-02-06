@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Clock } from "lucide-react";
 
 interface AbstractBrowserProps {
-  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal" | "ia-map" | "wireframe";
+  variant?: "dashboard" | "landing" | "mobile" | "data" | "kanban" | "code-split" | "invoice" | "timezone" | "brain" | "profile" | "infinite-pdf" | "terminal" | "ia-map" | "wireframe" | "sms-journal";
   className?: string;
   theme?: "dark" | "light";
 }
@@ -408,6 +408,47 @@ function Content({ variant, theme }: { variant: AbstractBrowserProps["variant"],
                 <div className="flex gap-2"><span className="text-gray-400">// Mapping user types to entry flows</span></div>
                 <div className="flex gap-2"><span className="text-gray-400">// Resolving dynamic prerequisites</span></div>
              </motion.div>
+        </div>
+      );
+
+    case "sms-journal":
+      return (
+        <div className="flex gap-3 h-full">
+          <div className="w-[45%] flex flex-col justify-end gap-2 py-1">
+            <div className={`self-start max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 ${theme === "light" ? "bg-gray-100 border border-gray-200" : "bg-white/5 border border-white/10"}`}>
+              <div className={`h-1.5 w-16 ${lineClass}`} />
+              <div className={`h-1.5 w-10 ${lineClass} mt-1`} />
+            </div>
+            <div className={`self-end max-w-[80%] rounded-2xl rounded-br-sm px-3 py-2 ${theme === "light" ? "bg-blue-100 border border-blue-200" : "bg-blue-500/15 border border-blue-500/20"}`}>
+              <div className={`h-1.5 w-12 ${theme === "light" ? "bg-blue-200 rounded-full" : "bg-blue-400/20 rounded-full"}`} />
+            </div>
+            <div className={`self-start max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 ${theme === "light" ? "bg-gray-100 border border-gray-200" : "bg-white/5 border border-white/10"}`}>
+              <div className={`h-1.5 w-20 ${lineClass}`} />
+            </div>
+            <div className={`self-end max-w-[80%] rounded-2xl rounded-br-sm px-3 py-2 ${theme === "light" ? "bg-blue-100 border border-blue-200" : "bg-blue-500/15 border border-blue-500/20"}`}>
+              <div className={`h-1.5 w-14 ${theme === "light" ? "bg-blue-200 rounded-full" : "bg-blue-400/20 rounded-full"}`} />
+              <div className={`h-1.5 w-8 ${theme === "light" ? "bg-blue-200 rounded-full" : "bg-blue-400/20 rounded-full"} mt-1`} />
+            </div>
+            <div className={`self-start max-w-[85%] rounded-2xl rounded-bl-sm px-3 py-2 ${theme === "light" ? "bg-gray-100 border border-gray-200" : "bg-white/5 border border-white/10"}`}>
+              <div className={`h-1.5 w-16 ${lineClass}`} />
+              <div className={`h-1.5 w-12 ${lineClass} mt-1`} />
+            </div>
+          </div>
+
+          <div className={`w-px ${connectorColor} self-stretch my-2`} />
+
+          <div className="w-[50%] flex flex-col justify-center gap-2 py-2">
+            <div className={`h-2.5 w-3/4 ${lineClass} mb-1`} />
+            <div className={`h-1.5 w-full ${lineClass}`} />
+            <div className={`h-1.5 w-full ${lineClass}`} />
+            <div className={`h-1.5 w-5/6 ${lineClass}`} />
+            <div className={`h-1.5 w-full ${lineClass}`} />
+            <div className={`h-1.5 w-4/6 ${lineClass}`} />
+            <div className="h-2" />
+            <div className={`h-1.5 w-full ${lineClass}`} />
+            <div className={`h-1.5 w-full ${lineClass}`} />
+            <div className={`h-1.5 w-3/4 ${lineClass}`} />
+          </div>
         </div>
       );
 
