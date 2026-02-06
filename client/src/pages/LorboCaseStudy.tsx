@@ -162,8 +162,8 @@ export default function LorboCaseStudy() {
                   <img 
                     src="/images/lorbo-owl.webp" 
                     alt="Lorbo the owl" 
-                    className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 w-[340px] h-auto z-0 pointer-events-none select-none drop-shadow-[0_0_40px_rgba(139,92,246,0.3)]"
-                    style={{ top: '50%', marginTop: '-20px' }}
+                    className="absolute left-1/2 -translate-x-1/2 w-[520px] h-auto z-0 pointer-events-none select-none drop-shadow-[0_0_60px_rgba(139,92,246,0.4)]"
+                    style={{ top: '50%', transform: 'translate(-50%, -50%)' }}
                   />
 
                   <div className="relative z-10">
@@ -176,7 +176,7 @@ export default function LorboCaseStudy() {
                   <motion.div 
                     animate={{ y: [0, -20, 0] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                    className="absolute -right-12 top-20 glass-panel p-4 rounded-xl border border-white/10 shadow-xl max-w-[200px]"
+                    className="absolute -right-12 top-20 glass-panel p-4 rounded-xl border border-white/10 shadow-xl max-w-[200px] z-20"
                   >
                      <div className="flex items-center gap-3 mb-2">
                         <div className="w-8 h-8 rounded-full bg-purple-400/20 flex items-center justify-center text-purple-400">
@@ -192,7 +192,7 @@ export default function LorboCaseStudy() {
                   <motion.div 
                     animate={{ y: [0, 15, 0] }}
                     transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                    className="absolute -left-8 bottom-32 glass-panel p-4 rounded-xl border border-white/10 shadow-xl"
+                    className="absolute -left-8 bottom-32 glass-panel p-4 rounded-xl border border-white/10 shadow-xl z-20"
                   >
                      <div className="text-sm font-mono text-gray-400 mb-1">CHAPTERS</div>
                      <div className="text-2xl font-display font-bold text-white flex items-center gap-2">
