@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-// import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import clsx from 'clsx';
 import {
   GraduationCap,
   BookOpen,
   Briefcase,
   Globe,
-  ArrowRight,
+  CornerDownLeft,
   ArrowLeft,
   MapPin,
   Sparkles,
@@ -23,31 +23,97 @@ import {
   Info,
   X,
   ChevronRight,
-  RotateCcw
+  RotateCcw,
+  Search
 } from 'lucide-react';
 import { Link } from 'wouter';
 import { StackingBar, Acronym } from './StackingBar';
 
-// Animations removed as requested
-const motion = {
-  div: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <div {...props} />,
-  button: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <button {...props} />,
-  span: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <span {...props} />,
-  a: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <a {...props} />,
-  img: ({ initial, animate, exit, variants, transition, layout, layoutId, whileHover, whileTap, viewport, ...props }: any) => <img {...props} />,
-};
-const AnimatePresence = ({ children }: any) => <>{children}</>;
+// Count-up animation hook for score reveal
+function useCountUp(target: number, duration = 1500) {
+  const [value, setValue] = useState(0);
+  const started = useRef(false);
+  useEffect(() => {
+    if (started.current) return;
+    started.current = true;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      // Ease-out cubic for a decelerating feel
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setValue(target * eased);
+      if (progress < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }, [target, duration]);
+  return value;
+}
 
 // ============================================================================
 // MOCK DATA
 // ============================================================================
 
 const COURSES = [
-  { id: 'nursing', name: 'Bachelor of Nursing', cutoff: 70, vtacCode: '2800311841', faculty: 'Medicine, Nursing and Health Sciences' },
-  { id: 'commerce', name: 'Bachelor of Commerce', cutoff: 85, vtacCode: '2800112345', faculty: 'Business and Economics' },
-  { id: 'arts', name: 'Bachelor of Arts', cutoff: 60, vtacCode: '2800198765', faculty: 'Arts' },
-  { id: 'engineering', name: 'Bachelor of Engineering', cutoff: 80, vtacCode: '2800156789', faculty: 'Engineering' },
+  // Top 5 popular (shown by default)
+  { id: 'nursing', name: 'Bachelor of Nursing', cutoff: 75, vtacCode: '2800311841', faculty: 'Medicine, Nursing and Health Sciences', popular: true },
+  { id: 'commerce', name: 'Bachelor of Commerce', cutoff: 90, vtacCode: '2800112345', faculty: 'Business and Economics', popular: true },
+  { id: 'engineering', name: 'Bachelor of Engineering (Honours)', cutoff: 85, vtacCode: '2800156789', faculty: 'Engineering', popular: true, note: 'Covers specializations like Civil, Mechanical, Aerospace, etc.' },
+  { id: 'comp-sci', name: 'Bachelor of Computer Science', cutoff: 80, vtacCode: '2800167890', faculty: 'Information Technology', popular: true },
+  { id: 'arts', name: 'Bachelor of Arts', cutoff: 75, vtacCode: '2800198765', faculty: 'Arts, Humanities and Social Sciences' },
+
+  // Art, Design and Architecture
+  { id: 'arch-design', name: 'Bachelor of Architectural Design', cutoff: 75, vtacCode: '2800201001', faculty: 'Art, Design and Architecture' },
+  { id: 'design', name: 'Bachelor of Design', cutoff: 70, vtacCode: '2800201002', faculty: 'Art, Design and Architecture', note: 'Communication, Industrial, or Spatial' },
+  { id: 'fine-art', name: 'Bachelor of Fine Art', cutoff: 70, vtacCode: '2800201003', faculty: 'Art, Design and Architecture', note: 'Requires a folio/interview' },
+  { id: 'art-history', name: 'Bachelor of Art History and Curating', cutoff: 70, vtacCode: '2800201004', faculty: 'Art, Design and Architecture' },
+
+  // Arts, Humanities and Social Sciences
+  { id: 'criminology', name: 'Bachelor of Criminology', cutoff: 75, vtacCode: '2800202001', faculty: 'Arts, Humanities and Social Sciences' },
+  { id: 'global-studies', name: 'Bachelor of Global Studies', cutoff: 85, vtacCode: '2800202002', faculty: 'Arts, Humanities and Social Sciences' },
+  { id: 'media-comms', name: 'Bachelor of Media Communication', cutoff: 75, vtacCode: '2800202003', faculty: 'Arts, Humanities and Social Sciences' },
+  { id: 'music', name: 'Bachelor of Music', cutoff: 70, vtacCode: '2800202004', faculty: 'Arts, Humanities and Social Sciences', note: 'Requires an audition' },
+  { id: 'ppe', name: 'Bachelor of Politics, Philosophy and Economics', cutoff: 88, vtacCode: '2800202005', faculty: 'Arts, Humanities and Social Sciences' },
+
+  // Business and Economics
+  { id: 'accounting', name: 'Bachelor of Accounting', cutoff: 80, vtacCode: '2800203001', faculty: 'Business and Economics' },
+  { id: 'banking-finance', name: 'Bachelor of Banking and Finance', cutoff: 80, vtacCode: '2800203002', faculty: 'Business and Economics' },
+  { id: 'business', name: 'Bachelor of Business', cutoff: 75, vtacCode: '2800203003', faculty: 'Business and Economics' },
+  { id: 'bus-admin', name: 'Bachelor of Business Administration', cutoff: 70, vtacCode: '2800203004', faculty: 'Business and Economics' },
+  { id: 'economics', name: 'Bachelor of Economics', cutoff: 86, vtacCode: '2800203005', faculty: 'Business and Economics' },
+  { id: 'finance', name: 'Bachelor of Finance', cutoff: 86, vtacCode: '2800203006', faculty: 'Business and Economics' },
+  { id: 'marketing', name: 'Bachelor of Marketing', cutoff: 80, vtacCode: '2800203007', faculty: 'Business and Economics' },
+  { id: 'actuarial', name: 'Bachelor of Actuarial Science', cutoff: 92, vtacCode: '2800203008', faculty: 'Business and Economics' },
+
+  // Education
+  { id: 'education', name: 'Bachelor of Education (Honours)', cutoff: 75, vtacCode: '2800204001', faculty: 'Education', note: 'Primary or Secondary. Includes Casper test requirement' },
+
+  // Information Technology
+  { id: 'comp-sci-adv', name: 'Bachelor of Computer Science Advanced (Honours)', cutoff: 95, vtacCode: '2800206001', faculty: 'Information Technology' },
+  { id: 'info-tech', name: 'Bachelor of Information Technology', cutoff: 75, vtacCode: '2800206002', faculty: 'Information Technology' },
+  { id: 'data-science', name: 'Bachelor of Applied Data Science', cutoff: 85, vtacCode: '2800206003', faculty: 'Information Technology' },
+
+  // Law
+  { id: 'laws', name: 'Bachelor of Laws (Honours)', cutoff: 95, vtacCode: '2800207001', faculty: 'Law' },
+
+  // Medicine, Nursing and Health Sciences
+  { id: 'med-science', name: 'Bachelor of Medical Science / Doctor of Medicine', cutoff: 95, vtacCode: '2800208001', faculty: 'Medicine, Nursing and Health Sciences', note: 'Requires UCAT and Interview' },
+  { id: 'nursing-midwifery', name: 'Bachelor of Nursing and Midwifery', cutoff: 84, vtacCode: '2800208002', faculty: 'Medicine, Nursing and Health Sciences' },
+  { id: 'nutrition', name: 'Bachelor of Nutrition Science', cutoff: 75, vtacCode: '2800208003', faculty: 'Medicine, Nursing and Health Sciences' },
+  { id: 'occ-therapy', name: 'Bachelor of Occupational Therapy (Honours)', cutoff: 82, vtacCode: '2800208004', faculty: 'Medicine, Nursing and Health Sciences' },
+  { id: 'paramedicine', name: 'Bachelor of Paramedicine', cutoff: 75, vtacCode: '2800208005', faculty: 'Medicine, Nursing and Health Sciences' },
+  { id: 'physio', name: 'Bachelor of Physiotherapy (Honours)', cutoff: 95, vtacCode: '2800208006', faculty: 'Medicine, Nursing and Health Sciences' },
+  { id: 'psychology', name: 'Bachelor of Psychology (Honours)', cutoff: 85, vtacCode: '2800208007', faculty: 'Medicine, Nursing and Health Sciences' },
+  { id: 'public-health', name: 'Bachelor of Public Health', cutoff: 70, vtacCode: '2800208008', faculty: 'Medicine, Nursing and Health Sciences' },
+
+  // Pharmacy and Pharmaceutical Sciences
+  { id: 'pharma-sci', name: 'Bachelor of Pharmaceutical Science', cutoff: 80, vtacCode: '2800209001', faculty: 'Pharmacy and Pharmaceutical Sciences' },
+  { id: 'pharmacy', name: 'Bachelor of Pharmacy (Honours) / Master of Pharmacy', cutoff: 84, vtacCode: '2800209002', faculty: 'Pharmacy and Pharmaceutical Sciences' },
+
+  // Science
   { id: 'science', name: 'Bachelor of Science', cutoff: 75, vtacCode: '2800143210', faculty: 'Science' },
+  { id: 'science-global', name: 'Bachelor of Science Advanced - Global Challenges (Honours)', cutoff: 90, vtacCode: '2800210001', faculty: 'Science' },
+  { id: 'science-research', name: 'Bachelor of Science Advanced - Research (Honours)', cutoff: 95, vtacCode: '2800210002', faculty: 'Science' },
+  { id: 'biomed', name: 'Bachelor of Biomedical Science', cutoff: 90, vtacCode: '2800210003', faculty: 'Science' },
 ];
 
 const POSTCODES: Record<string, { regional: boolean; lowSES: boolean; name: string }> = {
@@ -92,6 +158,7 @@ interface AppState {
   postcodeData: { regional: boolean; lowSES: boolean; name: string } | null;
   selectedCourse: typeof COURSES[0] | null;
   tafeQual: typeof TAFE_QUALIFICATIONS[0] | null;
+  courseSearch: string;
   email: string;
 }
 
@@ -155,7 +222,7 @@ function GlassCard({ children, className = '' }: { children: React.ReactNode; cl
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
       className={clsx(
-        'bg-white rounded-none shadow-2xl shadow-slate-900/20 border border-slate-200 font-sans',
+        'bg-white rounded-none shadow-xl shadow-slate-900/10 border border-slate-200 font-sans',
         className
       )}
     >
@@ -207,29 +274,33 @@ function SmartAssistant({ tip, onClose }: { tip: string; onClose: () => void }) 
 }
 
 // Selection Card with staggered entrance animation
-function SelectionCard({ 
-  icon: Icon, 
-  title, 
-  description, 
-  selected, 
+function SelectionCard({
+  icon: Icon,
+  title,
+  description,
+  selected,
   onClick,
   disabled = false,
-  index = 0
-}: { 
-  icon: React.ElementType; 
-  title: React.ReactNode; 
-  description: string; 
-  selected: boolean; 
+  index = 0,
+  shortcutKey,
+  showPressLabel = false
+}: {
+  icon: React.ElementType;
+  title: React.ReactNode;
+  description: string;
+  selected: boolean;
   onClick: () => void;
   disabled?: boolean;
   index?: number;
+  shortcutKey?: number;
+  showPressLabel?: boolean;
 }) {
   return (
     <motion.button
       initial={{ opacity: 0, y: 20, filter: 'blur(4px)' }}
       animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      transition={{ 
-        duration: 0.6, 
+      transition={{
+        duration: 0.6,
         delay: index * 0.08,
         ease: [0.22, 1, 0.36, 1]
       }}
@@ -239,12 +310,28 @@ function SelectionCard({
       disabled={disabled}
       className={clsx(
         'relative w-full p-6 rounded-none border-2 text-left transition-colors duration-500',
-        selected 
-          ? 'border-monash-blue bg-vapor-grey shadow-lg shadow-monash-blue/20' 
+        selected
+          ? 'border-monash-blue bg-vapor-grey shadow-lg shadow-monash-blue/20'
           : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm hover:shadow-md',
         disabled && 'opacity-50 cursor-not-allowed'
       )}
     >
+      {/* Keyboard shortcut keycap */}
+      {shortcutKey != null && (
+        <span className="absolute top-3 right-3 flex items-center gap-1.5">
+          {showPressLabel && (
+            <span className="text-[10px] text-slate-400 font-medium">Press</span>
+          )}
+          <span className={clsx(
+            'w-5 h-5 flex items-center justify-center text-[10px] font-mono font-bold rounded-[2px] transition-colors duration-300 shadow-[0_1px_0_0_rgba(0,0,0,0.1)]',
+            selected
+              ? 'bg-monash-blue text-white border border-monash-blue'
+              : 'bg-slate-50 text-slate-400 border border-slate-300'
+          )}>
+            {shortcutKey}
+          </span>
+        </span>
+      )}
       <div className={clsx(
         'w-12 h-12 rounded-none flex items-center justify-center mb-4 transition-colors duration-500',
         selected ? 'bg-monash-blue text-white' : 'bg-vapor-grey text-slate-700'
@@ -253,19 +340,6 @@ function SelectionCard({
       </div>
       <h3 className="font-display font-semibold text-slate-900 mb-1">{title}</h3>
       <p className="text-sm font-sans text-slate-500">{description}</p>
-      <AnimatePresence>
-        {selected && (
-          <motion.div
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 0 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="absolute top-4 right-4 w-6 h-6 bg-monash-blue rounded-none flex items-center justify-center"
-          >
-            <CheckCircle2 className="w-4 h-4 text-white" />
-          </motion.div>
-        )}
-      </AnimatePresence>
     </motion.button>
   );
 }
@@ -287,12 +361,16 @@ function PrimaryButton({ children, onClick, disabled = false, icon: Icon }: {
       className={clsx(
         'w-full h-14 rounded-none font-semibold text-white flex items-center justify-center gap-2 transition-all',
         disabled 
-          ? 'bg-slate-400 text-white cursor-not-allowed' 
-          : 'bg-gradient-to-r from-monash-blue to-monash-blue hover:from-deep-sapphire hover:to-deep-sapphire shadow-lg shadow-monash-blue/30'
+          ? 'bg-slate-400 text-white cursor-not-allowed'
+          : 'bg-gradient-to-r from-monash-blue to-deep-sapphire hover:from-deep-sapphire hover:to-deep-sapphire shadow-lg shadow-deep-sapphire/30'
       )}
     >
       {children}
-      {Icon && <Icon className="w-5 h-5" />}
+      {Icon && (
+        <span className="inline-flex items-center justify-center w-5 h-5 border border-white/40 bg-white/10 rounded-[2px]">
+          <Icon className="w-3 h-3" />
+        </span>
+      )}
     </motion.button>
   );
 }
@@ -308,7 +386,7 @@ function SecondaryButton({ children, onClick, icon: Icon }: {
       whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
       onClick={onClick}
-      className="w-full h-14 rounded-none font-semibold text-slate-700 bg-vapor-grey hover:bg-slate-300 border border-slate-300 flex items-center justify-center gap-2 transition-all"
+      className="w-full h-14 rounded-none font-semibold text-slate-700 bg-vapor-grey hover:bg-slate-200 border border-slate-300 flex items-center justify-center gap-2 transition-all"
     >
       {Icon && <Icon className="w-5 h-5" />}
       {children}
@@ -317,22 +395,26 @@ function SecondaryButton({ children, onClick, icon: Icon }: {
 }
 
 // Input Field
-function InputField({ 
-  label, 
-  value, 
-  onChange, 
-  placeholder, 
+function InputField({
+  label,
+  value,
+  onChange,
+  placeholder,
   type = 'text',
   icon: Icon,
-  suffix
-}: { 
-  label: string; 
-  value: string; 
-  onChange: (value: string) => void; 
+  suffix,
+  onSubmit,
+  autoFocus = false
+}: {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
   placeholder: string;
   type?: string;
   icon?: React.ElementType;
   suffix?: string;
+  onSubmit?: () => void;
+  autoFocus?: boolean;
 }) {
   const [focused, setFocused] = useState(false);
   
@@ -341,7 +423,7 @@ function InputField({
       <label className="block text-sm font-medium text-slate-700">{label}</label>
       <div className={clsx(
         'relative h-14 rounded-none border-2 transition-all duration-200',
-        focused ? 'border-monash-blue ring-4 ring-monash-blue/20' : 'border-slate-300'
+        focused ? 'border-monash-blue ring-2 ring-monash-blue/30' : 'border-slate-300'
       )}>
         {Icon && (
           <div className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-500">
@@ -355,6 +437,8 @@ function InputField({
           placeholder={placeholder}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
+          onKeyDown={(e) => { if (e.key === 'Enter' && onSubmit) onSubmit(); }}
+          autoFocus={autoFocus}
           className={clsx(
             'w-full h-full bg-transparent rounded-none text-slate-900 placeholder-slate-500 focus:outline-none',
             Icon ? 'pl-12 pr-4' : 'px-4',
@@ -371,32 +455,207 @@ function InputField({
   );
 }
 
-// Progress Steps - Inverted for blue background (no container, light colors)
+// Progress Steps — segmented bar on blue background
 function ProgressSteps({ currentStep, totalSteps }: { currentStep: number; totalSteps: number }) {
-  // currentStep is 1-indexed (1 = first step)
   return (
-    <div className="flex items-center gap-3">
-      {Array.from({ length: totalSteps }).map((_, i) => {
-        const stepNum = i + 1; // Convert to 1-indexed
-        return (
-          <motion.div
-            key={i}
-            initial={{ scale: 0.8 }}
-            animate={{ scale: stepNum <= currentStep ? 1 : 0.8 }}
-            className={clsx(
-              'h-3 rounded-full transition-all duration-300',
-              stepNum === currentStep 
-                ? 'w-10 bg-white shadow-md shadow-white/30' 
-                : stepNum < currentStep 
-                  ? 'w-3 bg-white' 
-                  : 'w-3 bg-white/40'
-            )}
-          />
-        );
-      })}
-      <span className="ml-2 text-sm font-medium text-white">
-        Step {currentStep} of {totalSteps}
+    <div className="flex items-center gap-4">
+      <div className="flex gap-1.5">
+        {Array.from({ length: totalSteps }).map((_, i) => {
+          const stepNum = i + 1;
+          const isCompleted = stepNum < currentStep;
+          const isCurrent = stepNum === currentStep;
+          return (
+            <motion.div
+              key={i}
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ delay: i * 0.05, duration: 0.3 }}
+              style={{ originX: 0 }}
+              className={clsx(
+                'h-1.5 w-8 transition-colors duration-300',
+                isCompleted && 'bg-white',
+                isCurrent && 'bg-electric-sky',
+                !isCompleted && !isCurrent && 'bg-white/25'
+              )}
+            />
+          );
+        })}
+      </div>
+      <span className="text-xs font-medium text-white/80 tabular-nums whitespace-nowrap">
+        {currentStep}/{totalSteps}
       </span>
+    </div>
+  );
+}
+
+// ============================================================================
+// RESULTS STEP (Extracted for count-up hook)
+// ============================================================================
+
+function ResultsStep({
+  rank,
+  eligibility,
+  gap,
+  selectedCourse,
+  atarType,
+  postcodeData,
+  onBack,
+  onEmail
+}: {
+  rank: { total: number; breakdown: { base: number; regional: number; lowSES: number } };
+  eligibility: 'eligible' | 'borderline' | 'bridge';
+  gap: number;
+  selectedCourse: typeof COURSES[0] | null;
+  atarType: ATARType;
+  postcodeData: { regional: boolean; lowSES: boolean; name: string } | null;
+  onBack: () => void;
+  onEmail: () => void;
+}) {
+  const animatedScore = useCountUp(rank.total);
+
+  return (
+    <div className="space-y-6">
+      {/* Status Header */}
+      <div className="text-center mb-2">
+        <motion.div
+          initial={{ scale: 0, rotate: -10 }}
+          animate={{ scale: 1, rotate: 0 }}
+          transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+          className={clsx(
+            'w-14 h-14 mx-auto rounded-none flex items-center justify-center mb-4',
+            eligibility === 'eligible' && 'bg-electric-sky/20',
+            eligibility === 'borderline' && 'bg-deep-sapphire/10',
+            eligibility === 'bridge' && 'bg-electric-sky/20'
+          )}
+        >
+          {eligibility === 'eligible' && <CheckCircle2 className="w-7 h-7 text-monash-blue" />}
+          {eligibility === 'borderline' && <AlertCircle className="w-7 h-7 text-deep-sapphire" />}
+          {eligibility === 'bridge' && <TrendingUp className="w-7 h-7 text-monash-blue" />}
+        </motion.div>
+        <motion.h2
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-1"
+        >
+          {eligibility === 'eligible' && "You're Likely Eligible!"}
+          {eligibility === 'borderline' && "You're in the Borderline Zone"}
+          {eligibility === 'bridge' && "There's a Pathway for You"}
+        </motion.h2>
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="text-slate-500"
+        >
+          {selectedCourse?.name}
+        </motion.p>
+      </div>
+
+      {/* Score + Visualization Card */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
+        className="bg-vapor-grey rounded-none p-6"
+      >
+        {/* Hero Score with count-up */}
+        <div className="text-center mb-6">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.6, duration: 0.4 }}
+          >
+            <span className={clsx(
+              'text-5xl font-bold tabular-nums tracking-tight',
+              eligibility === 'eligible' ? 'text-monash-blue' : eligibility === 'borderline' ? 'text-deep-sapphire' : 'text-slate-700'
+            )}>
+              {animatedScore.toFixed(2)}
+            </span>
+            <div className="text-sm text-slate-500 mt-1">out of 99.95</div>
+          </motion.div>
+        </div>
+
+        {/* Stacking Bar + Breakdown (compact — no total row) */}
+        <StackingBar
+          breakdown={rank.breakdown}
+          total={rank.total}
+          cutoff={selectedCourse?.cutoff || 0}
+          showBridge={eligibility === 'bridge'}
+          eligibility={eligibility}
+          postcodeData={postcodeData}
+          compact={true}
+        />
+      </motion.div>
+
+      {/* Bridge Pathway Card */}
+      {eligibility === 'bridge' && (
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.8, duration: 0.5 }}
+          className="bg-vapor-grey rounded-none p-6 border-l-4 border-l-monash-blue border border-slate-200"
+        >
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 flex items-center justify-center flex-shrink-0">
+              <svg width="0" height="0" className="absolute">
+                <defs>
+                  <linearGradient id="ai-sparkle-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#4285F4" />
+                    <stop offset="33%" stopColor="#9B72CB" />
+                    <stop offset="66%" stopColor="#D96570" />
+                    <stop offset="100%" stopColor="#D96570" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              <Sparkles className="w-7 h-7" style={{ stroke: 'url(#ai-sparkle-gradient)', fill: 'url(#ai-sparkle-gradient)' }} />
+            </div>
+            <div>
+              <h3 className="font-bold text-deep-sapphire mb-1">Bridge Pathway Available</h3>
+              <p className="text-sm text-slate-600 mb-3">
+                Monash College Diploma can bridge the {gap.toFixed(1)} point gap.
+                Complete the diploma and transition directly into Year 2 of your degree.
+              </p>
+              <button className="text-sm font-semibold text-monash-blue hover:text-deep-sapphire hover:underline flex items-center gap-1 transition-colors">
+                Learn about Monash College <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
+        </motion.div>
+      )}
+
+      {/* Application CTA — integrated, not a separate box */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.2 }}
+        className="border-t border-slate-200 pt-8 mt-2"
+      >
+        <div className="flex items-center justify-between mb-6">
+          <div>
+            <h3 className="font-display font-bold text-deep-sapphire text-sm">Ready to Apply?</h3>
+            <p className="text-xs text-slate-500 mt-2">
+              <Acronym abbr="VTAC" full="Victorian Tertiary Admissions Centre">VTAC</Acronym> Code: <span className="font-mono font-bold bg-vapor-grey px-1.5 py-0.5 border border-slate-200">{selectedCourse?.vtacCode}</span>
+            </p>
+          </div>
+          <a
+            href="https://www.vtac.edu.au"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-transparent text-monash-blue border-2 border-monash-blue rounded-none text-sm font-semibold hover:bg-monash-blue hover:text-white transition-colors"
+          >
+            Apply via <Acronym abbr="VTAC" full="Victorian Tertiary Admissions Centre">VTAC</Acronym> <ExternalLink className="w-4 h-4" />
+          </a>
+        </div>
+      </motion.div>
+
+      {/* Navigation */}
+      <div className="flex gap-3 pt-2">
+        <SecondaryButton onClick={onBack} icon={ArrowLeft}>Back</SecondaryButton>
+        <PrimaryButton onClick={onEmail} icon={Mail}>
+          Email My Results
+        </PrimaryButton>
+      </div>
     </div>
   );
 }
@@ -416,6 +675,7 @@ export default function PremiumPathwaysFinder() {
     postcodeData: null,
     selectedCourse: null,
     tafeQual: null,
+    courseSearch: '',
     email: ''
   });
   
@@ -487,7 +747,114 @@ export default function PremiumPathwaysFinder() {
     const prevStep = backMap[state.step];
     if (prevStep) goToStep(prevStep);
   };
-  
+
+  // Advance the current step (used by Enter key)
+  const advanceStep = () => {
+    switch (state.step) {
+      case 'welcome': goToStep('status'); break;
+      case 'status':
+        if (!state.status) return;
+        if (state.status === 'year12') goToStep('atar-type');
+        else if (state.status === 'tafe') goToStep('tafe-qual');
+        else if (state.status === 'mature') goToStep('mature-course');
+        else if (state.status === 'international') goToStep('international');
+        break;
+      case 'atar-type':
+        if (!state.atarType) return;
+        goToStep(state.atarType === 'actual' ? 'atar-input' : 'atar-input');
+        break;
+      case 'atar-input':
+        if (state.atarType === 'actual' ? !state.actualAtar : !state.predictedRange) return;
+        goToStep('postcode');
+        break;
+      case 'postcode':
+        if (!state.postcode) return;
+        goToStep('course');
+        break;
+      case 'course':
+        if (!state.selectedCourse) return;
+        goToStep('result');
+        break;
+      case 'tafe-qual':
+        if (!state.tafeQual) return;
+        goToStep('tafe-course');
+        break;
+      case 'tafe-course':
+        if (!state.selectedCourse) return;
+        goToStep('tafe-result');
+        break;
+      case 'mature-course':
+        if (!state.selectedCourse) return;
+        goToStep('mature-result');
+        break;
+      case 'email':
+        if (!state.email.includes('@')) return;
+        // email submit handled separately
+        break;
+    }
+  };
+
+  // Global keyboard listener (Enter to advance, Backspace to go back, number keys to select)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const active = document.activeElement;
+      const inInput = active && active.tagName === 'INPUT';
+
+      // Enter in input — advance
+      if (e.key === 'Enter' && inInput) {
+        advanceStep();
+        return;
+      }
+
+      // Don't process other shortcuts while typing in an input
+      if (inInput) return;
+
+      if (e.key === 'Enter' && !e.shiftKey) {
+        advanceStep();
+        return;
+      }
+
+      // Number keys for selection
+      const num = parseInt(e.key);
+      if (isNaN(num) || num < 1) return;
+
+      if (state.step === 'status') {
+        const statusMap: Record<number, typeof state.status> = { 1: 'year12', 2: 'tafe', 3: 'mature', 4: 'international' };
+        if (statusMap[num]) setState(prev => ({ ...prev, status: statusMap[num] }));
+      } else if (state.step === 'atar-type') {
+        const atarMap: Record<number, ATARType> = { 1: 'actual', 2: 'predicted' };
+        if (atarMap[num]) setState(prev => ({ ...prev, atarType: atarMap[num] }));
+      } else if (state.step === 'atar-input' && state.atarType === 'predicted') {
+        if (num >= 1 && num <= ATAR_RANGES.length) {
+          const range = ATAR_RANGES[num - 1];
+          setState(prev => ({ ...prev, predictedRange: { low: range.low, high: range.high } }));
+        }
+      } else if (state.step === 'tafe-qual') {
+        if (num >= 1 && num <= TAFE_QUALIFICATIONS.length) {
+          setState(prev => ({ ...prev, tafeQual: TAFE_QUALIFICATIONS[num - 1] }));
+        }
+      } else if (state.step === 'course') {
+        const q = state.courseSearch.toLowerCase().trim();
+        const visible = q.length > 0
+          ? COURSES.filter(c => c.name.toLowerCase().includes(q) || c.faculty.toLowerCase().includes(q))
+          : COURSES.filter(c => c.popular);
+        if (num >= 1 && num <= Math.min(visible.length, 9)) {
+          setState(prev => ({ ...prev, selectedCourse: visible[num - 1] }));
+        }
+      } else if (state.step === 'tafe-course' || state.step === 'mature-course') {
+        const cq = state.courseSearch.toLowerCase().trim();
+        const cVisible = cq.length > 0
+          ? COURSES.filter(c => c.name.toLowerCase().includes(cq) || c.faculty.toLowerCase().includes(cq))
+          : COURSES.filter(c => c.popular);
+        if (num >= 1 && num <= Math.min(cVisible.length, 9)) {
+          setState(prev => ({ ...prev, selectedCourse: cVisible[num - 1] }));
+        }
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  });
+
   // Render current step
   const renderStep = () => {
     switch (state.step) {
@@ -507,11 +874,11 @@ export default function PremiumPathwaysFinder() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="text-3xl font-display font-bold text-slate-900 tracking-tight mb-3">
+              <h1 className="text-4xl font-heading font-bold text-slate-900 tracking-tight mb-3">
                 Find Your Pathway
               </h1>
-              <p className="text-slate-500 max-w-sm mx-auto font-sans">
-                Let's discover the best way for you to get into your dream course.
+              <p className="text-slate-600 max-w-sm mx-auto font-sans">
+                Let's discover the best way for you to<br />get into your dream course.
               </p>
             </motion.div>
             <motion.div
@@ -519,7 +886,7 @@ export default function PremiumPathwaysFinder() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
             >
-              <PrimaryButton onClick={() => goToStep('status')} icon={ArrowRight}>
+              <PrimaryButton onClick={() => goToStep('status')} icon={CornerDownLeft}>
                 Get Started
               </PrimaryButton>
             </motion.div>
@@ -535,10 +902,10 @@ export default function PremiumPathwaysFinder() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 What best describes you?
               </h2>
-              <p className="text-slate-500 font-sans">Choose the option that fits your situation</p>
+              <p className="text-slate-600 font-sans">Choose the option that fits your situation</p>
             </motion.div>
             
             <div className="grid grid-cols-2 gap-4">
@@ -549,6 +916,8 @@ export default function PremiumPathwaysFinder() {
                 selected={state.status === 'year12'}
                 onClick={() => setState(prev => ({ ...prev, status: 'year12' }))}
                 index={0}
+                shortcutKey={1}
+                showPressLabel
               />
               <SelectionCard
                 icon={BookOpen}
@@ -557,6 +926,8 @@ export default function PremiumPathwaysFinder() {
                 selected={state.status === 'tafe'}
                 onClick={() => setState(prev => ({ ...prev, status: 'tafe' }))}
                 index={1}
+                shortcutKey={2}
+                showPressLabel
               />
               <SelectionCard
                 icon={Briefcase}
@@ -565,6 +936,8 @@ export default function PremiumPathwaysFinder() {
                 selected={state.status === 'mature'}
                 onClick={() => setState(prev => ({ ...prev, status: 'mature' }))}
                 index={2}
+                shortcutKey={3}
+                showPressLabel
               />
               <SelectionCard
                 icon={Globe}
@@ -573,6 +946,8 @@ export default function PremiumPathwaysFinder() {
                 selected={state.status === 'international'}
                 onClick={() => setState(prev => ({ ...prev, status: 'international' }))}
                 index={3}
+                shortcutKey={4}
+                showPressLabel
               />
             </div>
             
@@ -586,7 +961,7 @@ export default function PremiumPathwaysFinder() {
                   else if (state.status === 'international') goToStep('international');
                 }} 
                 disabled={!state.status}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 Continue
               </PrimaryButton>
@@ -598,10 +973,10 @@ export default function PremiumPathwaysFinder() {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Your <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> Score
               </h2>
-              <p className="text-slate-500 font-sans">Do you have your final <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> or a prediction?</p>
+              <p className="text-slate-600 font-sans">Do you have your final <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> or a prediction?</p>
             </div>
             
             <div className="grid grid-cols-2 gap-4">
@@ -612,6 +987,7 @@ export default function PremiumPathwaysFinder() {
                 selected={state.atarType === 'actual'}
                 onClick={() => setState(prev => ({ ...prev, atarType: 'actual' }))}
                 index={0}
+                shortcutKey={1}
               />
               <SelectionCard
                 icon={TrendingUp}
@@ -620,6 +996,7 @@ export default function PremiumPathwaysFinder() {
                 selected={state.atarType === 'predicted'}
                 onClick={() => setState(prev => ({ ...prev, atarType: 'predicted' }))}
                 index={1}
+                shortcutKey={2}
               />
             </div>
             
@@ -628,7 +1005,7 @@ export default function PremiumPathwaysFinder() {
               <PrimaryButton 
                 onClick={() => goToStep('atar-input')} 
                 disabled={!state.atarType}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 Continue
               </PrimaryButton>
@@ -640,11 +1017,11 @@ export default function PremiumPathwaysFinder() {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 {state.atarType === 'actual' ? <>Enter Your <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym></> : 'Select Your Range'}
               </h2>
-              <p className="text-slate-500">
-                {state.atarType === 'actual' 
+              <p className="text-slate-600">
+                {state.atarType === 'actual'
                   ? <>Enter your final <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> score</>
                   : 'Choose the range that matches your prediction'}
               </p>
@@ -658,25 +1035,35 @@ export default function PremiumPathwaysFinder() {
                 placeholder="e.g., 75.50"
                 type="number"
                 icon={Target}
+                onSubmit={() => { if (state.actualAtar) goToStep('postcode'); }}
+                autoFocus
               />
             ) : (
               <div className="grid grid-cols-2 gap-3">
-                {ATAR_RANGES.map(range => (
+                {ATAR_RANGES.map((range, i) => (
                   <motion.button
                     key={range.id}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    onClick={() => setState(prev => ({ 
-                      ...prev, 
-                      predictedRange: { low: range.low, high: range.high } 
+                    onClick={() => setState(prev => ({
+                      ...prev,
+                      predictedRange: { low: range.low, high: range.high }
                     }))}
                     className={clsx(
-                      'p-4 rounded-none border-2 text-center font-semibold transition-all',
+                      'relative p-4 rounded-none border-2 text-center font-semibold transition-all',
                       state.predictedRange?.low === range.low
                         ? 'border-monash-blue bg-white ring-2 ring-monash-blue/30 text-deep-sapphire shadow-md'
                         : 'border-slate-300 bg-white text-slate-700 hover:border-slate-400 shadow-sm'
                     )}
                   >
+                    <span className={clsx(
+                      'absolute top-1.5 right-1.5 w-5 h-5 flex items-center justify-center text-[10px] font-mono font-bold rounded-[2px] shadow-[0_1px_0_0_rgba(0,0,0,0.1)]',
+                      state.predictedRange?.low === range.low
+                        ? 'bg-monash-blue text-white border border-monash-blue'
+                        : 'bg-slate-50 text-slate-400 border border-slate-300'
+                    )}>
+                      {i + 1}
+                    </span>
                     {range.label}
                   </motion.button>
                 ))}
@@ -688,7 +1075,7 @@ export default function PremiumPathwaysFinder() {
               <PrimaryButton 
                 onClick={() => goToStep('postcode')} 
                 disabled={state.atarType === 'actual' ? !state.actualAtar : !state.predictedRange}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 Continue
               </PrimaryButton>
@@ -700,43 +1087,51 @@ export default function PremiumPathwaysFinder() {
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Your Location
               </h2>
-              <p className="text-slate-500">Enter your postcode to check for bonus points</p>
+              <p className="text-slate-600">Enter your postcode to check for bonus points</p>
             </div>
             
             <InputField
               label="Postcode"
               value={state.postcode}
               onChange={(v) => {
-                setState(prev => ({ 
-                  ...prev, 
+                setState(prev => ({
+                  ...prev,
                   postcode: v,
                   postcodeData: POSTCODES[v] || null
                 }));
               }}
               placeholder="e.g., 2830"
               icon={MapPin}
+              onSubmit={() => { if (state.postcode) goToStep('course'); }}
+              autoFocus
             />
             
             {state.postcodeData && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="p-4 rounded-none bg-emerald-50 border border-emerald-200"
+                className="p-4 rounded-none bg-slate-50 border border-slate-200"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-none bg-emerald-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-none bg-deep-sapphire flex items-center justify-center">
                     <Zap className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <p className="font-semibold text-emerald-800">{state.postcodeData.name}</p>
-                    <p className="text-sm text-emerald-600">
-                      {state.postcodeData.regional && 'Regional (+5 points) '}
-                      {state.postcodeData.lowSES && <>Low <Acronym abbr="SES" full="Socio-Economic Status">SES</Acronym> (+3 points)</>}
-                      {!state.postcodeData.regional && !state.postcodeData.lowSES && 'Metro area (no bonus)'}
-                    </p>
+                    <p className="font-semibold text-deep-sapphire">{state.postcodeData.name}</p>
+                    <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm font-medium">
+                      {state.postcodeData.regional && (
+                        <span style={{ color: '#00739d' }}>Regional (+5 points)</span>
+                      )}
+                      {state.postcodeData.lowSES && (
+                        <span style={{ color: '#c90095' }}>Low <Acronym abbr="SES" full="Socio-Economic Status">SES</Acronym> (+3 points)</span>
+                      )}
+                      {!state.postcodeData.regional && !state.postcodeData.lowSES && (
+                        <span className="text-slate-500">Metro area (no bonus)</span>
+                      )}
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -751,7 +1146,7 @@ export default function PremiumPathwaysFinder() {
               <PrimaryButton 
                 onClick={() => goToStep('course')} 
                 disabled={!state.postcode}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 Continue
               </PrimaryButton>
@@ -759,43 +1154,89 @@ export default function PremiumPathwaysFinder() {
           </div>
         );
         
-      case 'course':
+      case 'course': {
+        const query = state.courseSearch.toLowerCase().trim();
+        const isSearching = query.length > 0;
+        const rank = getSelectionRank();
+        const filteredCourses = isSearching
+          ? COURSES.filter(c => c.name.toLowerCase().includes(query) || c.faculty.toLowerCase().includes(query))
+          : COURSES.filter(c => c.popular);
+
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Choose Your Course
               </h2>
-              <p className="text-slate-500">Select the course you're interested in</p>
+              <p className="text-slate-600">Select the course you're interested in</p>
             </div>
-            
-            <div className="space-y-3">
-              {COURSES.map(course => {
-                const rank = getSelectionRank();
+
+            {/* Search field */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                value={state.courseSearch}
+                onChange={e => setState(prev => ({ ...prev, courseSearch: e.target.value, selectedCourse: null }))}
+                placeholder="Search all courses..."
+                className="w-full pl-10 pr-4 py-3 border-2 border-slate-300 rounded-none text-sm bg-white placeholder-slate-400 focus:outline-none focus:border-monash-blue transition-colors"
+              />
+              {isSearching && (
+                <button
+                  onClick={() => setState(prev => ({ ...prev, courseSearch: '' }))}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {!isSearching && (
+              <p className="text-xs text-slate-400 -mt-4 text-center">Showing popular courses. Search to see all {COURSES.length} courses.</p>
+            )}
+            {isSearching && (
+              <p className="text-xs text-slate-400 -mt-4 text-center">{filteredCourses.length} course{filteredCourses.length !== 1 ? 's' : ''} found</p>
+            )}
+
+            <div className="relative">
+            <div className="space-y-3 max-h-[490px] overflow-y-auto hide-scrollbar py-3 px-1" style={{ scrollbarWidth: 'none' }}>
+              {filteredCourses.map((course, i) => {
                 const status = getEligibilityStatus(rank.total, course.cutoff, state.atarType === 'predicted');
-                
+
                 return (
                   <motion.button
                     key={course.id}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.03 }}
                     onClick={() => setState(prev => ({ ...prev, selectedCourse: course }))}
                     className={clsx(
-                      'w-full p-4 rounded-none border-2 text-left transition-all flex items-center justify-between gap-4',
+                      'relative w-full p-4 pb-8 rounded-none border-2 text-left transition-colors',
                       state.selectedCourse?.id === course.id
                         ? 'border-monash-blue bg-white ring-2 ring-monash-blue/30 shadow-md'
                         : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm'
                     )}
                   >
-                    <div className="min-w-0 flex-1">
+                    {i < 9 && (
+                      <span className={clsx(
+                        'absolute top-3 right-3 w-5 h-5 flex items-center justify-center text-[10px] font-mono font-bold rounded-[2px] shadow-[0_1px_0_0_rgba(0,0,0,0.1)]',
+                        state.selectedCourse?.id === course.id
+                          ? 'bg-monash-blue text-white border border-monash-blue'
+                          : 'bg-slate-50 text-slate-400 border border-slate-300'
+                      )}>{i + 1}</span>
+                    )}
+                    <div className="min-w-0">
                       <h3 className="font-semibold text-slate-900 truncate">{course.name}</h3>
-                      <p className="text-sm text-slate-500 truncate">Cutoff: {course.cutoff} • {course.faculty}</p>
+                      <p className="text-sm text-slate-500 truncate">
+                        Cutoff: {course.cutoff} &bull; {course.faculty}
+                        {course.note ? ` — ${course.note}` : ''}
+                      </p>
                     </div>
                     <div className={clsx(
-                      'px-3 py-1 rounded-none text-xs font-semibold whitespace-nowrap flex-shrink-0',
-                      status === 'eligible' && 'bg-emerald-100 text-emerald-700',
-                      status === 'borderline' && 'bg-amber-100 text-amber-700',
-                      status === 'bridge' && 'bg-vapor-grey text-slate-700 border border-slate-300'
+                      'absolute bottom-3 right-3 px-2 py-0.5 rounded-none text-[10px] font-semibold whitespace-nowrap',
+                      status === 'eligible' && 'bg-green-100 text-green-800',
+                      status === 'borderline' && 'bg-deep-sapphire/10 text-deep-sapphire',
+                      status === 'bridge' && 'bg-vapor-grey text-slate-600 border border-slate-300'
                     )}>
                       {status === 'eligible' && 'Likely Eligible'}
                       {status === 'borderline' && 'Borderline'}
@@ -804,6 +1245,13 @@ export default function PremiumPathwaysFinder() {
                   </motion.button>
                 );
               })}
+              {isSearching && filteredCourses.length === 0 && (
+                <p className="text-sm text-slate-400 text-center py-6">No courses match your search.</p>
+              )}
+            </div>
+            {filteredCourses.length > 4 && (
+              <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+            )}
             </div>
             
             <div className="flex gap-3 pt-4">
@@ -811,141 +1259,66 @@ export default function PremiumPathwaysFinder() {
               <PrimaryButton 
                 onClick={() => goToStep('result')} 
                 disabled={!state.selectedCourse}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 See My Pathway
               </PrimaryButton>
             </div>
           </div>
         );
-        
-      case 'result':
+      }
+
+      case 'result': {
         const rank = getSelectionRank();
-        const eligibility = state.selectedCourse 
+        const eligibility = state.selectedCourse
           ? getEligibilityStatus(rank.total, state.selectedCourse.cutoff, state.atarType === 'predicted')
           : 'bridge';
         const gap = state.selectedCourse ? state.selectedCourse.cutoff - rank.total : 0;
-        
+
         return (
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <motion.div
-                initial={{ scale: 0 }}
-                animate={{ scale: 1 }}
-                transition={{ type: 'spring', stiffness: 200 }}
-                className={clsx(
-                  'w-16 h-16 mx-auto rounded-none flex items-center justify-center mb-4',
-                  eligibility === 'eligible' && 'bg-emerald-100',
-                  eligibility === 'borderline' && 'bg-amber-100',
-                  eligibility === 'bridge' && 'bg-electric-sky/20'
-                )}
-              >
-                {eligibility === 'eligible' && <CheckCircle2 className="w-8 h-8 text-emerald-600" />}
-                {eligibility === 'borderline' && <AlertCircle className="w-8 h-8 text-amber-600" />}
-                {eligibility === 'bridge' && <TrendingUp className="w-8 h-8 text-monash-blue" />}
-              </motion.div>
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
-                {eligibility === 'eligible' && "You're Likely Eligible!"}
-                {eligibility === 'borderline' && "You're in the Borderline Zone"}
-                {eligibility === 'bridge' && "There's a Pathway for You"}
-              </h2>
-              <p className="text-slate-500">{state.selectedCourse?.name}</p>
-            </div>
-            
-            {/* Selection Rank Visualization */}
-            <div className="bg-vapor-grey rounded-none p-6">
-              <h3 className="text-sm font-semibold text-slate-600 uppercase tracking-wide mb-4">
-                Your Selection Rank
-              </h3>
-              <div className="text-center mb-6">
-                <span className="text-5xl font-bold text-slate-900 tabular-nums">{rank.total.toFixed(2)}</span>
-                <span className="text-slate-600 ml-2">/ 99.95</span>
-              </div>
-              <StackingBar 
-                breakdown={rank.breakdown} 
-                total={rank.total} 
-                cutoff={state.selectedCourse?.cutoff || 0}
-                showBridge={eligibility === 'bridge'}
-                eligibility={eligibility}
-                postcodeData={state.postcodeData}
-              />
-            </div>
-            
-            {/* Bridge Pathway Card */}
-            {eligibility === 'bridge' && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 2 }}
-                className="bg-gradient-to-br from-amber-50 to-orange-50 rounded-none p-6 border border-amber-200"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-none bg-amber-500 flex items-center justify-center flex-shrink-0">
-                    <Sparkles className="w-6 h-6 text-white" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-amber-900 mb-1">Bridge Pathway Available</h3>
-                    <p className="text-sm text-amber-700 mb-3">
-                      Monash College Diploma can bridge the {gap.toFixed(1)} point gap. 
-                      Complete the diploma and transition directly into Year 2 of your degree.
-                    </p>
-                    <button className="text-sm font-semibold text-amber-700 hover:text-amber-900 flex items-center gap-1">
-                      Learn about Monash College <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-            
-            {/* Application CTA */}
-            <div className="bg-vapor-grey rounded-none p-6">
-              <h3 className="font-bold text-indigo-900 mb-2">Ready to Apply?</h3>
-              <p className="text-sm text-deep-sapphire mb-4">
-                Apply through <Acronym abbr="VTAC" full="Victorian Tertiary Admissions Centre">VTAC</Acronym> using course code: <span className="font-mono font-bold">{state.selectedCourse?.vtacCode}</span>
-              </p>
-              <a 
-                href="https://www.vtac.edu.au" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 bg-transparent text-monash-blue border-2 border-monash-blue rounded-none text-sm font-semibold hover:bg-monash-blue hover:text-white transition-colors"
-              >
-                Apply via <Acronym abbr="VTAC" full="Victorian Tertiary Admissions Centre">VTAC</Acronym> <ExternalLink className="w-4 h-4" />
-              </a>
-            </div>
-            
-            <div className="flex gap-3 pt-4">
-              <SecondaryButton onClick={goBack} icon={ArrowLeft}>Back</SecondaryButton>
-              <PrimaryButton onClick={() => goToStep('email')} icon={Mail}>
-                Email My Results
-              </PrimaryButton>
-            </div>
-          </div>
+          <ResultsStep
+            rank={rank}
+            eligibility={eligibility}
+            gap={gap}
+            selectedCourse={state.selectedCourse}
+            atarType={state.atarType}
+            postcodeData={state.postcodeData}
+            onBack={goBack}
+            onEmail={() => goToStep('email')}
+          />
         );
-        
+      }
+
       case 'tafe-qual':
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Your <Acronym abbr="TAFE" full="Technical and Further Education">TAFE</Acronym> Qualification
               </h2>
               <p className="text-slate-500">Select your highest <Acronym abbr="TAFE" full="Technical and Further Education">TAFE</Acronym>/<Acronym abbr="VET" full="Vocational Education and Training">VET</Acronym> qualification</p>
             </div>
             
             <div className="space-y-3">
-              {TAFE_QUALIFICATIONS.map(qual => (
+              {TAFE_QUALIFICATIONS.map((qual, i) => (
                 <motion.button
                   key={qual.id}
                   whileHover={{ scale: 1.01 }}
                   whileTap={{ scale: 0.99 }}
                   onClick={() => setState(prev => ({ ...prev, tafeQual: qual }))}
                   className={clsx(
-                    'w-full p-4 rounded-none border-2 text-left transition-all',
+                    'relative w-full p-4 rounded-none border-2 text-left transition-all',
                     state.tafeQual?.id === qual.id
                       ? 'border-monash-blue bg-white ring-2 ring-monash-blue/30 shadow-md'
                       : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm'
                   )}
                 >
+                  <span className={clsx(
+                    'absolute top-3 right-3 w-5 h-5 flex items-center justify-center text-[10px] font-mono font-bold rounded-[2px] shadow-[0_1px_0_0_rgba(0,0,0,0.1)]',
+                    state.tafeQual?.id === qual.id
+                      ? 'bg-monash-blue text-white border border-monash-blue'
+                      : 'bg-slate-50 text-slate-400 border border-slate-300'
+                  )}>{i + 1}</span>
                   <h3 className="font-semibold text-slate-900">{qual.name}</h3>
                   <p className="text-sm text-slate-500">Field: {qual.field}</p>
                 </motion.button>
@@ -957,7 +1330,7 @@ export default function PremiumPathwaysFinder() {
               <PrimaryButton 
                 onClick={() => goToStep('tafe-course')} 
                 disabled={!state.tafeQual}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 Continue
               </PrimaryButton>
@@ -965,67 +1338,118 @@ export default function PremiumPathwaysFinder() {
           </div>
         );
         
-      case 'tafe-course':
+      case 'tafe-course': {
+        const tQuery = state.courseSearch.toLowerCase().trim();
+        const tIsSearching = tQuery.length > 0;
+        const tFilteredCourses = tIsSearching
+          ? COURSES.filter(c => c.name.toLowerCase().includes(tQuery) || c.faculty.toLowerCase().includes(tQuery))
+          : COURSES.filter(c => c.popular);
+
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Choose Your Course
               </h2>
               <p className="text-slate-500">Based on your {state.tafeQual?.name}</p>
             </div>
-            
-            <div className="space-y-3">
-              {COURSES.map(course => {
+
+            {/* Search field */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                value={state.courseSearch}
+                onChange={e => setState(prev => ({ ...prev, courseSearch: e.target.value, selectedCourse: null }))}
+                placeholder="Search all courses..."
+                className="w-full pl-10 pr-4 py-3 border-2 border-slate-300 rounded-none text-sm bg-white placeholder-slate-400 focus:outline-none focus:border-monash-blue transition-colors"
+              />
+              {tIsSearching && (
+                <button
+                  onClick={() => setState(prev => ({ ...prev, courseSearch: '' }))}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {!tIsSearching && (
+              <p className="text-xs text-slate-400 -mt-4 text-center">Showing popular courses. Search to see all {COURSES.length} courses.</p>
+            )}
+            {tIsSearching && (
+              <p className="text-xs text-slate-400 -mt-4 text-center">{tFilteredCourses.length} course{tFilteredCourses.length !== 1 ? 's' : ''} found</p>
+            )}
+
+            <div className="relative">
+            <div className="space-y-3 max-h-[490px] overflow-y-auto hide-scrollbar py-3 px-1" style={{ scrollbarWidth: 'none' }}>
+              {tFilteredCourses.map((course, i) => {
                 const isDirectEntry = state.tafeQual?.field === 'Health' && course.id === 'nursing';
                 const hasPathway = ['nursing', 'commerce', 'arts'].includes(course.id);
-                
+
                 return (
                   <motion.button
                     key={course.id}
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.03 }}
                     onClick={() => setState(prev => ({ ...prev, selectedCourse: course }))}
                     className={clsx(
-                      'w-full p-4 rounded-none border-2 text-left transition-all flex items-center justify-between',
+                      'relative w-full p-4 pb-8 rounded-none border-2 text-left transition-colors',
                       state.selectedCourse?.id === course.id
                         ? 'border-monash-blue bg-white ring-2 ring-monash-blue/30 shadow-md'
                         : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm'
                     )}
                   >
-                    <div>
-                      <h3 className="font-semibold text-slate-900">{course.name}</h3>
-                      <p className="text-sm text-slate-500">{course.faculty}</p>
+                    {i < 9 && (
+                      <span className={clsx(
+                        'absolute top-3 right-3 w-5 h-5 flex items-center justify-center text-[10px] font-mono font-bold rounded-[2px] shadow-[0_1px_0_0_rgba(0,0,0,0.1)]',
+                        state.selectedCourse?.id === course.id
+                          ? 'bg-monash-blue text-white border border-monash-blue'
+                          : 'bg-slate-50 text-slate-400 border border-slate-300'
+                      )}>{i + 1}</span>
+                    )}
+                    <div className="min-w-0">
+                      <h3 className="font-semibold text-slate-900 truncate">{course.name}</h3>
+                      <p className="text-sm text-slate-500 truncate">{course.faculty}</p>
                     </div>
                     <div className={clsx(
-                      'px-3 py-1 rounded-none text-xs font-semibold',
-                      isDirectEntry && 'bg-emerald-100 text-emerald-700',
-                      !isDirectEntry && hasPathway && 'bg-amber-100 text-amber-700',
-                      !isDirectEntry && !hasPathway && 'bg-vapor-grey text-slate-700 border border-slate-300'
+                      'absolute bottom-3 right-3 px-2 py-0.5 rounded-none text-[10px] font-semibold whitespace-nowrap',
+                      isDirectEntry && 'bg-green-100 text-green-800',
+                      !isDirectEntry && hasPathway && 'bg-deep-sapphire/10 text-deep-sapphire',
+                      !isDirectEntry && !hasPathway && 'bg-vapor-grey text-slate-600 border border-slate-300'
                     )}>
-                      {isDirectEntry && '✓ Direct Entry'}
-                      {!isDirectEntry && hasPathway && '◐ Pathway Required'}
-                      {!isDirectEntry && !hasPathway && '○ Not Available'}
+                      {isDirectEntry && 'Direct Entry'}
+                      {!isDirectEntry && hasPathway && 'Pathway Required'}
+                      {!isDirectEntry && !hasPathway && 'Not Available'}
                     </div>
                   </motion.button>
                 );
               })}
+              {tIsSearching && tFilteredCourses.length === 0 && (
+                <p className="text-sm text-slate-400 text-center py-6">No courses match your search.</p>
+              )}
             </div>
-            
+            {tFilteredCourses.length > 4 && (
+              <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+            )}
+            </div>
+
             <div className="flex gap-3 pt-4">
               <SecondaryButton onClick={goBack} icon={ArrowLeft}>Back</SecondaryButton>
-              <PrimaryButton 
-                onClick={() => goToStep('tafe-result')} 
+              <PrimaryButton
+                onClick={() => goToStep('tafe-result')}
                 disabled={!state.selectedCourse}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 See My Pathway
               </PrimaryButton>
             </div>
           </div>
         );
-        
-      case 'tafe-result':
+      }
+
+      case 'tafe-result': {
         const isDirectEntry = state.tafeQual?.field === 'Health' && state.selectedCourse?.id === 'nursing';
         
         return (
@@ -1036,44 +1460,44 @@ export default function PremiumPathwaysFinder() {
                 animate={{ scale: 1 }}
                 className={clsx(
                   'w-16 h-16 mx-auto rounded-none flex items-center justify-center mb-4',
-                  isDirectEntry ? 'bg-emerald-100' : 'bg-amber-100'
+                  isDirectEntry ? 'bg-electric-sky/20' : 'bg-deep-sapphire/10'
                 )}
               >
-                {isDirectEntry 
-                  ? <CheckCircle2 className="w-8 h-8 text-emerald-600" />
-                  : <AlertCircle className="w-8 h-8 text-amber-600" />
+                {isDirectEntry
+                  ? <CheckCircle2 className="w-8 h-8 text-monash-blue" />
+                  : <AlertCircle className="w-8 h-8 text-deep-sapphire" />
                 }
               </motion.div>
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 {isDirectEntry ? 'Direct Entry Available!' : 'Pathway Required'}
               </h2>
               <p className="text-slate-500 font-sans">{state.selectedCourse?.name}</p>
             </div>
             
             {isDirectEntry ? (
-              <div className="bg-emerald-50 rounded-none p-6 border border-emerald-200">
-                <h3 className="font-display font-bold text-emerald-900 mb-2">You qualify for direct entry!</h3>
-                <p className="text-sm font-sans text-emerald-700 mb-4">
-                  Your {state.tafeQual?.name} articulates directly to this course. 
+              <div className="bg-electric-sky/10 rounded-none p-6 border border-electric-sky/30">
+                <h3 className="font-display font-bold text-deep-sapphire mb-2">You qualify for direct entry!</h3>
+                <p className="text-sm font-sans text-slate-600 mb-4">
+                  Your {state.tafeQual?.name} articulates directly to this course.
                   You may also be eligible for credit for prior learning.
                 </p>
-                <a 
-                  href="https://www.monash.edu" 
-                  target="_blank" 
+                <a
+                  href="https://www.monash.edu"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white rounded-none text-sm font-semibold hover:bg-emerald-700 transition-colors"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-monash-blue text-white rounded-none text-sm font-semibold hover:bg-deep-sapphire transition-colors"
                 >
                   Apply Direct <ExternalLink className="w-4 h-4" />
                 </a>
               </div>
             ) : (
-              <div className="bg-amber-50 rounded-none p-6 border border-amber-200">
-                <h3 className="font-display font-bold text-amber-900 mb-2">Foundation Year Required</h3>
-                <p className="text-sm font-sans text-amber-700 mb-4">
-                  Your qualification doesn't directly articulate to {state.selectedCourse?.name}. 
+              <div className="bg-vapor-grey rounded-none p-6 border-l-4 border-l-monash-blue border border-slate-200">
+                <h3 className="font-display font-bold text-deep-sapphire mb-2">Foundation Year Required</h3>
+                <p className="text-sm font-sans text-slate-600 mb-4">
+                  Your qualification doesn't directly articulate to {state.selectedCourse?.name}.
                   Consider completing a foundation year or bridging course.
                 </p>
-                <button className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-none text-sm font-semibold hover:bg-amber-700 transition-colors">
+                <button className="inline-flex items-center gap-2 px-4 py-2 bg-deep-sapphire text-white rounded-none text-sm font-semibold hover:bg-monash-blue transition-colors">
                   Explore Pathways <ChevronRight className="w-4 h-4" />
                 </button>
               </div>
@@ -1087,58 +1511,112 @@ export default function PremiumPathwaysFinder() {
             </div>
           </div>
         );
-        
-      case 'mature-course':
+      }
+
+      case 'mature-course': {
+        const mQuery = state.courseSearch.toLowerCase().trim();
+        const mIsSearching = mQuery.length > 0;
+        const mFilteredCourses = mIsSearching
+          ? COURSES.filter(c => c.name.toLowerCase().includes(mQuery) || c.faculty.toLowerCase().includes(mQuery))
+          : COURSES.filter(c => c.popular);
+
         return (
           <div className="space-y-6">
             <div className="text-center mb-8">
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Choose Your Course
               </h2>
               <p className="text-slate-500 font-sans">As a mature age student, you have flexible entry options</p>
             </div>
-            
+
             {/* Ghost Field Notice - ATAR fields are NOT shown */}
             <div className="bg-vapor-grey rounded-none p-4 flex items-center gap-3">
               <Info className="w-5 h-5 text-monash-blue flex-shrink-0" />
               <p className="text-sm text-deep-sapphire">
-                As a mature age applicant, you don't need an <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym>. Entry is based on work experience, 
+                As a mature age applicant, you don't need an <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym>. Entry is based on work experience,
                 prior study, and a personal statement.
               </p>
             </div>
-            
-            <div className="space-y-3">
-              {COURSES.map(course => (
+
+            {/* Search field */}
+            <div className="relative">
+              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+              <input
+                type="text"
+                value={state.courseSearch}
+                onChange={e => setState(prev => ({ ...prev, courseSearch: e.target.value, selectedCourse: null }))}
+                placeholder="Search all courses..."
+                className="w-full pl-10 pr-4 py-3 border-2 border-slate-300 rounded-none text-sm bg-white placeholder-slate-400 focus:outline-none focus:border-monash-blue transition-colors"
+              />
+              {mIsSearching && (
+                <button
+                  onClick={() => setState(prev => ({ ...prev, courseSearch: '' }))}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+
+            {!mIsSearching && (
+              <p className="text-xs text-slate-400 -mt-4 text-center">Showing popular courses. Search to see all {COURSES.length} courses.</p>
+            )}
+            {mIsSearching && (
+              <p className="text-xs text-slate-400 -mt-4 text-center">{mFilteredCourses.length} course{mFilteredCourses.length !== 1 ? 's' : ''} found</p>
+            )}
+
+            <div className="relative">
+            <div className="space-y-3 max-h-[490px] overflow-y-auto hide-scrollbar py-3 px-1" style={{ scrollbarWidth: 'none' }}>
+              {mFilteredCourses.map((course, i) => (
                 <motion.button
                   key={course.id}
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.99 }}
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.03 }}
                   onClick={() => setState(prev => ({ ...prev, selectedCourse: course }))}
                   className={clsx(
-                    'w-full p-4 rounded-none border-2 text-left transition-all',
+                    'relative w-full p-4 pb-8 rounded-none border-2 text-left transition-colors',
                     state.selectedCourse?.id === course.id
                       ? 'border-monash-blue bg-white ring-2 ring-monash-blue/30 shadow-md'
                       : 'border-slate-300 bg-white hover:border-slate-400 shadow-sm'
                   )}
                 >
-                  <h3 className="font-display font-semibold text-slate-900">{course.name}</h3>
-                  <p className="text-sm font-sans text-slate-500">{course.faculty}</p>
+                  {i < 9 && (
+                    <span className={clsx(
+                      'absolute top-3 right-3 w-5 h-5 flex items-center justify-center text-[10px] font-mono font-bold rounded-[2px] shadow-[0_1px_0_0_rgba(0,0,0,0.1)]',
+                      state.selectedCourse?.id === course.id
+                        ? 'bg-monash-blue text-white border border-monash-blue'
+                        : 'bg-slate-50 text-slate-400 border border-slate-300'
+                    )}>{i + 1}</span>
+                  )}
+                  <div className="min-w-0">
+                    <h3 className="font-semibold text-slate-900 truncate">{course.name}</h3>
+                    <p className="text-sm text-slate-500 truncate">{course.faculty}</p>
+                  </div>
                 </motion.button>
               ))}
+              {mIsSearching && mFilteredCourses.length === 0 && (
+                <p className="text-sm text-slate-400 text-center py-6">No courses match your search.</p>
+              )}
             </div>
-            
+            {mFilteredCourses.length > 4 && (
+              <div className="absolute bottom-0 left-0 right-0 h-6 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+            )}
+            </div>
+
             <div className="flex gap-3 pt-4">
               <SecondaryButton onClick={goBack} icon={ArrowLeft}>Back</SecondaryButton>
-              <PrimaryButton 
-                onClick={() => goToStep('mature-result')} 
+              <PrimaryButton
+                onClick={() => goToStep('mature-result')}
                 disabled={!state.selectedCourse}
-                icon={ArrowRight}
+                icon={CornerDownLeft}
               >
                 See My Options
               </PrimaryButton>
             </div>
           </div>
         );
+      }
         
       case 'mature-result':
         return (
@@ -1151,14 +1629,14 @@ export default function PremiumPathwaysFinder() {
               >
                 <Briefcase className="w-8 h-8 text-monash-blue" />
               </motion.div>
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Your Pathway Options
               </h2>
               <p className="text-slate-500 font-sans">{state.selectedCourse?.name}</p>
             </div>
             
             <div className="bg-vapor-grey rounded-none p-6 border border-electric-sky/30">
-              <h3 className="font-display font-bold text-indigo-900 mb-3">Apply Direct (No <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> Required)</h3>
+              <h3 className="font-display font-bold text-deep-sapphire mb-3">Apply Direct (No <Acronym abbr="ATAR" full="Australian Tertiary Admission Rank">ATAR</Acronym> Required)</h3>
               <ul className="space-y-2 text-sm font-sans text-deep-sapphire mb-4">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-monash-blue" />
@@ -1203,7 +1681,7 @@ export default function PremiumPathwaysFinder() {
               >
                 <Globe className="w-8 h-8 text-monash-blue" />
               </motion.div>
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Welcome, International Student!
               </h2>
               <p className="text-slate-500 font-sans">
@@ -1216,7 +1694,7 @@ export default function PremiumPathwaysFinder() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="#"
-                className="block p-4 rounded-none border-2 border-slate-300 hover:border-indigo-400 shadow-sm hover:bg-vapor-grey transition-all"
+                className="block p-4 rounded-none border-2 border-slate-300 hover:border-monash-blue shadow-sm hover:bg-vapor-grey transition-all"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 rounded-none bg-electric-sky/20 flex items-center justify-center">
@@ -1234,11 +1712,11 @@ export default function PremiumPathwaysFinder() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="#"
-                className="block p-4 rounded-none border-2 border-slate-300 hover:border-indigo-400 shadow-sm hover:bg-vapor-grey transition-all"
+                className="block p-4 rounded-none border-2 border-slate-300 hover:border-monash-blue shadow-sm hover:bg-vapor-grey transition-all"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-none bg-emerald-100 flex items-center justify-center">
-                    <Calendar className="w-6 h-6 text-emerald-600" />
+                  <div className="w-12 h-12 rounded-none bg-electric-sky/20 flex items-center justify-center">
+                    <Calendar className="w-6 h-6 text-monash-blue" />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-slate-900">Book a Video Call</h3>
@@ -1252,11 +1730,11 @@ export default function PremiumPathwaysFinder() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 href="#"
-                className="block p-4 rounded-none border-2 border-slate-300 hover:border-indigo-400 shadow-sm hover:bg-vapor-grey transition-all"
+                className="block p-4 rounded-none border-2 border-slate-300 hover:border-monash-blue shadow-sm hover:bg-vapor-grey transition-all"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-none bg-amber-100 flex items-center justify-center">
-                    <FileText className="w-6 h-6 text-amber-600" />
+                  <div className="w-12 h-12 rounded-none bg-deep-sapphire/10 flex items-center justify-center">
+                    <FileText className="w-6 h-6 text-deep-sapphire" />
                   </div>
                   <div>
                     <h3 className="font-display font-semibold text-slate-900">Country-Specific Guide</h3>
@@ -1284,7 +1762,7 @@ export default function PremiumPathwaysFinder() {
               >
                 <Mail className="w-8 h-8 text-monash-blue" />
               </motion.div>
-              <h2 className="text-2xl font-display font-bold text-slate-900 tracking-tight mb-2">
+              <h2 className="text-2xl font-heading font-bold text-slate-900 tracking-tight mb-2">
                 Save Your Results
               </h2>
               <p className="text-slate-500 font-sans">We'll email you a summary of your personalized pathway</p>
@@ -1297,6 +1775,8 @@ export default function PremiumPathwaysFinder() {
               placeholder="your.email@example.com"
               type="email"
               icon={Mail}
+              onSubmit={() => { if (state.email.includes('@')) alert('Email sent! (Demo)'); }}
+              autoFocus
             />
             
             <div className="flex gap-3 pt-4">
@@ -1345,7 +1825,7 @@ export default function PremiumPathwaysFinder() {
             <img 
               src="/assets/monash-logo.png" 
               alt="Monash University" 
-              className="h-20 w-auto object-contain mix-blend-screen mb-6 opacity-90"
+              className="h-20 w-auto object-contain mix-blend-screen mb-2 opacity-90"
             />
             
             {/* Progress Indicators - Hidden on Welcome/International */}
@@ -1365,6 +1845,7 @@ export default function PremiumPathwaysFinder() {
                       postcodeData: null,
                       selectedCourse: null,
                       tafeQual: null,
+                      courseSearch: '',
                       email: ''
                     })}
                     className="bg-white/90 backdrop-blur-sm rounded-none px-6 py-3 shadow-lg border border-slate-200 flex items-center gap-2 text-monash-blue font-semibold hover:bg-white transition-colors"

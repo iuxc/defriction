@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Roboto+Condensed:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -6,6 +6,7 @@
 
 @theme inline {
   --font-display: 'Domine', serif;
+  --font-heading: 'Roboto Condensed', sans-serif;
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'Roboto Mono', monospace;
   
@@ -56,6 +57,10 @@
   --color-deep-sapphire: #002B5C;
   --color-electric-sky: #38B6FF;
   --color-vapor-grey: #F4F7FA;
+
+  /* Monash Secondary Palette (from brand guide) */
+  --color-monash-green: #006f29;
+  --color-monash-purple: #6f64a9;
 }
 
 :root {
@@ -190,6 +195,10 @@
 
   .bridge-pathway {
     @apply bg-gray-600;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
   }
 }
 

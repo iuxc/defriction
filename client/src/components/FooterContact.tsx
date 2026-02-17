@@ -95,7 +95,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
   // const infoModalContent = ... (removed)
 
   return (
-    <div ref={containerRef} className={cn("w-full px-4 relative z-10", className)}>
+    <div ref={containerRef} className={cn("w-full px-4 relative z-10", className)} style={{ fontFamily: "'DM Sans', sans-serif" }}>
        {/* Billboard Button / Sticky Nav */}
        <AnimatePresence>
         {!isOpen && (isInView || showSticky) && (
@@ -113,10 +113,13 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
               {/* Info Modal Attached to Friction UI */}
               <AnimatePresence>
                 {showInfo && (
+                  <>
+                  {/* Click-outside overlay */}
+                  <div className="fixed inset-0 z-[89]" onClick={() => setShowInfo(false)} />
                   <div className={cn(
                     // Match the card's positioning exactly but with higher z-index and pointer-events-none for container
-                    showSticky 
-                      ? cn("fixed bottom-32 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[90]", stickyClassName ? "" : "") 
+                    showSticky
+                      ? cn("fixed bottom-[97px] left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[90]", stickyClassName ? "" : "")
                       : "absolute bottom-0 left-4 right-4 mx-auto max-w-3xl z-[90]",
                     "pointer-events-none flex flex-col items-end justify-end"
                   )}>
@@ -128,9 +131,10 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                         "pointer-events-auto", // Re-enable clicks
                         "absolute bottom-full right-0 mb-4", // Position above and right
                         "w-full max-w-md p-6 rounded-2xl",
-                        "bg-[#0B0F19] border border-white/20 shadow-2xl", // Darker style
+                        "border border-white/20 shadow-2xl", // Liquid glass
                         "text-left"
                       )}
+                      style={{ background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(20px) saturate(1.5)', WebkitBackdropFilter: 'blur(20px) saturate(1.5)' }}
                     >
                       {/* Gradient Shine */}
                       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none rounded-2xl" />
@@ -138,10 +142,10 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                       <div className="relative z-10">
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <div className="w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
-                              <Info className="w-4 h-4 text-blue-400" />
+                            <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center shrink-0">
+                              <Info className="w-4 h-4 text-black" />
                             </div>
-                            <h3 className="text-lg font-display font-bold text-white">What You Need To Know</h3>
+                            <h3 className="text-lg font-bold text-white" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>What You Need To Know</h3>
                           </div>
                           <button 
                             onClick={() => setShowInfo(false)}
@@ -155,7 +159,7 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                           {infoContent || (
                             <>
                               <p>
-                                Monash applicants currently navigate dozens of pages to figure out if they qualify. This prototype replaces that maze with 3–5 questions and a clear answer.
+                                Monash applicants currently navigate dozens of pages to figure out if they qualify. This prototype replaces that maze with 3–7 questions and a clear answer.
                               </p>
                               <p>
                                 It also reveals equity bonuses most students don't know they have—helping first-gen and rural applicants see they're closer than they think.
@@ -166,22 +170,27 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                       </div>
                     </motion.div>
                   </div>
+                  </>
                 )}
               </AnimatePresence>
 
               <motion.div
                 layoutId="contact-card"
                 className={cn(
-                  "rounded-[2rem] glass-panel border border-white/10 hover:border-white/20 cursor-pointer",
+                  "rounded-[2rem] border border-white/10 hover:border-white/20 cursor-pointer",
                   // Only use overflow-hidden when NOT in Monash Switcher mode to avoid clipping dropdown
                   !monashSwitcher && "overflow-hidden",
                   // When NOT in view (scrolling), fix to bottom
-                  showSticky 
-                    ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] shadow-[0_0_50px_rgba(0,0,0,0.5)] backdrop-blur-xl bg-[#0B0F19] block", stickyClassName)
-                    : cn("mx-auto relative", disableExpansion ? "max-w-4xl" : "max-w-3xl")
+                  showSticky
+                    ? cn("fixed bottom-6 left-4 right-4 md:left-1/2 md:-translate-x-1/2 md:w-[90%] md:max-w-4xl z-[80] border-white/20 block", stickyClassName)
+                    : cn("mx-auto relative border-white/20", disableExpansion ? "max-w-4xl" : "max-w-3xl")
                 )}
-                // Blue glow when sticky
-                style={showSticky ? { boxShadow: glowColor === "orange" ? "0 0 40px rgba(249, 115, 22, 0.4)" : glowColor === "purple" ? "0 0 40px rgba(139, 92, 246, 0.4)" : "0 0 40px rgba(59, 130, 246, 0.4)" } : {}}
+                style={{
+                  background: 'rgba(0,0,0,0.7)',
+                  backdropFilter: 'blur(20px) saturate(1.5)',
+                  WebkitBackdropFilter: 'blur(20px) saturate(1.5)',
+                  ...(showSticky ? { boxShadow: glowColor === "orange" ? "0 0 40px rgba(249, 115, 22, 0.4)" : glowColor === "purple" ? "0 0 40px rgba(139, 92, 246, 0.4)" : "0 0 40px rgba(59, 130, 246, 0.4)" } : {})
+                }}
                 onClick={() => {
                   if (monashSwitcher) {
                     // Do nothing in Monash Switcher mode (switcher handles itself)
@@ -201,11 +210,11 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
                           "text-center pointer-events-none transition-all duration-500 flex items-center justify-between gap-8",
                   isCompact ? "p-4 px-6 md:px-8" : "p-12 flex-col"
                 )}>
-                    <motion.div 
-                      layoutId="title" 
-                      style={{ textShadow: removeTextShadow ? "none" : "0 1px 0 #000" }}
+                    <motion.div
+                      layoutId="title"
+                      style={{ textShadow: removeTextShadow ? "none" : "0 1px 0 #000", fontFamily: "'Space Grotesk', sans-serif" }}
                       className={cn(
-                        "font-display font-bold text-white leading-tight text-left flex items-center gap-4 relative",
+                        "font-bold text-white leading-tight text-left flex items-center gap-4 relative",
                         isCompact ? "text-xl md:text-2xl mb-0" : "text-4xl md:text-5xl mb-8 text-center justify-center"
                       )}
                     >
@@ -276,8 +285,10 @@ export function FooterContact({ title = "Ready to start?", className, stickyClas
 
       {/* Info Modal Overlay (Portal) - REMOVED, now attached to Friction UI */}
       
-      {/* Placeholder to hold space when closed/sticky */}
-      <div className={cn("w-full transition-all duration-300", isOpen ? "invisible h-[200px]" : isInView ? "invisible h-0" : "h-[300px] invisible")} />
+      {/* Placeholder to hold space when closed/sticky — not needed when always sticky */}
+      {!alwaysSticky && (
+        <div className={cn("w-full transition-all duration-300", isOpen ? "invisible h-[200px]" : isInView ? "invisible h-0" : "h-[300px] invisible")} />
+      )}
     </div>
   );
 }

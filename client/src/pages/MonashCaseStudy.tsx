@@ -442,7 +442,7 @@ export default function MonashCaseStudy() {
 
                 <h3 className="text-4xl md:text-5xl font-display font-bold mb-6 text-white leading-tight">Visualizing the Invisible.</h3>
                 <p className="text-base text-gray-400 leading-relaxed mb-6">
-                  Instead of asking students to navigate dozens of pages and calculate their own eligibility, I designed a tool that asks 3–5 questions and shows them exactly where they stand. The interface displays their score alongside the course requirement—including equity bonuses they didn't know they had. If they're close but not quite there, the tool suggests "bridge" pathways to get them across the line.
+                  Instead of asking students to navigate dozens of pages and calculate their own eligibility, I designed a tool that asks 3–7 questions and shows them exactly where they stand. The interface displays their score alongside the course requirement—including equity bonuses they didn't know they had. If they're close but not quite there, the tool suggests "bridge" pathways to get them across the line.
                 </p>
                 
                 <div className="space-y-4 mb-8">

@@ -25,9 +25,9 @@ export function WhyMe() {
   ];
 
   return (
-    <section id="whyme" className="min-h-[100dvh] md:min-h-screen py-16 md:py-32 relative overflow-hidden flex flex-col justify-center">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-7xl mx-auto opacity-30 pointer-events-none">
-        <div className="absolute inset-0 bg-gradient-to-r from-deep-basalt via-transparent to-deep-basalt z-10" />
+    <section id="whyme" className="min-h-[100dvh] md:min-h-screen py-16 md:py-32 relative overflow-hidden flex flex-col justify-center bg-deep-basalt">
+      <div className="absolute inset-0 pointer-events-none z-10">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(0,0,0,0.2),rgba(0,0,0,0),rgba(0,0,0,0.2))]" />
       </div>
 
       <div className="container mx-auto px-4 relative z-20">

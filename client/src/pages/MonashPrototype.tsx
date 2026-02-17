@@ -1,8 +1,17 @@
+import { useEffect } from "react";
 import { Router } from "wouter";
 import MonashApp from "../monash-app/App";
 import "../monash-app/index.css"; // Import prototype styles
 
 export default function MonashPrototypeWrapper() {
+  useEffect(() => {
+    const meta = document.createElement("meta");
+    meta.name = "robots";
+    meta.content = "noindex, nofollow";
+    document.head.appendChild(meta);
+    return () => { document.head.removeChild(meta); };
+  }, []);
+
   return (
     <div className="flex-1 w-full min-h-screen relative prototype-theme">
       <Router base="/monash/prototype">

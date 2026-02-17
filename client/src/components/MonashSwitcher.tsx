@@ -1,10 +1,35 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function MonashSwitcher() {
   const [switcherOpen, setSwitcherOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [dropdownPos, setDropdownPos] = useState({ bottom: 0, right: 0 });
+
+  useEffect(() => {
+    if (!switcherOpen) return;
+    const handleClick = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) {
+        setSwitcherOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClick);
+    return () => document.removeEventListener('mousedown', handleClick);
+  }, [switcherOpen]);
+
+  useEffect(() => {
+    if (switcherOpen && buttonRef.current) {
+      const rect = buttonRef.current.getBoundingClientRect();
+      setDropdownPos({
+        bottom: window.innerHeight - rect.top + 30,
+        right: window.innerWidth - rect.right,
+      });
+    }
+  }, [switcherOpen]);
 
   const isActive = (path: string) => {
     if (path === '/monash/prototype') {
@@ -14,8 +39,9 @@ export function MonashSwitcher() {
   };
 
   return (
-    <div className="pointer-events-auto relative">
+    <div ref={ref} className="pointer-events-auto relative">
       <button
+        ref={buttonRef}
         onClick={(e) => {
           e.stopPropagation();
           setSwitcherOpen(!switcherOpen);
@@ -30,16 +56,19 @@ export function MonashSwitcher() {
         <ChevronDown className="w-4 h-4 text-white" />
       </button>
 
+      {createPortal(
       <AnimatePresence>
         {switcherOpen && (
           <motion.div
+            ref={ref}
             initial={{ opacity: 0, y: 10, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="absolute bottom-full right-0 mb-6 w-72 p-2 rounded-xl bg-[#0B0F19] border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.5)] z-[150] overflow-hidden"
+            className="fixed w-72 p-2 rounded-xl border border-white/20 shadow-[0_0_50px_rgba(0,0,0,0.3)] z-[150]"
+            style={{ bottom: dropdownPos.bottom, right: dropdownPos.right, background: 'rgba(0,0,0,0.7)', backdropFilter: 'blur(20px) saturate(1.5)', WebkitBackdropFilter: 'blur(20px) saturate(1.5)' }}
           >
             {/* Glass shine effect */}
-            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none" />
+            <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent pointer-events-none rounded-xl" />
             
             <div className="space-y-1 relative z-10">
               <a 
@@ -146,7 +175,9 @@ export function MonashSwitcher() {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+      )}
     </div>
   );
 }

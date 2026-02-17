@@ -6,10 +6,10 @@ import { MonashSwitcher } from "@/components/MonashSwitcher";
 export default function Home() {
   return (
     <PathwaysProvider>
-      <div className="pb-40 font-inter min-h-screen bg-white">
+      <div className="font-inter min-h-screen bg-white">
         <PathwaysFinder />
       </div>
-      <FooterContact 
+      <FooterContact
         title={
           <span className="flex items-center gap-3">
             <a href="/" onClick={(e) => e.stopPropagation()} style={{ textShadow: "none" }} className="pointer-events-auto bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 hover:opacity-80 transition-opacity">defriction</a>
