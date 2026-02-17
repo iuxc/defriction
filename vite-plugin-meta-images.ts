@@ -56,15 +56,15 @@ export function metaImagesPlugin(): Plugin {
 }
 
 function getDeploymentUrl(): string | null {
-  if (process.env.REPLIT_INTERNAL_APP_DOMAIN) {
-    const url = `https://${process.env.REPLIT_INTERNAL_APP_DOMAIN}`;
-    log('[seo-images] using internal app domain:', url);
+  if (process.env.VERCEL_URL) {
+    const url = `https://${process.env.VERCEL_URL}`;
+    log('[seo-images] using Vercel domain:', url);
     return url;
   }
 
-  if (process.env.REPLIT_DEV_DOMAIN) {
-    const url = `https://${process.env.REPLIT_DEV_DOMAIN}`;
-    log('[seo-images] using dev domain:', url);
+  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+    const url = `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
+    log('[seo-images] using Vercel production domain:', url);
     return url;
   }
 
