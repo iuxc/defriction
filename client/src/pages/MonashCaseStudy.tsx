@@ -21,29 +21,40 @@ const Acronym = ({
   testId: string;
   className?: string;
 }) => {
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const isVisible = hovered || focused;
+
   return (
     <span
-      className={`relative inline-flex align-baseline group ${className}`}
+      className={`relative inline-flex align-baseline ${className}`}
       tabIndex={0}
       data-testid={testId}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setFocused(true)}
+      onBlur={() => setFocused(false)}
     >
       <span
-        className="underline decoration-dotted underline-offset-[3px] decoration-white/35 group-hover:decoration-cyan-400/90 group-focus-visible:decoration-cyan-400/90 transition-colors"
+        className={`underline decoration-dotted underline-offset-[3px] transition-colors cursor-help ${isVisible ? "decoration-cyan-400/90" : "decoration-white/35"}`}
         aria-describedby={`${testId}-tooltip`}
       >
         {short}
       </span>
 
-      <span
+      <motion.span
         id={`${testId}-tooltip`}
         role="tooltip"
-        className="pointer-events-none absolute left-1/2 top-[1.65em] z-50 w-max max-w-[260px] -translate-x-1/2 rounded-lg border border-white/10 bg-[#0B0F19]/95 px-3 py-2 text-xs leading-relaxed text-white shadow-[0_20px_60px_rgba(0,0,0,0.55)] opacity-0 translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-focus-visible:opacity-100 group-focus-visible:translate-y-0"
+        initial={false}
+        animate={isVisible ? { opacity: 1, y: 0, scale: 1 } : { opacity: 0, y: 6, scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 24, mass: 0.6 }}
+        className="pointer-events-none absolute left-1/2 top-[1.85em] z-50 w-max max-w-[300px] -translate-x-1/2 rounded-xl border border-white/[0.12] bg-white/[0.06] backdrop-blur-xl px-4 py-3 text-sm leading-relaxed text-white shadow-[0_8px_40px_rgba(0,0,0,0.5),0_0_1px_rgba(255,255,255,0.1)_inset,0_1px_0_rgba(255,255,255,0.07)_inset]"
+        style={{ background: "linear-gradient(135deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 50%, rgba(255,255,255,0.05) 100%)" }}
         data-testid={`${testId}-tooltip`}
       >
-        <span className="font-medium text-white">{short}</span>
-        <span className="text-white/70"> — {full}</span>
-        <span className="absolute -top-1 left-1/2 h-2 w-2 -translate-x-1/2 rotate-45 border-l border-t border-white/10 bg-[#0B0F19]/95" />
-      </span>
+        <span className="relative z-10 font-semibold text-white">{short}</span>
+        <span className="relative z-10 text-white/70"> — {full}</span>
+      </motion.span>
     </span>
   );
 };
