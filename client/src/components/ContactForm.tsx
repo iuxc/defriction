@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -64,40 +64,20 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
             exit={{ opacity: 0 }}
             className="absolute inset-0 z-50 flex flex-col items-center justify-center rounded-3xl overflow-hidden"
           >
-            <div 
-              className="absolute inset-0"
-              style={{
-                background: "rgba(255, 255, 255, 0.05)",
-                backdropFilter: "blur(20px) saturate(1.5)",
-                WebkitBackdropFilter: "blur(20px) saturate(1.5)",
-              }}
-            />
-            
+            <div className="absolute inset-0 glass-dark bg-white/5" />
+
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", stiffness: 200, damping: 20, delay: 0.1 }}
               className="relative z-10 flex flex-col items-center"
             >
-              <div 
-                className="w-24 h-24 rounded-full flex items-center justify-center"
-                style={{
-                  background: "linear-gradient(135deg, #a3e635, #84cc16, #65a30d)",
-                  boxShadow: "0 8px 32px rgba(163, 230, 53, 0.4), inset 0 2px 4px rgba(255,255,255,0.3)",
-                }}
-              >
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center"
-                  style={{
-                    background: "rgba(255, 255, 255, 0.15)",
-                    backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
-                  }}
-                >
+              <div className="w-24 h-24 rounded-full flex items-center justify-center bg-gradient-to-br from-lime-400 via-lime-500 to-lime-600 shadow-[0_8px_32px_rgba(163,230,53,0.4),inset_0_2px_4px_rgba(255,255,255,0.3)]">
+                <div className="w-20 h-20 rounded-full flex items-center justify-center glass-dark">
                   <Check className="w-10 h-10 text-white/90" strokeWidth={3} />
                 </div>
               </div>
-              
+
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -139,25 +119,25 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
           <div className="space-y-1 md:space-y-2">
             <label htmlFor="contact-name" className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Name</label>
-            <Input 
-              {...register("name")} 
+            <Input
+              {...register("name")}
               id="contact-name"
               required
               data-testid="input-name"
-              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-2 focus:ring-volt-lime/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
-              placeholder="Enter your name" 
+              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-2 focus:ring-volt-lime/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base"
+              placeholder="Enter your name"
             />
           </div>
           <div className="space-y-1 md:space-y-2">
             <label htmlFor="contact-email" className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">Email</label>
-            <Input 
-              {...register("email")} 
+            <Input
+              {...register("email")}
               id="contact-email"
               type="email"
               required
               data-testid="input-email"
-              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-2 focus:ring-volt-lime/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base" 
-              placeholder="name@company.com" 
+              className="bg-white/5 border-white/10 rounded-lg h-10 md:h-12 focus:border-volt-lime/50 focus:ring-2 focus:ring-volt-lime/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 text-sm md:text-base"
+              placeholder="name@company.com"
             />
           </div>
         </div>
@@ -179,18 +159,18 @@ export function ContactForm({ onSuccess, onClose, className, selectContentClassN
 
         <div className="space-y-1 md:space-y-2">
           <label htmlFor="contact-message" className="text-[10px] md:text-xs font-mono text-gray-400 uppercase tracking-widest font-bold">The Brief</label>
-          <Textarea 
-            {...register("message")} 
+          <Textarea
+            {...register("message")}
             id="contact-message"
             required
             data-testid="textarea-message"
-            className="bg-white/5 border-white/10 rounded-lg min-h-[100px] md:min-h-[150px] focus:border-orange-400/50 focus:ring-2 focus:ring-orange-400/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none text-sm md:text-base" 
-            placeholder="What challenge are you trying to solve?" 
+            className="bg-white/5 border-white/10 rounded-lg min-h-[100px] md:min-h-[150px] focus:border-orange-400/50 focus:ring-2 focus:ring-orange-400/30 text-white placeholder:text-gray-500 transition-all focus:bg-white/10 resize-none text-sm md:text-base"
+            placeholder="What challenge are you trying to solve?"
           />
         </div>
 
-        <Button 
-          type="submit" 
+        <Button
+          type="submit"
           disabled={contactMutation.isPending}
           data-testid="button-submit"
           className="w-full bg-gradient-to-r from-orange-400 to-red-500 text-black hover:brightness-110 font-bold h-12 md:h-14 rounded-full text-base md:text-lg transition-all duration-300 shadow-xl shadow-orange-500/20 disabled:opacity-70"

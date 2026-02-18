@@ -55,8 +55,7 @@ const navSections = [
     ]
   },
 ];
-import { FooterContact } from '@/components/FooterContact';
-import { MonashSwitcher } from "@/components/MonashSwitcher";
+import { PrototypeFloatingBar } from '@/components/PrototypeFloatingBar';
 
 export default function Documentation() {
   const [searchOpen, setSearchOpen] = useState(false);
@@ -800,25 +799,7 @@ export default function Documentation() {
         </main>
       </div>
       
-      <FooterContact
-        title={
-          <span className="flex items-center gap-3">
-            <a href="/" onClick={(e) => e.stopPropagation()} style={{ textShadow: "none" }} className="pointer-events-auto bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400 hover:opacity-80 transition-opacity">defriction</a>
-            <span className="text-gray-400 font-normal text-base">// Information Architecture</span>
-            <MonashSwitcher />
-          </span>
-        }
-        backLink="/work/monash"
-        alwaysSticky={true}
-        stickyClassName="!bg-[#0B0F19]/85 !backdrop-blur-xl shadow-[0_0_50px_rgba(0,0,0,0.5)] border-white/10"
-        monashSwitcher={true}
-        infoContent={
-          <>
-            <p>This is where the logic lives. Before any pixels, I mapped the decision tree: what questions to ask, in what order, and how each answer routes the user toward their pathway.</p>
-            <p>If the high-fidelity demo is the "what," this is the "why."</p>
-          </>
-        }
-      />
+      <PrototypeFloatingBar page="docs" />
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { AlertTriangle, Clock, Users } from "lucide-react";
+import { SectionBadge } from "@/components/ui/SectionBadge";
 import { NextSectionArrow } from "@/components/ui/NextSectionArrow";
 
 export function TheProblem() {
@@ -12,37 +13,36 @@ export function TheProblem() {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="max-w-4xl mx-auto text-center"
         >
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-md border border-white/10 bg-white/5 mb-6 md:mb-8 backdrop-blur-md cursor-default">
-            <AlertTriangle className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />
-            <span className="font-mono text-[10px] md:text-xs tracking-widest text-gray-400 uppercase">
-              The Reality
-            </span>
-          </div>
+          <SectionBadge
+            label="The Reality"
+            ping={false}
+            icon={<AlertTriangle className="w-3 h-3 md:w-4 md:h-4 text-gray-400" />}
+            className="mb-6 md:mb-8"
+          />
 
           <h2 className="text-3xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 md:mb-6 leading-tight">
             Your team's at capacity.{" "}
             <span className="text-gray-500">The deadline isn't moving.</span>
           </h2>
-          
+
           <div className="space-y-4 md:space-y-6 text-gray-400 text-base md:text-xl font-light leading-relaxed max-w-3xl mx-auto mb-10 md:mb-16">
             <p>
-              You need senior UX work without the onboarding, the check-ins, or the hand-holding. 
+              You need senior UX work without the onboarding, the check-ins, or the hand-holding.
               You need someone who gets the brief, gets to work, and gets it done.
             </p>
             <p className="text-white font-medium text-lg md:text-2xl">
-              That's what <span className="lowercase font-bold bg-gradient-to-r from-volt-lime to-ion-cyan bg-clip-text text-transparent">defriction</span> is for.
+              That's what <span className="lowercase font-bold text-gradient">defriction</span> is for.
             </p>
           </div>
 
           {/* Visual proof points */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -66,7 +66,7 @@ export function TheProblem() {
           </motion.div>
         </motion.div>
       </div>
-      
+
       <NextSectionArrow targetId="work" />
     </section>
   );

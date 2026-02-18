@@ -44,11 +44,11 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent 
+      <DialogContent
         className="max-w-4xl w-screen md:w-full bg-deep-basalt border-0 md:border md:border-white/10 text-white md:rounded-3xl overflow-y-auto m-0 rounded-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        style={{ 
-          display: 'block', 
-          padding: 0, 
+        style={{
+          display: 'block',
+          padding: 0,
           gap: 0,
           height: 'auto',
           maxHeight: '90vh'
@@ -57,7 +57,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
           <X className="h-6 w-6 text-white" />
           <span className="sr-only">Close</span>
         </DialogClose>
-        <motion.div 
+        <motion.div
           className="relative"
           variants={container}
           initial="hidden"
@@ -70,7 +70,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             <motion.div variants={item}>
               <DialogHeader className="mb-8 md:mb-12 text-left">
                 <DialogTitle className="text-4xl md:text-5xl font-display font-bold mb-4 leading-tight">
-                  The Executive Who <span className="bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent">Designs</span>.
+                  The Executive Who <span className="text-gradient-pink">Designs</span>.
                 </DialogTitle>
                 <p className="text-xl md:text-2xl text-gray-300 font-light leading-relaxed max-w-2xl">
                   I lead by day. I design by night.
@@ -88,26 +88,16 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             </motion.div>
 
             <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 md:mb-12">
-              <div className="space-y-4">
-                <h4 className="font-mono text-xs text-[#C4B5FD] uppercase tracking-widest mb-2 border-b border-[#C4B5FD]/20 pb-2 inline-block">The Scale</h4>
-                <p className="text-gray-400 leading-relaxed text-sm">
-                  Led teams of <strong className="text-white">75+</strong> across multiple timezones. Managed enterprise-scale digital portfolios.
-                </p>
-              </div>
-              
-              <div className="space-y-4">
-                <h4 className="font-mono text-xs text-[#C4B5FD] uppercase tracking-widest mb-2 border-b border-[#C4B5FD]/20 pb-2 inline-block">The Wins</h4>
-                <p className="text-gray-400 leading-relaxed text-sm">
-                  Merged <strong className="text-white">8 university websites</strong> into 1 unified gateway. Built the office that hit <strong className="text-white">#1 in Big Ten accessibility rankings</strong>.
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <h4 className="font-mono text-xs text-[#C4B5FD] uppercase tracking-widest mb-2 border-b border-[#C4B5FD]/20 pb-2 inline-block">The System</h4>
-                <p className="text-gray-400 leading-relaxed text-sm">
-                  Pioneered the <strong className="text-white">Rivet Design System</strong> for higher ed. Scaled Rume Health ops to 20 states with <strong className="text-white">&lt;3% turnover</strong>.
-                </p>
-              </div>
+              {[
+                { label: "The Scale", text: <>Led teams of <strong className="text-white">75+</strong> across multiple timezones. Managed enterprise-scale digital portfolios.</> },
+                { label: "The Wins", text: <>Merged <strong className="text-white">8 university websites</strong> into 1 unified gateway. Built the office that hit <strong className="text-white">#1 in Big Ten accessibility rankings</strong>.</> },
+                { label: "The System", text: <>Pioneered the <strong className="text-white">Rivet Design System</strong> for higher ed. Scaled Rume Health ops to 20 states with <strong className="text-white">&lt;3% turnover</strong>.</> },
+              ].map((section) => (
+                <div key={section.label} className="space-y-4">
+                  <h4 className="font-mono text-xs text-violet-light uppercase tracking-widest mb-2 border-b border-violet-light/20 pb-2 inline-block">{section.label}</h4>
+                  <p className="text-gray-400 leading-relaxed text-sm">{section.text}</p>
+                </div>
+              ))}
             </motion.div>
 
             <motion.div variants={item}>
@@ -115,23 +105,17 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             </motion.div>
 
             <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 mb-8 md:mb-12">
-              <div className="bg-white/5 rounded-xl p-6 border border-white/5 relative group">
-                <div className="absolute -top-3 -left-3 bg-deep-basalt border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-gray-400">
-                  To Leaders
+              {[
+                { badge: "To Leaders", text: "I navigate bureaucracy and align stakeholders. I design work that survives to production." },
+                { badge: "To Makers", text: "I speak Figma, code, and brand. I know speed matters\u2014and details build trust." },
+              ].map((card) => (
+                <div key={card.badge} className="bg-white/5 rounded-xl p-6 border border-white/5 relative group">
+                  <div className="absolute -top-3 -left-3 bg-deep-basalt border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-gray-400">
+                    {card.badge}
+                  </div>
+                  <p className="text-lg md:text-xl font-light text-gray-300 relative z-10">{card.text}</p>
                 </div>
-                <p className="text-lg md:text-xl font-light text-gray-300 relative z-10">
-                  I navigate bureaucracy and align stakeholders. I design work that survives to production.
-                </p>
-              </div>
-
-              <div className="bg-white/5 rounded-xl p-6 border border-white/5 relative group">
-                <div className="absolute -top-3 -left-3 bg-deep-basalt border border-white/10 px-3 py-1 rounded-full text-xs font-mono text-gray-400">
-                  To Makers
-                </div>
-                <p className="text-lg md:text-xl font-light text-gray-300 relative z-10">
-                  I speak Figma, code, and brand. I know speed matters—and details build trust.
-                </p>
-              </div>
+              ))}
             </motion.div>
 
             <motion.div variants={item}>
@@ -155,7 +139,7 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
             </motion.div>
 
             <motion.div variants={item} className="flex flex-col md:flex-row items-center gap-4 md:gap-6 text-center md:text-left">
-              <Button 
+              <Button
                 onClick={handleContactClick}
                 className="bg-gradient-to-r from-purple-400 to-pink-500 text-white hover:brightness-110 font-medium text-base px-8 py-4 h-auto rounded-full transition-all duration-300 shadow-xl shadow-purple-500/20"
                 data-testid="button-lets-talk"
@@ -163,9 +147,9 @@ export function BioModal({ open, onOpenChange }: BioModalProps) {
                 Let's Talk
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Button>
-              <a 
-                href="https://calendly.com" 
-                target="_blank" 
+              <a
+                href="https://calendly.com"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors text-sm font-medium"
                 data-testid="link-calendly-bio"
