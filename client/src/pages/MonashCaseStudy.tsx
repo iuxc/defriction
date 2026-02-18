@@ -282,7 +282,7 @@ export default function MonashCaseStudy() {
                   <motion.div 
                     key={i} 
                     variants={fadeInUp}
-                    className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-start hover:bg-white/5 transition-colors"
+                    className="glass-card p-6 rounded-2xl border border-white/5 flex flex-col items-start"
                   >
                      <h4 className={`text-2xl font-display font-bold mb-2 ${stat.color}`}>{stat.value}</h4>
                      <p className="text-sm text-gray-500 leading-relaxed">{stat.desc}</p>

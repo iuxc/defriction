@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from "@vercel/node";
-import { Resend } from "resend";
+import sgMail from "@sendgrid/mail";
 
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST") {
@@ -26,11 +26,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const resend = new Resend(process.env.RESEND_API_KEY);
-    const fromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+    sgMail.setApiKey(process.env.SENDGRID_API_KEY!);
+    const fromEmail = process.env.SENDGRID_FROM_EMAIL || "noreply@defriction.design";
 
-    const result = await resend.emails.send({
-      from: `${name} <${fromEmail}>`,
+    const result = await sgMail.send({
+      from: { email: fromEmail, name },
       to: "brian@defriction.design",
       replyTo: email,
       subject: `New Contact Form Submission from ${name}`,
@@ -44,12 +44,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       `,
     });
 
-    if (result.error) {
-      console.error("Resend error:", result.error);
-      return res.status(500).json({ error: "Failed to send email" });
-    }
-
-    return res.json({ success: true, id: result.data?.id });
+    return res.json({ success: true, id: result[0]?.headers?.["x-message-id"] });
   } catch (error) {
     console.error("Contact form error:", error);
     return res.status(500).json({ error: "Internal server error" });
