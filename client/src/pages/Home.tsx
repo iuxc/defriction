@@ -1,6 +1,5 @@
 import { Navigation } from "@/components/Navigation";
 import { Hero } from "@/components/Hero";
-import { CredibilityBar } from "@/components/CredibilityBar";
 import { TheProblem } from "@/components/TheProblem";
 import { WorkGrid } from "@/components/WorkGrid";
 import { WhyMe } from "@/components/WhyMe";
@@ -14,7 +13,6 @@ export default function Home() {
       <Navigation />
       <main id="main-content">
         <Hero />
-        <CredibilityBar />
         <TheProblem />
         <WorkGrid />
         <WhyMe />

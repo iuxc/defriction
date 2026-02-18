@@ -17,6 +17,7 @@ export function Navigation({ forcedActive }: NavigationProps) {
   const { theme, toggleTheme, isMobile } = useTheme();
 
   const navItems = [
+    { name: "Fractional", href: "/#problem", id: "problem" },
     { name: "Work", href: "/#work", id: "work" },
     { name: "Approach", href: "/#whyme", id: "whyme" },
     { name: "About", href: "/#about", id: "about" },
